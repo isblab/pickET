@@ -1,0 +1,26 @@
+experiment_name: example
+run_name: test_run_1
+
+inputs: 
+  [  
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10008/tomogram_995/denoised_10.mrc,
+      lower_z-slice_limit: 225,
+      upper_z-slice_limit: 275
+    },
+  ]
+
+window_size: 5
+feature_extraction_params: 
+  {
+    mode: gabor, 
+    device: cuda,
+    num_windows_subsets: 2,
+    num_sinusoids: 10, 
+    num_parallel_filters: 16,
+    num_output_features: 64
+  }
+
+clustering_methods: [kmeans, gmm]
+
+output_dir: /home/shreyas/Projects/mining_tomograms/github/pickET/test_run_outputs

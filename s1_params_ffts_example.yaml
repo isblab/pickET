@@ -1,0 +1,24 @@
+experiment_name: example
+run_name: test_run_2_ffts
+
+inputs: 
+  [  
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10008/tomogram_995/denoised_10.mrc,
+      lower_z-slice_limit: 225,
+      upper_z-slice_limit: 275
+    },
+  ]
+
+window_size: 5
+feature_extraction_params: 
+  {
+    mode: ffts, 
+    n_fft_subsets: 64,
+    use_subset_size: 10_000_000,
+    num_output_features: 64
+  }
+
+clustering_methods: [kmeans, gmm]
+
+output_dir: /home/shreyas/Projects/mining_tomograms/github/pickET/test_run_outputs
