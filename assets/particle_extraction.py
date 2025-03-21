@@ -1,4 +1,3 @@
-import ndjson
 import numpy as np
 import scipy.ndimage as nd
 import skimage.feature as ft
@@ -62,17 +61,3 @@ def get_centroids(instance_segmentation: np.ndarray, num_objects: int) -> np.nda
         instance_segmentation, instance_segmentation, range(1, num_objects + 1)
     )
     return np.array(centroids)
-
-
-def write_coords_as_ndjson(coords: np.ndarray, out_fname: str) -> None:
-    lines = []
-    for coord in coords:
-        lines.append(
-            {
-                "type": "orientedPoint",
-                "location": {"x": coord[2], "y": coord[1], "z": coord[0]},
-            }
-        )
-
-    with open(out_fname, "w") as out_annot_f:
-        ndjson.dump(lines, out_annot_f)

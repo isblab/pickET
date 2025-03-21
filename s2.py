@@ -2,7 +2,6 @@ import os
 import sys
 import time
 import numpy as np
-import scipy.ndimage as nd
 
 from assets import utils, particle_extraction
 
@@ -10,13 +9,13 @@ from assets import utils, particle_extraction
 def main():
     ### Input block
     params_fname = sys.argv[1]
-    out_fname_suffix = sys.argv[2]
 
     params = utils.load_params_from_yaml(params_fname)
 
     experiment_name = params["experiment_name"]
     run_name = params["run_name"]
     inputs = params["inputs"]
+    clustering_methods = params["clustering_method"]
     output_dir = os.path.join(params["output_dir"], experiment_name, run_name)
     particle_extraction_params = params["particle_extraction_params"]
 
@@ -34,12 +33,15 @@ def main():
             centroid_coords = particle_extraction.get_centroids(
                 instance_seg, num_objects
             )
-            particle_extraction.write_coords_as_ndjson(
+            utils.write_coords_as_ndjson(
                 centroid_coords,
                 os.path.join(
-                    output_dir, f"predicted_centroids_{out_fname_suffix}.ndjson"
+                    output_dir, f"predicted_centroids_{clustering_methods}.ndjson"
                 ),
             )
+        toc = time.perf_counter()
+        time_taken = toc - tic
+        print(f"\tTomogram {idx+1} processed in {time_taken:.2f} seconds\n")
 
 
 if __name__ == "__main__":
