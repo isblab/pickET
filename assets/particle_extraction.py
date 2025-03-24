@@ -6,6 +6,7 @@ from skimage.segmentation import watershed
 
 
 def do_connected_component_labeling(segmentation: np.ndarray) -> tuple[np.ndarray, int]:
+    print("\tPerforming connected component labeling")
     labeled_array, num_features = nd.label(segmentation)  # type:ignore
     return labeled_array, num_features
 
@@ -13,6 +14,7 @@ def do_connected_component_labeling(segmentation: np.ndarray) -> tuple[np.ndarra
 def do_watershed_segmentation(
     segmentation: np.ndarray, min_distance: int
 ) -> tuple[np.ndarray, int]:
+    print("\tPerforming watershed segmentation")
     edt = np.array(nd.distance_transform_edt(segmentation))
     local_maxima = ft.peak_local_max(edt, min_distance=min_distance)
     mask = np.zeros(edt.shape, dtype=bool)
@@ -26,6 +28,7 @@ def do_watershed_segmentation(
 def do_mean_shift_clustering(
     segmentation: np.ndarray, bandwidth: float
 ) -> tuple[np.ndarray, int]:
+    print("\tPerforming mean shift clustering")
     particle_voxel_idx = np.array(np.where(segmentation == 1)).T
     clusterer = MeanShift(bandwidth=bandwidth, bin_seeding=True)
     clusterer.fit(particle_voxel_idx)
@@ -40,7 +43,7 @@ def do_mean_shift_clustering(
 def do_instance_segmentation(segmentation, pex_params) -> tuple[np.ndarray, int]:
     if pex_params["mode"] == "connected_component_labeling":
         instance_seg, num_objects = do_connected_component_labeling(segmentation)
-    elif pex_params["mode"] == "watershed":
+    elif pex_params["mode"] == "watershed_segmentation":
         instance_seg, num_objects = do_watershed_segmentation(
             segmentation, pex_params["min_distance"]
         )
@@ -60,4 +63,7 @@ def get_centroids(instance_segmentation: np.ndarray, num_objects: int) -> np.nda
     centroids = nd.center_of_mass(
         instance_segmentation, instance_segmentation, range(1, num_objects + 1)
     )
-    return np.array(centroids)
+    centroids = np.array(centroids)
+    if np.any(np.isnan(centroids)):
+        centroids = centroids[np.invert(np.any(np.isnan(centroids), axis=1))]
+    return centroids

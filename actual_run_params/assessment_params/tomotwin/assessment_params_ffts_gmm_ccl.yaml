@@ -1,0 +1,463 @@
+experiment_name: tomotwin_denoised
+run_name: ffts
+
+inputs: 
+  [  
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_01.2022-04-11T140327+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_0_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_01.2022-04-11T140327+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_02.2022-04-11T140327+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_1_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_02.2022-04-11T140327+0200/coords/all_coords.ndjson,
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_03.2022-04-11T140327+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_2_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_03.2022-04-11T140327+0200/coords/all_coords.ndjson,
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_04.2022-04-11T170238+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_3_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_04.2022-04-11T170238+0200/coords/all_coords.ndjson,
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_05.2022-04-11T170238+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_4_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_05.2022-04-11T170238+0200/coords/all_coords.ndjson,
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_06.2022-04-11T170238+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_5_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_06.2022-04-11T170238+0200/coords/all_coords.ndjson,
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_07.2022-04-11T191718+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_6_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_07.2022-04-11T191718+0200/coords/all_coords.ndjson,
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_08.2022-04-11T191718+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_7_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_08.2022-04-11T191718+0200/coords/all_coords.ndjson,
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_01.2022-05-10T161313+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_8_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_01.2022-05-10T161313+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_02.2022-05-10T161313+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_9_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_02.2022-05-10T161313+0200/coords/all_coords.ndjson
+      },    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_03.2022-05-10T161313+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_10_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_03.2022-05-10T161313+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_04.2022-05-10T182221+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_11_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_04.2022-05-10T182221+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_05.2022-05-10T182221+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_12_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_05.2022-05-10T182221+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_06.2022-05-10T182221+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_13_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_06.2022-05-10T182221+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_07.2022-05-10T200254+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_14_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_07.2022-05-10T200254+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_08.2022-05-10T200254+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_15_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_08.2022-05-10T200254+0200/coords/all_coords.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_01.2022-04-12T084242+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_16_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_01.2022-04-12T084242+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_02.2022-04-12T084242+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_17_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_02.2022-04-12T084242+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_03.2022-04-12T084242+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_18_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_03.2022-04-12T084242+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_04.2022-04-12T110927+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_19_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_04.2022-04-12T110927+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_05.2022-04-12T110927+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_20_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_05.2022-04-12T110927+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_06.2022-04-12T110927+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_21_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_06.2022-04-12T110927+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_07.2022-04-12T130359+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_22_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_07.2022-04-12T130359+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_08.2022-04-12T130359+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_23_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_08.2022-04-12T130359+0200/coords/all_coords.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_01.2022-05-12T111913+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_24_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_01.2022-05-12T111913+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_02.2022-05-12T111913+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_25_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_02.2022-05-12T111913+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_03.2022-05-12T111913+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_26_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_03.2022-05-12T111913+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_04.2022-05-12T124440+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_27_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_04.2022-05-12T124440+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_05.2022-05-12T124440+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_28_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_05.2022-05-12T124440+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_06.2022-05-12T124440+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_29_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_06.2022-05-12T124440+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_07.2022-05-12T135012+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_30_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_07.2022-05-12T135012+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_08.2022-05-12T135012+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_31_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_08.2022-05-12T135012+0200/coords/all_coords.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_01.2022-05-11T105658+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_32_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_01.2022-05-11T105658+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_02.2022-05-11T105658+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_33_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_02.2022-05-11T105658+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_03.2022-05-11T105658+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_34_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_03.2022-05-11T105658+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_04.2022-05-11T123052+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_35_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_04.2022-05-11T123052+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_05.2022-05-11T123052+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_36_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_05.2022-05-11T123052+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_06.2022-05-11T123052+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_37_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_06.2022-05-11T123052+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_07.2022-05-11T134419+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_38_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_07.2022-05-11T134419+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_08.2022-05-11T134419+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_39_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_08.2022-05-11T134419+0200/coords/all_coords.ndjson
+      },
+
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_01.2022-04-12T165107+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_40_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_01.2022-04-12T165107+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_02.2022-04-12T165107+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_41_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_02.2022-04-12T165107+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_03.2022-04-12T165107+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_42_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_03.2022-04-12T165107+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_04.2022-04-12T192044+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_43_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_04.2022-04-12T192044+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_05.2022-04-12T192044+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_44_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_05.2022-04-12T192044+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_06.2022-04-12T192044+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_45_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_06.2022-04-12T192044+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_07.2022-04-12T211730+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_46_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_07.2022-04-12T211730+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_08.2022-04-12T211730+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_47_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_08.2022-04-12T211730+0200/coords/all_coords.ndjson
+      },
+
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_01.2022-05-12T084041+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_48_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_01.2022-05-12T084041+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_02.2022-05-12T084041+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_49_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_02.2022-05-12T084041+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_03.2022-05-12T084041+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_50_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_03.2022-05-12T084041+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_04.2022-05-12T113036+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_51_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_04.2022-05-12T113036+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_05.2022-05-12T113036+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_52_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_05.2022-05-12T113036+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_06.2022-05-12T113036+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_53_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_06.2022-05-12T113036+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_07.2022-05-12T140747+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_54_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_07.2022-05-12T140747+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_08.2022-05-12T140747+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_55_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_08.2022-05-12T140747+0200/coords/all_coords.ndjson
+      },
+
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_01.2022-05-12T095215+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_56_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_01.2022-05-12T095215+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_02.2022-05-12T095215+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_57_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_02.2022-05-12T095215+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_03.2022-05-12T095215+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_58_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_03.2022-05-12T095215+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_04.2022-05-12T110720+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_59_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_04.2022-05-12T110720+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_05.2022-05-12T110720+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_60_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_05.2022-05-12T110720+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_06.2022-05-12T110720+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_61_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_06.2022-05-12T110720+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_07.2022-05-12T121323+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_62_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_07.2022-05-12T121323+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_08.2022-05-12T121323+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_63_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_08.2022-05-12T121323+0200/coords/all_coords.ndjson
+      },
+
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_01.2022-04-12T172855+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_64_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_01.2022-04-12T172855+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_02.2022-04-12T172855+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_65_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_02.2022-04-12T172855+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_03.2022-04-12T172855+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_66_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_03.2022-04-12T172855+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_04.2022-04-12T193813+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_67_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_04.2022-04-12T193813+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_05.2022-04-12T193813+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_68_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_05.2022-04-12T193813+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_06.2022-04-12T193813+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_69_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_06.2022-04-12T193813+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_07.2022-04-12T212347+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_70_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_07.2022-04-12T212347+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_08.2022-04-12T212347+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_71_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_08.2022-04-12T212347+0200/coords/all_coords.ndjson
+      },
+      
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_01.2022-05-03T143345+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_72_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_01.2022-05-03T143345+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_02.2022-05-03T143345+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_73_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_02.2022-05-03T143345+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_03.2022-05-03T143345+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_74_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_03.2022-05-03T143345+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_04.2022-05-03T183726+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_75_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_04.2022-05-03T183726+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_05.2022-05-03T183726+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_76_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_05.2022-05-03T183726+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_06.2022-05-03T183726+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_77_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_06.2022-05-03T183726+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_07.2022-05-03T213239+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_78_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_07.2022-05-03T213239+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_08.2022-05-03T213239+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_79_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_08.2022-05-03T213239+0200/coords/all_coords.ndjson
+      },
+
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_01.2022-05-04T093702+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_80_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_01.2022-05-04T093702+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_02.2022-05-04T093702+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_81_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_02.2022-05-04T093702+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_03.2022-05-04T093702+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_82_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_03.2022-05-04T093702+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_04.2022-05-04T114207+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_83_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_04.2022-05-04T114207+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_05.2022-05-04T114207+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_84_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_05.2022-05-04T114207+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_06.2022-05-04T114207+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_85_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_06.2022-05-04T114207+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_07.2022-05-04T132658+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_86_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_07.2022-05-04T132658+0200/coords/all_coords.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_08.2022-05-04T132658+0200/denoised_tiltseries_rec.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/predicted_particles/predicted_centroids_87_gmm_connected_component_labeling.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_08.2022-05-04T132658+0200/coords/all_coords.ndjson
+      },
+  ]
+
+threshold_in_angstrom: 100
+
+clustering_method: gmm
+particle_extraction_method: connected_component_labeling
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/

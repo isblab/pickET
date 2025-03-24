@@ -36,6 +36,3 @@ def write_coords_as_ndjson(coords: np.ndarray, out_fname: str) -> None:
 
     with open(out_fname, "w") as out_annot_f:
         ndjson.dump(lines, out_annot_f)
-
-
-#! Write a script to save results as yaml file

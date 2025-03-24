@@ -80,7 +80,7 @@ def main():
     plt.xlabel("metric")
     # plt.legend(loc="upper left", bbox_to_anchor=(1, 1))
     plt.tight_layout()
-    plt.savefig(f"output_dir/{dataset_id}_{metric}_comparison.png", dpi=600)
+    plt.savefig(f"{output_dir}/{dataset_id}_{metric}_comparison.png", dpi=600)
 
 
 if __name__ == "__main__":

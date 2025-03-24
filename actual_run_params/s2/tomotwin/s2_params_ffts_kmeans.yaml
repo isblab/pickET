@@ -1,0 +1,112 @@
+experiment_name: tomotwin_denoised
+run_name: ffts
+
+inputs: 
+  [  
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_0_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_1_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_2_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_3_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_4_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_5_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_6_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_7_kmeans.npy},
+    
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_8_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_9_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_10_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_11_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_12_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_13_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_14_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_15_kmeans.npy},
+    
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_16_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_17_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_18_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_19_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_20_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_21_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_22_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_23_kmeans.npy},
+    
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_24_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_25_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_26_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_27_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_28_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_29_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_30_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_31_kmeans.npy},
+    
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_32_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_33_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_34_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_35_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_36_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_37_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_38_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_39_kmeans.npy},
+
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_40_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_41_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_42_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_43_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_44_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_45_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_46_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_47_kmeans.npy},
+
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_48_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_49_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_50_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_51_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_52_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_53_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_54_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_55_kmeans.npy},
+
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_56_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_57_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_58_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_59_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_60_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_61_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_62_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_63_kmeans.npy},
+
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_64_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_65_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_66_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_67_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_68_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_69_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_70_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_71_kmeans.npy},
+      
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_72_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_73_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_74_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_75_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_76_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_77_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_78_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_79_kmeans.npy},
+
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_80_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_81_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_82_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_83_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_84_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_85_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_86_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/tomotwin_denoised/ffts/segmentation_87_kmeans.npy},
+  ]
+
+clustering_method: 'kmeans'
+particle_extraction_params: [
+  {mode: connected_component_labeling},
+  {mode: watershed_segmentation, min_distance: 15}
+]
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/

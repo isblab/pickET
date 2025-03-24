@@ -1,9 +1,23 @@
 import os
 import sys
 import yaml
+import mrcfile
 import numpy as np
+from tqdm import tqdm
 from scipy.spatial.distance import cdist
+
 from assets import utils
+
+
+def get_voxel_threshold(fname: str, angs_threshold: float) -> int:
+    with mrcfile.open(fname, mode="r", permissive=True) as mrcf:
+        voxel_sizes = np.array(
+            [mrcf.voxel_size.z, mrcf.voxel_size.y, mrcf.voxel_size.x], dtype=np.float32
+        )
+
+    voxel_size = np.max(voxel_sizes)
+    threshold = int(round(angs_threshold / voxel_size, 0))
+    return threshold
 
 
 def compute_precision_recall_f1score(
@@ -21,7 +35,7 @@ def compute_precision_recall_f1score(
     if num_true + num_pred > 0:
         f1_score = 2 * (precision * recall) / (precision + recall)
 
-    return precision, recall, f1_score
+    return float(precision), float(recall), float(f1_score)
 
 
 def compute_global_metrics(
@@ -55,16 +69,19 @@ def main():
 
     experiment_name = params["experiment_name"]
     run_name = params["run_name"]
-    threshold = params["threshold"]
+    angstrom_threshold = params["threshold_in_angstrom"]
     inputs = params["inputs"]
     clustering_method = params["clustering_method"]
     particle_extraction_method = params["particle_extraction_method"]
-    output_dir = os.path.join(inputs[0]["predicted_centroids"].split("/")[:-1])
+    output_dir = os.path.join(params["output_dir"], experiment_name, run_name)
 
     results = {}
     ### Processing block
-    for idx, target in enumerate(inputs):
-        print(f"Processing prediction {idx+1}/{len(inputs)}")
+    for idx, target in enumerate(tqdm(inputs)):
+        # print(f"Processing prediction {idx+1}/{len(inputs)}")
+        threshold = get_voxel_threshold(
+            target["tomogram"], angs_threshold=angstrom_threshold
+        )
         pred_centroids = utils.read_ndjson_coords(target["predicted_centroids"])
         true_centroids = utils.read_ndjson_coords(target["true_centroids"])
         n_pred = len(pred_centroids)

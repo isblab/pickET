@@ -16,8 +16,12 @@ def main():
     run_name = params["run_name"]
     inputs = params["inputs"]
     clustering_methods = params["clustering_method"]
-    output_dir = os.path.join(params["output_dir"], experiment_name, run_name)
     particle_extraction_params = params["particle_extraction_params"]
+    output_dir = os.path.join(
+        params["output_dir"], experiment_name, run_name, "predicted_particles"
+    )
+    if not os.path.isdir(output_dir):
+        os.mkdir(output_dir)
 
     ### Processing block
     for idx, target in enumerate(inputs):
@@ -36,7 +40,8 @@ def main():
             utils.write_coords_as_ndjson(
                 centroid_coords,
                 os.path.join(
-                    output_dir, f"predicted_centroids_{clustering_methods}.ndjson"
+                    output_dir,
+                    f"predicted_centroids_{idx}_{clustering_methods}_{p_ex_params['mode']}.ndjson",
                 ),
             )
         toc = time.perf_counter()
