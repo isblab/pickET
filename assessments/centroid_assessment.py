@@ -10,25 +10,6 @@ from assets import utils
 import assessment_utils
 
 
-def compute_precision_recall_f1score(
-    distances: np.ndarray, threshold: float, num_pred: int, num_true: int
-) -> tuple[float, float, float]:
-    precision, recall, f1_score = 0.0, 0.0, 0.0
-
-    masked = np.where(distances <= threshold, 1, 0)
-    tp_count = np.sum(np.any(masked == 1, axis=1))
-    fn_count = num_true - np.sum(np.any(masked == 1, axis=0))
-
-    if num_pred > 0:
-        precision = tp_count / num_pred
-    if num_true > 0:
-        recall = tp_count / (tp_count + fn_count)
-    if num_true + num_pred > 0:
-        f1_score = 2 * (precision * recall) / (precision + recall)
-
-    return float(precision), float(recall), float(f1_score)
-
-
 def compute_global_metrics(
     results: dict[str, dict[str, float]],
 ) -> dict[str, dict[str, float]]:
@@ -79,7 +60,7 @@ def main():
         n_true = len(true_centroids)
 
         distances = cdist(pred_centroids, true_centroids, metric="euclidean")
-        precision, recall, f1score = compute_precision_recall_f1score(
+        precision, recall, f1score = assessment_utils.compute_precision_recall_f1score(
             distances, threshold, num_pred=n_pred, num_true=n_true
         )
 

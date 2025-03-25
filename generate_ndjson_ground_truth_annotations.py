@@ -20,9 +20,11 @@ for tomo_path in tomo_paths:
     with open(output_file, "w") as outf:
         outputs = []
         for fname in all_coords_files:
-            if (not fname.split("/")[-1].startswith("vesicle")) or not fname.split("/")[
-                -1
-            ].startswith("fiducial"):
+            particle_id = fname.split("/")[-1]
+
+            if (not particle_id.startswith("fiducial")) and (
+                not particle_id.startswith("vesicle")
+            ):
                 particle_id = fname.split("/")[-1][:4]
                 with open(fname, "r") as f1:
                     for line in f1.readlines():
