@@ -7,17 +7,7 @@ from tqdm import tqdm
 from scipy.spatial.distance import cdist
 
 from assets import utils
-
-
-def get_voxel_threshold(fname: str, angs_threshold: float) -> int:
-    with mrcfile.open(fname, mode="r", permissive=True) as mrcf:
-        voxel_sizes = np.array(
-            [mrcf.voxel_size.z, mrcf.voxel_size.y, mrcf.voxel_size.x], dtype=np.float32
-        )
-
-    voxel_size = np.max(voxel_sizes)
-    threshold = int(round(angs_threshold / voxel_size, 0))
-    return threshold
+import assessment_utils
 
 
 def compute_precision_recall_f1score(
@@ -27,11 +17,12 @@ def compute_precision_recall_f1score(
 
     masked = np.where(distances <= threshold, 1, 0)
     tp_count = np.sum(np.any(masked == 1, axis=1))
+    fn_count = num_true - np.sum(np.any(masked == 1, axis=0))
 
     if num_pred > 0:
         precision = tp_count / num_pred
     if num_true > 0:
-        recall = tp_count / num_true
+        recall = tp_count / (tp_count + fn_count)
     if num_true + num_pred > 0:
         f1_score = 2 * (precision * recall) / (precision + recall)
 
@@ -79,7 +70,7 @@ def main():
     ### Processing block
     for idx, target in enumerate(tqdm(inputs)):
         # print(f"Processing prediction {idx+1}/{len(inputs)}")
-        threshold = get_voxel_threshold(
+        threshold = assessment_utils.get_voxel_threshold(
             target["tomogram"], angs_threshold=angstrom_threshold
         )
         pred_centroids = utils.read_ndjson_coords(target["predicted_centroids"])

@@ -1,0 +1,45 @@
+import os
+import sys
+import glob
+import ndjson
+
+
+parent_path = sys.argv[1]
+offset_x, offset_y, offset_z = (1020 % 256), 256, 100
+
+
+tomo_paths = glob.glob(os.path.join(parent_path, "tomo_*"))
+
+for tomo_path in tomo_paths:
+    path_to_coords_files = os.path.join(tomo_path, "coords")
+    output_file = os.path.join(path_to_coords_files, "all_coords.ndjson")
+
+    all_coords_files = glob.glob(os.path.join(path_to_coords_files, "*.txt"))
+    print(f"Number of coords files: {len(all_coords_files)}")
+
+    with open(output_file, "w") as outf:
+        outputs = []
+        for fname in all_coords_files:
+            if (not fname.split("/")[-1].startswith("vesicle")) or not fname.split("/")[
+                -1
+            ].startswith("fiducial"):
+                particle_id = fname.split("/")[-1][:4]
+                with open(fname, "r") as f1:
+                    for line in f1.readlines():
+                        if not line.startswith("#") and not line.startswith(" "):
+                            y, x, z = line.split()[:3]
+                            x, y, z = (
+                                (float(x)) + offset_x,
+                                (float(y)) + offset_y,
+                                (float(z)) + offset_z,
+                            )
+                            x = 512 - x
+                            outln = {
+                                "type": "orientedPoint",
+                                "particle_id": particle_id,
+                                "location": {"x": x, "y": y, "z": z},
+                            }
+
+                            outputs.append(outln)
+
+        ndjson.dump(outputs, outf)
