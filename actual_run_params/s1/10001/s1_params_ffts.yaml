@@ -1,0 +1,69 @@
+experiment_name: czi_ds-10001_denoised
+run_name: ffts
+
+inputs: 
+  [  
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2269/denoised_TS_0001.mrc,
+      lower_z-slice_limit: 430,
+      upper_z-slice_limit: 550
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2270/denoised_TS_0002.mrc,
+      lower_z-slice_limit: 430,
+      upper_z-slice_limit: 550
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2271/denoised_TS_0003.mrc,
+      lower_z-slice_limit: 420,
+      upper_z-slice_limit: 550
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2272/denoised_TS_0004.mrc,
+      lower_z-slice_limit: 425,
+      upper_z-slice_limit: 550
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2273/denoised_TS_0005.mrc,
+      lower_z-slice_limit: 175,
+      upper_z-slice_limit: 300
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2274/denoised_TS_0006.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2275/denoised_TS_0007.mrc,
+      lower_z-slice_limit: 215,
+      upper_z-slice_limit: 280
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2276/denoised_TS_0008.mrc,
+      lower_z-slice_limit: 150,
+      upper_z-slice_limit: 325
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2277/denoised_TS_0009.mrc,
+      lower_z-slice_limit: 175,
+      upper_z-slice_limit: 350
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2278/denoised_TS_0010.mrc,
+      lower_z-slice_limit: 400,
+      upper_z-slice_limit: 550
+    },
+  ]
+
+window_size: 5
+feature_extraction_params: 
+  {
+    mode: ffts, 
+    n_fft_subsets: 64,
+    use_subset_size: 10_000_000,
+    num_output_features: 64
+  }
+
+clustering_methods: [kmeans, gmm]
+
+output_dir: /data/shreyas/mining_tomograms/s1_clean_results_picket/
