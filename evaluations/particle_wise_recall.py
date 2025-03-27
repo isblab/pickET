@@ -47,6 +47,7 @@ def main():
     inputs = params["inputs"]
     clustering_method = params["clustering_method"]
     particle_extraction_method = params["particle_extraction_method"]
+    feature_extraction_method = params["feature_extraction_method"]
     output_dir = os.path.join(params["output_dir"], experiment_name, run_name)
 
     results = {}
@@ -88,8 +89,8 @@ def main():
 
     with open(
         os.path.join(
-            "/home/shreyas/Projects/mining_tomograms/github/pickET/particlewise_recall/",
-            f"particlewise_recall_{clustering_method}_{particle_extraction_method}.yaml",
+            "/home/shreyas/Dropbox/miningTomograms/particlewise_recall/",
+            f"particlewise_recall_{feature_extraction_method}_{clustering_method}_{particle_extraction_method}.yaml",
         ),
         "w",
     ) as outf:

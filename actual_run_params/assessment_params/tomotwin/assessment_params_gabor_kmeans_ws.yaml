@@ -457,6 +457,7 @@ inputs:
 
 threshold_in_angstrom: 100
 
+feature_extraction_method: gabor
 clustering_method: kmeans
 particle_extraction_method: watershed_segmentation
 

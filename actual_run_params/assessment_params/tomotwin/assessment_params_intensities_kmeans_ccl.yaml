@@ -457,6 +457,7 @@ inputs:
 
 threshold_in_angstrom: 100
 
+feature_extraction_method: intensities
 clustering_method: kmeans
 particle_extraction_method: connected_component_labeling
 

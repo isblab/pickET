@@ -60,10 +60,10 @@ def main():
         n_true = len(true_centroids)
 
         distances = cdist(pred_centroids, true_centroids, metric="euclidean")
-        fp_idxs = ~np.any(distances <= threshold, axis=1)
-        print(distances.shape[0], len(fp_idxs), len(pred_centroids[fp_idxs]))
-        utils.write_coords_as_ndjson(pred_centroids[fp_idxs], "false_positives.ndjson")
-        exit()
+        # fp_idxs = ~np.any(distances <= threshold, axis=1)
+        # print(distances.shape[0], len(fp_idxs), len(pred_centroids[fp_idxs]))
+        # utils.write_coords_as_ndjson(pred_centroids[fp_idxs], "false_positives.ndjson")
+        # exit()
         precision, recall, f1score = assessment_utils.compute_precision_recall_f1score(
             distances, threshold, num_pred=n_pred, num_true=n_true
         )

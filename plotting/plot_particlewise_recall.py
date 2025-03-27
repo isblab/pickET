@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 def main():
     particlewise_recall_fname = sys.argv[1]
-    x_key = "Rg"
+    x_key = "MW_pdb"
 
     with open(particlewise_recall_fname, "r") as input_f:
         particlewise_recall = yaml.safe_load(input_f)
@@ -29,14 +29,18 @@ def main():
 
     plt.scatter(x=all_x, y=all_y, color="Orange", alpha=0.75, s=3)
     plt.plot(all_x, yfit, color="Green", alpha=0.75)
-    plt.xlabel("Radius of gyration (A)")
+    plt.xlabel("Molecular weight obtained from PDB (kDa)")
     plt.ylabel("Average recall")
     plt.text(max(all_x) * 0.75, max(all_y), f"R-squared: {r_squared_value:.4f}")
 
+    fname_head = particlewise_recall_fname.split("/")[-1][:-5]
+    feature_extraction_method = fname_head.split("_")[2]
+    clustering_method = fname_head.split("_")[3]
+    particle_extraction_method = "_".join(fname_head.split("_")[4:])
     plt.savefig(
         os.path.join(
-            "/home/shreyas/Projects/mining_tomograms/github/pickET/particlewise_recall/",
-            f"particlewise_recall_{x_key}.png",
+            "/home/shreyas/Dropbox/miningTomograms/particlewise_recall/",
+            f"particlewise_recall_{feature_extraction_method}_{clustering_method}_{particle_extraction_method}_{x_key}.png",
         ),
         dpi=600,
     )

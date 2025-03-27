@@ -69,7 +69,9 @@ def main():
     plt.violinplot(
         results,
         vert=False,
-        showmeans=True,
+        # showmeans=True,
+        showmedians=True,
+        showextrema=False,
         # label=get_label(result_fname),
         # color=color_palette(idx),
     )
