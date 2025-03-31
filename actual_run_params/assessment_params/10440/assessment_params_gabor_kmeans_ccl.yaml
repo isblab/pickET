@@ -42,6 +42,7 @@ inputs:
 
 threshold_in_angstrom: 125
 
+feature_extraction_method: gabor
 clustering_method: kmeans
 particle_extraction_method: connected_component_labeling
 

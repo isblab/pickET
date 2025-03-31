@@ -16,7 +16,13 @@ def read_annotations_ndjson_file(fname: str) -> dict[str, np.ndarray]:
 
     p_deets = {}
     for ln in annotations:
-        particle_id = ln["particle_id"]
+        if "particle_id" in ln:
+            particle_id = ln.get("particle_id")
+        elif "particle_name" in ln:
+            particle_id = ln.get("particle_name")
+        else:
+            raise KeyError("Particle annotations dont have a label on them")
+
         if particle_id not in p_deets:
             p_deets[particle_id] = [
                 np.array(
@@ -29,26 +35,21 @@ def read_annotations_ndjson_file(fname: str) -> dict[str, np.ndarray]:
                     [ln["location"]["z"], ln["location"]["y"], ln["location"]["x"]]
                 )
             )
+
     return p_deets
 
 
 def main():
     ### Input block
     params_fname = sys.argv[1]
-    particle_details_fname = sys.argv[2]
-
+    dataset_name = sys.argv[2]
     params = utils.load_params_from_yaml(params_fname)
-    with open(particle_details_fname, "r") as pdeet_f:
-        particle_details = yaml.safe_load(pdeet_f)["particles"]
 
-    experiment_name = params["experiment_name"]
-    run_name = params["run_name"]
     angstrom_threshold = params["threshold_in_angstrom"]
     inputs = params["inputs"]
     clustering_method = params["clustering_method"]
     particle_extraction_method = params["particle_extraction_method"]
     feature_extraction_method = params["feature_extraction_method"]
-    output_dir = os.path.join(params["output_dir"], experiment_name, run_name)
 
     results = {}
     ### Processing block
@@ -72,10 +73,6 @@ def main():
 
             if particle_id not in results:
                 results[particle_id] = {
-                    "PDB_ID": particle_id,
-                    "MW": particle_details[particle_id]["MW"],
-                    "MW_pdb": particle_details[particle_id]["MW_pdb"],
-                    "Rg": particle_details[particle_id]["Rg"],
                     "Recalls": [float(recall)],
                     "Average_recall": 0.0,
                 }
@@ -89,7 +86,7 @@ def main():
 
     with open(
         os.path.join(
-            "/home/shreyas/Dropbox/miningTomograms/particlewise_recall/",
+            f"/home/shreyas/Dropbox/miningTomograms/particlewise_recall/{dataset_name}/raw/",
             f"particlewise_recall_{feature_extraction_method}_{clustering_method}_{particle_extraction_method}.yaml",
         ),
         "w",

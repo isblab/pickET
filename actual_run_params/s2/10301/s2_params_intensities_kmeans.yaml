@@ -1,0 +1,24 @@
+experiment_name: czi_ds_10301_denoised
+run_name: intensities
+
+inputs: 
+  [  
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_0_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_1_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_2_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_3_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_4_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_5_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_6_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_7_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_8_kmeans.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/intensities/segmentation_9_kmeans.npy},
+  ]
+
+clustering_method: 'kmeans'
+particle_extraction_params: [
+  {mode: connected_component_labeling},
+  {mode: watershed_segmentation, min_distance: 15}
+]
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/

@@ -3,6 +3,8 @@ import sys
 import time
 import numpy as np
 
+sys.path.append("/home/shreyas/Projects/accessory_scripts/")
+import slack_bot
 from assets import utils, particle_extraction
 
 
@@ -47,6 +49,10 @@ def main():
         toc = time.perf_counter()
         time_taken = toc - tic
         print(f"\tTomogram {idx+1} processed in {time_taken:.2f} seconds\n")
+
+    slack_bot.send_slack_dm(
+        f"The python process with parameter file name: '{params_fname}' completed"
+    )
 
 
 if __name__ == "__main__":

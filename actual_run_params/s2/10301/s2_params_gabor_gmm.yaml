@@ -1,0 +1,24 @@
+experiment_name: czi_ds_10301_denoised
+run_name: gabor
+
+inputs: 
+  [  
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_0_gmm.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_1_gmm.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_2_gmm.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_3_gmm.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_4_gmm.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_5_gmm.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_6_gmm.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_7_gmm.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_8_gmm.npy},
+    {segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/czi_ds_10301_denoised/gabor/segmentation_9_gmm.npy},
+  ]
+
+clustering_method: 'gmm'
+particle_extraction_params: [
+  {mode: connected_component_labeling},
+  {mode: watershed_segmentation, min_distance: 15}
+]
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/
