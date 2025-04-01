@@ -37,11 +37,9 @@ def main():
 
         plt.xlabel("Molecular weight obtained from PDB (kDa)")
         plt.ylabel("Average recall")
-        plt.text(max(all_x) * 0.75, max(all_y), f"Slope: {slope:.4f}")
-        plt.text(max(all_x) * 0.75, max(all_y) - 0.05, f"Y-intercept: {intercept:.4f}")
-        plt.text(
-            max(all_x) * 0.75, max(all_y) - 0.1, f"R-squared: {r_squared_value:.4f}"
-        )
+        plt.text(max(all_x) * 0.75, 0.1, f"Slope: {slope:.4f}")
+        plt.text(max(all_x) * 0.75, 0.16, f"Y-intercept: {intercept:.4f}")
+        plt.text(max(all_x) * 0.75, 0.22, f"R-squared: {r_squared_value:.4f}")
 
         fname_head = particlewise_recall_fname.split("/")[-1][:-5]
         feature_extraction_method = fname_head.split("_")[2]

@@ -2,6 +2,8 @@ import os
 import sys
 import time
 import numpy as np
+
+import slack_bot
 from assets import utils, preprocessing, feature_extraction, clustering
 
 
@@ -32,7 +34,7 @@ def main():
 
         # Preprocess tomogram
         tomogram = preprocessing.load_tomogram(target["tomogram"])
-        segmentation = np.zeros(tomogram.shape, dtype=np.uint8)
+        segmentation = -1 * np.ones(tomogram.shape, dtype=np.int16)
 
         tomogram = preprocessing.get_z_section(
             tomogram,
@@ -44,6 +46,29 @@ def main():
 
         # Extract features
         feature_extractor.get_windows(tomogram)
+
+        is_memory_available = (False, -1, -1)
+        if (
+            feature_extraction_params["mode"] == "ffts"
+            or feature_extraction_params["mode"] == "intensities"
+        ):
+            is_memory_available = utils.check_memory_availability(
+                feature_extractor.windows.shape[0],
+                window_size**3,
+            )
+        elif feature_extraction_params["mode"] == "gabor":
+            is_memory_available = utils.check_memory_availability(
+                feature_extractor.windows.shape[0],
+                feature_extraction_params["num_sinusoids"] ** 3,
+            )
+
+        print(
+            f"\tIs memory available: {is_memory_available[0]}\tAvailable: {is_memory_available[1]}GB\tRequired: {is_memory_available[2]}GB"
+        )
+        if not is_memory_available[0]:
+            raise MemoryError("Not enough memory available")
+
+        print("\tExtracting features")
         feature_extractor.extract_features()
 
         # Cluster features
@@ -59,7 +84,7 @@ def main():
                 )
 
             seg = labels.reshape(feature_extractor.preshape)
-            seg = np.pad(seg, window_size // 2, mode="constant", constant_values=0)
+            seg = np.pad(seg, window_size // 2, mode="constant", constant_values=-1)
             segmentation[
                 target.get("lower_z-slice_limit") : target.get("upper_z-slice_limit")
             ] = seg
@@ -73,6 +98,10 @@ def main():
         print(
             f"\tTomogram {idx+1} processed in {int(time_taken//60)}:{time_taken%60:.0f} minutes\n"
         )
+
+    slack_bot.send_slack_dm(
+        f"The python process with parameter file name: '{params_fname}' completed"
+    )
 
 
 if __name__ == "__main__":

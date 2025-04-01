@@ -18,4 +18,4 @@ feature_extraction_params:
 
 clustering_methods: [kmeans, gmm]
 
-output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket/
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/

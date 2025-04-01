@@ -1,6 +1,7 @@
 import yaml
-import numpy as np
 import ndjson
+import psutil
+import numpy as np
 
 
 def load_params_from_yaml(param_file_path: str) -> dict:
@@ -36,3 +37,20 @@ def write_coords_as_ndjson(coords: np.ndarray, out_fname: str) -> None:
 
     with open(out_fname, "w") as out_annot_f:
         ndjson.dump(lines, out_annot_f)
+
+
+def check_memory_availability(
+    num_windows: int, num_features: int
+) -> tuple[bool, float, float]:
+    is_available = False
+    memory_reqd = (
+        num_windows * num_features * 8
+        + 2 * num_features * 8
+        + 2 * (num_features**2) * 8
+    )
+
+    memory_available = psutil.virtual_memory().available
+    if memory_reqd < memory_available:
+        is_available = True
+
+    return is_available, memory_available / (1024**3), memory_reqd / (1024**3)

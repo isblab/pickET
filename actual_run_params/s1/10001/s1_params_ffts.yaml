@@ -1,21 +1,21 @@
 experiment_name: czi_ds-10001_denoised
-run_name: ffts
+run_name: intensities
 
 inputs: 
   [  
     {
       tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2269/denoised_TS_0001.mrc,
-      lower_z-slice_limit: 430,
-      upper_z-slice_limit: 550
+      lower_z-slice_limit: 425,
+      upper_z-slice_limit: 525
     },
     {
       tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2270/denoised_TS_0002.mrc,
-      lower_z-slice_limit: 430,
+      lower_z-slice_limit: 425,
       upper_z-slice_limit: 550
     },
     {
       tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2271/denoised_TS_0003.mrc,
-      lower_z-slice_limit: 420,
+      lower_z-slice_limit: 425,
       upper_z-slice_limit: 550
     },
     {
@@ -40,17 +40,17 @@ inputs:
     },
     {
       tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2276/denoised_TS_0008.mrc,
-      lower_z-slice_limit: 150,
-      upper_z-slice_limit: 325
+      lower_z-slice_limit: 175,
+      upper_z-slice_limit: 300
     },
     {
       tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2277/denoised_TS_0009.mrc,
-      lower_z-slice_limit: 175,
-      upper_z-slice_limit: 350
+      lower_z-slice_limit: 225,
+      upper_z-slice_limit: 325
     },
     {
       tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2278/denoised_TS_0010.mrc,
-      lower_z-slice_limit: 400,
+      lower_z-slice_limit: 425,
       upper_z-slice_limit: 550
     },
   ]
@@ -63,7 +63,7 @@ feature_extraction_params:
     use_subset_size: 10_000_000,
     num_output_features: 64
   }
-
+  
 clustering_methods: [kmeans, gmm]
 
 output_dir: /data2/shreyas/mining_tomograms/s1_clean_results_picket/

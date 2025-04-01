@@ -58,12 +58,7 @@ inputs:
 window_size: 5
 feature_extraction_params: 
   {
-    mode: gabor, 
-    device: cuda,
-    num_windows_subsets: 2,
-    num_sinusoids: 10, 
-    num_parallel_filters: 16,
-    num_output_features: 64
+    mode: intensities, 
   }
 
 clustering_methods: [kmeans, gmm]
