@@ -3,6 +3,7 @@ import sys
 import time
 import numpy as np
 
+import socket
 import slack_bot
 from assets import utils, preprocessing, feature_extraction, clustering
 
@@ -59,13 +60,16 @@ def main():
         elif feature_extraction_params["mode"] == "gabor":
             is_memory_available = utils.check_memory_availability(
                 feature_extractor.windows.shape[0],
-                feature_extraction_params["num_sinusoids"] ** 3,
+                feature_extraction_params["num_output_features"] * 2,
             )
 
         print(
             f"\tIs memory available: {is_memory_available[0]}\tAvailable: {is_memory_available[1]}GB\tRequired: {is_memory_available[2]}GB"
         )
         if not is_memory_available[0]:
+            slack_bot.send_slack_dm(
+                f"Error: The python process with parameter file name: '{params_fname}' terminated due to MemoryError on {socket.gethostname()}"
+            )
             raise MemoryError("Not enough memory available")
 
         print("\tExtracting features")
@@ -100,7 +104,7 @@ def main():
         )
 
     slack_bot.send_slack_dm(
-        f"The python process with parameter file name: '{params_fname}' completed"
+        f"The python process with parameter file name: '{params_fname}' completed on {socket.gethostname()}"
     )
 
 
