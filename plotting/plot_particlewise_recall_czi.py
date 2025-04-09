@@ -26,14 +26,23 @@ def main():
 
     all_x, all_y = [], []
     for particle_id, results in particlewise_recall.items():
-        all_x.append(results["Average_recall"])
+        all_x.append(results["Average recall"])
         particle_id = particle_id.split("-")[-2]
         particle_id = format_particle_name(particle_id)
         all_y.append(particle_id)
 
+        recalls = results["Recalls"]
+        plt.scatter(
+            x=recalls,
+            y=[particle_id for _ in recalls],
+            color="Orange",
+            alpha=0.75,
+            zorder=2,
+        )
+
     all_x, all_y = np.array(all_x), np.array(all_y)
 
-    plt.barh(y=all_y, width=all_x, color="Orange", alpha=0.75)
+    plt.barh(y=all_y, width=all_x, alpha=0.75, zorder=1)
     plt.xlim(0, 1)
 
     plt.xlabel("Average recall")

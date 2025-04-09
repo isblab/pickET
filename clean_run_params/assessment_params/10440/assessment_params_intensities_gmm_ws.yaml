@@ -1,0 +1,49 @@
+experiment_name: czi_ds-10440_denoised
+run_name: intensities
+
+inputs: 
+  [  
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17015/denoised_TS_5_4.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/intensities/predicted_particles/predicted_centroids_0_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17015/annotations/all_annotations.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17019/denoised_TS_69_2.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/intensities/predicted_particles/predicted_centroids_1_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17019/annotations/all_annotations.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17023/denoised_TS_6_4.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/intensities/predicted_particles/predicted_centroids_2_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17023/annotations/all_annotations.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17027/denoised_TS_6_6.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/intensities/predicted_particles/predicted_centroids_3_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17027/annotations/all_annotations.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17031/denoised_TS_73_6.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/intensities/predicted_particles/predicted_centroids_4_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17031/annotations/all_annotations.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17035/denoised_TS_86_3.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/intensities/predicted_particles/predicted_centroids_5_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17035/annotations/all_annotations.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17039/denoised_TS_99_9.mrc,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/intensities/predicted_particles/predicted_centroids_6_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17039/annotations/all_annotations.ndjson
+      },
+  ]
+
+threshold_in_angstrom: 125
+
+feature_extraction_method: intensities
+clustering_method: gmm
+particle_extraction_method: watershed_segmentation
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/

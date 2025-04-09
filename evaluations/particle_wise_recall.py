@@ -61,8 +61,14 @@ def main():
         pred_centroids = utils.read_ndjson_coords(target["predicted_centroids"])
         true_particles = read_annotations_ndjson_file(target["true_centroids"])
 
+        zslice_lb = target.get("lower_z-slice_limit")
+        zslice_ub = target.get("upper_z-slice_limit")
         for particle_id, true_centroids in true_particles.items():
             true_centroids = np.array(true_centroids)
+            true_centroids = assessment_utils.zslice_filter_ground_truth_centroids(
+                true_centroids, zslice_lb, zslice_ub
+            )
+
             distances = cdist(pred_centroids, true_centroids, metric="euclidean")
             _, recall, _ = assessment_utils.compute_precision_recall_f1score(
                 distances,
@@ -74,14 +80,18 @@ def main():
             if particle_id not in results:
                 results[particle_id] = {
                     "Recalls": [float(recall)],
-                    "Average_recall": 0.0,
+                    "Average recall": 0.0,
+                    "Standard deviation on recall": 0.0,
                 }
             else:
                 results[particle_id]["Recalls"].append(recall)
 
     for particle_id in results:
-        results[particle_id]["Average_recall"] = float(
+        results[particle_id]["Average recall"] = float(
             np.mean(np.array(results[particle_id]["Recalls"]))
+        )
+        results[particle_id]["Standard deviation on recall"] = float(
+            np.std(np.array(results[particle_id]["Recalls"]))
         )
 
     with open(

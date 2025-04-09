@@ -1,0 +1,92 @@
+experiment_name: czi_ds-10301_denoised
+run_name: intensities
+
+inputs: 
+  [  
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14316/denoised_01122021_BrnoKrios_arctis_lam1_pos4.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_0_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14316/annotations/all_annotations.ndjson
+      },
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14317/denoised_01122021_BrnoKrios_arctis_lam1_pos5.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_1_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14317/annotations/all_annotations.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14318/denoised_01122021_BrnoKrios_arctis_lam2_pos13.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_2_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14318/annotations/all_annotations.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14319/denoised_01122021_BrnoKrios_arctis_lam3_pos27.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_3_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14319/annotations/all_annotations.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14320/denoised_06042022_BrnoKrios_Arctis_grid7_Position_29.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_4_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14320/annotations/all_annotations.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14321/denoised_08042022_BrnoKrios_Arctis_grid5_gistest_Position_4.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_5_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14321/annotations/all_annotations.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14322/denoised_12052022_BrnoKrios_Arctis_grid_newGISc_Position_38.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_6_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14322/annotations/all_annotations.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14323/denoised_14042022_BrnoKrios_Arctis_grid5_Position_1.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_7_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14323/annotations/all_annotations.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14324/denoised_15042022_BrnoKrios_Arctis_grid9_Position_32.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 275,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_8_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14324/annotations/all_annotations.ndjson
+      },
+    
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14325/denoised_15042022_BrnoKrios_Arctis_grid9_Position_65.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+      predicted_centroids: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/intensities/predicted_particles/predicted_centroids_9_gmm_watershed_segmentation.ndjson,
+      true_centroids: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14325/annotations/all_annotations.ndjson
+      },
+  ]
+
+threshold_in_angstrom: 125
+
+feature_extraction_method: intensities
+clustering_method: gmm
+particle_extraction_method: watershed_segmentation
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/

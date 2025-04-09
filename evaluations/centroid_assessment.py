@@ -1,36 +1,12 @@
 import os
 import sys
 import yaml
-import mrcfile
 import numpy as np
 from tqdm import tqdm
 from scipy.spatial.distance import cdist
 
 from assets import utils
 import assessment_utils
-
-
-def compute_global_metrics(
-    results: dict[str, dict[str, float]],
-) -> dict[str, dict[str, float]]:
-    precisions, recalls, f1scores = [], [], []
-    for tomo in results:
-        if not tomo.startswith("Tomogram_"):
-            continue
-        precisions.append(results[tomo]["Precision"])
-        recalls.append(results[tomo]["Recall"])
-        f1scores.append(results[tomo]["F1-score"])
-
-    glob_prec = float(np.mean(np.array(precisions)))
-    glob_recall = float(np.mean(np.array(recalls)))
-    glob_f1score = float(np.mean(np.array(f1scores)))
-    results["Global"] = {
-        "Precision": glob_prec,
-        "Recall": glob_recall,
-        "F1-score": glob_f1score,
-    }
-
-    return results
 
 
 def main():
@@ -50,31 +26,49 @@ def main():
     results = {}
     ### Processing block
     for idx, target in enumerate(tqdm(inputs)):
-        # print(f"Processing prediction {idx+1}/{len(inputs)}")
         threshold = assessment_utils.get_voxel_threshold(
             target["tomogram"], angs_threshold=angstrom_threshold
         )
+        zslice_lb = target.get("lower_z-slice_limit")
+        zslice_ub = target.get("upper_z-slice_limit")
+
+        tomo_shape = assessment_utils.get_tomo_shape(target["tomogram"])
+
         pred_centroids = utils.read_ndjson_coords(target["predicted_centroids"])
+        random_centroids = assessment_utils.get_random_centroids(
+            tomo_shape, num_centroids=len(pred_centroids)
+        )
         true_centroids = utils.read_ndjson_coords(target["true_centroids"])
+        true_centroids = assessment_utils.zslice_filter_ground_truth_centroids(
+            true_centroids, zslice_lb, zslice_ub
+        )
+
         n_pred = len(pred_centroids)
         n_true = len(true_centroids)
+        n_rand = len(random_centroids)
 
         distances = cdist(pred_centroids, true_centroids, metric="euclidean")
-        # fp_idxs = ~np.any(distances <= threshold, axis=1)
-        # print(distances.shape[0], len(fp_idxs), len(pred_centroids[fp_idxs]))
-        # utils.write_coords_as_ndjson(pred_centroids[fp_idxs], "false_positives.ndjson")
-        # exit()
+        distances_random = cdist(random_centroids, true_centroids, metric="euclidean")
+
         precision, recall, f1score = assessment_utils.compute_precision_recall_f1score(
             distances, threshold, num_pred=n_pred, num_true=n_true
+        )
+        random_precision, random_recall, random_f1score = (
+            assessment_utils.compute_precision_recall_f1score(
+                distances_random, threshold, num_pred=n_rand, num_true=n_true
+            )
         )
 
         results[f"Tomogram_{idx}"] = {
             "Precision": precision,
             "Recall": recall,
             "F1-score": f1score,
+            "Random Precision": random_precision,
+            "Random Recall": random_recall,
+            "Random F1-score": random_f1score,
         }
 
-    results = compute_global_metrics(results)
+    results = assessment_utils.compute_global_metrics(results)
 
     with open(
         os.path.join(

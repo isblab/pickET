@@ -3,7 +3,6 @@ import sys
 import time
 import numpy as np
 
-sys.path.append("/home/shreyas/Projects/accessory_scripts/")
 import slack_bot
 from assets import utils, particle_extraction
 
@@ -30,7 +29,9 @@ def main():
         tic = time.perf_counter()
         print(f"Processing segmentation {idx+1}/{len(inputs)}")
 
+        particle_cluster_id = target["particle_cluster_id"]
         segmentation = np.load(target["segmentation"])
+        segmentation = np.where(segmentation == particle_cluster_id, 1, 0)
 
         for p_ex_params in particle_extraction_params:
             instance_seg, num_objects = particle_extraction.do_instance_segmentation(
