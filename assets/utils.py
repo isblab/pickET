@@ -2,6 +2,8 @@ import yaml
 import ndjson
 import psutil
 import numpy as np
+from skimage.util import view_as_windows
+from typing import Optional
 
 
 def load_params_from_yaml(param_file_path: str) -> dict:
@@ -54,3 +56,27 @@ def check_memory_availability(
         is_available = True
 
     return is_available, memory_available / (1024**3), memory_reqd / (1024**3)
+
+
+def get_windows(
+    tomo: np.ndarray,
+    window_size: int,
+    max_num_windows_for_fitting: Optional[int] = None,
+) -> tuple[np.ndarray, tuple[int, int, int]]:
+    if window_size % 2 == 0:
+        raise ValueError(
+            f"Please set window_size to an odd integer. It was set to {window_size}"
+        )
+    windows = view_as_windows(tomo, window_size)
+    preshape = windows.shape[:3]
+    windows = windows.reshape(-1, window_size, window_size, window_size)
+    if max_num_windows_for_fitting is not None and max_num_windows_for_fitting < len(
+        windows
+    ):
+        windows = subsample_windows(windows, max_num_windows_for_fitting)
+    return windows, preshape
+
+
+def subsample_windows(windows: np.ndarray, num_output_windows: int) -> np.ndarray:
+    idxs = np.random.choice(len(windows), num_output_windows, replace=False)
+    return windows[idxs]

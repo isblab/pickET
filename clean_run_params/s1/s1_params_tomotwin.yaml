@@ -1,0 +1,39 @@
+dataset_name: tomotwin_test
+
+inputs: 
+  [  
+    {
+      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_01.2022-04-11T140327+0200/denoised_tiltseries_rec.mrc,
+      lower_z-slice_limit: 0,
+      upper_z-slice_limit: 200
+    },
+  ]
+
+window_size: 5
+# max_num_windows_for_fitting: 75_000_000
+
+feature_extraction_params: 
+  [
+    {
+      mode: ffts, 
+      n_fft_subsets: 64,
+      use_subset_size: 10_000_000,
+      num_output_features: 64
+      },
+    
+    # {
+    #   mode: gabor, 
+    #   num_windows_subsets: 5,
+    #   num_sinusoids: 10, 
+    #   num_parallel_filters: 16,
+    #   num_output_features: 64
+    #   },
+    
+    # {
+    #   mode: intensities
+    #   }  
+  ]
+
+clustering_methods: [kmeans] #,gmm]
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/

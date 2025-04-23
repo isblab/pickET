@@ -1,6 +1,7 @@
 import mrcfile
+import cupy as cp
 import numpy as np
-import scipy.ndimage as nd
+from cupyx.scipy.ndimage import gaussian_filter
 from typing import Optional
 
 
@@ -15,7 +16,7 @@ def get_z_section(
 
 
 def guassian_blur_tomogram(tomogram: np.ndarray, sigma: float = 2) -> np.ndarray:
-    return nd.gaussian_filter(tomogram, sigma=sigma)
+    return cp.asnumpy(gaussian_filter(cp.asarray(tomogram), sigma=sigma))
 
 
 def minmax_normalize_array(in_array: np.ndarray) -> np.ndarray:

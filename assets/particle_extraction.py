@@ -6,7 +6,7 @@ from skimage.segmentation import watershed
 
 
 def do_connected_component_labeling(segmentation: np.ndarray) -> tuple[np.ndarray, int]:
-    print("\tPerforming connected component labeling")
+    print("Performing connected component labeling")
     labeled_array, num_features = nd.label(segmentation)  # type:ignore
     return labeled_array, num_features
 
@@ -14,7 +14,7 @@ def do_connected_component_labeling(segmentation: np.ndarray) -> tuple[np.ndarra
 def do_watershed_segmentation(
     segmentation: np.ndarray, min_distance: int
 ) -> tuple[np.ndarray, int]:
-    print("\tPerforming watershed segmentation")
+    print("Performing watershed segmentation")
     edt = np.array(nd.distance_transform_edt(segmentation))
     local_maxima = ft.peak_local_max(edt, min_distance=min_distance)
     mask = np.zeros(edt.shape, dtype=bool)
@@ -28,7 +28,7 @@ def do_watershed_segmentation(
 def do_mean_shift_clustering(
     segmentation: np.ndarray, bandwidth: float
 ) -> tuple[np.ndarray, int]:
-    print("\tPerforming mean shift clustering")
+    print("Performing mean shift clustering")
     particle_voxel_idx = np.array(np.where(segmentation == 1)).T
     clusterer = MeanShift(bandwidth=bandwidth, bin_seeding=True)
     clusterer.fit(particle_voxel_idx)

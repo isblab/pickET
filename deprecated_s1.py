@@ -32,30 +32,32 @@ def main():
         feature_extractor = feature_extraction.FeatureExtractor(
             window_size, feature_extraction_params
         )
-
         ftex_mode = feature_extraction_params["mode"]
+
+        ### Processing block
         for idx, target in enumerate(inputs):
             tic = time.perf_counter()
             z_lb = target.get("lower_z-slice_limit")
             z_ub = target.get("upper_z-slice_limit")
             console.print(
-                f"Processing tomogram {idx+1}/{len(inputs)} using \
-                    {ftex_mode} as the feature extraction method"
+                f"Processing tomogram {idx+1}/{len(inputs)} using {ftex_mode} as the feature extraction method"
             )
 
             # Preprocess tomogram
             tomogram = preprocessing.load_tomogram(target["tomogram"])
-            tomogram = preprocessing.guassian_blur_tomogram(tomogram)
-            tomogram = preprocessing.minmax_normalize_array(tomogram)
+
+            tomogram_init_sec = preprocessing.get_z_section(
+                tomogram, z_lb=z_lb, z_ub=z_ub
+            )
+            tomogram_init_sec = preprocessing.guassian_blur_tomogram(tomogram_init_sec)
+            tomogram_init_sec = preprocessing.minmax_normalize_array(tomogram_init_sec)
 
             # Extract features
             with console.status(
                 "Extracting all overlapping windows", spinner="bouncingBall"
             ) as status:
                 windows, preshape = utils.get_windows(
-                    preprocessing.get_z_section(tomogram, z_lb=z_lb, z_ub=z_ub),
-                    window_size,
-                    max_num_windows_for_fitting,
+                    tomogram_init_sec, window_size, max_num_windows_for_fitting
                 )
                 console.log("Successfully extracted all overalapping windows")
                 status.update(status="Extracting features", spinner="bouncingBall")
@@ -63,8 +65,12 @@ def main():
                 console.log(
                     f"Feature extraction using method [cyan bold]{feature_extraction_params['mode']}[/] completed"
                 )
+                np.save(
+                    os.path.join(output_dir, f"old_features.npy"),
+                    feature_extractor.features,
+                )
 
-            # Clustering
+            # Cluster features
             for cl_method in clustering_methods:
                 with console.status(
                     f"Clustering features using [cyan bold]{cl_method}[/]",
@@ -74,7 +80,17 @@ def main():
                         clusterer = clustering.fit_kmeans_clustering(
                             feature_extractor.features
                         )
-
+                        l1 = clusterer.labels_.reshape(
+                            preshape[0], preshape[1], preshape[2]
+                        )
+                        l1 = np.pad(l1, half_size, mode="constant", constant_values=0)
+                        np.save(
+                            os.path.join(
+                                output_dir,
+                                f"old_segmentation_.npy",
+                            ),
+                            l1,
+                        )
                     elif cl_method == "gmm":
                         clusterer = clustering.fit_gmm_clustering(
                             feature_extractor.features
@@ -87,14 +103,7 @@ def main():
 
                     console.log(f"Fitting done for [cyan bold]{cl_method}[/] clusterer")
 
-                    segmentation = np.pad(
-                        clusterer.predict(feature_extractor.features).reshape(preshape),
-                        half_size,
-                        mode="constant",
-                        constant_values=-1,
-                    )
-
-                # Build the segmentation
+                new_ft = []
                 if (
                     (z_lb is not None)
                     or (z_ub is not None)
@@ -112,6 +121,7 @@ def main():
                             tomogram_zslab, window_size
                         )
                         feature_extractor.extract_features(slab_windows)
+                        new_ft.append(feature_extractor.features)
                         slab_labels = clusterer.predict(feature_extractor.features)
 
                         seg = slab_labels.reshape(slab_preshape).astype(np.int16)
@@ -121,6 +131,8 @@ def main():
                             half_size : tomogram.shape[2] - half_size,
                         ] = seg
 
+                    new_ft = np.concatenate(new_ft, axis=0)
+                    np.save(os.path.join(output_dir, f"new_features.npy"), new_ft)
                 else:
                     labels = clusterer.predict(feature_extractor.features)
                     segmentation = labels.reshape(preshape)
@@ -133,7 +145,7 @@ def main():
 
                 outf_full_path = os.path.join(
                     output_dir,
-                    f"segmentation_full_{idx}_{ftex_mode}_{cl_method}.npy",
+                    f"segmentation_{idx}_{ftex_mode}_{cl_method}.npy",
                 )
                 np.save(
                     outf_full_path,

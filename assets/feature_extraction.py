@@ -1,17 +1,15 @@
-import torch
+import cupy as cp
 import numpy as np
-from tqdm import tqdm
-from skimage.util import view_as_windows
 
 
 class FeatureExtractor:
     def __init__(self, window_size: int, feature_extraction_params: dict):
         self.window_size = window_size
         self.feature_extraction_params = feature_extraction_params
-        self.windows = np.array(None)
-        self.preshape = np.array(None)
-        self.mode = feature_extraction_params.get("mode")
+        self.mode = feature_extraction_params["mode"]
         self.features = np.array(None)
+        self.best_feature_idxs = np.array([])
+        self.fft_mean = np.nan
 
         if self.mode == "gabor":
             self.gabor_filter_bank = self.generate_gabor_filter_bank()
@@ -57,141 +55,116 @@ class FeatureExtractor:
                     idx += 1
         if np.any(np.isnan(filter_bank)):
             raise ValueError("Some Gabor filters were not generated")
-        print(f"Generated a Gabor filter bank with {len(filter_bank)} filters\n")
         return filter_bank
 
-    def get_windows(self, tomo: np.ndarray) -> np.ndarray:
-        if (not (isinstance(self.window_size, int))) or self.window_size % 2 == 0:
-            raise ValueError(
-                f"Please set window_size to an odd integer. \
-                    It was set to {self.window_size} of type {type(self.window_size)}"
+    def compute_ffts(self, windows: np.ndarray) -> np.ndarray:
+        num_parallel_windows = (
+            len(windows) // self.feature_extraction_params["n_fft_subsets"]
+        )
+        ffts = np.nan * np.ones(windows.shape)
+
+        for subset_start_idx in range(0, len(windows), num_parallel_windows):
+            subset_end_idx = min(
+                (subset_start_idx + num_parallel_windows), len(windows)
             )
-        windows = view_as_windows(tomo, self.window_size)
-        self.preshape = windows.shape[:3]
-        self.windows = windows.reshape(
-            -1, self.window_size, self.window_size, self.window_size
-        )
-        return windows
-
-    def compute_ffts(self) -> np.ndarray:
-        ffts = np.nan * np.ones(self.windows.shape)
-        window_subsets = np.array_split(
-            self.windows, self.feature_extraction_params["n_fft_subsets"]
-        )
-
-        writer_idx = 0
-        for subset in tqdm(window_subsets, desc="Computing FFTs"):
-            subset_fft = np.fft.fftn(subset, axes=(1, 2, 3))
-            subset_fft = np.fft.fftshift(subset_fft, axes=(1, 2, 3))
-            subset_fft = np.abs(subset_fft)
-            ffts[writer_idx : writer_idx + len(subset)] = subset_fft
-            writer_idx += len(subset)
+            subset = windows[subset_start_idx:subset_end_idx]
+            subset_fft = cp.fft.fftn(cp.asarray(subset), axes=(-3, -2, -1))
+            subset_fft = cp.fft.fftshift(subset_fft, axes=(-3, -2, -1))
+            subset_fft = cp.abs(subset_fft)
+            ffts[subset_start_idx:subset_end_idx] = cp.asnumpy(subset_fft)
 
         if np.any(np.isnan(ffts)):
             raise ValueError("Some FFTs were not computed")
 
-        ffts = np.where(ffts < np.mean(ffts), 0, ffts)
+        if self.fft_mean is np.nan:
+            self.fft_mean = np.mean(ffts)
+
+        ffts = np.where(ffts < self.fft_mean, 0, ffts)
         ffts = ffts.reshape((-1, self.window_size**3))
+        ffts = self._get_highest_std_features(
+            ffts,
+            self.feature_extraction_params["num_output_features"],
+            self.feature_extraction_params["use_subset_size"],
+        )
+
         return ffts
 
-    def get_highest_std_features(
+    def _get_highest_std_features(
         self, features: np.ndarray, n_output_features: int, use_subset_size: int
     ) -> np.ndarray:
-        print(
-            "\tExtracting the features with the highest standard deviation in the tomogram"
-        )
-        random_idx = np.random.choice(np.arange(len(features) - 1), use_subset_size)
-        stds = np.std(features[random_idx], axis=0)
+        if len(self.best_feature_idxs) == 0:
+            random_idx = np.random.choice(np.arange(len(features) - 1), use_subset_size)
+            stds = np.std(features[random_idx], axis=0)
+            self.best_feature_idxs = np.argsort(stds)[-n_output_features:]
 
-        top_std = np.argsort(stds)[-n_output_features:]
-        dim_reduced_features = features[:, top_std]
+        dim_reduced_features = features[:, self.best_feature_idxs]
         dim_reduced_features = np.squeeze(dim_reduced_features)
         return dim_reduced_features
 
-    def compute_gabor_features(self) -> np.ndarray:
-        if len(self.windows.shape) > 2:
+    def compute_gabor_features(self, windows: np.ndarray) -> np.ndarray:
+        if len(windows.shape) > 2:
             raise ValueError("Windows must be 2D for Gabor feature extraction")
         if len(self.gabor_filter_bank.shape) > 2:
             raise ValueError(
                 "Gabor filter bank must be 2D for Gabor feature extraction"
             )
 
-        device = self.feature_extraction_params.get("device", "cpu")
         num_output_features = self.feature_extraction_params["num_output_features"]
         num_parallel_filters = self.feature_extraction_params["num_parallel_filters"]
-        replacement_mode = False
-
-        filter_subsets = np.array_split(
-            self.gabor_filter_bank,
-            np.arange(
-                num_parallel_filters, len(self.gabor_filter_bank), num_parallel_filters
-            ),
-        )
-        window_subsets = np.array_split(
-            self.windows, self.feature_extraction_params["num_windows_subsets"]
+        window_subset_size = (
+            len(windows) // self.feature_extraction_params["num_windows_subsets"]
         )
 
-        features = np.nan * np.ones(
-            (
-                len(self.windows),
-                num_output_features + num_parallel_filters,
-            )
-        )
-        stds = np.nan * np.ones((num_output_features + num_parallel_filters))
+        stds = np.nan * np.ones(len(self.gabor_filter_bank))
 
-        for f_idx, f_subset in enumerate(tqdm(filter_subsets)):
-            counter = min(
-                f_idx * len(filter_subsets[0]),
-                num_output_features,
-            )
-
-            subset_features = torch.nan * torch.ones((len(self.windows), len(f_subset)))
-            for w_idx, w_subset in enumerate(window_subsets):
-                f_subset = torch.tensor(f_subset, dtype=torch.float32, device=device)
-                w_subset = torch.tensor(w_subset, dtype=torch.float32, device=device)
-                ft = torch.matmul(w_subset, f_subset.T)
-                subset_features[
-                    w_idx * len(window_subsets[0]) : w_idx * len(window_subsets[0])
-                    + len(w_subset)
-                ] = ft
-            subset_stds = torch.std(subset_features, dim=0)
-
-            if not replacement_mode:
-                features[:, counter : counter + len(f_subset)] = (
-                    subset_features.cpu().numpy()
+        if len(self.best_feature_idxs) == 0:
+            for f_start_idx in range(
+                0, len(self.gabor_filter_bank), num_parallel_filters
+            ):
+                f_end_idx = min(
+                    len(self.gabor_filter_bank), f_start_idx + num_parallel_filters
                 )
-                stds[counter : counter + len(f_subset)] = subset_stds.cpu().numpy()
-            else:
-                features = np.concatenate(
-                    (features, subset_features.cpu().numpy()), axis=1
-                )
-                stds = np.concatenate((stds, subset_stds.cpu().numpy()))
+                f_subset = self.gabor_filter_bank[f_start_idx:f_end_idx]
 
-            if counter + len(f_subset) > num_output_features:
-                replacement_mode = True
-                best_idxs = np.argsort(stds)[::-1][:num_output_features]
-                features = features[:, best_idxs]
-                stds = stds[best_idxs]
+                subset_features = cp.nan * cp.ones((len(windows), len(f_subset)))
+                for w_start_idx in range(0, len(windows), window_subset_size):
+                    w_end_idx = min(len(windows), w_start_idx + window_subset_size)
+                    w_subset = windows[w_start_idx:w_end_idx]
 
-            del subset_features, f_subset, w_subset, subset_stds, ft
+                    f_subset = cp.asarray(f_subset, dtype=cp.float32)
+                    w_subset = cp.asarray(w_subset, dtype=cp.float32)
+                    ft = cp.matmul(w_subset, f_subset.T)
+                    subset_features[w_start_idx:w_end_idx] = ft
+                subset_stds = cp.asnumpy(cp.std(subset_features, axis=0))
+                stds[f_start_idx:f_end_idx] = subset_stds
+            self.best_feature_idxs = np.argsort(stds)[-num_output_features:]
+
+        features = np.nan * np.ones((len(windows), num_output_features))
+        for w_start_idx in range(0, len(windows), window_subset_size):
+            w_end_idx = min(len(windows), w_start_idx + window_subset_size)
+            w_subset = windows[w_start_idx:w_end_idx]
+
+            filters = cp.asarray(
+                self.gabor_filter_bank[self.best_feature_idxs], dtype=cp.float32
+            )
+            w_subset = cp.asarray(w_subset, dtype=cp.float32)
+            ft = cp.matmul(w_subset, filters.T)
+            features[w_start_idx:w_end_idx] = cp.asnumpy(ft)
 
         if np.any(np.isnan(features)):
-            raise ValueError("Some Gabor features were not computed correctly")
+            raise ValueError("Some Gabor features were not computed")
 
         return features
 
-    def extract_features(self) -> None:
+    def extract_features(self, windows: np.ndarray) -> None:
         if self.mode == "intensities":
-            self.features = self.windows.reshape((-1, self.window_size**3))
+            self.features = windows.reshape((-1, self.window_size**3))
         elif self.mode == "ffts":
-            self.features = self.get_highest_std_features(
-                self.compute_ffts(),
-                self.feature_extraction_params["num_output_features"],
-                self.feature_extraction_params["use_subset_size"],
-            )
+            self.features = self.compute_ffts(windows)
+
         elif self.mode == "gabor":
-            self.windows = self.windows.reshape((-1, self.window_size**3))
-            self.features = self.compute_gabor_features()
+            windows = windows.reshape((-1, self.window_size**3))
+            self.features = self.compute_gabor_features(windows)
 
         else:
             raise ValueError(
