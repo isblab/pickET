@@ -5,8 +5,14 @@ from cupyx.scipy.ndimage import gaussian_filter
 from typing import Optional
 
 
-def load_tomogram(tomogram_path: str) -> np.ndarray:
-    return mrcfile.read(tomogram_path)
+def load_tomogram(tomogram_path: str) -> tuple[np.ndarray, np.ndarray]:
+    with mrcfile.open(tomogram_path, "r", permissive=True) as mrcf:
+        tomogram = np.array(mrcf.data)
+        vxs = mrcf.voxel_size
+        voxel_sizes = np.zeros(3, dtype=np.float32)
+        for i, ax in enumerate(("z", "y", "x")):
+            voxel_sizes[i] = vxs[ax]
+    return tomogram, voxel_sizes
 
 
 def get_z_section(

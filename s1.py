@@ -23,7 +23,7 @@ def main():
         os.makedirs(output_dir)
 
     window_size: int = params["window_size"]
-    half_size = window_size // 2
+    half_size: int = window_size // 2
     all_feature_extraction_params = params["feature_extraction_params"]
     max_num_windows_for_fitting = params.get("max_num_windows_for_fitting")
     clustering_methods = params["clustering_methods"]
@@ -44,7 +44,7 @@ def main():
             )
 
             # Preprocess tomogram
-            tomogram = preprocessing.load_tomogram(target["tomogram"])
+            tomogram, voxel_sizes = preprocessing.load_tomogram(target["tomogram"])
             tomogram = preprocessing.guassian_blur_tomogram(tomogram)
             tomogram = preprocessing.minmax_normalize_array(tomogram)
 
@@ -133,14 +133,20 @@ def main():
 
                 outf_full_path = os.path.join(
                     output_dir,
-                    f"segmentation_full_{idx}_{ftex_mode}_{cl_method}.npy",
+                    f"segmentation_{idx}_{ftex_mode}_{cl_method}.npy",
                 )
-                np.save(
+                utils.save_segmentation(
                     outf_full_path,
-                    segmentation.astype(np.int16),
+                    segmentation=segmentation,
+                    tomogram_path=target["tomogram"],
+                    voxel_size=voxel_sizes,
+                    window_size=window_size,
+                    feature_extraction_params=feature_extraction_params,
+                    clustering_method=cl_method,
+                    max_num_windows_for_fitting=max_num_windows_for_fitting,
                 )
                 console.log(f"Segmentation saved to [cyan]{outf_full_path}[/]")
-
+                exit()
             toc = time.perf_counter()
             time_taken = toc - tic
             console.print(

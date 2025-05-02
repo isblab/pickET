@@ -1,6 +1,5 @@
 import yaml
 import ndjson
-import psutil
 import numpy as np
 from skimage.util import view_as_windows
 from typing import Optional
@@ -41,28 +40,11 @@ def write_coords_as_ndjson(coords: np.ndarray, out_fname: str) -> None:
         ndjson.dump(lines, out_annot_f)
 
 
-def check_memory_availability(
-    num_windows: int, num_features: int
-) -> tuple[bool, float, float]:
-    is_available = False
-    memory_reqd = (
-        num_windows * num_features * 8
-        + 2 * num_features * 8
-        + 2 * (num_features**2) * 8
-    )
-
-    memory_available = psutil.virtual_memory().available
-    if memory_reqd < memory_available:
-        is_available = True
-
-    return is_available, memory_available / (1024**3), memory_reqd / (1024**3)
-
-
 def get_windows(
     tomo: np.ndarray,
     window_size: int,
     max_num_windows_for_fitting: Optional[int] = None,
-) -> tuple[np.ndarray, tuple[int, int, int]]:
+) -> tuple[np.ndarray, tuple]:
     if window_size % 2 == 0:
         raise ValueError(
             f"Please set window_size to an odd integer. It was set to {window_size}"
@@ -80,3 +62,24 @@ def get_windows(
 def subsample_windows(windows: np.ndarray, num_output_windows: int) -> np.ndarray:
     idxs = np.random.choice(len(windows), num_output_windows, replace=False)
     return windows[idxs]
+
+
+def save_segmentation(
+    output_fname: str,
+    segmentation: np.ndarray,
+    tomogram_path: str,
+    voxel_size: np.ndarray,
+    window_size: int,
+    feature_extraction_params: dict,
+    clustering_method: str,
+    max_num_windows_for_fitting: Optional[int] = None,
+) -> None:
+    metadata = {
+        "tomogram_path": tomogram_path,
+        "voxel_size": voxel_size,
+        "window_size": window_size,
+        "feature_extraction_params": feature_extraction_params,
+        "clustering_method": clustering_method,
+        "max_num_windows_for_fitting": max_num_windows_for_fitting,
+    }
+    np.savez_compressed(output_fname, segmentation=segmentation, **metadata)

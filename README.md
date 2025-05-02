@@ -22,12 +22,23 @@ Python package to pick particles in cryo-electron tomograms in an unsupervised m
 ## Dependencies:
 * See `requirements.txt` for Python dependencies
 
----
-## !TODO
-
+## Installation:
+1. Install all the dependencies:
+```
+pip install -r requirements.txt
+```
+2. Install CuPy:  
+    A. Check the CUDA version by running `nvidia-smi`
+    B. If the CUDA version is 12.\<something\>, install CuPy by running `pip install cupy-cuda12x`. Else if CUDA version is 11.\<something\>, install CuPy by running `pip install cupy-cuda11x`.
 
 ## Particle picking using PickET
+1. Generate segmentations by running:
+```
+python s1.py <param_file_path>
+```
 
+## !TODO
+---
 ### Inputs
 
 (See also `examples/`)

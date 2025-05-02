@@ -2,11 +2,104 @@ dataset_name: tomotwin_test
 
 inputs: 
   [  
-    {
-      tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_01.2022-04-11T140327+0200/denoised_tiltseries_rec.mrc,
-      lower_z-slice_limit: 0,
-      upper_z-slice_limit: 200
-    },
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_01.2022-04-11T140327+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_02.2022-04-11T140327+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_03.2022-04-11T140327+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_04.2022-04-11T170238+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_05.2022-04-11T170238+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_06.2022-04-11T170238+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_07.2022-04-11T191718+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_1/tomo_08.2022-04-11T191718+0200/denoised_tiltseries_rec.mrc},
+    
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_01.2022-05-10T161313+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_02.2022-05-10T161313+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_03.2022-05-10T161313+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_04.2022-05-10T182221+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_05.2022-05-10T182221+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_06.2022-05-10T182221+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_07.2022-05-10T200254+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_2/tomo_08.2022-05-10T200254+0200/denoised_tiltseries_rec.mrc},
+    
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_01.2022-04-12T084242+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_02.2022-04-12T084242+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_03.2022-04-12T084242+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_04.2022-04-12T110927+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_05.2022-04-12T110927+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_06.2022-04-12T110927+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_07.2022-04-12T130359+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_3/tomo_08.2022-04-12T130359+0200/denoised_tiltseries_rec.mrc},
+    
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_01.2022-05-12T111913+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_02.2022-05-12T111913+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_03.2022-05-12T111913+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_04.2022-05-12T124440+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_05.2022-05-12T124440+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_06.2022-05-12T124440+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_07.2022-05-12T135012+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_4/tomo_08.2022-05-12T135012+0200/denoised_tiltseries_rec.mrc},
+    
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_01.2022-05-11T105658+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_02.2022-05-11T105658+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_03.2022-05-11T105658+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_04.2022-05-11T123052+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_05.2022-05-11T123052+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_06.2022-05-11T123052+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_07.2022-05-11T134419+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_5/tomo_08.2022-05-11T134419+0200/denoised_tiltseries_rec.mrc},
+
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_01.2022-04-12T165107+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_02.2022-04-12T165107+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_03.2022-04-12T165107+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_04.2022-04-12T192044+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_05.2022-04-12T192044+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_06.2022-04-12T192044+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_07.2022-04-12T211730+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_6/tomo_08.2022-04-12T211730+0200/denoised_tiltseries_rec.mrc},
+
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_01.2022-05-12T084041+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_02.2022-05-12T084041+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_03.2022-05-12T084041+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_04.2022-05-12T113036+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_05.2022-05-12T113036+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_06.2022-05-12T113036+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_07.2022-05-12T140747+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_7/tomo_08.2022-05-12T140747+0200/denoised_tiltseries_rec.mrc},
+
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_01.2022-05-12T095215+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_02.2022-05-12T095215+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_03.2022-05-12T095215+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_04.2022-05-12T110720+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_05.2022-05-12T110720+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_06.2022-05-12T110720+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_07.2022-05-12T121323+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_8/tomo_08.2022-05-12T121323+0200/denoised_tiltseries_rec.mrc},
+
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_01.2022-04-12T172855+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_02.2022-04-12T172855+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_03.2022-04-12T172855+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_04.2022-04-12T193813+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_05.2022-04-12T193813+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_06.2022-04-12T193813+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_07.2022-04-12T212347+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_9/tomo_08.2022-04-12T212347+0200/denoised_tiltseries_rec.mrc},
+      
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_01.2022-05-03T143345+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_02.2022-05-03T143345+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_03.2022-05-03T143345+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_04.2022-05-03T183726+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_05.2022-05-03T183726+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_06.2022-05-03T183726+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_07.2022-05-03T213239+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_10/tomo_08.2022-05-03T213239+0200/denoised_tiltseries_rec.mrc},
+
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_01.2022-05-04T093702+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_02.2022-05-04T093702+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_03.2022-05-04T093702+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_04.2022-05-04T114207+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_05.2022-05-04T114207+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_06.2022-05-04T114207+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_07.2022-05-04T132658+0200/denoised_tiltseries_rec.mrc},
+    {tomogram: /data2/shreyas/mining_tomograms/datasets/tomotwin/tomo_simulation_round_11/tomo_08.2022-05-04T132658+0200/denoised_tiltseries_rec.mrc},
   ]
 
 window_size: 5
@@ -34,6 +127,6 @@ feature_extraction_params:
     #   }  
   ]
 
-clustering_methods: [kmeans] #,gmm]
+clustering_methods: [kmeans, gmm]
 
 output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/
