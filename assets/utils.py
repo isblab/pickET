@@ -1,4 +1,5 @@
 import yaml
+import h5py
 import ndjson
 import numpy as np
 from skimage.util import view_as_windows
@@ -64,7 +65,7 @@ def subsample_windows(windows: np.ndarray, num_output_windows: int) -> np.ndarra
     return windows[idxs]
 
 
-def save_segmentation(
+def save_segmentation_npz(
     output_fname: str,
     segmentation: np.ndarray,
     tomogram_path: str,
@@ -83,3 +84,39 @@ def save_segmentation(
         "max_num_windows_for_fitting": max_num_windows_for_fitting,
     }
     np.savez_compressed(output_fname, segmentation=segmentation, **metadata)
+
+def save_segmentation(
+    output_fname: str,
+    segmentation: np.ndarray,
+    tomogram_path: str,
+    voxel_size: np.ndarray,
+    window_size: int,
+    feature_extraction_params: dict,
+    clustering_method: str,
+    time_taken_for_s1: Optional[float]=None,
+    time_taken_for_s2: Optional[float]=None,
+    max_num_windows_for_fitting: Optional[int] = None,
+) -> None:
+    metadata = {
+        "tomogram_path": tomogram_path,
+        "voxel_size": voxel_size,
+        "window_size": window_size,
+        "feature_extraction_params": feature_extraction_params,
+        "clustering_method": clustering_method,
+        "max_num_windows_for_fitting": max_num_windows_for_fitting,
+        "time_taken_for_s1": time_taken_for_s1,
+        "time_taken_for_s2": time_taken_for_s2,
+    }
+    with h5py.File(output_fname, "w") as f:
+        out_dataset = f.create_dataset("segmentation", data=segmentation)
+
+        for k,v in metadata.items():
+            if v is None:
+                v=-1
+            
+            if k=="feature_extraction_params":
+                for k1,v1 in v.items():
+                    k1 = f"fexparams_{k1}"
+                    out_dataset.attrs[k1] = v1
+            else:
+                out_dataset.attrs[k] = v

@@ -39,8 +39,7 @@ def main():
             z_lb = target.get("lower_z-slice_limit")
             z_ub = target.get("upper_z-slice_limit")
             console.print(
-                f"Processing tomogram {idx+1}/{len(inputs)} using \
-                    {ftex_mode} as the feature extraction method"
+                f"Processing tomogram {idx+1}/{len(inputs)} using {ftex_mode} as the feature extraction method"
             )
 
             # Preprocess tomogram
@@ -64,7 +63,8 @@ def main():
                     f"Feature extraction using method [cyan bold]{feature_extraction_params['mode']}[/] completed"
                 )
 
-            # Clustering
+            # Fitting the clusterers
+            clusterers = {}
             for cl_method in clustering_methods:
                 with console.status(
                     f"Clustering features using [cyan bold]{cl_method}[/]",
@@ -84,17 +84,15 @@ def main():
                             f"Clustering method {cl_method} not supported.\
                                         Choose from 'kmeans', 'gmm'"
                         )
+                    clusterers[cl_method]=clusterer
 
                     console.log(f"Fitting done for [cyan bold]{cl_method}[/] clusterer")
+                    console.log(f"Preshape: {preshape}")
+                    console.log(f"Features array of shape: {feature_extractor.features.shape}")
 
-                    segmentation = np.pad(
-                        clusterer.predict(feature_extractor.features).reshape(preshape),
-                        half_size,
-                        mode="constant",
-                        constant_values=-1,
-                    )
-
-                # Build the segmentation
+            # Build the segmentation
+            segmentations = {}
+            for cl_method,clusterer in clusterers.items():
                 if (
                     (z_lb is not None)
                     or (z_ub is not None)
@@ -130,10 +128,16 @@ def main():
 
                 console.log("Segmentation mask generated")
                 segmentation = clustering.set_larger_cluster_as_bg(segmentation)
+                segmentations[cl_method] = segmentation
+                console.log(f"Segmentation using [cyan bold]{cl_method}[/] completed")
 
+            toc = time.perf_counter()
+            time_taken = toc - tic
+            # Save the segmentation
+            for cl_method, segmentation in segmentations.items():
                 outf_full_path = os.path.join(
                     output_dir,
-                    f"segmentation_{idx}_{ftex_mode}_{cl_method}.npy",
+                    f"segmentation_{idx}_{ftex_mode}_{cl_method}.h5",
                 )
                 utils.save_segmentation(
                     outf_full_path,
@@ -144,11 +148,10 @@ def main():
                     feature_extraction_params=feature_extraction_params,
                     clustering_method=cl_method,
                     max_num_windows_for_fitting=max_num_windows_for_fitting,
+                    time_taken_for_s1=time_taken,
                 )
                 console.log(f"Segmentation saved to [cyan]{outf_full_path}[/]")
-                exit()
-            toc = time.perf_counter()
-            time_taken = toc - tic
+                
             console.print(
                 f"Tomogram {idx+1} processed in {int(round(time_taken/60,0))} minutes\n"
             )

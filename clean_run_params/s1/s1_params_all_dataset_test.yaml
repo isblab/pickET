@@ -1,0 +1,58 @@
+dataset_name: all_dataset_test_run
+
+inputs: 
+  [  
+    {
+      tomogram: /home/shreyas/pickET/test_tomos/tomotwin.mrc,
+      },
+    {
+      tomogram: /home/shreyas/pickET/test_tomos/muskaan.mrc,
+      },
+    {
+      tomogram: /home/shreyas/pickET/test_tomos/10001.mrc,
+      lower_z-slice_limit: 450,
+      upper_z-slice_limit: 525
+      },
+    {
+      tomogram: /home/shreyas/pickET/test_tomos/10008.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 275
+      },
+    {
+      tomogram: /home/shreyas/pickET/test_tomos/10301.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300
+      },
+    {
+      tomogram: /home/shreyas/pickET/test_tomos/10440.mrc,
+      },
+  ]
+
+window_size: 5
+max_num_windows_for_fitting: 100_000_000
+
+feature_extraction_params: 
+  [
+    {
+      mode: ffts, 
+      n_fft_subsets: 64,
+      use_subset_size: 10_000_000,
+      num_output_features: 64
+      },
+    
+    {
+      mode: gabor, 
+      num_windows_subsets: 5,
+      num_sinusoids: 10, 
+      num_parallel_filters: 16,
+      num_output_features: 64
+      },
+    
+    {
+      mode: intensities
+      }  
+  ]
+
+clustering_methods: [kmeans,gmm]
+
+output_dir: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/
