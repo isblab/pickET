@@ -43,7 +43,7 @@ def main():
             )
 
             # Preprocess tomogram
-            tomogram, voxel_sizes = preprocessing.load_tomogram(target["tomogram"])
+            tomogram, voxel_sizes = utils.load_tomogram(target["tomogram"])
             tomogram = preprocessing.guassian_blur_tomogram(tomogram)
             tomogram = preprocessing.minmax_normalize_array(tomogram)
 
@@ -84,15 +84,17 @@ def main():
                             f"Clustering method {cl_method} not supported.\
                                         Choose from 'kmeans', 'gmm'"
                         )
-                    clusterers[cl_method]=clusterer
+                    clusterers[cl_method] = clusterer
 
                     console.log(f"Fitting done for [cyan bold]{cl_method}[/] clusterer")
                     console.log(f"Preshape: {preshape}")
-                    console.log(f"Features array of shape: {feature_extractor.features.shape}")
+                    console.log(
+                        f"Features array of shape: {feature_extractor.features.shape}"
+                    )
 
             # Build the segmentation
             segmentations = {}
-            for cl_method,clusterer in clusterers.items():
+            for cl_method, clusterer in clusterers.items():
                 if (
                     (z_lb is not None)
                     or (z_ub is not None)
@@ -151,7 +153,7 @@ def main():
                     time_taken_for_s1=time_taken,
                 )
                 console.log(f"Segmentation saved to [cyan]{outf_full_path}[/]")
-                
+
             console.print(
                 f"Tomogram {idx+1} processed in {int(round(time_taken/60,0))} minutes\n"
             )

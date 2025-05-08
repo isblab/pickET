@@ -1,6 +1,7 @@
 import yaml
 import h5py
 import ndjson
+import mrcfile
 import numpy as np
 from skimage.util import view_as_windows
 from typing import Optional
@@ -9,6 +10,16 @@ from typing import Optional
 def load_params_from_yaml(param_file_path: str) -> dict:
     with open(param_file_path, "r") as paramf:
         return yaml.safe_load(paramf)
+
+
+def load_tomogram(tomogram_path: str) -> tuple[np.ndarray, np.ndarray]:
+    with mrcfile.open(tomogram_path, "r", permissive=True) as mrcf:
+        tomogram = np.array(mrcf.data)
+        vxs = mrcf.voxel_size
+        voxel_sizes = np.zeros(3, dtype=np.float32)
+        for i, ax in enumerate(("z", "y", "x")):
+            voxel_sizes[i] = vxs[ax]
+    return tomogram, voxel_sizes
 
 
 def read_ndjson_coords(fname: str) -> np.ndarray:
@@ -65,26 +76,6 @@ def subsample_windows(windows: np.ndarray, num_output_windows: int) -> np.ndarra
     return windows[idxs]
 
 
-def save_segmentation_npz(
-    output_fname: str,
-    segmentation: np.ndarray,
-    tomogram_path: str,
-    voxel_size: np.ndarray,
-    window_size: int,
-    feature_extraction_params: dict,
-    clustering_method: str,
-    max_num_windows_for_fitting: Optional[int] = None,
-) -> None:
-    metadata = {
-        "tomogram_path": tomogram_path,
-        "voxel_size": voxel_size,
-        "window_size": window_size,
-        "feature_extraction_params": feature_extraction_params,
-        "clustering_method": clustering_method,
-        "max_num_windows_for_fitting": max_num_windows_for_fitting,
-    }
-    np.savez_compressed(output_fname, segmentation=segmentation, **metadata)
-
 def save_segmentation(
     output_fname: str,
     segmentation: np.ndarray,
@@ -93,8 +84,8 @@ def save_segmentation(
     window_size: int,
     feature_extraction_params: dict,
     clustering_method: str,
-    time_taken_for_s1: Optional[float]=None,
-    time_taken_for_s2: Optional[float]=None,
+    time_taken_for_s1: Optional[float] = None,
+    time_taken_for_s2: Optional[float] = None,
     max_num_windows_for_fitting: Optional[int] = None,
 ) -> None:
     metadata = {
@@ -110,13 +101,24 @@ def save_segmentation(
     with h5py.File(output_fname, "w") as f:
         out_dataset = f.create_dataset("segmentation", data=segmentation)
 
-        for k,v in metadata.items():
+        for k, v in metadata.items():
             if v is None:
-                v=-1
-            
-            if k=="feature_extraction_params":
-                for k1,v1 in v.items():
+                v = -1
+
+            if k == "feature_extraction_params":
+                for k1, v1 in v.items():  # type: ignore
                     k1 = f"fexparams_{k1}"
                     out_dataset.attrs[k1] = v1
             else:
                 out_dataset.attrs[k] = v
+
+
+def load_h5file(fname: str) -> tuple[np.ndarray, dict]:
+    metadata = {}
+    with h5py.File(fname, "r") as h5f:
+        dataset = h5f["segmentation"]
+        seg = np.array(dataset)
+        for k in dataset.attrs:
+            metadata[k] = dataset.attrs[k]
+
+    return seg, metadata

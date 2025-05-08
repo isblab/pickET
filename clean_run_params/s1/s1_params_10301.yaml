@@ -62,8 +62,6 @@ feature_extraction_params:
     {
       mode: ffts, 
       n_fft_subsets: 64,
-      use_subset_size: 10_000_000,
-      num_output_features: 64
       },
     
     {

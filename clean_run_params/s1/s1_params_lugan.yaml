@@ -37,15 +37,13 @@ feature_extraction_params:
     {
       mode: ffts, 
       n_fft_subsets: 64,
-      use_subset_size: 10_000_000,
-      num_output_features: 64
       },
     
     {
       mode: gabor, 
       num_windows_subsets: 5,
       num_sinusoids: 10, 
-      num_parallel_filters: 16,
+      num_parallel_filters: 8,
       num_output_features: 64
       },
     

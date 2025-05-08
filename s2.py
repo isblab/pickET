@@ -13,14 +13,10 @@ def main():
 
     params = utils.load_params_from_yaml(params_fname)
 
-    experiment_name = params["experiment_name"]
-    run_name = params["run_name"]
+    dataset_name = params["dataset_name"]
     inputs = params["inputs"]
-    clustering_methods = params["clustering_method"]
     particle_extraction_params = params["particle_extraction_params"]
-    output_dir = os.path.join(
-        params["output_dir"], experiment_name, run_name, "predicted_particles"
-    )
+    output_dir = os.path.join(params["output_dir"], dataset_name, "predicted_particles")
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 
@@ -30,7 +26,10 @@ def main():
         print(f"Processing segmentation {idx+1}/{len(inputs)}")
 
         particle_cluster_id = target["particle_cluster_id"]
-        segmentation = np.load(target["segmentation"])
+        segmentation, h5_metadata = utils.load_h5file(target["segmentation"])
+
+        clustering_method = h5_metadata["clustering_method"]
+
         segmentation = np.where(segmentation == particle_cluster_id, 1, 0)
 
         for p_ex_params in particle_extraction_params:
@@ -44,7 +43,7 @@ def main():
                 centroid_coords,
                 os.path.join(
                     output_dir,
-                    f"predicted_centroids_{idx}_{clustering_methods}_{p_ex_params['mode']}.ndjson",
+                    f"predicted_centroids_{idx}_{clustering_method}_{p_ex_params['mode']}.ndjson",
                 ),
             )
         toc = time.perf_counter()

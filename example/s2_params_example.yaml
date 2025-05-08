@@ -1,0 +1,16 @@
+dataset_name: example_dataset
+
+inputs: 
+  [  
+    {segmentation: /data/picket_results/example_dataset/segmentation_0_ffts_kmeans.h5, particle_cluster_id: 1},
+    {segmentation: /data/picket_results/example_dataset/segmentation_0_ffts_gmm.h5, particle_cluster_id: 1},
+    {segmentation: /data/picket_results/example_dataset/segmentation_1_gabor_kmeans.h5, particle_cluster_id: 1},
+    {segmentation: /data/picket_results/example_dataset/segmentation_2_intensities_gmm.h5, particle_cluster_id: 1},
+  ]
+
+particle_extraction_params: [
+  {mode: connected_component_labeling},
+  {mode: watershed_segmentation, min_distance: 15}
+]
+
+output_dir: /data/picket_results/

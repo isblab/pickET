@@ -16,16 +16,13 @@ from assets import utils, preprocessing
 #     dset.attrs["voxel_sizes"] = voxel_sizes
 #     dset.attrs["tomogram_path"] = tomo_fname
 
-with h5py.File("/data/shreyas/mining_tomograms/s1_clean_results_picket_v2/h5py_test/segmentation_0_ffts_kmeans", "r") as h5f:
-    dataset = h5f['segmentation']
+with h5py.File(
+    "/data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_0_ffts_kmeans.h5",
+    "r",
+) as h5f:
+    dataset = h5f["segmentation"]
     for k in dataset.attrs:
         print(k)
-    # # Access the dataset
-    # dset = f["tomogram"]
-
-    # # Read the data
-    
-    # print(dtst.shape)
     # print(dset.attrs["description"])
     # print(dset.attrs["voxel_sizes"])
     # print(dset.attrs["tomogram_path"])

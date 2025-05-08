@@ -9,7 +9,6 @@ class FeatureExtractor:
         self.mode = feature_extraction_params["mode"]
         self.features = np.array(None)
         self.best_feature_idxs = np.array([])
-        self.fft_mean = np.nan
 
         if self.mode == "gabor":
             self.gabor_filter_bank = self.generate_gabor_filter_bank()
@@ -76,30 +75,8 @@ class FeatureExtractor:
         if np.any(np.isnan(ffts)):
             raise ValueError("Some FFTs were not computed")
 
-        if self.fft_mean is np.nan:
-            self.fft_mean = np.mean(ffts)
-
-        ffts = np.where(ffts < self.fft_mean, 0, ffts)
         ffts = ffts.reshape((-1, self.window_size**3))
-        ffts = self._get_highest_std_features(
-            ffts,
-            self.feature_extraction_params["num_output_features"],
-            self.feature_extraction_params["use_subset_size"],
-        )
-
         return ffts
-
-    def _get_highest_std_features(
-        self, features: np.ndarray, n_output_features: int, use_subset_size: int
-    ) -> np.ndarray:
-        if len(self.best_feature_idxs) == 0:
-            random_idx = np.random.choice(np.arange(len(features) - 1), use_subset_size)
-            stds = np.std(features[random_idx], axis=0)
-            self.best_feature_idxs = np.argsort(stds)[-n_output_features:]
-
-        dim_reduced_features = features[:, self.best_feature_idxs]
-        dim_reduced_features = np.squeeze(dim_reduced_features)
-        return dim_reduced_features
 
     def compute_gabor_features(self, windows: np.ndarray) -> np.ndarray:
         if len(windows.shape) > 2:
@@ -137,6 +114,7 @@ class FeatureExtractor:
                     subset_features[w_start_idx:w_end_idx] = ft
                 subset_stds = cp.asnumpy(cp.std(subset_features, axis=0))
                 stds[f_start_idx:f_end_idx] = subset_stds
+
             self.best_feature_idxs = np.argsort(stds)[-num_output_features:]
 
         features = np.nan * np.ones((len(windows), num_output_features))

@@ -1,0 +1,42 @@
+dataset_name: example_dataset
+
+inputs: 
+  [  
+    {
+      tomogram: /data/datasets/example_dataset/tomogram_001/denoised_tomogram_001.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300
+      },
+    {
+      tomogram: /data/datasets/example_dataset/tomogram_001/denoised_tomogram_002.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300
+      },
+  ]
+
+window_size: 5
+max_num_windows_for_fitting: 100_000_000
+
+feature_extraction_params: 
+  [
+    {
+      mode: ffts, 
+      n_fft_subsets: 64,
+      },
+    
+    {
+      mode: gabor, 
+      num_windows_subsets: 5,
+      num_sinusoids: 10, 
+      num_parallel_filters: 8,
+      num_output_features: 64
+      },
+    
+    {
+      mode: intensities
+      }  
+  ]
+
+clustering_methods: [kmeans,gmm]
+
+output_dir: /data/picket_results/
