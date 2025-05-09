@@ -6,3 +6,4 @@ __pycache__/
 *npy
 npz_save_metadata_test.py
 npz_save_metadata_test2.py
+.vscode/

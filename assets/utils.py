@@ -70,9 +70,10 @@ def prepare_out_coords(
 
     out_dict["metadata"]["z_lb_for_particle_extraction"] = z_lb
     out_dict["metadata"]["z_ub_for_particle_extraction"] = z_ub
-    out_dict["CentroidCoordinates"] = []
+
+    out_dict["PredictedCentroidCoordinates"] = []
     for coord in coords:
-        out_dict["CentroidCoordinates"].append(
+        out_dict["PredictedCentroidCoordinates"].append(
             {"x": int(coord[2]), "y": int(coord[1]), "z": int(coord[0])}
         )
 

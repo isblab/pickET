@@ -31,11 +31,16 @@ def main():
         z_ub = target.get("upper_z-slice_limit")
 
         # Load segmentation
-        segmentation, h5_metadata = utils.load_h5file(target["segmentation"])
+        seg_path = target["segmentation"]
+        segmentation, h5_metadata = utils.load_h5file(seg_path)
         h5_metadata["particle_cluster_id"] = particle_cluster_id
+        h5_metadata["segmentation_path"] = seg_path
 
         segmentation = np.where(segmentation == particle_cluster_id, 1, 0)
-        segmentation = preprocessing.get_z_section(segmentation, z_lb=z_lb, z_ub=z_ub)
+        if z_lb is not None:
+            segmentation[:z_lb] = 0
+        if z_ub is not None:
+            segmentation[z_ub + 1 :] = 0
 
         outputs = {}
         for p_ex_params in particle_extraction_params:
@@ -61,7 +66,7 @@ def main():
         for out_fname, out_dict in outputs.items():
             out_dict["metadata"]["time_taken_for_s2"] = time_taken
             with open(out_fname, "w") as out_annot_f:
-                yaml.dump(out_dict, out_annot_f)
+                yaml.dump(out_dict, out_annot_f, sort_keys=False)
 
         print(f"\tTomogram {idx+1} processed in {time_taken:.2f} seconds\n")
 

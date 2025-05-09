@@ -5,6 +5,8 @@ inputs:
     {
       segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_0_gabor_kmeans.h5, 
       particle_cluster_id: 1,
+      lower_z-slice_limit: 10,
+      upper_z-slice_limit: 190
       },
     ]
 
