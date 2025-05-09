@@ -52,6 +52,33 @@ def write_coords_as_ndjson(coords: np.ndarray, out_fname: str) -> None:
         ndjson.dump(lines, out_annot_f)
 
 
+def prepare_out_coords(
+    coords: np.ndarray,
+    metadata: dict,
+    z_lb: Optional[int] = None,
+    z_ub: Optional[int] = None,
+) -> dict:
+    out_dict = {}
+    out_dict["metadata"] = {}
+    for k, v in metadata.items():
+        if isinstance(v, np.ndarray):
+            out_dict["metadata"][k] = v.tolist()
+        elif isinstance(v, np.generic):
+            out_dict["metadata"][k] = v.item()
+        else:
+            out_dict["metadata"][k] = v
+
+    out_dict["metadata"]["z_lb_for_particle_extraction"] = z_lb
+    out_dict["metadata"]["z_ub_for_particle_extraction"] = z_ub
+    out_dict["CentroidCoordinates"] = []
+    for coord in coords:
+        out_dict["CentroidCoordinates"].append(
+            {"x": int(coord[2]), "y": int(coord[1]), "z": int(coord[0])}
+        )
+
+    return out_dict
+
+
 def get_windows(
     tomo: np.ndarray,
     window_size: int,

@@ -1,0 +1,16 @@
+dataset_name: tomotwin
+
+inputs: 
+  [  
+    {
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_0_gabor_kmeans.h5, 
+      particle_cluster_id: 1,
+      },
+    ]
+
+particle_extraction_params: [
+  {mode: connected_component_labeling},
+  # {mode: watershed_segmentation, min_distance: 15}
+]
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/

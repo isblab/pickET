@@ -7,10 +7,6 @@
 # **PickET:** Unsupervised particle picking protocol for cryo-electron tomograms
 Python package to pick particles in cryo-electron tomograms in an unsupervised manner
 
-
-<img src="images/PickET_GraphicalAbstract.png" alt="PickET graphical abstract" width="600">
-
-### **A schematic description of the PickET workflow:**
 <img src="images/PickET_AlgorithmFlowchart.png" alt="PickET workflow" width="600">
 
 
@@ -119,11 +115,15 @@ This will also be the name of the directory where all the outputs will be saved.
     [  
         {
             segmentation: <path_to_segmentation_1>, 
-            particle_cluster_id: 1  # Cluster index of the particle cluster 
+            particle_cluster_id: 1,  # Cluster index of the particle cluster 
+            lower_z-slice_limit: <upper_zslice_where_the_lamella_starts>, #[Optional]#
+            upper_z-slice_limit: <lower_zslice_where_the_lamella_ends> #[Optional]#
             },
         {
             segmentation: <path_to_segmentation_1>, 
-            particle_cluster_id: 0
+            particle_cluster_id: 0,
+            lower_z-slice_limit: <upper_zslice_where_the_lamella_starts>, #[Optional]#
+            upper_z-slice_limit: <lower_zslice_where_the_lamella_ends> #[Optional]#
             },
     ]
 *Note:* The `particle_cluster_id` is essentially the voxel intensity for the voxel corresponding to particles voxel in the segmentation.

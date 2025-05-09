@@ -2,10 +2,30 @@ dataset_name: example_dataset
 
 inputs: 
   [  
-    {segmentation: /data/picket_results/example_dataset/segmentation_0_ffts_kmeans.h5, particle_cluster_id: 1},
-    {segmentation: /data/picket_results/example_dataset/segmentation_0_ffts_gmm.h5, particle_cluster_id: 1},
-    {segmentation: /data/picket_results/example_dataset/segmentation_1_gabor_kmeans.h5, particle_cluster_id: 1},
-    {segmentation: /data/picket_results/example_dataset/segmentation_2_intensities_gmm.h5, particle_cluster_id: 1},
+    {
+      segmentation: /data/picket_results/example_dataset/segmentation_0_ffts_kmeans.h5, 
+      particle_cluster_id: 1,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300
+      },
+    {
+      segmentation: /data/picket_results/example_dataset/segmentation_0_ffts_gmm.h5,
+      particle_cluster_id: 1,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300
+      },
+    {
+      segmentation: /data/picket_results/example_dataset/segmentation_1_gabor_kmeans.h5, 
+      particle_cluster_id: 1,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300
+      },
+    {
+      segmentation: /data/picket_results/example_dataset/segmentation_2_intensities_gmm.h5, 
+      particle_cluster_id: 1,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300
+      },
   ]
 
 particle_extraction_params: [

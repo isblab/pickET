@@ -1,10 +1,11 @@
 import os
 import sys
 import time
+import yaml
 import numpy as np
 
 import slack_bot
-from assets import utils, particle_extraction
+from assets import utils, preprocessing, particle_extraction
 
 
 def main():
@@ -26,12 +27,17 @@ def main():
         print(f"Processing segmentation {idx+1}/{len(inputs)}")
 
         particle_cluster_id = target["particle_cluster_id"]
-        segmentation, h5_metadata = utils.load_h5file(target["segmentation"])
+        z_lb = target.get("lower_z-slice_limit")
+        z_ub = target.get("upper_z-slice_limit")
 
-        clustering_method = h5_metadata["clustering_method"]
+        # Load segmentation
+        segmentation, h5_metadata = utils.load_h5file(target["segmentation"])
+        h5_metadata["particle_cluster_id"] = particle_cluster_id
 
         segmentation = np.where(segmentation == particle_cluster_id, 1, 0)
+        segmentation = preprocessing.get_z_section(segmentation, z_lb=z_lb, z_ub=z_ub)
 
+        outputs = {}
         for p_ex_params in particle_extraction_params:
             instance_seg, num_objects = particle_extraction.do_instance_segmentation(
                 segmentation, p_ex_params
@@ -39,15 +45,24 @@ def main():
             centroid_coords = particle_extraction.get_centroids(
                 instance_seg, num_objects
             )
-            utils.write_coords_as_ndjson(
-                centroid_coords,
-                os.path.join(
-                    output_dir,
-                    f"predicted_centroids_{idx}_{clustering_method}_{p_ex_params['mode']}.ndjson",
-                ),
+            out_fpath = os.path.join(
+                output_dir,
+                f"predicted_centroids_{idx}_{h5_metadata["clustering_method"]}_{p_ex_params['mode']}.yaml",
+            )
+            outputs[out_fpath] = utils.prepare_out_coords(
+                coords=centroid_coords,
+                metadata=h5_metadata,
+                z_lb=z_lb,
+                z_ub=z_ub,
             )
         toc = time.perf_counter()
         time_taken = toc - tic
+
+        for out_fname, out_dict in outputs.items():
+            out_dict["metadata"]["time_taken_for_s2"] = time_taken
+            with open(out_fname, "w") as out_annot_f:
+                yaml.dump(out_dict, out_annot_f)
+
         print(f"\tTomogram {idx+1} processed in {time_taken:.2f} seconds\n")
 
     slack_bot.send_slack_dm(
