@@ -26,7 +26,7 @@ def read_ndjson_coords(fname: str) -> np.ndarray:
     with open(fname, "r") as in_annot_f:
         annotations = ndjson.load(in_annot_f)
 
-    coords = np.nan * np.ones((len(annotations), 3))
+    coords = np.nan * np.ones((len(annotations), 3), dtype=np.int32)
     for idx, ln in enumerate(annotations):
         coords[idx] = np.array(
             [ln["location"]["z"], ln["location"]["y"], ln["location"]["x"]]
@@ -80,28 +80,33 @@ def prepare_out_coords(
     return out_dict
 
 
-def get_windows(
+def get_neighborhoods(
     tomo: np.ndarray,
     window_size: int,
-    max_num_windows_for_fitting: Optional[int] = None,
+    max_num_neighborhoods_for_fitting: Optional[int] = None,
 ) -> tuple[np.ndarray, tuple]:
     if window_size % 2 == 0:
         raise ValueError(
             f"Please set window_size to an odd integer. It was set to {window_size}"
         )
-    windows = view_as_windows(tomo, window_size)
-    preshape = windows.shape[:3]
-    windows = windows.reshape(-1, window_size, window_size, window_size)
-    if max_num_windows_for_fitting is not None and max_num_windows_for_fitting < len(
-        windows
+    neighborhoods = view_as_windows(tomo, window_size)
+    preshape = neighborhoods.shape[:3]
+    neighborhoods = neighborhoods.reshape(-1, window_size, window_size, window_size)
+    if (
+        max_num_neighborhoods_for_fitting is not None
+        and max_num_neighborhoods_for_fitting < len(neighborhoods)
     ):
-        windows = subsample_windows(windows, max_num_windows_for_fitting)
-    return windows, preshape
+        neighborhoods = subsample_neighborhoods(
+            neighborhoods, max_num_neighborhoods_for_fitting
+        )
+    return neighborhoods, preshape
 
 
-def subsample_windows(windows: np.ndarray, num_output_windows: int) -> np.ndarray:
-    idxs = np.random.choice(len(windows), num_output_windows, replace=False)
-    return windows[idxs]
+def subsample_neighborhoods(
+    neighborhoods: np.ndarray, num_output_neighborhoods: int
+) -> np.ndarray:
+    idxs = np.random.choice(len(neighborhoods), num_output_neighborhoods, replace=False)
+    return neighborhoods[idxs]
 
 
 def save_segmentation(
@@ -114,7 +119,7 @@ def save_segmentation(
     clustering_method: str,
     time_taken_for_s1: Optional[float] = None,
     time_taken_for_s2: Optional[float] = None,
-    max_num_windows_for_fitting: Optional[int] = None,
+    max_num_neighborhoods_for_fitting: Optional[int] = None,
 ) -> None:
     metadata = {
         "tomogram_path": tomogram_path,
@@ -122,7 +127,7 @@ def save_segmentation(
         "window_size": window_size,
         "feature_extraction_params": feature_extraction_params,
         "clustering_method": clustering_method,
-        "max_num_windows_for_fitting": max_num_windows_for_fitting,
+        "max_num_neighborhoods_for_fitting": max_num_neighborhoods_for_fitting,
         "time_taken_for_s1": time_taken_for_s1,
         "time_taken_for_s2": time_taken_for_s2,
     }

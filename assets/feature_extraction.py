@@ -56,17 +56,19 @@ class FeatureExtractor:
             raise ValueError("Some Gabor filters were not generated")
         return filter_bank
 
-    def compute_ffts(self, windows: np.ndarray) -> np.ndarray:
-        num_parallel_windows = (
-            len(windows) // self.feature_extraction_params["n_fft_subsets"]
+    def compute_ffts(self, neighborhoods: np.ndarray) -> np.ndarray:
+        num_parallel_neighborhoods = (
+            len(neighborhoods) // self.feature_extraction_params["n_fft_subsets"]
         )
-        ffts = np.nan * np.ones(windows.shape)
+        ffts = np.nan * np.ones(neighborhoods.shape)
 
-        for subset_start_idx in range(0, len(windows), num_parallel_windows):
+        for subset_start_idx in range(
+            0, len(neighborhoods), num_parallel_neighborhoods
+        ):
             subset_end_idx = min(
-                (subset_start_idx + num_parallel_windows), len(windows)
+                (subset_start_idx + num_parallel_neighborhoods), len(neighborhoods)
             )
-            subset = windows[subset_start_idx:subset_end_idx]
+            subset = neighborhoods[subset_start_idx:subset_end_idx]
             subset_fft = cp.fft.fftn(cp.asarray(subset), axes=(-3, -2, -1))
             subset_fft = cp.fft.fftshift(subset_fft, axes=(-3, -2, -1))
             subset_fft = cp.abs(subset_fft)
@@ -78,9 +80,9 @@ class FeatureExtractor:
         ffts = ffts.reshape((-1, self.window_size**3))
         return ffts
 
-    def compute_gabor_features(self, windows: np.ndarray) -> np.ndarray:
-        if len(windows.shape) > 2:
-            raise ValueError("Windows must be 2D for Gabor feature extraction")
+    def compute_gabor_features(self, neighborhoods: np.ndarray) -> np.ndarray:
+        if len(neighborhoods.shape) > 2:
+            raise ValueError("neighborhoods must be 2D for Gabor feature extraction")
         if len(self.gabor_filter_bank.shape) > 2:
             raise ValueError(
                 "Gabor filter bank must be 2D for Gabor feature extraction"
@@ -89,7 +91,8 @@ class FeatureExtractor:
         num_output_features = self.feature_extraction_params["num_output_features"]
         num_parallel_filters = self.feature_extraction_params["num_parallel_filters"]
         window_subset_size = (
-            len(windows) // self.feature_extraction_params["num_windows_subsets"]
+            len(neighborhoods)
+            // self.feature_extraction_params["num_neighborhoods_subsets"]
         )
 
         stds = np.nan * np.ones(len(self.gabor_filter_bank))
@@ -103,10 +106,12 @@ class FeatureExtractor:
                 )
                 f_subset = self.gabor_filter_bank[f_start_idx:f_end_idx]
 
-                subset_features = cp.nan * cp.ones((len(windows), len(f_subset)))
-                for w_start_idx in range(0, len(windows), window_subset_size):
-                    w_end_idx = min(len(windows), w_start_idx + window_subset_size)
-                    w_subset = windows[w_start_idx:w_end_idx]
+                subset_features = cp.nan * cp.ones((len(neighborhoods), len(f_subset)))
+                for w_start_idx in range(0, len(neighborhoods), window_subset_size):
+                    w_end_idx = min(
+                        len(neighborhoods), w_start_idx + window_subset_size
+                    )
+                    w_subset = neighborhoods[w_start_idx:w_end_idx]
 
                     f_subset = cp.asarray(f_subset, dtype=cp.float32)
                     w_subset = cp.asarray(w_subset, dtype=cp.float32)
@@ -117,10 +122,10 @@ class FeatureExtractor:
 
             self.best_feature_idxs = np.argsort(stds)[-num_output_features:]
 
-        features = np.nan * np.ones((len(windows), num_output_features))
-        for w_start_idx in range(0, len(windows), window_subset_size):
-            w_end_idx = min(len(windows), w_start_idx + window_subset_size)
-            w_subset = windows[w_start_idx:w_end_idx]
+        features = np.nan * np.ones((len(neighborhoods), num_output_features))
+        for w_start_idx in range(0, len(neighborhoods), window_subset_size):
+            w_end_idx = min(len(neighborhoods), w_start_idx + window_subset_size)
+            w_subset = neighborhoods[w_start_idx:w_end_idx]
 
             filters = cp.asarray(
                 self.gabor_filter_bank[self.best_feature_idxs], dtype=cp.float32
@@ -134,15 +139,15 @@ class FeatureExtractor:
 
         return features
 
-    def extract_features(self, windows: np.ndarray) -> None:
+    def extract_features(self, neighborhoods: np.ndarray) -> None:
         if self.mode == "intensities":
-            self.features = windows.reshape((-1, self.window_size**3))
+            self.features = neighborhoods.reshape((-1, self.window_size**3))
         elif self.mode == "ffts":
-            self.features = self.compute_ffts(windows)
+            self.features = self.compute_ffts(neighborhoods)
 
         elif self.mode == "gabor":
-            windows = windows.reshape((-1, self.window_size**3))
-            self.features = self.compute_gabor_features(windows)
+            neighborhoods = neighborhoods.reshape((-1, self.window_size**3))
+            self.features = self.compute_gabor_features(neighborhoods)
 
         else:
             raise ValueError(

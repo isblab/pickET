@@ -25,7 +25,7 @@ def main():
     window_size: int = params["window_size"]
     half_size: int = window_size // 2
     all_feature_extraction_params = params["feature_extraction_params"]
-    max_num_windows_for_fitting = params.get("max_num_windows_for_fitting")
+    max_num_neighborhoods_for_fitting = params.get("max_num_neighborhoods_for_fitting")
     clustering_methods = params["clustering_methods"]
 
     for feature_extraction_params in all_feature_extraction_params:
@@ -49,16 +49,16 @@ def main():
 
             # Extract features
             with console.status(
-                "Extracting all overlapping windows", spinner="bouncingBall"
+                "Extracting all overlapping neighborhoods", spinner="bouncingBall"
             ) as status:
-                windows, preshape = utils.get_windows(
+                neighborhoods, preshape = utils.get_neighborhoods(
                     preprocessing.get_z_section(tomogram, z_lb=z_lb, z_ub=z_ub),
                     window_size,
-                    max_num_windows_for_fitting,
+                    max_num_neighborhoods_for_fitting,
                 )
-                console.log("Successfully extracted all overalapping windows")
+                console.log("Successfully extracted all overalapping neighborhoods")
                 status.update(status="Extracting features", spinner="bouncingBall")
-                feature_extractor.extract_features(windows)
+                feature_extractor.extract_features(neighborhoods)
                 console.log(
                     f"Feature extraction using method [cyan bold]{feature_extraction_params['mode']}[/] completed"
                 )
@@ -98,7 +98,7 @@ def main():
                 if (
                     (z_lb is not None)
                     or (z_ub is not None)
-                    or (max_num_windows_for_fitting is not None)
+                    or (max_num_neighborhoods_for_fitting is not None)
                 ):
                     segmentation = -1 * np.ones(tomogram.shape, dtype=np.int16)
                     for zslice_idx in track(
@@ -108,10 +108,10 @@ def main():
                         tomogram_zslab = tomogram[
                             zslice_idx - half_size : zslice_idx + half_size + 1
                         ]
-                        slab_windows, slab_preshape = utils.get_windows(
+                        slab_neighborhoods, slab_preshape = utils.get_neighborhoods(
                             tomogram_zslab, window_size
                         )
-                        feature_extractor.extract_features(slab_windows)
+                        feature_extractor.extract_features(slab_neighborhoods)
                         slab_labels = clusterer.predict(feature_extractor.features)
 
                         seg = slab_labels.reshape(slab_preshape).astype(np.int16)
@@ -149,7 +149,7 @@ def main():
                     window_size=window_size,
                     feature_extraction_params=feature_extraction_params,
                     clustering_method=cl_method,
-                    max_num_windows_for_fitting=max_num_windows_for_fitting,
+                    max_num_neighborhoods_for_fitting=max_num_neighborhoods_for_fitting,
                     time_taken_for_s1=time_taken,
                 )
                 console.log(f"Segmentation saved to [cyan]{outf_full_path}[/]")

@@ -103,7 +103,7 @@ inputs:
   ]
 
 window_size: 5
-max_num_windows_for_fitting: 75_000_000
+max_num_neighborhoods_for_fitting: 75_000_000
 
 feature_extraction_params: 
   [
@@ -114,7 +114,7 @@ feature_extraction_params:
     
     {
       mode: gabor, 
-      num_windows_subsets: 5,
+      num_neighborhoods_subsets: 5,
       num_sinusoids: 10, 
       num_parallel_filters: 16,
       num_output_features: 64

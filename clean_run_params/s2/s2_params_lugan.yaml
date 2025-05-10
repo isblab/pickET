@@ -1,0 +1,42 @@
+dataset_name: lugan
+
+inputs: 
+  [  
+    {
+      segmentation: /data2/shreyas/mining_tomograms/s1_clean_results_picket_v2/lugan/, 
+      particle_cluster_id: ,
+      lower_z-slice_limit: ,
+      upper_z-slice_limit: 
+      },
+    {
+      segmentation: /data2/shreyas/mining_tomograms/s1_clean_results_picket_v2/lugan/, 
+      particle_cluster_id: ,
+      lower_z-slice_limit: ,
+      upper_z-slice_limit: 
+      },
+    {
+      segmentation: /data2/shreyas/mining_tomograms/s1_clean_results_picket_v2/lugan/, 
+      particle_cluster_id: ,
+      lower_z-slice_limit: ,
+      upper_z-slice_limit: 
+      },
+    {
+      segmentation: /data2/shreyas/mining_tomograms/s1_clean_results_picket_v2/lugan/, 
+      particle_cluster_id: ,
+      lower_z-slice_limit: ,
+      upper_z-slice_limit: 
+      },
+    {
+      segmentation: /data2/shreyas/mining_tomograms/s1_clean_results_picket_v2/lugan/, 
+      particle_cluster_id: ,
+      lower_z-slice_limit: ,
+      upper_z-slice_limit: 
+      },
+    ]
+
+particle_extraction_params: [
+  {mode: connected_component_labeling},
+  {mode: watershed_segmentation, min_distance: 15}
+]
+
+output_dir: /data2/shreyas/mining_tomograms/s1_clean_results_picket_v2/
