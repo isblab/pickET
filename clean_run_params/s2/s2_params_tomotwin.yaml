@@ -15,4 +15,7 @@ particle_extraction_params: [
   # {mode: watershed_segmentation, min_distance: 15}
 ]
 
+extract_subtomograms: True
+subtomogram_size: 31
+
 output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/

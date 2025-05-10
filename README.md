@@ -36,10 +36,10 @@ pip install -r requirements.txt
     ```
     **_Note:_** The CUDA version can be checked by running `nvidia-smi` from the terminal.
     
-##TODO preprocessing before running pickET
-Run TOmoeed (provide ref and link to software and command used to run). 
+#TODO preprocessing before running pickET
+Run Tomoeed (provide ref and link to software and command used to run). 
 
-TODO show pics of outputs at each step. 
+#TODO show pics of outputs at each step. 
 
 ## Run PickET
 
@@ -52,7 +52,7 @@ In the second step (S2, particle extraction), particles are segmented in the tom
 
 ### Step 1 (S1): Generate semantic segmentations 
 
-### Inputs for S1:
+#### Inputs for S1:
 
 Inputs for S1 are provided through a YAML file containing parameters. An example is provided in `examples/s1_params_example.yaml`. 
 
@@ -130,7 +130,7 @@ The `clustering_methods` list described the clustering algorithms to be used. In
 As the name suggests, `output_dir` describes the path to the directory where the output segmentations will be saved.  
 *Note:* The segmentations will be saved in `output_dir/dataset_name` directory.
 
-### Running S1:
+#### Running S1:
 
 
 First, run the following command to generate the six semantic segmentations.
@@ -139,7 +139,7 @@ First, run the following command to generate the six semantic segmentations.
 python s1.py <s1_param_file_path>
 ```
 
-### Visualizing segmentations from S1:
+#### Visualizing segmentations from S1:
 
 Second, run the following command on each of the segmentation to visualize an overlay of the segmentation on the input tomogram in Napari:
 ```
@@ -155,7 +155,7 @@ From this step, the users will also get the `particle_cluster_id` for each of th
 
 ### Step 2 (S2): Extract particles  
 
-### Inputs for S2:
+#### Inputs for S2:
 An example set of params for S2 are provided in `examples/s2_params_example.yaml`. These parameters are described in detail below:
 
     dataset_name: <An identifier for the dataset>
@@ -194,12 +194,16 @@ First, for `mode: connected_component_labeling`, there are no hyperparameters. T
 
 Second, for `mode: watershed_segmentation`, there is one hyperparameter. This mode uses the watershed segmentation workflow for splitting semantic segmentation into instance segmentation. It uses the `min_distance` hyperparameter that defines the minimum separation between two detected particles in voxels.
 
+    extract_subtomograms: True
+    subtomogram_size: 31
+Setting the value of `extract_subtomograms` to `True` will result in extracting the subtomograms of size `subtomogram_size` around each predicted particle centroid in .npy file format. If the user does not wish to extract the subtomograms or wants only the centroids, they can set `extract_subtomograms` to `False`. In this case, the value set to `subtomogram_size` will be ignored.
+
     output_dir: /data/picket_results/
 As the name suggests, `output_dir` describes the path to the directory where the output segmentations will be saved.  
-*Note:* The extracted particle centroid coordinates will be saved as `.ndjson` files in `output_dir/dataset_name/predicted_particles/` directory.
+*Note:* The extracted particle centroid coordinates will be saved as `.ndjson` files in `output_dir/dataset_name/predicted_particles/` directory. And, the subtomograms, if extracted, will be saved in `output_dir/dataset_name/predicted_particles/subtomograms/` directory.
 
 
-### Running S2:
+#### Running S2:
 Run the following command to obtain centroids for predicted particles.
 
 ```
@@ -216,7 +220,7 @@ TODO show pics of outputs at each step for it to look tutorial-like and less sca
 
 TODO readthedocs? 
 
-### Visualizing segmentations from S2: 
+#### Visualizing segmentations from S2: 
 
 An overlay of these on the input tomogram can be visualized in Napari by running `python see_segmentations.py <path_to_segmentation>`.
 

@@ -67,3 +67,21 @@ def get_centroids(instance_segmentation: np.ndarray, num_objects: int) -> np.nda
     if np.any(np.isnan(centroids)):
         centroids = centroids[np.invert(np.any(np.isnan(centroids), axis=1))]
     return centroids
+
+
+def extract_subtomograms(
+    centroids: list[dict], subtomogram_size: int, tomogram: np.ndarray
+) -> list[np.ndarray]:
+    half_size = subtomogram_size // 2
+    subtomograms = []
+    for centroid in centroids:
+        x, y, z = int(centroid["x"]), int(centroid["y"]), int(centroid["z"])
+        x_min, x_max = (x - half_size), (x + half_size + 1)
+        y_min, y_max = (y - half_size), (y + half_size + 1)
+        z_min, z_max = (z - half_size), (z + half_size + 1)
+
+        st = tomogram[z_min:z_max, y_min:y_max, x_min:x_max]
+        if st.shape == (subtomogram_size, subtomogram_size, subtomogram_size):
+            subtomograms.append(st)
+
+    return subtomograms

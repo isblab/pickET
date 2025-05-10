@@ -65,6 +65,20 @@ def main():
 
         for out_fname, out_dict in outputs.items():
             out_dict["metadata"]["time_taken_for_s2"] = time_taken
+
+            subtomogram_dir = None
+            if params["extract_subtomograms"]:
+                subtomogram_size = params["subtomogram_size"]
+                tomogram, _ = utils.load_tomogram(out_dict["metadata"]["tomogram_path"])
+                subtomograms = particle_extraction.extract_subtomograms(
+                    out_dict["PredictedCentroidCoordinates"], subtomogram_size, tomogram
+                )
+                subtomogram_dir = os.path.join(output_dir, "subtomograms")
+                os.mkdir(subtomogram_dir)
+                for i, st in enumerate(subtomograms):
+                    np.save(os.path.join(subtomogram_dir, f"st_{i}.npy"), st)
+                out_dict["metadata"]["subtomogram_dir"] = subtomogram_dir
+
             with open(out_fname, "w") as out_annot_f:
                 yaml.dump(out_dict, out_annot_f, sort_keys=False)
 
