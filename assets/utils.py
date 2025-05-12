@@ -55,8 +55,6 @@ def write_coords_as_ndjson(coords: np.ndarray, out_fname: str) -> None:
 def prepare_out_coords(
     coords: np.ndarray,
     metadata: dict,
-    z_lb: Optional[int] = None,
-    z_ub: Optional[int] = None,
 ) -> dict:
     out_dict = {}
     out_dict["metadata"] = {}
@@ -67,9 +65,6 @@ def prepare_out_coords(
             out_dict["metadata"][k] = v.item()
         else:
             out_dict["metadata"][k] = v
-
-    out_dict["metadata"]["z_lb_for_particle_extraction"] = z_lb
-    out_dict["metadata"]["z_ub_for_particle_extraction"] = z_ub
 
     out_dict["PredictedCentroidCoordinates"] = []
     for coord in coords:
@@ -82,24 +77,28 @@ def prepare_out_coords(
 
 def get_neighborhoods(
     tomo: np.ndarray,
-    window_size: int,
+    neighborhood_size: int,
     max_num_neighborhoods_for_fitting: Optional[int] = None,
-) -> tuple[np.ndarray, tuple]:
-    if window_size % 2 == 0:
+) -> tuple:
+    if neighborhood_size % 2 == 0:
         raise ValueError(
-            f"Please set window_size to an odd integer. It was set to {window_size}"
+            f"Please set neighborhood_size to an odd integer. It was set to {neighborhood_size}"
         )
-    neighborhoods = view_as_windows(tomo, window_size)
+    neighborhoods = view_as_windows(tomo, neighborhood_size)
     preshape = neighborhoods.shape[:3]
-    neighborhoods = neighborhoods.reshape(-1, window_size, window_size, window_size)
-    if (
-        max_num_neighborhoods_for_fitting is not None
-        and max_num_neighborhoods_for_fitting < len(neighborhoods)
-    ):
-        neighborhoods = subsample_neighborhoods(
-            neighborhoods, max_num_neighborhoods_for_fitting
-        )
-    return neighborhoods, preshape
+    neighborhoods = neighborhoods.reshape(
+        -1, neighborhood_size, neighborhood_size, neighborhood_size
+    )
+
+    if max_num_neighborhoods_for_fitting is not None:
+        if max_num_neighborhoods_for_fitting >= len(neighborhoods):
+            max_num_neighborhoods_for_fitting = None
+        else:
+            neighborhoods = subsample_neighborhoods(
+                neighborhoods, max_num_neighborhoods_for_fitting
+            )
+
+    return neighborhoods, preshape, max_num_neighborhoods_for_fitting
 
 
 def subsample_neighborhoods(
@@ -107,51 +106,3 @@ def subsample_neighborhoods(
 ) -> np.ndarray:
     idxs = np.random.choice(len(neighborhoods), num_output_neighborhoods, replace=False)
     return neighborhoods[idxs]
-
-
-def save_segmentation(
-    output_fname: str,
-    segmentation: np.ndarray,
-    tomogram_path: str,
-    voxel_size: np.ndarray,
-    window_size: int,
-    feature_extraction_params: dict,
-    clustering_method: str,
-    time_taken_for_s1: Optional[float] = None,
-    time_taken_for_s2: Optional[float] = None,
-    max_num_neighborhoods_for_fitting: Optional[int] = None,
-) -> None:
-    metadata = {
-        "tomogram_path": tomogram_path,
-        "voxel_size": voxel_size,
-        "window_size": window_size,
-        "feature_extraction_params": feature_extraction_params,
-        "clustering_method": clustering_method,
-        "max_num_neighborhoods_for_fitting": max_num_neighborhoods_for_fitting,
-        "time_taken_for_s1": time_taken_for_s1,
-        "time_taken_for_s2": time_taken_for_s2,
-    }
-    with h5py.File(output_fname, "w") as f:
-        out_dataset = f.create_dataset("segmentation", data=segmentation)
-
-        for k, v in metadata.items():
-            if v is None:
-                v = -1
-
-            if k == "feature_extraction_params":
-                for k1, v1 in v.items():  # type: ignore
-                    k1 = f"fexparams_{k1}"
-                    out_dataset.attrs[k1] = v1
-            else:
-                out_dataset.attrs[k] = v
-
-
-def load_h5file(fname: str) -> tuple[np.ndarray, dict]:
-    metadata = {}
-    with h5py.File(fname, "r") as h5f:
-        dataset = h5f["segmentation"]
-        seg = np.array(dataset)
-        for k in dataset.attrs:
-            metadata[k] = dataset.attrs[k]
-
-    return seg, metadata

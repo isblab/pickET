@@ -3,8 +3,8 @@ import numpy as np
 
 
 class FeatureExtractor:
-    def __init__(self, window_size: int, feature_extraction_params: dict):
-        self.window_size = window_size
+    def __init__(self, neighborhood_size: int, feature_extraction_params: dict):
+        self.neighborhood_size = neighborhood_size
         self.feature_extraction_params = feature_extraction_params
         self.mode = feature_extraction_params["mode"]
         self.features = np.array(None)
@@ -16,7 +16,7 @@ class FeatureExtractor:
     def generate_gabor_filter_bank(self) -> np.ndarray:
         def get_gabor_filter(freqs: list, psi: float = 0) -> np.ndarray:
             def get_gaussian():
-                half_size = self.window_size // 2
+                half_size = self.neighborhood_size // 2
                 sigma = half_size / 3
                 (z, y, x) = np.meshgrid(
                     np.arange(-half_size, half_size + 1),
@@ -29,9 +29,9 @@ class FeatureExtractor:
                 return gaussian
 
             z, y, x = np.meshgrid(
-                np.linspace(0, self.window_size, self.window_size),
-                np.linspace(0, self.window_size, self.window_size),
-                np.linspace(0, self.window_size, self.window_size),
+                np.linspace(0, self.neighborhood_size, self.neighborhood_size),
+                np.linspace(0, self.neighborhood_size, self.neighborhood_size),
+                np.linspace(0, self.neighborhood_size, self.neighborhood_size),
             )
             wave = np.cos(
                 2 * np.pi * (freqs[0] * z + freqs[1] * y + freqs[2] * x) + psi
@@ -43,14 +43,14 @@ class FeatureExtractor:
 
         num_sinusoids = self.feature_extraction_params["num_sinusoids"]
         max_freq = 0.5  # in Cycles/pixel as per the Nyquist-Shannon sampling theorem
-        filter_bank = np.nan * np.ones((num_sinusoids**3, self.window_size**3))
+        filter_bank = np.nan * np.ones((num_sinusoids**3, self.neighborhood_size**3))
 
         idx = 0
         for freq_z in np.linspace(0, max_freq, num_sinusoids):
             for freq_y in np.linspace(0, max_freq, num_sinusoids):
                 for freq_x in np.linspace(0, max_freq, num_sinusoids):
                     gabor_filter = get_gabor_filter(freqs=[freq_z, freq_y, freq_x])
-                    filter_bank[idx] = gabor_filter.reshape((self.window_size**3))
+                    filter_bank[idx] = gabor_filter.reshape((self.neighborhood_size**3))
                     idx += 1
         if np.any(np.isnan(filter_bank)):
             raise ValueError("Some Gabor filters were not generated")
@@ -77,7 +77,7 @@ class FeatureExtractor:
         if np.any(np.isnan(ffts)):
             raise ValueError("Some FFTs were not computed")
 
-        ffts = ffts.reshape((-1, self.window_size**3))
+        ffts = ffts.reshape((-1, self.neighborhood_size**3))
         return ffts
 
     def compute_gabor_features(self, neighborhoods: np.ndarray) -> np.ndarray:
@@ -90,7 +90,7 @@ class FeatureExtractor:
 
         num_output_features = self.feature_extraction_params["num_output_features"]
         num_parallel_filters = self.feature_extraction_params["num_parallel_filters"]
-        window_subset_size = (
+        neighborhood_subset_size = (
             len(neighborhoods)
             // self.feature_extraction_params["num_neighborhoods_subsets"]
         )
@@ -107,9 +107,11 @@ class FeatureExtractor:
                 f_subset = self.gabor_filter_bank[f_start_idx:f_end_idx]
 
                 subset_features = cp.nan * cp.ones((len(neighborhoods), len(f_subset)))
-                for w_start_idx in range(0, len(neighborhoods), window_subset_size):
+                for w_start_idx in range(
+                    0, len(neighborhoods), neighborhood_subset_size
+                ):
                     w_end_idx = min(
-                        len(neighborhoods), w_start_idx + window_subset_size
+                        len(neighborhoods), w_start_idx + neighborhood_subset_size
                     )
                     w_subset = neighborhoods[w_start_idx:w_end_idx]
 
@@ -123,8 +125,8 @@ class FeatureExtractor:
             self.best_feature_idxs = np.argsort(stds)[-num_output_features:]
 
         features = np.nan * np.ones((len(neighborhoods), num_output_features))
-        for w_start_idx in range(0, len(neighborhoods), window_subset_size):
-            w_end_idx = min(len(neighborhoods), w_start_idx + window_subset_size)
+        for w_start_idx in range(0, len(neighborhoods), neighborhood_subset_size):
+            w_end_idx = min(len(neighborhoods), w_start_idx + neighborhood_subset_size)
             w_subset = neighborhoods[w_start_idx:w_end_idx]
 
             filters = cp.asarray(
@@ -141,12 +143,12 @@ class FeatureExtractor:
 
     def extract_features(self, neighborhoods: np.ndarray) -> None:
         if self.mode == "intensities":
-            self.features = neighborhoods.reshape((-1, self.window_size**3))
+            self.features = neighborhoods.reshape((-1, self.neighborhood_size**3))
         elif self.mode == "ffts":
             self.features = self.compute_ffts(neighborhoods)
 
         elif self.mode == "gabor":
-            neighborhoods = neighborhoods.reshape((-1, self.window_size**3))
+            neighborhoods = neighborhoods.reshape((-1, self.neighborhood_size**3))
             self.features = self.compute_gabor_features(neighborhoods)
 
         else:

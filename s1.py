@@ -1,12 +1,13 @@
 import os
 import sys
 import time
+import datetime
 import numpy as np
 from rich.progress import track
 from rich.console import Console
 import socket
 import slack_bot
-from assets import utils, preprocessing, feature_extraction, clustering
+from assets import utils, preprocessing, feature_extraction, clustering, segmentation_io
 
 
 def main():
@@ -22,15 +23,15 @@ def main():
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    window_size: int = params["window_size"]
-    half_size: int = window_size // 2
+    neighborhood_size: int = params["neighborhood_size"]
+    half_size: int = neighborhood_size // 2
     all_feature_extraction_params = params["feature_extraction_params"]
     max_num_neighborhoods_for_fitting = params.get("max_num_neighborhoods_for_fitting")
     clustering_methods = params["clustering_methods"]
 
     for feature_extraction_params in all_feature_extraction_params:
         feature_extractor = feature_extraction.FeatureExtractor(
-            window_size, feature_extraction_params
+            neighborhood_size, feature_extraction_params
         )
 
         ftex_mode = feature_extraction_params["mode"]
@@ -51,16 +52,22 @@ def main():
             with console.status(
                 "Extracting all overlapping neighborhoods", spinner="bouncingBall"
             ) as status:
-                neighborhoods, preshape = utils.get_neighborhoods(
-                    preprocessing.get_z_section(tomogram, z_lb=z_lb, z_ub=z_ub),
-                    window_size,
-                    max_num_neighborhoods_for_fitting,
+                neighborhoods, preshape, max_num_neighborhoods_for_fitting = (
+                    utils.get_neighborhoods(
+                        preprocessing.get_z_section(tomogram, z_lb=z_lb, z_ub=z_ub),
+                        neighborhood_size,
+                        max_num_neighborhoods_for_fitting,
+                    )
                 )
                 console.log("Successfully extracted all overalapping neighborhoods")
+                console.log(f"Preshape: {preshape}")
                 status.update(status="Extracting features", spinner="bouncingBall")
                 feature_extractor.extract_features(neighborhoods)
                 console.log(
                     f"Feature extraction using method [cyan bold]{feature_extraction_params['mode']}[/] completed"
+                )
+                console.log(
+                    f"Features array of shape: {feature_extractor.features.shape}"
                 )
 
             # Fitting the clusterers
@@ -87,10 +94,6 @@ def main():
                     clusterers[cl_method] = clusterer
 
                     console.log(f"Fitting done for [cyan bold]{cl_method}[/] clusterer")
-                    console.log(f"Preshape: {preshape}")
-                    console.log(
-                        f"Features array of shape: {feature_extractor.features.shape}"
-                    )
 
             # Build the segmentation
             segmentations = {}
@@ -109,7 +112,7 @@ def main():
                             zslice_idx - half_size : zslice_idx + half_size + 1
                         ]
                         slab_neighborhoods, slab_preshape = utils.get_neighborhoods(
-                            tomogram_zslab, window_size
+                            tomogram_zslab, neighborhood_size
                         )
                         feature_extractor.extract_features(slab_neighborhoods)
                         slab_labels = clusterer.predict(feature_extractor.features)
@@ -141,17 +144,51 @@ def main():
                     output_dir,
                     f"segmentation_{idx}_{ftex_mode}_{cl_method}.h5",
                 )
-                utils.save_segmentation(
-                    outf_full_path,
-                    segmentation=segmentation,
-                    tomogram_path=target["tomogram"],
-                    voxel_size=voxel_sizes,
-                    window_size=window_size,
-                    feature_extraction_params=feature_extraction_params,
-                    clustering_method=cl_method,
-                    max_num_neighborhoods_for_fitting=max_num_neighborhoods_for_fitting,
-                    time_taken_for_s1=time_taken,
+                segmentation_handler = segmentation_io.Segmentations()
+                segmentation_handler.semantic_segmentation = segmentation
+
+                segmentation_handler.metadata["dataset_name"] = params["dataset_name"]
+                segmentation_handler.metadata["tomogram_path"] = target["tomogram"]
+
+                vx_szs = [float(vx_sz) for vx_sz in voxel_sizes]
+                segmentation_handler.metadata["voxel_size"] = vx_szs  # type:ignore
+                segmentation_handler.metadata["neighborhood_size"] = (  # type:ignore
+                    neighborhood_size
                 )
+                segmentation_handler.metadata["z_lb_for_clusterer_fitting"] = z_lb
+                segmentation_handler.metadata["z_ub_for_clusterer_fitting"] = z_ub
+                segmentation_handler.metadata["max_num_neighborhoods_for_fitting"] = (
+                    max_num_neighborhoods_for_fitting
+                )
+                segmentation_handler.metadata["fex_mode"] = ftex_mode  # type:ignore
+                if ftex_mode == "ffts":
+                    segmentation_handler.metadata["fex_n_fft_subsets"] = (
+                        feature_extraction_params["n_fft_subsets"]
+                    )
+
+                elif ftex_mode == "gabor":
+                    segmentation_handler.metadata["fex_num_neighborhoods_subsets"] = (
+                        feature_extraction_params["num_neighborhoods_subsets"]
+                    )
+                    segmentation_handler.metadata["fex_num_sinusoids"] = (
+                        feature_extraction_params["num_sinusoids"]
+                    )
+                    segmentation_handler.metadata["fex_num_parallel_filters"] = (
+                        feature_extraction_params["num_parallel_filters"]
+                    )
+                    segmentation_handler.metadata["fex_num_output_features"] = (
+                        feature_extraction_params["num_output_features"]
+                    )
+
+                segmentation_handler.metadata["clustering_method"] = cl_method
+                segmentation_handler.metadata["time_taken_for_s1"] = (  # type:ignore
+                    time_taken
+                )
+                segmentation_handler.metadata["timestamp_s1"] = (  # type:ignore
+                    datetime.datetime.now().isoformat()
+                )
+
+                segmentation_handler.generate_output_file(outf_full_path)
                 console.log(f"Segmentation saved to [cyan]{outf_full_path}[/]")
 
             console.print(

@@ -54,7 +54,7 @@ inputs:
     },
   ]
 
-window_size: 5
+neighborhood_size: 5
 max_num_neighborhoods_for_fitting: 100_000_000
 
 feature_extraction_params: 

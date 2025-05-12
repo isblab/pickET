@@ -15,10 +15,13 @@ Python package to pick particles in cryo-electron tomograms in an unsupervised m
 ## Publication and Data
 * Shreyas Arvindekar, Omkar Golatkar, and Shruthi Viswanath, **PickET - A library of methods for unsupervised particle-picking from cryo-electron tomograms**, . #TODO: Add a formal citation
 * Data is deposited in [Zenodo](https://www.doi.org/) #TODO: Update Zenodo ID
-#TODO zenodo contains installer of tomoeed.
+#TODO zenodo contains installer of TomoEED.
 
 ## Dependencies:
-* See `requirements.txt` for Python dependencies
+* Python dependencies are mentioned in `requirements.txt`.
+* CuPy
+* TomoEED
+Instructions for installing the Python dependencies as well as CuPy are provided below:
 
 ## Installation:
 1. Install all the dependencies:
@@ -37,7 +40,7 @@ pip install -r requirements.txt
     **_Note:_** The CUDA version can be checked by running `nvidia-smi` from the terminal.
     
 #TODO preprocessing before running pickET
-Run Tomoeed (provide ref and link to software and command used to run). 
+Run TomoEED (provide ref and link to software and command used to run). 
 
 #TODO show pics of outputs at each step. 
 
