@@ -1,9 +1,10 @@
 # Usage instructions
 
-PickET is a modular library that provides a variety of methods for performing different stages of the workflow. These are described in more details below. The workflow for running PickET is split into two steps - S1 and S2. 
+PickET is a modular library that provides a variety of methods for performing different stages of the particle picking workflow.The workflow for running PickET is split into two steps - S1 and S2. These are described in more details below. 
 
 ***Note:*** *We strongly recommend running all the steps in the PickET workflow on a single computing node (a local workstation or a remote computing cluster). Several intermediate files are generated at different stages in the workflow. These files contain pointers to the data required for downstream processes. These pointers may not work if the data is transferred to a different computing system.*
 
+***Important:*** *Make sure to activate the environment before running PickET. See [create and activate virtual environment](installation.md#env_activate) for more details.*
 
 ## S1 - Generate semantic segmentation
 The first step (S1, semantic segmentation) identifies voxels corresponding to particles in each input tomogram. This step involves three feature extraction modes (`FFTs`, `Gabor` and `intensities`) and two clustering methods (`KMeans` and `GMM`) to classify each voxel as particle or background. In total, this generates six semantic segmentations for each input tomogram. The users may then proceed with using one or more of these segmentations generated from a given tomogram for the second step. *Note that a workflow that generates the most optimal segmentation for a given tomogram may not necessarily generate the most optimal segmentations for all tomograms in that dataset.*  

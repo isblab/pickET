@@ -23,8 +23,14 @@ Inputs for S1 are provided through a YAML file containing parameters. An example
     ]
 `inputs` is a list (enclosed within square brackets) that can be expanded with similar entries, enclosed in curly brackets as shown above.  
 `segmentation` and the corresponding `particle_cluster_id` are obtained from the [Visualizing segmentations from S1](run_picket.md#vis_seg_s1). 
-`lower_z-slice_limit` and `upper_z-slice_limit` denote the upper and lower bounds on the Z-slices where the tomogram is likely to contain particles. Note that these bounds define the bounds on the region from which particles will be picked. These bounds can be more relaxed than the ones used in [Step 1 (S1)](s1.md). See also Fig 2.
+`lower_z-slice_limit` and `upper_z-slice_limit` denote the upper and lower bounds on the Z-slices where the tomogram is likely to contain particles. Note that these bounds define the bounds on the region from which particles will be picked. These bounds can be more relaxed than the ones used in [Step 1 (S1)](s1.md). See also Fig 2.  
 
+<div align="center">
+    <img src="../images/Zbounds.jpg" alt="Fig. 2: Z-slice bounds for the two steps in PickET" width="600" align="center">
+    <p align="center"><b>Fig. 2:</b> Z-slice bounds for the two steps in PickET </p>
+</div>  
+
+<br/>
 
     particle_extraction_params: 
     [

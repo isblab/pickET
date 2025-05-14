@@ -21,10 +21,16 @@ These parameters are described in detail below:
         upper_z-slice_limit: <lower_zslice_where_the_lamella_ends> #[Optional]#
             },
     ]
-`inputs` is a list (enclosed within square brackets) that can be expanded with similar entries, enclosed in curly brackets as shown above. `lower_z-slice_limit` and `upper_z-slice_limit` denote the upper and lower bounds on the Z-slices where the tomogram is of the highest quality and is most likely of containing good particles. *Note that these bounds are only considered for fitting the clustering algorithm. Particle localizations may still be predicted on Z-slices beyond the mentioned bounds. Using these bounds may help avoid the contaminants from the periphery of the lamella from confounding the clustering algorithm. (See also: Fig 2). Moreover, these allow help process larger tomograms without increasing the computing and GPU memory requirement.* 
+`inputs` is a list (enclosed within square brackets) that can be expanded with similar entries, enclosed in curly brackets as shown above. `lower_z-slice_limit` and `upper_z-slice_limit` denote the upper and lower bounds on the Z-slices where the tomogram is of the highest quality and is most likely of containing good particles. *Note that these bounds are only considered for fitting the clustering algorithm. Particle localizations may still be predicted on Z-slices beyond the mentioned bounds. Using these bounds may help avoid the contaminants from the periphery of the lamella from confounding the clustering algorithm. (See also: Fig 2). Moreover, these allow help process larger tomograms without increasing the computing and GPU memory requirement.*  
 
 The entries marked as `#[Optional]#` are optional and may be omitted. If you do not wish to specify these, these lines should be deleted from from the `param_file.yaml`.
 
+<div align="center">
+    <img src="../images/Zbounds.jpg" alt="Fig. 2: Z-slice bounds for the two steps in PickET" width="600" align="center">
+    <p align="center"><b>Fig. 2:</b> Z-slice bounds for the two steps in PickET </p>
+</div>
+
+<br/>
 
     neighborhood_size: 5   
 We recommend using the `neighborhood_size: 5` for picking particles from tomograms. This corresponds to a neighborhood of $5*5*5$ voxels around a given voxel. 
