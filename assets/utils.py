@@ -59,16 +59,14 @@ def prepare_out_coords(
     out_dict = {}
     out_dict["metadata"] = {}
     for k, v in metadata.items():
-        if isinstance(v, np.ndarray):
-            out_dict["metadata"][k] = v.tolist()
-        elif isinstance(v, np.generic):
+        if isinstance(v, np.generic):
             out_dict["metadata"][k] = v.item()
         else:
             out_dict["metadata"][k] = v
 
-    out_dict["PredictedCentroidCoordinates"] = []
+    out_dict["Predicted_Particle_Centroid_Coordinates"] = []
     for coord in coords:
-        out_dict["PredictedCentroidCoordinates"].append(
+        out_dict["Predicted_Particle_Centroid_Coordinates"].append(
             {"x": int(coord[2]), "y": int(coord[1]), "z": int(coord[0])}
         )
 

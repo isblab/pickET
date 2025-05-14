@@ -1,14 +1,19 @@
 import sys
 import napari
-from assets import utils, preprocessing
+import numpy as np
+from assets import utils, segmentation_io
 
 
 def main():
     seg_path = sys.argv[1]
 
-    segmentation, segmentation_metadata = utils.load_h5file(seg_path)  # type:ignore
-    tomo_path: str = segmentation_metadata["tomogram_path"]
+    segmentation_handler = segmentation_io.Segmentations()
+    segmentation_handler.load_segmentations(seg_path)
+    segmentation = np.array(segmentation_handler.semantic_segmentation)
+    segmentation_metadata = segmentation_handler.metadata
+    tomo_path: str = str(segmentation_metadata["tomogram_path"])
     tomogram, _ = utils.load_tomogram(tomo_path)
+    print("Loaded segmentation and tomogram successfully...")
 
     viewer = napari.Viewer()
     viewer.add_image(tomogram, name="Tomogram")

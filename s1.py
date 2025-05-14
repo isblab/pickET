@@ -111,7 +111,7 @@ def main():
                         tomogram_zslab = tomogram[
                             zslice_idx - half_size : zslice_idx + half_size + 1
                         ]
-                        slab_neighborhoods, slab_preshape = utils.get_neighborhoods(
+                        slab_neighborhoods, slab_preshape, _ = utils.get_neighborhoods(
                             tomogram_zslab, neighborhood_size
                         )
                         feature_extractor.extract_features(slab_neighborhoods)

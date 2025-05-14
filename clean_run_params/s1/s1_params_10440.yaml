@@ -2,13 +2,13 @@ dataset_name: czi_ds-10440_denoised
 
 inputs: 
   [  
-    {tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17015/denoised_TS_5_4.mrc},
-    {tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17019/denoised_TS_69_2.mrc},
-    {tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17023/denoised_TS_6_4.mrc},
-    {tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17027/denoised_TS_6_6.mrc},
-    {tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17031/denoised_TS_73_6.mrc},
-    {tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17035/denoised_TS_86_3.mrc},
-    {tomogram: /data2/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17039/denoised_TS_99_9.mrc},
+    {tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17015/denoised_TS_5_4.mrc},
+    {tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17019/denoised_TS_69_2.mrc},
+    {tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17023/denoised_TS_6_4.mrc},
+    {tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17027/denoised_TS_6_6.mrc},
+    {tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17031/denoised_TS_73_6.mrc},
+    {tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17035/denoised_TS_86_3.mrc},
+    {tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17039/denoised_TS_99_9.mrc},
   ]
 
 neighborhood_size: 5
@@ -36,4 +36,4 @@ feature_extraction_params:
 
 clustering_methods: [kmeans,gmm]
 
-output_dir: /data2/shreyas/mining_tomograms/s1_clean_results_picket_v2/
+output_dir: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/

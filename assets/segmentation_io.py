@@ -7,6 +7,7 @@ class Segmentations:
         self.semantic_segmentation = None
         self.instance_segmentation = None
         self.metadata = {
+            # S1 metadata
             "dataset_name": None,
             "tomogram_path": None,
             "voxel_size": None,
@@ -23,10 +24,12 @@ class Segmentations:
             "clustering_method": None,
             "time_taken_for_s1": None,
             "timestamp_s1": None,
+            # S2 metadata
             "z_lb_for_particle_extraction": None,
             "z_ub_for_particle_extraction": None,
             "particle_cluster_id": None,
             "pex_mode": None,
+            "pex_min_distance": None,
             "time_taken_for_s2": None,
             "timestamp_s2": None,
         }
@@ -37,36 +40,28 @@ class Segmentations:
             seg_group.create_dataset(
                 "semantic_segmentation", data=self.semantic_segmentation
             )
+            if self.instance_segmentation is not None:
+                seg_group.create_dataset(
+                    "instance_segmentation", data=self.instance_segmentation
+                )
+
             for k, v in self.metadata.items():
-                print(k, v, sep=":\t")
-                if v == None:
+                if isinstance(v, np.ndarray):
+                    v = v.tolist()
+                elif v == None:
                     v = "None"
                 seg_group.attrs[k] = v
 
-    def add_iseg_to_output_file(self, out_fname):
-        with h5py.File(out_fname, "r+") as outf:
-            seg_group = outf["segmentations"]
-
-            if "instance_segmentation" in seg_group.keys():  # type:ignore
-                raise KeyError(
-                    "The output file already contains an instance segmentation."
-                )
-
-            seg_group.create_dataset(  # type:ignore
-                "instance_segmentation", data=self.instance_segmentation
-            )
-            for k, v in self.metadata.items():
-                seg_group.attrs[k] = v
-
     def load_segmentations(self, fname):
-        with h5py.File(fname, "w") as infile:
-            seg_group = infile.create_group("segmentations")
-            self.semantic_segmentation = np.array(seg_group["semantic_segmentation"])
-
-            if "instance_segmentation" in seg_group.keys():
-                self.instance_segmentation = np.array(
-                    seg_group["instance_segmentation"]
-                )
-
+        with h5py.File(fname, "r") as infile:
+            seg_group = infile["segmentations"]
             for k, v in seg_group.attrs.items():
                 self.metadata[k] = v
+
+            self.semantic_segmentation = seg_group[  # type:ignore
+                "semantic_segmentation"
+            ][:]
+            if "instance_segmentation" in seg_group.keys():  # type:ignore
+                self.instance_segmentation = seg_group[  # type:ignore
+                    "instance_segmentation"
+                ]
