@@ -48,6 +48,8 @@ class Segmentations:
             for k, v in self.metadata.items():
                 if isinstance(v, np.ndarray):
                     v = v.tolist()
+                elif isinstance(v, np.generic):
+                    v = v.item()
                 elif v == None:
                     v = "None"
                 seg_group.attrs[k] = v

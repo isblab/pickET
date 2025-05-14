@@ -15,13 +15,10 @@ def main():
 
     params = utils.load_params_from_yaml(params_fname)
 
-    experiment_name = params["experiment_name"]
-    run_name = params["run_name"]
+    dataset_name = params["dataset_name"]
     angstrom_threshold = params["threshold_in_angstrom"]
     inputs = params["inputs"]
-    clustering_method = params["clustering_method"]
-    particle_extraction_method = params["particle_extraction_method"]
-    output_dir = os.path.join(params["output_dir"], experiment_name, run_name)
+    output_dir = os.path.join(params["output_dir"], dataset_name, "evaluations")
 
     results = {}
     ### Processing block

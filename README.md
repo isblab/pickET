@@ -23,7 +23,7 @@ Python package to pick particles in cryo-electron tomograms in an unsupervised m
     * [How to run S2?](docs/running_s2.md)
 3. [Understanding the outputs](docs/accessory_tools.md)
 4. [Introducing the accessory tools](docs/outputs.md)
-5. [Assessments used for publication (not for common use)](docs/assessments.md)
+5. [Evaluations used for publication (not for common use)](docs/evaluations.md)
 
 
 ## Publication and Data

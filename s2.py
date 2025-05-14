@@ -2,6 +2,7 @@ import os
 import sys
 import yaml
 import time
+import socket
 import datetime
 import numpy as np
 
@@ -56,7 +57,6 @@ def main():
         segmentation_handler.metadata["z_ub_for_particle_extraction"] = z_ub
         segmentation_handler.metadata["particle_cluster_id"] = particle_cluster_id
 
-        coords_outputs = {}
         for p_ex_params in particle_extraction_params:
             instance_seg, num_objects = particle_extraction.do_instance_segmentation(
                 segmentation, p_ex_params
@@ -102,10 +102,10 @@ def main():
             segmentation_handler.generate_output_file(iseg_out_fpath)
 
         print(f"\tTomogram {idx+1} processed in {time_taken_per_tomo:.2f} seconds\n")
-
-    slack_bot.send_slack_dm(
-        f"The python process with parameter file name: '{params_fname}' completed"
-    )
+        message = f"Processed tomogram {idx+1}/{len(inputs)} "
+        message += f"with {segmentation_handler.metadata["fex_mode"]} as the feature extraction mode on {socket.gethostname()} "
+        message += f"in {int(round(time_taken_per_tomo/60,0))} minutes"
+        slack_bot.send_slack_dm(message)
 
 
 if __name__ == "__main__":
