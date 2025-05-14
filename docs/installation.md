@@ -66,4 +66,4 @@ This will make a denoised version of the input tomogram (`path_to_input_tomogram
 
 
 [Back to Home](README.md)  
-[Go to usage instructions](usage_instructions.md)
+[Go to usage instructions](usage_instructions.md#usage-instructions)  

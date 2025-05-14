@@ -25,5 +25,5 @@ python s1.py <s1_param_file_path>
 
 [Back to Home](../README.md)  
 [Go to outputs](outputs.md)  
-[Go to usage instructions](usage_instructions.md)  
+[Go to usage instructions](usage_instructions.md#usage-instructions)  
 

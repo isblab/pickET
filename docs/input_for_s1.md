@@ -84,5 +84,5 @@ As the name suggests, `output_dir` describes the path to the directory where the
 <br/>
 
 [Back to Home](../README.md)  
-[Go to usage instructions](usage_instructions.md)  
+[Go to usage instructions](usage_instructions.md#usage-instructions)  
 [Go to running s1](running_s1.md)
