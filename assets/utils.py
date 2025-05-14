@@ -104,3 +104,18 @@ def subsample_neighborhoods(
 ) -> np.ndarray:
     idxs = np.random.choice(len(neighborhoods), num_output_neighborhoods, replace=False)
     return neighborhoods[idxs]
+
+
+def read_yaml_coords(pred_coords_fname: str) -> np.ndarray:
+    with open(pred_coords_fname, "r") as pred_coords_f:
+        annotations = yaml.safe_load(pred_coords_f)[
+            "Predicted_Particle_Centroid_Coordinates"
+        ]
+
+    coords = np.nan * np.ones((len(annotations), 3), dtype=np.int32)
+    for idx, ln in enumerate(annotations):
+        coords[idx] = np.array([ln["z"], ln["y"], ln["x"]])
+    if np.any(np.isnan(coords)):
+        raise ValueError("Something went wrong when reading coords")
+
+    return coords

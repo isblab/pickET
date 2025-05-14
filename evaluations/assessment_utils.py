@@ -1,20 +1,22 @@
+import yaml
 import mrcfile
 import numpy as np
 
 
-def get_tomo_shape(fname: str) -> tuple[int, int, int]:
+def get_tomo_shape(fname: str) -> tuple:
     with mrcfile.open(fname, mode="r", permissive=True) as mrcf:
         tomo = np.array(mrcf.data)
     return tuple(tomo.shape)
 
 
-def get_voxel_threshold(fname: str, angs_threshold: float) -> int:
-    with mrcfile.open(fname, mode="r", permissive=True) as mrcf:
-        voxel_sizes = np.array(
-            [mrcf.voxel_size.z, mrcf.voxel_size.y, mrcf.voxel_size.x], dtype=np.float32
-        )
+def get_metadata_entry(pred_coords_fname: str, metadata_key: str):
+    with open(pred_coords_fname, "r") as pred_coords_f:
+        metadata = yaml.safe_load(pred_coords_f)["metadata"]
+    return metadata[metadata_key]
 
-    voxel_size = np.max(voxel_sizes)
+
+def get_voxel_threshold(angs_threshold: float, voxel_sizes: list) -> int:
+    voxel_size = np.max(np.array(voxel_sizes))
     threshold = int(round(angs_threshold / voxel_size, 0))
     return threshold
 

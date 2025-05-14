@@ -32,7 +32,8 @@ def main():
         os.mkdir(iseg_output_dir)
 
     ### Processing block
-    for idx, target in enumerate(inputs):
+    for target in inputs:
+        idx = int(target["segmentation"].split("/")[-1].split("_")[1])
         time_taken_per_tomo = 0
         tic = time.perf_counter()
         print(f"Processing segmentation {idx+1}/{len(inputs)}")

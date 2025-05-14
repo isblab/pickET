@@ -23,15 +23,37 @@ def main():
     results = {}
     ### Processing block
     for idx, target in enumerate(tqdm(inputs)):
-        threshold = assessment_utils.get_voxel_threshold(
-            target["tomogram"], angs_threshold=angstrom_threshold
+        tomo_shape = assessment_utils.get_tomo_shape(
+            assessment_utils.get_metadata_entry(
+                target["predicted_centroids"], "tomogram_path"
+            )
         )
-        zslice_lb = target.get("lower_z-slice_limit")
-        zslice_ub = target.get("upper_z-slice_limit")
+        threshold = assessment_utils.get_voxel_threshold(
+            angstrom_threshold,
+            assessment_utils.get_metadata_entry(
+                target["predicted_centroids"], "voxel_size"
+            ),
+        )
 
-        tomo_shape = assessment_utils.get_tomo_shape(target["tomogram"])
+        zslice_lb = assessment_utils.get_metadata_entry(
+            target["predicted_centroids"], "z_lb_for_particle_extraction"
+        )
+        zslice_ub = assessment_utils.get_metadata_entry(
+            target["predicted_centroids"], "z_ub_for_particle_extraction"
+        )
 
-        pred_centroids = utils.read_ndjson_coords(target["predicted_centroids"])
+        clustering_method = str(
+            assessment_utils.get_metadata_entry(
+                target["predicted_centroids"], "clustering_method"
+            )
+        )
+        particle_extraction_method = str(
+            assessment_utils.get_metadata_entry(
+                target["predicted_centroids"], "pex_mode"
+            )
+        )
+
+        pred_centroids = utils.read_yaml_coords(target["predicted_centroids"])
         random_centroids = assessment_utils.get_random_centroids(
             tomo_shape, num_centroids=len(pred_centroids)
         )
@@ -70,7 +92,7 @@ def main():
     with open(
         os.path.join(
             output_dir,
-            f"overall_results_{clustering_method}_{particle_extraction_method}.yaml",
+            f"overall_results_{clustering_method}_{particle_extraction_method}.yaml",  # type:ignore
         ),
         "w",
     ) as outf:
