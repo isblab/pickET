@@ -14,6 +14,7 @@ The first step (S1, semantic segmentation) identifies voxels corresponding to pa
 
 *Note that a workflow that generates the most optimal segmentation for a given tomogram may not necessarily generate the most optimal segmentations for all tomograms in that dataset.*  
 
+TODO overall S1figure. 
 
 #### [**Inputs for S1**](input_for_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S1?**](running_s1.md)
 
@@ -39,7 +40,7 @@ python see_segmentations.py <path_to_segmentation>
 
 Look at the each of the six segmentations generated from S1 for the tomograms in the dataset. From all the segmentations generated from S1 for a given tomogram, identify the segmentation(s) in which particles are well separated from the background. More than one segmentation may be chosen for the next step. Also, note the voxel value for the voxel corresponding to particles in the segmentation. This could be 0 or 1 and is called the `particle_cluster_id` for each of the chosen segmentations. Either of the following ways can be used to obtain the `particle_cluster_id`:
 
-1. Hover over a target particle in the loaded Napari window. #TODO UNCLEAR with the next step.... This number should appear at the bottom of the window next to the coordinates of the mouse pointer
+1. Hover over a target particle in the loaded Napari window. This number should appear at the bottom of the window next to the coordinates of the mouse pointer.
 
 2. Check if a target particle is colored with a non-gray color in this overlay. If the particle is colored, then `particle_cluster_id = 1`, else `particle_cluster_id = 0`.
 
@@ -49,9 +50,11 @@ Look at the each of the six segmentations generated from S1 for the tomograms in
 
 ## S2 - Extract particles 
 
-In the second step (S2, particle extraction), particles segmentations are obtained using two segmentation methods (`connected component labeling` and `watershed segmentation`), allowing the user to choose between the two. The centroids of predicted particles are provided as output. Users also have an option to obtain subtomograms enclosing the predicted particles for downstream subtomogram averaging. #TODO there are more outputs we get. #TODO why are we describing all outputs here? #TODO need a separate tab for visualizing output of S2.  
+In the second step (S2, particle extraction), particles segmentations are obtained using two segmentation methods (`connected component labeling` and `watershed segmentation`), allowing the user to choose between the two. The centroids of predicted particles are provided as output. Users also have an option to obtain subtomograms enclosing the predicted particles for downstream subtomogram averaging. 
 
-#### [**Inputs for S2**](input_for_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S2?**](running_s2.md)
+#### [**Inputs for S2**](input_for_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S2?**](running_s2.md)[**Visualizing output from S2**](output_S2.md)
+
+TODO overall S2figure. 
 
 ---
 <br/>
