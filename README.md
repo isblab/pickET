@@ -15,7 +15,7 @@ Python package to pick particles in cryo-electron tomograms in an unsupervised m
 
 ## Table of contents:
 1. [Getting started](docs/installation.md)  
-2. [Usage instructions](usage_instructions.md#usage-instructions)  
+2. [Usage instructions](docs/usage_instructions.md#usage-instructions)  
     * [Input for S1](docs/input_for_s1.md)
     * [How to run S1?](docs/running_s1.md)
     * [Input for S2](docs/input_for_s2.md)

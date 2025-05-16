@@ -10,6 +10,7 @@ class Segmentations:
             # S1 metadata
             "dataset_name": None,
             "tomogram_path": None,
+            "tomogram_shape": None,
             "voxel_size": None,
             "neighborhood_size": None,
             "z_lb_for_clusterer_fitting": None,

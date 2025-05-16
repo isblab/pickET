@@ -22,22 +22,6 @@ def load_tomogram(tomogram_path: str) -> tuple[np.ndarray, np.ndarray]:
     return tomogram, voxel_sizes
 
 
-def read_ndjson_coords(fname: str) -> np.ndarray:
-    with open(fname, "r") as in_annot_f:
-        annotations = ndjson.load(in_annot_f)
-
-    coords = np.nan * np.ones((len(annotations), 3), dtype=np.int32)
-    for idx, ln in enumerate(annotations):
-        coords[idx] = np.array(
-            [ln["location"]["z"], ln["location"]["y"], ln["location"]["x"]]
-        )
-
-    if np.any(np.isnan(coords)):
-        raise ValueError("Something went wrong when reading coords")
-
-    return coords
-
-
 def write_coords_as_ndjson(coords: np.ndarray, out_fname: str) -> None:
     lines = []
     for coord in coords:
@@ -59,8 +43,12 @@ def prepare_out_coords(
     out_dict = {}
     out_dict["metadata"] = {}
     for k, v in metadata.items():
-        if isinstance(v, np.generic):
+        if isinstance(v, np.ndarray):
+            out_dict["metadata"][k] = v.tolist()
+        elif isinstance(v, np.generic):
             out_dict["metadata"][k] = v.item()
+        elif v == None:
+            out_dict["metadata"][k] = "None"
         else:
             out_dict["metadata"][k] = v
 

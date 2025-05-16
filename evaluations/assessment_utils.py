@@ -1,18 +1,58 @@
+import os
+import glob
 import yaml
-import mrcfile
+import ndjson
 import numpy as np
 
 
-def get_tomo_shape(fname: str) -> tuple:
-    with mrcfile.open(fname, mode="r", permissive=True) as mrcf:
-        tomo = np.array(mrcf.data)
-    return tuple(tomo.shape)
+def separate_files_into_groups(parent_fpath: str) -> dict:
+    all_fpath = glob.glob(os.path.join(parent_fpath, "*.yaml"))
+    out_groups = {}
+
+    for fpath in all_fpath:
+        fname = fpath.split("/")[-1]
+        fex_mode = fname.split("_")[3]
+        cl_mode = fname.split("_")[4]
+        f2 = fname[:-5]
+        pex_mode = "_".join(f2.split("_")[5:])
+
+        dictkey = f"{fex_mode}_{cl_mode}_{pex_mode}"
+        if dictkey not in out_groups:
+            out_groups[dictkey] = [fpath]
+        else:
+            out_groups[dictkey].append(fpath)
+
+    return out_groups
 
 
-def get_metadata_entry(pred_coords_fname: str, metadata_key: str):
-    with open(pred_coords_fname, "r") as pred_coords_f:
-        metadata = yaml.safe_load(pred_coords_f)["metadata"]
-    return metadata[metadata_key]
+def get_ground_truth_fpath(tomogram_path: str, annot_dir_head: str = "") -> str:
+    tomogram_dir = "/".join(tomogram_path.split("/")[:-1])
+    annot_path = os.path.join(tomogram_dir, annot_dir_head, "all_annotations.ndjson")
+    return annot_path
+
+
+def read_ndjson_coords(fname: str) -> np.ndarray:
+    with open(fname, "r") as in_annot_f:
+        annotations = ndjson.load(in_annot_f)
+
+    coords = np.nan * np.ones((len(annotations), 3), dtype=np.int32)
+    for idx, ln in enumerate(annotations):
+        coords[idx] = np.array(
+            [ln["location"]["z"], ln["location"]["y"], ln["location"]["x"]]
+        )
+
+    if np.any(np.isnan(coords)):
+        raise ValueError("Something went wrong when reading coords")
+
+    return coords
+
+
+def load_predictions(pred_fname: str) -> tuple[np.ndarray, dict]:
+    with open(pred_fname, "r") as predf:
+        contents = yaml.safe_load(predf)
+        pred_coords = contents["Predicted_Particle_Centroid_Coordinates"]
+        metadata = contents["metadata"]
+    return pred_coords, metadata
 
 
 def get_voxel_threshold(angs_threshold: float, voxel_sizes: list) -> int:
@@ -71,7 +111,9 @@ def compute_global_metrics(
     precisions, recalls, f1scores = [], [], []
     random_precisions, random_recalls, random_f1scores = [], [], []
     for tomo in results:
-        if not tomo.startswith("Tomogram_"):
+        if not tomo.startswith("Tomo_"):
+            continue
+        if results[tomo]["Precision"] == np.nan:
             continue
         precisions.append(results[tomo]["Precision"])
         recalls.append(results[tomo]["Recall"])

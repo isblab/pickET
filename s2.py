@@ -7,7 +7,7 @@ import datetime
 import numpy as np
 
 import slack_bot
-from assets import utils, preprocessing, particle_extraction, segmentation_io
+from assets import utils, particle_extraction, segmentation_io
 
 
 def main():
@@ -36,7 +36,7 @@ def main():
         idx = int(target["segmentation"].split("/")[-1].split("_")[1])
         time_taken_per_tomo = 0
         tic = time.perf_counter()
-        print(f"Processing segmentation {idx+1}/{len(inputs)}")
+        print(f"Processing {target["segmentation"].split("/")[-1]}")
 
         particle_cluster_id = target["particle_cluster_id"]
         z_lb = target.get("lower_z-slice_limit")
@@ -46,8 +46,14 @@ def main():
         seg_path = target["segmentation"]
         segmentation_handler = segmentation_io.Segmentations()
         segmentation_handler.load_segmentations(seg_path)
-        semantic_segmentation = segmentation_handler.semantic_segmentation
 
+        #! Deprecated. Remove this section in later versions
+        tomo, _ = utils.load_tomogram(
+            str(segmentation_handler.metadata["tomogram_path"])
+        )
+        segmentation_handler.metadata["tomogram_shape"] = np.array(tomo.shape).tolist()
+
+        semantic_segmentation = segmentation_handler.semantic_segmentation
         segmentation = np.where(semantic_segmentation == particle_cluster_id, 1, 0)
         if z_lb is not None:
             segmentation[:z_lb] = 0
@@ -101,12 +107,6 @@ def main():
             with open(coords_out_fpath, "w") as out_annot_f:
                 yaml.dump(coords_outputs, out_annot_f, sort_keys=True)
             segmentation_handler.generate_output_file(iseg_out_fpath)
-
-        print(f"\tTomogram {idx+1} processed in {time_taken_per_tomo:.2f} seconds\n")
-        message = f"Processed tomogram {idx+1}/{len(inputs)} "
-        message += f"with {segmentation_handler.metadata["fex_mode"]} as the feature extraction mode on {socket.gethostname()} "
-        message += f"in {int(round(time_taken_per_tomo/60,0))} minutes"
-        slack_bot.send_slack_dm(message)
 
 
 if __name__ == "__main__":

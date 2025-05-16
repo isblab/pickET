@@ -26,10 +26,12 @@ def main():
     neighborhood_size: int = params["neighborhood_size"]
     half_size: int = neighborhood_size // 2
     all_feature_extraction_params = params["feature_extraction_params"]
-    max_num_neighborhoods_for_fitting = params.get("max_num_neighborhoods_for_fitting")
     clustering_methods = params["clustering_methods"]
 
     for feature_extraction_params in all_feature_extraction_params:
+        max_num_neighborhoods_for_fitting = params.get(
+            "max_num_neighborhoods_for_fitting"
+        )
         feature_extractor = feature_extraction.FeatureExtractor(
             neighborhood_size, feature_extraction_params
         )
