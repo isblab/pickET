@@ -3,13 +3,15 @@ This document provides a detailed guide for installing PickET.
 
 ## Dependencies:
 * Python dependencies are mentioned in `requirements.txt`.
-* CuPy
-* TomoEED
+* [CuPy](https://cupy.dev) 
+* [TomoEED](https://sites.google.com/site/3demimageprocessing/tomoeed)
+  
 Instructions for installing the Python dependencies, CuPy and TomoEED are provided below:
 
 ## Installation:
 ### 1. Create a new virtual environment:
-In new terminal window, run the following command to install venv package:
+
+In a new terminal window, run the following command to install venv package:
 ```
 pip install venv
 ```
@@ -41,11 +43,14 @@ pip install -r requirements.txt
     
 ```
 pip install cupy-cuda12x
-```   
+```
+
 **Else if CUDA version is `11.<something>`, install CuPy by running.**  
+
 ```
 pip install cupy-cuda11x
 ```
+
 **_Note:_** The CUDA version can be checked by running `nvidia-smi` from the terminal. It will be shown on the top right corner in the generated output.
 
 ### 4. Install TomoEED:  
@@ -55,13 +60,13 @@ pip install cupy-cuda11x
 
 3. Copy the generated download link and paste it in a new browser tab. This will download TomoEED as a zipped directory. Unzip it.   
    
-
 ---
 ***Note:***  
 TomoEED can be run by running the following command:
 ```
-<path_to_the_unzipped_directory>/bin/tomoeed path_to_input_tomogram/input_tomogram.mrc denoised_tomograms/output_tomogram.mrc
+<path_to_the_unzipped_tomoeed_directory>/bin/tomoeed path_to_input_tomogram/input_tomogram.mrc denoised_tomograms/output_tomogram.mrc
 ```
+
 This will make a denoised version of the input tomogram (`path_to_input_tomogram/input_tomogram.mrc`) and place it at `denoised_tomograms/output_tomogram.mrc`.
 
 

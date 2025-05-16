@@ -45,7 +45,7 @@ Second, for `mode: watershed_segmentation`, there is one hyperparameter. This mo
 
     extract_subtomograms: True
     subtomogram_size: 31
-Setting the value of `extract_subtomograms` to `True` will result in extracting the subtomograms of size `subtomogram_size` around each predicted particle centroid in .npy file format. If the user does not wish to extract the subtomograms or wants only the centroids, they can set `extract_subtomograms` to `False`. In this case, the value set to `subtomogram_size` will be ignored.
+Setting the value of `extract_subtomograms` to `True` will result in extracting the subtomograms of size `subtomogram_size` around each predicted particle centroid in .npy file format. If the user does not wish to extract the subtomograms or wants only the centroids, they can set `extract_subtomograms` to `False`. In this case, the value set to `subtomogram_size` will be ignored. #TODO is this faithful to the latest way of doing things? #TODO ndjson to CSV right? Not Yaml to CSV? 
 
     output_dir: /data/picket_results/
 As the name suggests, `output_dir` describes the path to the directory where the output segmentations will be saved.  
