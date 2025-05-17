@@ -80,6 +80,7 @@ def main():
                 }
 
             else:  # Ignore the tomogram where the number of predicted particles is over 1M
+                print(f"Ignoring {target}")
                 results[f"Tomo_ID - {idx}"] = {
                     "Precision": np.nan,
                     "Recall": np.nan,

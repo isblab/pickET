@@ -29,9 +29,6 @@ def main():
     clustering_methods = params["clustering_methods"]
 
     for feature_extraction_params in all_feature_extraction_params:
-        max_num_neighborhoods_for_fitting = params.get(
-            "max_num_neighborhoods_for_fitting"
-        )
         feature_extractor = feature_extraction.FeatureExtractor(
             neighborhood_size, feature_extraction_params
         )
@@ -41,6 +38,9 @@ def main():
             tic = time.perf_counter()
             z_lb = target.get("lower_z-slice_limit")
             z_ub = target.get("upper_z-slice_limit")
+            max_num_neighborhoods_for_fitting = params.get(
+                "max_num_neighborhoods_for_fitting"
+            )
             console.print(
                 f"Processing tomogram {idx+1}/{len(inputs)} using {ftex_mode} as the feature extraction method"
             )

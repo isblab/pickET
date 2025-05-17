@@ -13,14 +13,12 @@ This will make a denoised version of the input tomogram (`path_to_input_tomogram
 <br/>
 
 ### 2. Generate semantic segmentations
-Run the following command to generate the six semantic segmentations.
+Run the following command to generate the semantic segmentations.
 ```
 python s1.py <s1_param_file_path>
 ```
-TODO is it a bit funny that the details of this are in the usage file and I may not remember what these 6 are? 
-TODO similar to placement in accessories. 
 
-<br/>
+Next step is to choose one or more optimal segmentations for each input tomogram and obtaining the corresponding particle cluster IDs. Follow the instructions at [visualizing segmentations](visualizing_segmentations.md) and [obtaining particle cluster ID](obtaining_particle_cluster_id.md) for more details on this.
 
 ---
 <br/>

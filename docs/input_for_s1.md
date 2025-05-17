@@ -21,18 +21,24 @@ These parameters are described in detail below:
         upper_z-slice_limit: <lower_zslice_where_the_lamella_ends> #[Optional]#
             },
     ]
-    
-`inputs` is a list (enclosed within square brackets) that can be expanded with similar entries, enclosed in curly brackets as shown above. `lower_z-slice_limit` and `upper_z-slice_limit` denote the upper and lower bounds on the Z-slices where the tomogram is of the highest quality and is most likely to contain good particles. 
 
-*Note that these bounds are only considered for fitting the clustering algorithm that separates particle voxels from background voxels. Particle localizations may still be predicted on Z-slices beyond the mentioned bounds. Using these bounds in S1 may help avoid the contaminants from the periphery of the lamella from confounding the clustering algorithm. (See also: Fig 2). **#TOOD where is Fig. 1?** Moreover, these allow help process larger tomograms without increasing the processing speed and GPU memory requirement.*  
+`inputs` is a list (enclosed within square brackets) that can be expanded with similar entries, enclosed in curly brackets as shown above. `lower_z-slice_limit` and `upper_z-slice_limit` denote the upper and lower bounds on the Z-slices where the `tomogram` is of the highest quality and is most likely to contain good particles. An example input tomogram denoised with TomoEED is shown in Fig 1.  
+
+*Note that these bounds are only considered for fitting the clustering algorithm that separates particle voxels from background voxels. Particle localizations may still be predicted on Z-slices beyond the mentioned bounds. Using these bounds in S1 may help avoid the contaminants from the periphery of the lamella from confounding the clustering algorithm. (See also: Fig 2).  Moreover, these allow help process larger tomograms without increasing the processing speed and GPU memory requirement.*  
 
 The entries marked as `#[Optional]#` may be omitted. If you do not wish to specify these, these lines should be deleted from from the `param_file.yaml`.
 
-<div align="center">
-    <img src="../images/Zbounds.jpg" alt="Fig. 2: Z-slice bounds for the two steps in PickET" width="600" align="center">
-    <p align="center"><b>Fig. 2:</b> Z-slice bounds for the two steps in PickET </p>
+<div style="display: flex; justify-content: center;">
+    <div align="center" style="margin-right: 100px;">
+        <img src="../images/input_tomo_example.png" alt="Fig. 1: Central Z-slice from an example input tomogram" height="300" align="center">
+        <p align="center"><b>Fig. 1: Central Z-slice from an example input tomogram</b><br> Tomogram obtained from CZI-10301 <br> 
+            (Khavnekar, S. <i>et al.</i> Microscopy and Microanalysis (2023)) </p>
+    </div>
+    <div align="center">
+        <img src="../images/Zbounds.jpg" alt="Fig. 2: Z-slice bounds for the two steps in PickET" height="300" align="center">
+        <p align="center"><b>Fig. 2: Z-slice bounds for the two steps in PickET.</b><br> The figure shows a slice of a tomogram along the Z-axis along with <br> annotations for the upper and lower bounds for the PickET workflow </p>
+    </div>
 </div>
-
 <br/>
 
     neighborhood_size: 5   
@@ -68,7 +74,7 @@ These hyperparameters describe the feature extraction modes. Similar to `inputs`
 
 First, for `mode: ffts`, there is only one hyperparameter, `n_fft_subsets`. This hyperparameter defines how many neighborhoods will be processed simultaneously for feature extraction. Higher the value, the faster the FFT feature extraction, but higher the computational memory required.
 
-Second, for `mode: gabor`, there are four key hyperparameters. The number of Gabor filters used for Gabor feature extraction is the cube of the `num_sinusoids`. The user may choose to not tweak this hyperparameter. The `num_neighborhoods_subsets` and `num_parallel_filters` define the number of neighborhoods and number of Gabor filters to be processed simultaneously. Increasing the `num_neighborhoods_subsets` and reducing the `num_parallel_filters` will result in the feature extraction requiring less GPU memory, but will result in longer runtimes. #TODO why this is true? #TODO : naming: num_neighborhoood_subsets or num_neighborhoods_in_parallel? a bit confusing. The `num_output_features` defines the number of features with the highest standard deviation to be used for clustering. The user may choose not to tweak this hyperparameter.
+Second, for `mode: gabor`, there are four key hyperparameters. The number of Gabor filters used for Gabor feature extraction is the cube of the `num_sinusoids`. The user may choose to not tweak this hyperparameter. The `num_neighborhoods_subsets` and `num_parallel_filters` define the number of neighborhoods and number of Gabor filters to be processed simultaneously. Increasing the `num_neighborhoods_subsets` and reducing the `num_parallel_filters` will result in the feature extraction requiring less GPU memory, but will result in longer runtimes. The `num_output_features` defines the number of features with the highest standard deviation to be used for clustering. The user may choose not to tweak this hyperparameter.
 
 Third, for `mode: intensities`, there are no hyperparameters. It will use the voxel intensities obtained from the neighborhoods as features for clustering.
 
