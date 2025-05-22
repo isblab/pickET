@@ -24,7 +24,8 @@ Python package to pick particles in cryo-electron tomograms in an unsupervised m
     * [How to run S2?](docs/running_s2.md)
 3. [Understanding the outputs](docs/outputs.md)
 
-Accessory scripts and scripts for generating figures for the paper are in these directories (`accessories` and `evaluations`)
+* Other useful helper scripts [accessories](accessories). 
+* Scripts for reproducing figures for the paper [evaluations](evaluations). 
 
 ## Publication and Data
 * Shreyas Arvindekar, Omkar Golatkar, and Shruthi Viswanath, **PickET - A library of methods for unsupervised particle-picking from cryo-electron tomograms**, . #TODO: Add a formal citation
