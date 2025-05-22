@@ -36,7 +36,7 @@ def main():
         idx = int(target["segmentation"].split("/")[-1].split("_")[1])
         time_taken_per_tomo = 0
         tic = time.perf_counter()
-        print(f"Processing {target["segmentation"].split("/")[-1]}")
+        print(f"Processing {target['segmentation'].split('/')[-1]}")
 
         particle_cluster_id = target["particle_cluster_id"]
         z_lb = target.get("lower_z-slice_limit")
@@ -81,11 +81,11 @@ def main():
 
             iseg_out_fpath = os.path.join(
                 iseg_output_dir,
-                f"instance_segmentation_{idx}_{segmentation_handler.metadata["fex_mode"]}_{segmentation_handler.metadata["clustering_method"]}_{p_ex_params['mode']}.yaml",
+                f"instance_segmentation_{idx}_{segmentation_handler.metadata['fex_mode']}_{segmentation_handler.metadata['clustering_method']}_{p_ex_params['mode']}.h5",
             )
             coords_out_fpath = os.path.join(
                 coords_output_dir,
-                f"predicted_centroids_{idx}_{segmentation_handler.metadata["fex_mode"]}_{segmentation_handler.metadata["clustering_method"]}_{p_ex_params['mode']}.yaml",
+                f"predicted_centroids_{idx}_{segmentation_handler.metadata['fex_mode']}_{segmentation_handler.metadata['clustering_method']}_{p_ex_params['mode']}.yaml",
             )
 
             toc = time.perf_counter()

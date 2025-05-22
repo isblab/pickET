@@ -25,7 +25,7 @@ def separate_files_into_groups(parent_fpath: str) -> dict:
     return out_groups
 
 
-def get_ground_truth_fpath(tomogram_path: str, annot_dir_head: str = "") -> str:
+def get_ground_truth_fpath(tomogram_path: str, annot_dir_head: str) -> str:
     tomogram_dir = "/".join(tomogram_path.split("/")[:-1])
     annot_path = os.path.join(tomogram_dir, annot_dir_head, "all_annotations.ndjson")
     return annot_path
@@ -62,12 +62,17 @@ def get_voxel_threshold(angs_threshold: float, voxel_sizes: list) -> int:
 
 
 def zslice_filter_ground_truth_centroids(
-    ground_truth_centroids: np.ndarray, zslice_lb: int, zslice_ub: int
+    ground_truth_centroids: np.ndarray, zslice_lb, zslice_ub
 ) -> np.ndarray:
-    c1 = zslice_lb is None or ground_truth_centroids[:, 0] >= zslice_lb
-    c2 = zslice_ub is None or ground_truth_centroids[:, 0] <= zslice_ub
-    out_centroids = ground_truth_centroids[c1 & c2].squeeze()
-    return out_centroids
+    if zslice_lb != "None":
+        ground_truth_centroids = ground_truth_centroids[
+            np.where(ground_truth_centroids[:, 0] >= int(zslice_lb))
+        ]
+    if zslice_ub != "None":
+        ground_truth_centroids = ground_truth_centroids[
+            np.where(ground_truth_centroids[:, 0] <= int(zslice_ub))
+        ]
+    return ground_truth_centroids
 
 
 def get_random_centroids(

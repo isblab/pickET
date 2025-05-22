@@ -23,23 +23,30 @@ def main():
         os.mkdir(output_dir)
 
     groups = assessment_utils.separate_files_into_groups(parent_path)
+
     for group_name, pc_fname in groups.items():
+        print(f"Processing {group_name}")
         results = {}
         ### Processing block
         for idx, target in enumerate(pc_fname):
             pred_centroids, pred_metadata = assessment_utils.load_predictions(target)
-            zslice_lb = pred_metadata["z_lb_for_particle_extraction"]
-            zslice_ub = pred_metadata["z_ub_for_particle_extraction"]
+            try:
+                zslice_lb = pred_metadata["z_lb_for_particle_extraction"]
+                zslice_ub = pred_metadata["z_ub_for_particle_extraction"]
+            except KeyError:
+                zslice_lb = "None"
+                zslice_ub = "None"
             tomo_shape = tuple(np.array(pred_metadata["tomogram_shape"]).tolist())
             gt_fpath = assessment_utils.get_ground_truth_fpath(
-                str(pred_metadata["tomogram_path"])
+                pred_metadata["tomogram_path"],
+                annot_dir_head=params["annot_dir_head"],
             )
 
             threshold = assessment_utils.get_voxel_threshold(
                 angstrom_threshold, pred_metadata["voxel_size"]
             )
             pred_centroids = utils.read_yaml_coords(target)
-            print(target, len(pred_centroids), sep=":\t")
+            # print(target, len(pred_centroids), sep=":\t")
 
             if len(pred_centroids) <= 1_000_000:
                 random_centroids = assessment_utils.get_random_centroids(
@@ -100,7 +107,6 @@ def main():
             "w",
         ) as outf:
             yaml.dump(results, outf)
-        print()
 
 
 if __name__ == "__main__":
