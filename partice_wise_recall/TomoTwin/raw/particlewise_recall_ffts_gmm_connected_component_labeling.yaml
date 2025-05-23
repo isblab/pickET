@@ -1,0 +1,2376 @@
+1g3i:
+  Average recall: 0.9970833333333333
+  Average recall ratio: 0.9983459495997464
+  Random recalls:
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.99
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.0038864079387870188
+1n9g:
+  Average recall: 0.9944999999999999
+  Average recall ratio: 0.9944999900550002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.984
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 0.99
+  - 0.99
+  Standard deviation on recall: 0.005894913061275803
+1ss8:
+  Average recall: 0.9991666666666666
+  Average recall ratio: 0.9991666566750002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002204792759220506
+1ul1:
+  Average recall: 0.9935833333333333
+  Average recall ratio: 0.9954303140510484
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 1.0
+  - 0.9866666666666667
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.98
+  Standard deviation on recall: 0.007179736144950672
+2dfs:
+  Average recall: 0.9991666666666666
+  Average recall ratio: 1.0008558458301773
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.002204792759220506
+2r9r:
+  Average recall: 0.9950833333333333
+  Average recall ratio: 0.9973252588213262
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  Recalls:
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 0.984
+  - 1.0
+  Standard deviation on recall: 0.006522929641741593
+2rhs:
+  Average recall: 0.999
+  Average recall ratio: 1.0019518054024235
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 0.99
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002645751311064593
+2vz9:
+  Average recall: 0.99325
+  Average recall ratio: 0.9932499900675003
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.976
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.9866666666666667
+  - 1.0
+  - 0.99
+  Standard deviation on recall: 0.008167942077278575
+2ww2:
+  Average recall: 0.9913333333333334
+  Average recall ratio: 0.9938843437766224
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.98
+  - 1.0
+  Recalls:
+  - 0.984
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.9866666666666667
+  - 1.0
+  - 0.98
+  Standard deviation on recall: 0.007542472332656507
+2xnx:
+  Average recall: 0.9981666666666666
+  Average recall ratio: 0.9981666566850003
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.003192874010111346
+3lue:
+  Average recall: 0.9886666666666666
+  Average recall ratio: 0.9886666567800002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 0.99
+  - 0.98
+  - 0.9933333333333333
+  - 0.984
+  - 0.992
+  - 0.99
+  - 0.9866666666666667
+  Standard deviation on recall: 0.004459696053419876
+3mkq:
+  Average recall: 0.999
+  Average recall ratio: 1.0000080545058867
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002645751311064593
+3ulv:
+  Average recall: 0.99125
+  Average recall ratio: 0.9924873638000015
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 0.98
+  - 0.99
+  - 0.98
+  Standard deviation on recall: 0.007982185025278343
+4uic:
+  Average recall: 0.9550833333333333
+  Average recall ratio: 0.9563206974950014
+  Random recalls:
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.94
+  - 0.98
+  - 0.936
+  - 0.96
+  - 0.9466666666666667
+  - 0.98
+  - 0.968
+  - 0.93
+  Standard deviation on recall: 0.018453959225898122
+4wrm:
+  Average recall: 0.9546666666666666
+  Average recall ratio: 0.95466665712
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.96
+  - 0.952
+  - 0.9333333333333333
+  - 0.94
+  - 0.98
+  - 0.94
+  - 0.952
+  - 0.98
+  Standard deviation on recall: 0.016626618551119906
+4xk8:
+  Average recall: 0.9991666666666666
+  Average recall ratio: 0.999999989991611
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.002204792759220506
+5a20:
+  Average recall: 0.993
+  Average recall ratio: 0.9929999900700002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 1.0
+  - 0.99
+  - 1.0
+  - 0.99
+  - 0.9866666666666667
+  - 0.992
+  - 0.9933333333333333
+  Standard deviation on recall: 0.004447221354708775
+5csa:
+  Average recall: 0.9975
+  Average recall ratio: 0.9974999900250001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 0.9933333333333333
+  Standard deviation on recall: 0.004639803635691682
+5g04:
+  Average recall: 0.999
+  Average recall ratio: 0.9989999900100002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002645751311064593
+5h0s:
+  Average recall: 0.9945833333333334
+  Average recall ratio: 0.9945833233875001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 0.98
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  Standard deviation on recall: 0.006653633092779721
+5jh9:
+  Average recall: 0.988
+  Average recall ratio: 0.9888333234366109
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.98
+  - 0.984
+  - 1.0
+  - 0.9933333333333333
+  - 0.9866666666666667
+  - 0.96
+  - 1.0
+  Standard deviation on recall: 0.01287547194388532
+5ljo:
+  Average recall: 0.9913333333333333
+  Average recall ratio: 0.992166656736611
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.98
+  - 0.98
+  - 0.9933333333333333
+  - 0.9933333333333333
+  - 0.984
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.008246211251235326
+5o32:
+  Average recall: 0.9975
+  Average recall ratio: 0.9974999900250001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.98
+  Standard deviation on recall: 0.006614378277661483
+5ool:
+  Average recall: 0.9812500000000001
+  Average recall ratio: 0.9828265667323322
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  Recalls:
+  - 1.0
+  - 0.99
+  - 0.9666666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.96
+  - 0.9333333333333333
+  Standard deviation on recall: 0.02356654290396545
+5vkq:
+  Average recall: 1.0
+  Average recall ratio: 0.9999999900000002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0
+6ahu:
+  Average recall: 0.9941666666666666
+  Average recall ratio: 0.9941666567250002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 1.0
+  - 0.9866666666666667
+  - 0.99
+  - 0.99
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.004930066485916346
+6bq1:
+  Average recall: 0.9991666666666666
+  Average recall ratio: 1.0004292829122465
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002204792759220506
+6ces:
+  Average recall: 0.9919166666666667
+  Average recall ratio: 0.9919166567475002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9866666666666667
+  - 0.9733333333333334
+  - 0.99
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.008475045067071243
+6cnj:
+  Average recall: 0.9944166666666666
+  Average recall ratio: 0.9966666566772933
+  Random recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  Recalls:
+  - 0.992
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.9866666666666667
+  - 0.99
+  Standard deviation on recall: 0.004760222917282573
+6duz:
+  Average recall: 0.9991666666666666
+  Average recall ratio: 0.999999989991611
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  Standard deviation on recall: 0.002204792759220506
+6emk:
+  Average recall: 1.0
+  Average recall ratio: 0.9999999900000002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0
+6f8l:
+  Average recall: 0.9941666666666666
+  Average recall ratio: 0.9966921668780562
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.98
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9866666666666667
+  - 0.99
+  - 1.0
+  - 0.99
+  - 0.9933333333333333
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.004930066485916346
+6gy6:
+  Average recall: 0.9979166666666667
+  Average recall ratio: 0.9979166566875002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.003703414340548171
+6gym:
+  Average recall: 0.9979166666666667
+  Average recall ratio: 0.9979166566875002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.0037034143405481708
+6i0d:
+  Average recall: 0.994
+  Average recall ratio: 0.9939999900600002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.9866666666666667
+  - 0.992
+  - 1.0
+  - 0.98
+  - 1.0
+  Standard deviation on recall: 0.007055336829505577
+6id1:
+  Average recall: 0.99875
+  Average recall ratio: 0.9997580545083866
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0033071891388307415
+6igc:
+  Average recall: 0.9454166666666666
+  Average recall ratio: 0.9499903045532093
+  Random recalls:
+  - 1.0
+  - 0.99
+  - 1.0
+  - 0.9733333333333334
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 0.91
+  - 0.944
+  - 1.0
+  - 0.9666666666666667
+  - 0.9333333333333333
+  - 0.816
+  - 1.0
+  Standard deviation on recall: 0.0579410020816194
+6jy0:
+  Average recall: 1.0
+  Average recall ratio: 1.0010080544958866
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0
+6klh:
+  Average recall: 0.998
+  Average recall ratio: 0.9979999900200002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.984
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.005291502622129186
+6krk:
+  Average recall: 0.993
+  Average recall ratio: 0.9946891792251773
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.984
+  - 0.9933333333333333
+  - 0.99
+  - 1.0
+  - 0.99
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.005981452814975453
+6ksp:
+  Average recall: 0.9956666666666667
+  Average recall ratio: 0.9966666566899196
+  Random recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 0.9933333333333333
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.004749268949591669
+6lmt:
+  Average recall: 0.9991666666666666
+  Average recall ratio: 0.9991666566750002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002204792759220506
+6lx3:
+  Average recall: 0.9895833333333334
+  Average recall ratio: 0.9895833234375001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9866666666666667
+  - 1.0
+  - 0.9933333333333333
+  - 0.9866666666666667
+  - 0.992
+  - 0.968
+  - 0.99
+  - 1.0
+  Standard deviation on recall: 0.009486466969085785
+6lxk:
+  Average recall: 0.9981666666666666
+  Average recall ratio: 0.9994292829222464
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.003192874010111346
+6lxv:
+  Average recall: 0.9606666666666666
+  Average recall ratio: 0.9606666570600002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.99
+  - 0.976
+  - 0.9333333333333333
+  - 0.9666666666666667
+  - 0.9533333333333334
+  - 0.95
+  - 0.94
+  - 0.976
+  Standard deviation on recall: 0.018399879226656778
+6m04:
+  Average recall: 0.9981666666666666
+  Average recall ratio: 0.999005582842662
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.003192874010111346
+6mrc:
+  Average recall: 0.9895833333333333
+  Average recall ratio: 0.9895833234375002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 0.98
+  - 0.99
+  - 1.0
+  - 0.9933333333333333
+  - 0.96
+  - 1.0
+  Standard deviation on recall: 0.012849286620924404
+6pif:
+  Average recall: 0.9979166666666667
+  Average recall ratio: 0.9979166566875002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0037034143405481708
+6scj:
+  Average recall: 0.9981666666666666
+  Average recall ratio: 0.9981666566850003
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.003192874010111346
+6ta5:
+  Average recall: 0.9991666666666666
+  Average recall ratio: 1.0001747211708867
+  Random recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002204792759220506
+6tav:
+  Average recall: 0.999
+  Average recall ratio: 1.0002626162472463
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002645751311064593
+6tgc:
+  Average recall: 0.999
+  Average recall ratio: 0.9989999900100002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002645751311064593
+6tps:
+  Average recall: 0.9973333333333333
+  Average recall ratio: 0.9973333233600001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.992
+  - 0.9933333333333333
+  Standard deviation on recall: 0.0034641016151377682
+6u8q:
+  Average recall: 0.9935833333333333
+  Average recall ratio: 0.996100253028237
+  Random recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 0.992
+  - 1.0
+  - 0.99
+  - 0.9866666666666667
+  - 0.9933333333333333
+  Standard deviation on recall: 0.005415384463626642
+6up6:
+  Average recall: 0.96975
+  Average recall ratio: 0.9705777307780599
+  Random recalls:
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9866666666666667
+  - 0.95
+  - 0.9866666666666667
+  - 0.9733333333333334
+  - 0.968
+  - 0.92
+  - 1.0
+  - 0.9733333333333334
+  Standard deviation on recall: 0.02340213071970632
+6vgr:
+  Average recall: 0.9963333333333333
+  Average recall ratio: 0.9975959496072464
+  Random recalls:
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 0.9933333333333333
+  - 0.9933333333333333
+  - 0.992
+  - 1.0
+  Standard deviation on recall: 0.0036968455021364833
+6vn1:
+  Average recall: 0.9956666666666667
+  Average recall ratio: 0.9966747212058866
+  Random recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 0.992
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  Standard deviation on recall: 0.005802298395176394
+6vz8:
+  Average recall: 0.9964999999999999
+  Average recall ratio: 0.9964999900350002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9866666666666667
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.004850544070285081
+6w6m:
+  Average recall: 0.9970833333333333
+  Average recall ratio: 0.9970833233625003
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 0.99
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0038864079387870188
+6wzt:
+  Average recall: 0.9975
+  Average recall ratio: 0.9987499899998739
+  Random recalls:
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.004330127018922197
+6x5z:
+  Average recall: 0.9964999999999999
+  Average recall ratio: 0.9964999900350002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.98
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  Standard deviation on recall: 0.006763874629234348
+6x9q:
+  Average recall: 0.8280833333333333
+  Average recall ratio: 0.8280833250525002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.6933333333333334
+  - 0.816
+  - 0.9866666666666667
+  - 0.94
+  - 0.69
+  - 0.9066666666666666
+  - 0.792
+  - 0.8
+  Standard deviation on recall: 0.10204815720476723
+6xf8:
+  Average recall: 0.998
+  Average recall ratio: 0.9992626162572464
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.984
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.005291502622129186
+6yt5:
+  Average recall: 0.9864166666666667
+  Average recall ratio: 0.9864166568025001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 0.968
+  - 0.9733333333333334
+  - 0.99
+  - 0.98
+  - 0.98
+  - 1.0
+  Standard deviation on recall: 0.012036691590484674
+6z3a:
+  Average recall: 0.9964999999999999
+  Average recall ratio: 0.9974999900149195
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 0.992
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.004850544070285081
+6z6o:
+  Average recall: 0.9948333333333333
+  Average recall ratio: 0.9948333233850002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 0.992
+  - 0.9866666666666667
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.005595136777198165
+6z80:
+  Average recall: 0.9958333333333333
+  Average recall ratio: 0.9958333233750001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.98
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.007406828681096325
+6ziu:
+  Average recall: 0.98925
+  Average recall ratio: 0.9892499901075001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9866666666666667
+  - 0.98
+  - 1.0
+  - 0.9866666666666667
+  - 0.99
+  - 1.0
+  - 0.984
+  - 0.9866666666666667
+  Standard deviation on recall: 0.006753085714446891
+6zqj:
+  Average recall: 0.9936666666666667
+  Average recall ratio: 0.9936666567300001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.984
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.98
+  - 0.992
+  - 0.9933333333333333
+  Standard deviation on recall: 0.007446102634562899
+7amv:
+  Average recall: 0.99875
+  Average recall ratio: 1.0000126162497462
+  Random recalls:
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0033071891388307415
+7b5s:
+  Average recall: 0.977
+  Average recall ratio: 0.9786441343410393
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.984
+  - 0.9866666666666667
+  - 0.98
+  - 0.992
+  - 0.9733333333333334
+  - 0.96
+  - 0.9666666666666667
+  - 0.9733333333333334
+  Standard deviation on recall: 0.009994442900376635
+7b7u:
+  Average recall: 0.9969166666666667
+  Average recall ratio: 0.9969166566975002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 0.992
+  - 0.9933333333333333
+  Standard deviation on recall: 0.004067998415819648
+7bkc:
+  Average recall: 0.988
+  Average recall ratio: 0.9879999901200002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 0.984
+  - 0.9466666666666667
+  - 1.0
+  - 0.9733333333333334
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.018233059108236457
+7blq:
+  Average recall: 0.9975
+  Average recall ratio: 0.9987626162622464
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.004639803635691682
+7blr:
+  Average recall: 0.9983333333333333
+  Average recall ratio: 0.9983333233500002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.004409585518440976
+7dd9:
+  Average recall: 0.9929166666666667
+  Average recall ratio: 0.9929166567375002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.98
+  - 0.99
+  - 0.98
+  - 1.0
+  Standard deviation on recall: 0.00823904997220217
+7e1y:
+  Average recall: 0.9979166666666667
+  Average recall ratio: 0.9979166566875002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 0.9933333333333333
+  - 1.0
+  Standard deviation on recall: 0.003703414340548171
+7e6g:
+  Average recall: 0.9861666666666666
+  Average recall ratio: 0.9861666568050002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 0.99
+  - 0.9733333333333334
+  - 0.98
+  - 0.99
+  - 0.992
+  - 0.984
+  - 0.9866666666666667
+  Standard deviation on recall: 0.006348665651580285
+7e8h:
+  Average recall: 0.9975
+  Average recall ratio: 0.9974999900250002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.004639803635691682
+7eep:
+  Average recall: 0.9991666666666666
+  Average recall ratio: 0.999999989991611
+  Random recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002204792759220506
+7egd:
+  Average recall: 0.9964999999999999
+  Average recall ratio: 0.9981666566681082
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 0.992
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.004850544070285081
+7ege:
+  Average recall: 0.9981666666666666
+  Average recall ratio: 0.9994292829222464
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  Recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.003192874010111346
+7egq:
+  Average recall: 1.0
+  Average recall ratio: 1.0012626162372464
+  Random recalls:
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0
+7etm:
+  Average recall: 0.9991666666666666
+  Average recall ratio: 0.9991666566750002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.002204792759220506
+7ey7:
+  Average recall: 0.992
+  Average recall ratio: 0.9929919255439523
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 0.9866666666666667
+  - 1.0
+  - 0.984
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 0.98
+  Standard deviation on recall: 0.007333333333333336
+7jsn:
+  Average recall: 0.9969166666666667
+  Average recall ratio: 0.9979166566774196
+  Random recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.004067998415819648
+7k5x:
+  Average recall: 0.9942500000000001
+  Average recall ratio: 0.9986746475022347
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9733333333333334
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  Recalls:
+  - 0.9866666666666667
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.992
+  - 0.99
+  Standard deviation on recall: 0.0048182235084912525
+7kdv:
+  Average recall: 0.9778333333333333
+  Average recall ratio: 0.9798957260625506
+  Random recalls:
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9666666666666667
+  - 0.9533333333333334
+  - 0.98
+  - 0.9466666666666667
+  - 0.976
+  Standard deviation on recall: 0.01993252506722506
+7kfe:
+  Average recall: 0.9928333333333332
+  Average recall ratio: 0.9928333234050002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 0.9933333333333333
+  - 0.9933333333333333
+  - 0.98
+  - 0.984
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.007053367989832948
+7kj2:
+  Average recall: 0.9979166666666667
+  Average recall ratio: 0.9996058458426773
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0037034143405481708
+7lsy:
+  Average recall: 0.9979166666666667
+  Average recall ratio: 0.9979166566875002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.99
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0037034143405481708
+7mei:
+  Average recall: 0.999
+  Average recall ratio: 0.9989999900100002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  Standard deviation on recall: 0.002645751311064593
+7nhs:
+  Average recall: 0.9937499999999999
+  Average recall ratio: 0.996666656670482
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 0.99
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 0.98
+  - 0.99
+  - 0.9933333333333333
+  - 1.0
+  Standard deviation on recall: 0.007156485015549031
+7niu:
+  Average recall: 0.9958333333333333
+  Average recall ratio: 0.9968413878708866
+  Random recalls:
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9733333333333334
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.0087797114607106
+7nyz:
+  Average recall: 0.9944166666666667
+  Average recall ratio: 0.9961058458776773
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 0.99
+  - 1.0
+  - 1.0
+  - 0.98
+  - 0.992
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.006699398812165501
+7o01:
+  Average recall: 0.9931666666666668
+  Average recall ratio: 0.9948558458901773
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9733333333333334
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.98
+  Standard deviation on recall: 0.01000971750073119
+7q21:
+  Average recall: 0.9949166666666667
+  Average recall ratio: 0.997444772030339
+  Random recalls:
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.976
+  - 0.99
+  Standard deviation on recall: 0.00801344356552025
+7qj0:
+  Average recall: 1.0
+  Average recall ratio: 0.9999999900000002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0
+7r04:
+  Average recall: 1.0
+  Average recall ratio: 1.0016891791551772
+  Random recalls:
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0
+7s7k:
+  Average recall: 0.9620833333333334
+  Average recall ratio: 0.9628719143007023
+  Random recalls:
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.94
+  - 0.976
+  - 0.96
+  - 0.97
+  - 0.96
+  - 0.96
+  - 0.984
+  - 0.9466666666666667
+  Standard deviation on recall: 0.013578731326764097
+7sfw:
+  Average recall: 0.9973333333333334
+  Average recall ratio: 0.999341387835806
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 0.992
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  Standard deviation on recall: 0.004807401700618647
+7sgm:
+  Average recall: 0.9958333333333333
+  Average recall ratio: 0.9958333233750002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.98
+  - 1.0
+  - 0.9933333333333333
+  Standard deviation on recall: 0.0066143782776614864
+7shk:
+  Average recall: 0.9959166666666667
+  Average recall ratio: 0.996755582865162
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.992
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 0.992
+  - 1.0
+  - 1.0
+  - 0.99
+  Standard deviation on recall: 0.004169165917116336
+7sn7:
+  Average recall: 0.9956666666666667
+  Average recall ratio: 0.9956666567100002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 0.992
+  Standard deviation on recall: 0.005802298395176394
+7t3u:
+  Average recall: 0.9975
+  Average recall ratio: 0.9974999900250001
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 0.9866666666666667
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.004639803635691682
+7vtq:
+  Average recall: 0.9496666666666667
+  Average recall ratio: 0.9506666571499195
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.992
+  Recalls:
+  - 0.9866666666666667
+  - 1.0
+  - 0.872
+  - 0.88
+  - 1.0
+  - 0.8666666666666667
+  - 1.0
+  - 0.992
+  Standard deviation on recall: 0.05972436688655645
+7wbt:
+  Average recall: 0.995
+  Average recall ratio: 0.9993639103342852
+  Random recalls:
+  - 0.9933333333333333
+  - 1.0
+  - 0.992
+  - 0.9866666666666667
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 0.9933333333333333
+  - 1.0
+  - 1.0
+  - 1.0
+  - 0.9933333333333333
+  - 0.9933333333333333
+  - 1.0
+  - 0.98
+  Standard deviation on recall: 0.006454972243679037
+7woo:
+  Average recall: 1.0
+  Average recall ratio: 0.9999999900000002
+  Random recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Recalls:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  Standard deviation on recall: 0.0

@@ -2,7 +2,7 @@ import os
 import sys
 import yaml
 import numpy as np
-from tqdm import tqdm
+from rich.progress import track
 from scipy.spatial.distance import cdist
 
 from assets import utils
@@ -25,10 +25,11 @@ def main():
     groups = assessment_utils.separate_files_into_groups(parent_path)
 
     for group_name, pc_fname in groups.items():
-        print(f"Processing {group_name}")
         results = {}
         ### Processing block
-        for idx, target in enumerate(pc_fname):
+        for idx, target in enumerate(
+            track(pc_fname, description=f"Processing {group_name}")
+        ):
             pred_centroids, pred_metadata = assessment_utils.load_predictions(target)
             try:
                 zslice_lb = pred_metadata["z_lb_for_particle_extraction"]

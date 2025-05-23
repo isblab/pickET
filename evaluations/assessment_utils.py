@@ -47,7 +47,7 @@ def read_ndjson_coords(fname: str) -> np.ndarray:
     return coords
 
 
-def load_predictions(pred_fname: str) -> tuple[np.ndarray, dict]:
+def load_predictions(pred_fname: str) -> tuple[list[dict], dict]:
     with open(pred_fname, "r") as predf:
         contents = yaml.safe_load(predf)
         pred_coords = contents["Predicted_Particle_Centroid_Coordinates"]
