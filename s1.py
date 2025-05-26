@@ -49,8 +49,11 @@ def main():
             tomogram, voxel_sizes = utils.load_tomogram(target["tomogram"])
             tomogram = preprocessing.guassian_blur_tomogram(tomogram)
             tomogram = preprocessing.minmax_normalize_array(tomogram)
+            preproc_toc = time.perf_counter()
+            preproc_time = preproc_toc - tic
 
             # Extract features
+            fex_tic = time.perf_counter()
             with console.status(
                 "Extracting all overlapping neighborhoods", spinner="bouncingBall"
             ) as status:
@@ -71,14 +74,18 @@ def main():
                 console.log(
                     f"Features array of shape: {feature_extractor.features.shape}"
                 )
+            fex_toc = time.perf_counter()
+            fex_time = fex_toc - fex_tic
 
             # Fitting the clusterers
             clusterers = {}
+            clusterer_efficiencies = {}
             for cl_method in clustering_methods:
                 with console.status(
                     f"Clustering features using [cyan bold]{cl_method}[/]",
                     spinner="bouncingBall",
                 ) as status:
+                    clft_tic = time.perf_counter()
                     if cl_method == "kmeans":
                         clusterer = clustering.fit_kmeans_clustering(
                             feature_extractor.features
@@ -93,13 +100,16 @@ def main():
                             f"Clustering method {cl_method} not supported.\
                                         Choose from 'kmeans', 'gmm'"
                         )
+
+                    clft_toc = time.perf_counter()
                     clusterers[cl_method] = clusterer
+                    clusterer_efficiencies[cl_method] = clft_toc - clft_tic
 
                     console.log(f"Fitting done for [cyan bold]{cl_method}[/] clusterer")
 
             # Build the segmentation
-            segmentations = {}
             for cl_method, clusterer in clusterers.items():
+                clpred_tic = time.perf_counter()
                 if (
                     (z_lb is not None)
                     or (z_ub is not None)
@@ -132,16 +142,14 @@ def main():
                     segmentation = np.pad(
                         segmentation, half_size, mode="constant", constant_values=-1
                     )
+                clpred_toc = time.perf_counter()
+                clusterer_efficiencies[cl_method] += clpred_toc - clpred_tic
 
                 console.log("Segmentation mask generated")
                 segmentation = clustering.set_larger_cluster_as_bg(segmentation)
-                segmentations[cl_method] = segmentation
                 console.log(f"Segmentation using [cyan bold]{cl_method}[/] completed")
 
-            toc = time.perf_counter()
-            time_taken = toc - tic
-            # Save the segmentation
-            for cl_method, segmentation in segmentations.items():
+                # Save the segmentation
                 outf_full_path = os.path.join(
                     output_dir,
                     f"segmentation_{idx}_{ftex_mode}_{cl_method}.h5",
@@ -183,8 +191,14 @@ def main():
                     )
 
                 segmentation_handler.metadata["clustering_method"] = cl_method
+                segmentation_handler.metadata["time_taken_for_fex"] = (  # type:ignore
+                    fex_time
+                )
+                segmentation_handler.metadata["time_taken_for_clustering"] = (
+                    clusterer_efficiencies[cl_method]
+                )
                 segmentation_handler.metadata["time_taken_for_s1"] = (  # type:ignore
-                    time_taken
+                    preproc_time + fex_tic + clusterer_efficiencies[cl_method]
                 )
                 segmentation_handler.metadata["timestamp_s1"] = (  # type:ignore
                     datetime.datetime.now().isoformat()
@@ -192,6 +206,9 @@ def main():
 
                 segmentation_handler.generate_output_file(outf_full_path)
                 console.log(f"Segmentation saved to [cyan]{outf_full_path}[/]")
+
+            toc = time.perf_counter()
+            time_taken = toc - tic
 
             console.print(
                 f"Tomogram {idx+1} processed in {int(round(time_taken/60,0))} minutes\n"

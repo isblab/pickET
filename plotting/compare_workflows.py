@@ -42,6 +42,35 @@ def main():
     output_dir = sys.argv[3]
     result_fnames = sys.argv[4:]
 
+    color_palette = {
+        "intensities_KM_CC": "#399424",
+        "intensities_KM_WS": "#399424",
+        "intensities_GMM_CC": "#399424",
+        "intensities_GMM_WS": "#399424",
+        "ffts_KM_CC": "#E76600",
+        "ffts_KM_WS": "#E76600",
+        "ffts_GMM_CC": "#E76600",
+        "ffts_GMM_WS": "#E76600",
+        "gabor_KM_CC": "#9945AC",
+        "gabor_KM_WS": "#9945AC",
+        "gabor_GMM_CC": "#9945AC",
+        "gabor_GMM_WS": "#9945AC",
+    }
+
+    workflow_names = {
+        "intensities_KM_CC": "Intensities KMeans CC",
+        "intensities_KM_WS": "Intensities KMeans WS",
+        "intensities_GMM_CC": "Intensities GMM CC",
+        "intensities_GMM_WS": "Intensities GMM WS",
+        "ffts_KM_CC": "FFTs KMeans CC",
+        "ffts_KM_WS": "FFTs KMeans WS",
+        "ffts_GMM_CC": "FFTs GMM CC",
+        "ffts_GMM_WS": "FFTs GMM WS",
+        "gabor_KM_CC": "Gabor KMeans CC",
+        "gabor_KM_WS": "Gabor KMeans WS",
+        "gabor_GMM_CC": "Gabor GMM CC",
+        "gabor_GMM_WS": "Gabor GMM WS",
+    }
     xvals = []
     results = []
     random_results = []
@@ -66,18 +95,26 @@ def main():
         xvals.append(key_val)
 
     results_vp = plt.violinplot(results, vert=False, showextrema=False)
-    for body in results_vp["bodies"]:  # type:ignore
-        body.set_facecolor("#00bfff")
-        body.set_alpha(0.15)
+    for idx, body in enumerate(results_vp["bodies"]):  # type:ignore
+        body.set_facecolor(color_palette[xvals[idx]])
+        if xvals[idx].split("_")[-2] == "KM":
+            body.set_alpha(0.4)
+        elif xvals[idx].split("_")[-2] == "GMM":
+            body.set_alpha(0.2)
     random_results_vp = plt.violinplot(random_results, vert=False, showextrema=False)
     for body in random_results_vp["bodies"]:  # type:ignore
         body.set_facecolor("#aeaeae")
-        body.set_alpha(0.5)
+        body.set_alpha(0.6)
 
-    plt.boxplot(results, orientation="horizontal", showfliers=False)  # type:ignore
+    bxplt = plt.boxplot(
+        results, orientation="horizontal", showfliers=False
+    )  # type:ignore
+    for mdn in bxplt["medians"]:
+        mdn.set(color="#000000")
 
+    xlabels = [workflow_names[k] for k in xvals]
     plt.xlim(0, 1)
-    plt.yticks(range(1, len(xvals) + 1), xvals)
+    plt.yticks(range(1, len(xlabels) + 1), xlabels)
     plt.title(f"{metric} comparison on {dataset_id}")
     plt.xlabel(metric)
     # plt.legend(loc="upper left", bbox_to_anchor=(1, 1))

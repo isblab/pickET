@@ -23,6 +23,8 @@ class Segmentations:
             "fex_num_parallel_filters": None,
             "fex_num_output_features": None,
             "clustering_method": None,
+            "time_taken_for_fex": None,
+            "time_taken_for_clustering": None,
             "time_taken_for_s1": None,
             "timestamp_s1": None,
             # S2 metadata
