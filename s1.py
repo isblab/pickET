@@ -198,7 +198,7 @@ def main():
                     clusterer_efficiencies[cl_method]
                 )
                 segmentation_handler.metadata["time_taken_for_s1"] = (  # type:ignore
-                    preproc_time + fex_tic + clusterer_efficiencies[cl_method]
+                    preproc_time + fex_time + clusterer_efficiencies[cl_method]
                 )
                 segmentation_handler.metadata["timestamp_s1"] = (  # type:ignore
                     datetime.datetime.now().isoformat()

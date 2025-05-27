@@ -81,8 +81,11 @@ def main():
             random_metric_values = []
             for tomo, m in run_results.items():
                 if tomo != "Global":
-                    metric_values.append(m[metric])
-                    random_metric_values.append(m[f"Random {metric}"])
+                    if metric in ("Precision", "Recall", "F1-score"):
+                        metric_values.append(m[metric])
+                        random_metric_values.append(m[f"Random {metric}"])
+                    elif metric == "Total time taken":
+                        metric_values.append(m[metric] / 60)
 
         metric_values = np.array(metric_values)
         random_metric_values = np.array(random_metric_values)
@@ -101,10 +104,14 @@ def main():
             body.set_alpha(0.4)
         elif xvals[idx].split("_")[-2] == "GMM":
             body.set_alpha(0.2)
-    random_results_vp = plt.violinplot(random_results, vert=False, showextrema=False)
-    for body in random_results_vp["bodies"]:  # type:ignore
-        body.set_facecolor("#aeaeae")
-        body.set_alpha(0.6)
+
+    if metric in ("Precision", "Recall", "F1-score"):
+        random_results_vp = plt.violinplot(
+            random_results, vert=False, showextrema=False
+        )
+        for body in random_results_vp["bodies"]:  # type:ignore
+            body.set_facecolor("#aeaeae")
+            body.set_alpha(0.6)
 
     bxplt = plt.boxplot(
         results, orientation="horizontal", showfliers=False
@@ -113,7 +120,10 @@ def main():
         mdn.set(color="#000000")
 
     xlabels = [workflow_names[k] for k in xvals]
-    plt.xlim(0, 1)
+
+    if metric in ("Precision", "Recall", "F1-score"):
+        plt.xlim(0, 1)
+
     plt.yticks(range(1, len(xlabels) + 1), xlabels)
     plt.title(f"{metric} comparison on {dataset_id}")
     plt.xlabel(metric)
