@@ -69,4 +69,5 @@ class Segmentations:
             if "instance_segmentation" in seg_group.keys():  # type:ignore
                 self.instance_segmentation = seg_group[  # type:ignore
                     "instance_segmentation"
-                ]
+                ][:]
+                print(np.unique(np.array(self.instance_segmentation)))

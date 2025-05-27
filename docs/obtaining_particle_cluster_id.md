@@ -1,13 +1,14 @@
-
-
 # Obtaining particle cluster ID
 
 Look at the each of the six segmentations generated from S1 for the tomograms in the dataset following the workflow described in [visualizing segmentations](visualizing_segmentations.md).  This could be 0 or 1 and is called the `particle_cluster_id` for each of the chosen segmentations. Either of the following ways can be used to obtain the `particle_cluster_id`:
 
-1. Hover over a target particle in the loaded Napari window. This number should appear at the bottom of the window next to the coordinates of the mouse pointer.
+1. Check if a target particle is colored with a non-gray color in this overlay. If the particle is colored, then `particle_cluster_id = 1`, else `particle_cluster_id = 0`. (See also Fig. 3A. In this figure, it is visually apparent that the particles are segmented in a non-gray color, orange in this case. Therefore, for this example, `particle_cluster_id = 1`.)
 
-2. Check if a target particle is colored with a non-gray color in this overlay. If the particle is colored, then `particle_cluster_id = 1`, else `particle_cluster_id = 0`.
+2. Hover over a target particle in the loaded Napari window (as shown in Fig. 3B). The `particle_cluster_id` should appear at the bottom of the window next to the coordinates of the mouse pointer (as shown in Fig. 3C).
 
 *Note that the `particle_cluster_id` may not be the same for all the segmentations generated from S1 for a given tomogram.*
 
-#TODO: Add Napari tutorial images
+<div align="center" style="margin-right: 100px;">
+    <img src="../images/napari_demo.jpg" alt="Fig. 3: Obtaining the 'particle_cluster_id'" height="300" align="center">
+    <p align="center"><b>Fig. 3: Obtaining the "particle_cluster_id" </p>
+</div>

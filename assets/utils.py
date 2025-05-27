@@ -1,5 +1,6 @@
 import yaml
 import h5py
+import napari
 import ndjson
 import mrcfile
 import numpy as np
@@ -107,3 +108,10 @@ def read_yaml_coords(pred_coords_fname: str) -> np.ndarray:
         raise ValueError("Something went wrong when reading coords")
 
     return coords
+
+
+def load_in_napari(tomogram: np.ndarray, segmentation: np.ndarray, segname: str):
+    viewer = napari.Viewer()
+    viewer.add_image(tomogram, name="Tomogram")
+    viewer.add_labels(segmentation, name=segname)
+    napari.run()

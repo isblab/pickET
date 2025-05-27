@@ -1,6 +1,5 @@
 import os
 import sys
-import napari
 import numpy as np
 from assets import utils, segmentation_io
 
@@ -30,11 +29,7 @@ def main():
 
     tomogram, _ = utils.load_tomogram(tomo_path)
     print("Loaded segmentation and tomogram successfully...")
-
-    viewer = napari.Viewer()
-    viewer.add_image(tomogram, name="Tomogram")
-    viewer.add_labels(segmentation, name="Segmentation")
-    napari.run()
+    utils.load_in_napari(tomogram, segmentation, segname=seg_type)
 
 
 if __name__ == "__main__":
