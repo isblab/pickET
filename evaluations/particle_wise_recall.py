@@ -49,13 +49,12 @@ def convert_centroids_dict_to_arr(centroids: list[dict]) -> np.ndarray:
 def main():
     ### Input block
     params_fname = sys.argv[1]
-    dataset_name = sys.argv[2]
     params = utils.load_params_from_yaml(params_fname)
 
     angstrom_threshold = params["threshold_in_angstrom"]
     parent_path = params["parent_path"]
 
-    out_dir = f"/home/shreyas/Projects/mining_tomograms/pickET/partice_wise_recall/{dataset_name}/raw/"
+    out_dir = f"/home/shreyas/Projects/mining_tomograms/pickET/partice_wise_recall/{params['dataset_name']}/raw/"
     if not os.path.isdir(out_dir):
         os.makedirs(out_dir)
 

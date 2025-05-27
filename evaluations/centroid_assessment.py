@@ -85,6 +85,10 @@ def main():
                     "Random Precision": random_precision,
                     "Random Recall": random_recall,
                     "Random F1-score": random_f1score,
+                    "Time taken for S1": pred_metadata["time_taken_for_s1"],
+                    "Time taken for S2": pred_metadata["time_taken_for_s2"],
+                    "Total time taken": pred_metadata["time_taken_for_s1"]
+                    + pred_metadata["time_taken_for_s2"],
                 }
 
             else:  # Ignore the tomogram where the number of predicted particles is over 1M
@@ -96,6 +100,9 @@ def main():
                     "Random Precision": np.nan,
                     "Random Recall": np.nan,
                     "Random F1-score": np.nan,
+                    "Time taken for S1": np.nan,
+                    "Time taken for S2": np.nan,
+                    "Total time taken": np.nan,
                 }
 
         results = assessment_utils.compute_global_metrics(results)

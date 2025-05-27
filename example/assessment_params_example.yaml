@@ -1,0 +1,8 @@
+dataset_name: <name of the dataset>
+
+parent_path: <path to predicted particles>
+annot_dir_head: <dir head for the ground truth annotations (eg. coods/ for TomoTwin and annotations/ for CZI datasets)>
+
+threshold_in_angstrom: <distance threshold for considering a prediction as a true positive>
+
+output_dir: <directory where the output files from the assessment should be saved>
