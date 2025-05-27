@@ -43,13 +43,9 @@ First, for `mode: connected_component_labeling`, there are no hyperparameters. T
 
 Second, for `mode: watershed_segmentation`, there is one hyperparameter. This mode uses the watershed segmentation workflow for splitting semantic segmentation into instance segmentation. It uses the `min_distance` hyperparameter that defines the minimum separation between two detected particles in voxels.
 
-    extract_subtomograms: True
-    subtomogram_size: 31
-Setting the value of `extract_subtomograms` to `True` will result in extracting the subtomograms of size `subtomogram_size` around each predicted particle centroid in .npy file format. If the user does not wish to extract the subtomograms or wants only the centroids, they can set `extract_subtomograms` to `False`. In this case, the value set to `subtomogram_size` will be ignored. #TODO is this faithful to the latest way of doing things? #TODO ndjson to CSV right? Not Yaml to CSV? 
-
     output_dir: /data/picket_results/
 As the name suggests, `output_dir` describes the path to the directory where the output segmentations will be saved.  
-*Note:* The extracted particle centroid coordinates will be saved as `.ndjson` files in `output_dir/dataset_name/predicted_particles/` directory. And, the subtomograms, if extracted, will be saved in `output_dir/dataset_name/predicted_particles/subtomograms/` directory.
+*Note:* The extracted particle centroid coordinates will be saved as `.yaml` files in `output_dir/dataset_name/predicted_particles/` directory
 
 <br/>
 
