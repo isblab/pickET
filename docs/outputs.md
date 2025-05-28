@@ -42,6 +42,11 @@ In addition, instance segmentations will also be generated associated with each 
 
 <br/>
 
+#TODO fig 2B to Fig 4? 
+#TODO place figures as close to text as possible, easier to understand that way
+#TODO see_segmentation is in visualizing output for s1 but inside s2 for s2?
+Its placement is a bit chaotic
+
 The predicted particle coordinates are based on Cartesian coordinate system that assumes the top-left-front of the tomogram to be the origin (0,0,0). These predicted coordinates can be converted to assume any other point in the tomogram as the origin and the origin adjusted predictions can be exported in `.csv` format using the [converter script](../accessories/offset_correct_pred_centroids_and_convert_to_csv.py) which can be run as follows:
 ```bash
 python accessories/offset_correct_pred_centroids_and_convert_to_csv.py -i <input_fname> -o <output_dir> -n "<new_origin>"

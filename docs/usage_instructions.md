@@ -17,7 +17,7 @@ The first step (S1, semantic segmentation) identifies voxels corresponding to pa
 The output segmentations generated from S1 can be visualized by following the instructions in [visualizing the output segmentations](visualizing_segmentations.md). From all the segmentations generated from S1 for a given tomogram, identify the segmentation(s) in which particles are well separated from the background. More than one segmentation may be chosen for the next step. Also, follow the instruction in [Obtaining particle cluster ID](obtaining_particle_cluster_id.md) to get the voxel value for the voxel corresponding to particles in the segmentation. This value is specific for each segmentation and is passed as an input (`particle_cluster_id`) for S2.
 
 
-#### [**Inputs for S1**](input_for_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S1?**](running_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Visualizing the output segmentations**](visualizing_segmentations.md)
+#### [**Inputs for S1**](input_for_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S1?**](running_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Visualizing the output segmentations**](visualizing_segmentations.md) #TODO obtain particle cluster ID #TODO add output link?? 
 
 <br/>
 
@@ -26,7 +26,7 @@ The output segmentations generated from S1 can be visualized by following the in
 
 In the second step (S2, particle extraction), particles segmentations are obtained using two segmentation methods (`connected component labeling` and `watershed segmentation`), allowing the user to choose between the two. The centroids of predicted particles are provided as output. Users also have an option to obtain subtomograms enclosing the predicted particles for downstream subtomogram averaging. 
 
-#### [**Inputs for S2**](input_for_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S2?**](running_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Visualizing the output segmentations**](visualizing_segmentations.md)
+#### [**Inputs for S2**](input_for_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S2?**](running_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Visualizing the output segmentations**](visualizing_segmentations.md) #TODO output 
 
 
 ---
