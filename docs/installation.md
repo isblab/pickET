@@ -71,6 +71,7 @@ TomoEED can be run by running the following command:
 
 This will make a denoised version of the input tomogram (`path_to_input_tomogram/input_tomogram.mrc`) and place it at `denoised_tomograms/output_tomogram.mrc`.
 
+#TODO fix all the Back to home links that dont work
 
 [Back to Home](README.md)  
 [Go to usage instructions](usage_instructions.md#usage-instructions)  
