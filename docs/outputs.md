@@ -27,6 +27,14 @@ python accessories/see_centroids.py <path_to_predicted_centroids>
 ```
 *Note that for each input tomogram several output particle centroid prediction files will be generated - each using one of the PickET S1 and S2 workflows (for example intensities_kmeans_CC, intensities_kmeans_WS, gabor_kmeans_CC, gabor_kmeans_WS, etc.). In general, the number of output prediction files will be two times the number of input semantic segmentations.*
 
+<div style="display: flex; justify-content: center;">
+    <div align="center">
+        <img src="../images/predicted_centroids.png" alt="Fig. 4: Output from S2 - Predicted centroids" height="300" align="center">
+        <p align="center"><b>Fig. 4: Output from S2 - Predicted centroids</b></p>
+    </div>
+</div>
+<br/>
+
 In addition, instance segmentations will also be generated associated with each of the predicted centroids file. These can be visualized using the same [visualizing segmentations](../docs/visualizing_segmentations.md) workflow described above (Fig. 2B).
 
 <div style="display: flex; justify-content: center;">
@@ -34,14 +42,9 @@ In addition, instance segmentations will also be generated associated with each 
         <img src="../images/instance_segmentation.png" alt="Fig. 2B: Output from S2 - Instance segmentation" height="300" align="center">
         <p align="center"><b>Fig. 2B: Output from S2 - Instance segmentation</b></p>
     </div>
-    <div align="center">
-        <img src="../images/predicted_centroids.png" alt="Fig. 4: Output from S2 - Predicted centroids" height="300" align="center">
-        <p align="center"><b>Fig. 4: Output from S2 - Predicted centroids</b></p>
-    </div>
 </div>
 
 <br/>
-
 
 The predicted particle coordinates are based on Cartesian coordinate system that assumes the top-left-front of the tomogram to be the origin (0,0,0). These predicted coordinates can be converted to assume any other point in the tomogram as the origin and the origin adjusted predictions can be exported in `.csv` format using the [converter script](../accessories/offset_correct_pred_centroids_and_convert_to_csv.py) which can be run as follows:
 ```bash
