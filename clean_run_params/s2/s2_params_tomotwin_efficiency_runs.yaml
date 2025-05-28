@@ -58,7 +58,7 @@ inputs:
     },
     {
       segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin_efficiency_runs/segmentation_2_ffts_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
     },
     {
       segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin_efficiency_runs/segmentation_2_gabor_gmm.h5,
@@ -74,7 +74,7 @@ inputs:
     },
     {
       segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin_efficiency_runs/segmentation_2_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
     },
 
     {
@@ -149,7 +149,7 @@ inputs:
     },
     {
       segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin_efficiency_runs/segmentation_5_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
     },
 
     {
@@ -199,7 +199,7 @@ inputs:
     },
     {
       segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin_efficiency_runs/segmentation_7_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
     },
   ]
 

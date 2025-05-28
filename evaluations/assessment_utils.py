@@ -85,8 +85,7 @@ def get_random_centroids(
             np.random.randint(0, tomo_shape[1]),
             np.random.randint(0, tomo_shape[2]),
         )
-        if rc not in random_centroids:
-            random_centroids.append(rc)
+        random_centroids.append(rc)
 
     return np.array(random_centroids)
 

@@ -86,6 +86,12 @@ def main():
                         random_metric_values.append(m[f"Random {metric}"])
                     elif metric == "Total time taken":
                         metric_values.append(m[metric] / 60)
+                    elif metric == "Relative recall":
+                        recall = m["Recall"]
+                        random_recall = m["Random Recall"]
+                        relative_recall = float(np.sqrt(recall * (1 - random_recall)))
+                        print(m["Recall"], m["Random Recall"], relative_recall)
+                        metric_values.append(relative_recall)
 
         metric_values = np.array(metric_values)
         random_metric_values = np.array(random_metric_values)
@@ -121,12 +127,15 @@ def main():
 
     xlabels = [workflow_names[k] for k in xvals]
 
-    if metric in ("Precision", "Recall", "F1-score"):
+    if metric in ("Precision", "Recall", "F1-score", "Relative recall"):
         plt.xlim(0, 1)
 
     plt.yticks(range(1, len(xlabels) + 1), xlabels)
     plt.title(f"{metric} comparison on {dataset_id}")
-    plt.xlabel(metric)
+    if metric == "Total time taken":
+        plt.xlabel("Total time (min)")
+    else:
+        plt.xlabel(metric)
     # plt.legend(loc="upper left", bbox_to_anchor=(1, 1))
     plt.tight_layout()
     plt.savefig(f"{output_dir}/{dataset_id}_{metric}_comparison.png", dpi=600)
