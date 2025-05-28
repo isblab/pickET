@@ -8,6 +8,14 @@ The workflow for running PickET is split into two steps - S1 and S2, described i
 
 ***Important:*** *Make sure to activate the environment before running PickET. See [create and activate virtual environment](installation.md#env_activate) for more details.*
 
+Before running PickET, run TomoEED to denoise the tomograms by running the following command:
+```bash
+<path_to_the_downloaded_and_unzipped_tomoeed_directory>/bin/tomoeed path_to_input_tomogram/input_tomogram.mrc denoised_tomograms/output_tomogram.mrc
+```
+
+This will make a denoised version of the input tomogram (`path_to_input_tomogram/input_tomogram.mrc`) and place it at `denoised_tomograms/output_tomogram.mrc`. Use these denoised tomograms as input for PickET.
+
+
 ## S1 - Generate semantic segmentation
 
 The first step (S1, semantic segmentation) identifies voxels corresponding to particles in each input tomogram. This step involves three feature extraction modes (`FFTs`, `Gabor` and `intensities`) and two clustering methods (`KMeans` and `GMM`) to classify each voxel as particle or background. In total, this generates six semantic segmentations for each input tomogram, corresponding to every combination of feature extraction mode and clustering method. The users may then proceed with one or more of these six segmentations for the second step. 
@@ -17,7 +25,7 @@ The first step (S1, semantic segmentation) identifies voxels corresponding to pa
 The output segmentations generated from S1 can be visualized by following the instructions in [visualizing the output segmentations](visualizing_segmentations.md). From all the segmentations generated from S1 for a given tomogram, identify the segmentation(s) in which particles are well separated from the background. More than one segmentation may be chosen for the next step. Also, follow the instruction in [Obtaining particle cluster ID](obtaining_particle_cluster_id.md) to get the voxel value for the voxel corresponding to particles in the segmentation. This value is specific for each segmentation and is passed as an input (`particle_cluster_id`) for S2.
 
 
-#### [**Inputs for S1**](input_for_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S1?**](running_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Visualizing the output segmentations**](visualizing_segmentations.md) #TODO obtain particle cluster ID #TODO add output link?? 
+#### [**Inputs for S1**](input_for_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S1?**](running_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Obtaining particle cluster ID**](obtaining_particle_cluster_id.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Outputs**](outputs.md) 
 
 <br/>
 
@@ -26,7 +34,7 @@ The output segmentations generated from S1 can be visualized by following the in
 
 In the second step (S2, particle extraction), particles segmentations are obtained using two segmentation methods (`connected component labeling` and `watershed segmentation`), allowing the user to choose between the two. The centroids of predicted particles are provided as output. Users also have an option to obtain subtomograms enclosing the predicted particles for downstream subtomogram averaging. 
 
-#### [**Inputs for S2**](input_for_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S2?**](running_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Visualizing the output segmentations**](visualizing_segmentations.md) #TODO output 
+#### [**Inputs for S2**](input_for_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S2?**](running_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Visualizing the output segmentations**](visualizing_segmentations.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Outputs**](outputs.md) 
 
 
 ---

@@ -52,7 +52,7 @@ There are two steps in their workflow:
 1. Cellular Content Exploration
 2. Particle Refined Localization  
 
-I have only used the first (Cellular Content Exploration) step.
+For comparison with the PickET output, I have only used the first (Cellular Content Exploration) step.
 
 #### 1. Prepare input file
 You need to make a `.txt` input file. Since we are working with only the reconstructed tomograms, we only need to make the following file:
@@ -104,7 +104,7 @@ python pickET/accessories/convert_milopyp_preds_to_yaml.py ../milopyp/tomotwin_8
 ```
 This script takes the output from MiLoPYP as input along with the input .txt file used to run MiLoPYP and the output directory where the newly generated file should be saved. The output is a yaml file in a form similar to the output from PickET. It can then be visualized with the `see_centroids.py` from PickET accessories.
 
-#TODO say you dont need to do the run the folllowing for picket comparison. 
+**This is where I stopped when I was comparing the MiLoPYP and PickET predictions.**
 
 #### 6A. Setting up the environment for the interactive steps
 MiLoPYP uses [Arize-AI's Phoenix library](https://docs.arize.com/phoenix) for interactive visualization in 3D. Note that the Phoenix library installed in the MiLoPYP conda environment will likely now work due to some broken Numpy dependencies. I had created a separate `venv` environment for `Phoenix` outside the MiLoPYP conda environment using the following steps:

@@ -29,6 +29,6 @@ where `segmentation_type` is either `semantic_segmentation` or `instance_segment
 ---
 <br/>
 
-[Back to Home](README.md)  
+[Back to Home](../README.md)  
 [Go to usage instructions](usage_instructions.md#usage-instructions)  
 [Go to obtaining particle cluster ID](obtaining_particle_cluster_id.md)  
