@@ -32,5 +32,5 @@ In the second step (S2, particle extraction), particles segmentations are obtain
 ---
 <br/>
 
-[Back to Home](README.md)  
+[Back to Home](../README.md)  
 [Go to installation instructions](installation.md)
