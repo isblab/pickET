@@ -9,7 +9,7 @@ These are described in more details below:
 <br>
 
 ## Output from S1
-The output from S1 is a number of semantic segmentations. These can be visualized using the instructions in [visualizing segmentations](../docs/visualizing_segmentations.md). *Note that for each input tomogram several output semantic segmentations will be generated - each using one of the PickET S1 workflows (for example intensities_kmeans, intensities_gmm, gabor_kmeans, etc.).* The users may choose to use more than one of these semantic segmentations in the next step, S2.
+The output from S1 is a number of semantic segmentations. These can be visualized using the instructions in [visualizing segmentations](../docs/visualizing_segmentations.md) (e.g. Fig 2A). *Note that for each input tomogram several output semantic segmentations will be generated - each using one of the PickET S1 workflows (for example intensities_kmeans, intensities_gmm, gabor_kmeans, etc.).* The users may choose to use more than one of these semantic segmentations in the next step, S2.
 
 <div align="center">
     <img src="../images/semantic_segmentation.png" alt="Fig. 2A: Output from S1 - Semantic segmentation" height="300" align="center">
