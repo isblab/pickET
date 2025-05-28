@@ -62,6 +62,8 @@ pip install cupy-cuda11x
    
 ---
 ***Note:***  
+#TODO this should be before step S1 in the main usage page or in S1 page itself. A bit non-intuitive to get the first step of method in the installation doc. 
+
 TomoEED can be run by running the following command:
 ```
 <path_to_the_unzipped_tomoeed_directory>/bin/tomoeed path_to_input_tomogram/input_tomogram.mrc denoised_tomograms/output_tomogram.mrc
