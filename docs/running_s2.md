@@ -10,7 +10,8 @@ Second, run the following command on each of the segmentation to visualize an ov
 ```
 python see_segmentations.py <path_to_segmentation>
 ```
-An overlay of these on the input tomogram can be visualized in Napari by running `python see_segmentations.py <path_to_segmentation>`. See [Visualizing segmentations from S1](run_picket.md#vis_seg_s1) for detailed instructions on this.
+An overlay of these on the input tomogram can be visualized in Napari by running `python see_segmentations.py <path_to_segmentation>`. See [Visualizing segmentations from S1](run_picket.md#vis_seg_s1) for detailed instructions on this. #TODO fix broken link in this line
+#TODO same line repeated twice above. 
 
 <br/>
 
