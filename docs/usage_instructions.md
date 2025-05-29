@@ -8,14 +8,6 @@ The workflow for running PickET is split into two steps - S1 and S2, described i
 
 ***Important:*** *Make sure to activate the environment before running PickET. See [create and activate virtual environment](installation.md#env_activate) for more details.*
 
-Before running PickET, run TomoEED to denoise the tomograms by running the following command:
-```bash
-<path_to_the_downloaded_and_unzipped_tomoeed_directory>/bin/tomoeed path_to_input_tomogram/input_tomogram.mrc denoised_tomograms/output_tomogram.mrc
-```
-
-This will make a denoised version of the input tomogram (`path_to_input_tomogram/input_tomogram.mrc`) and place it at `denoised_tomograms/output_tomogram.mrc`. Use these denoised tomograms as input for PickET.
-
-
 ## S1 - Generate semantic segmentation
 
 The first step (S1, semantic segmentation) identifies voxels corresponding to particles in each input tomogram. This step involves three feature extraction modes (`FFTs`, `Gabor` and `intensities`) and two clustering methods (`KMeans` and `GMM`) to classify each voxel as particle or background. In total, this generates six semantic segmentations for each input tomogram, corresponding to every combination of feature extraction mode and clustering method. The users may then proceed with one or more of these six segmentations for the second step. 
