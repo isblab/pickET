@@ -30,9 +30,9 @@ The output segmentations generated from S1 can be visualized by following the in
 <br/>
 
 
-## S2 - Extract particles 
+## S2 - Extract particles
 
-In the second step (S2, particle extraction), particles segmentations are obtained using two segmentation methods (`connected component labeling` and `watershed segmentation`), allowing the user to choose between the two. The centroids of predicted particles are provided as output. Users also have an option to obtain subtomograms enclosing the predicted particles for downstream subtomogram averaging. 
+In the second step (S2, particle extraction), particle segmentations are obtained using two segmentation methods (`connected component labeling` and `watershed segmentation`), allowing the user to choose between the two. The centroids of predicted particles are provided as output. Users also have an option to obtain subtomograms enclosing the predicted particles for downstream subtomogram averaging. 
 
 #### [**Inputs for S2**](input_for_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S2?**](running_s2.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Visualizing the output segmentations**](visualizing_segmentations.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Outputs**](outputs.md) 
 
