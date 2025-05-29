@@ -17,7 +17,7 @@ The first step (S1, semantic segmentation) identifies voxels corresponding to pa
 The output segmentations generated from S1 can be visualized by following the instructions in [visualizing the output segmentations](visualizing_segmentations.md). From all the segmentations generated from S1 for a given tomogram, identify the segmentation(s) in which particles are well separated from the background. More than one segmentation may be chosen for the next step. Follow the instruction in [Obtaining particle cluster ID](obtaining_particle_cluster_id.md) to get the voxel value for the voxel corresponding to particles in the segmentation. This value is specific for each segmentation and is passed as an input (`particle_cluster_id`) for S2.
 
 
-#### [**Inputs for S1**](input_for_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S1?**](running_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Obtaining particle cluster ID**](obtaining_particle_cluster_id.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Outputs**](outputs.md) 
+#### [**Inputs for S1**](input_for_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S1?**](running_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visualizing the output segmentations](visualizing_segmentations.md)[**Obtaining particle cluster ID**](obtaining_particle_cluster_id.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Outputs**](outputs.md) #TODO
 
 <br/>
 
