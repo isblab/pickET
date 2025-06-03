@@ -2,7 +2,7 @@
 
 PickET is a modular library that provides a variety of methods for particle-picking in cryo-electron tomograms. 
 
-The workflow for running PickET is split into two steps - S1 and S2, described in more details below. 
+The workflow for running PickET is split into two steps - S1 and S2, described in more detail below. 
 
 ***Note:*** *We strongly recommend running all the steps in the PickET workflow on a single computing node (a local workstation or a remote computing cluster). Several intermediate files are generated at different stages in the workflow. These files contain pointers to the data required for downstream processes. These pointers may not work if the data is transferred to a different computing system.*
 
@@ -10,14 +10,14 @@ The workflow for running PickET is split into two steps - S1 and S2, described i
 
 ## S1 - Generate semantic segmentation
 
-The first step (S1, semantic segmentation) identifies voxels corresponding to particles in each input tomogram. This step involves three feature extraction modes (`FFTs`, `Gabor` and `intensities`) and two clustering methods (`KMeans` and `GMM`) to classify each voxel as particle or background. In total, this generates six semantic segmentations for each input tomogram, corresponding to every combination of feature extraction mode and clustering method. The users may then proceed with one or more of these six segmentations for the second step. 
+The first step (S1, semantic segmentation) identifies voxels corresponding to particles in each input tomogram. This step involves three feature extraction modes (`FFTs`, `Gabor`, and `intensities`) and two clustering methods (`KMeans` and `GMM`) to classify each voxel as particle or background. In total, this generates six semantic segmentations for each input tomogram, corresponding to every combination of feature extraction mode and clustering method. The users may then proceed with one or more of these six segmentations for the second step. 
 
 *Note that a workflow that generates the most optimal segmentation for a given tomogram may not necessarily generate the most optimal segmentations for all tomograms in that dataset.*  
 
-The output segmentations generated from S1 can be visualized by following the instructions in [visualizing the output segmentations](visualizing_segmentations.md). From all the segmentations generated from S1 for a given tomogram, identify the segmentation(s) in which particles are well separated from the background. More than one segmentation may be chosen for the next step. Follow the instruction in [Obtaining particle cluster ID](obtaining_particle_cluster_id.md) to get the voxel value for the voxel corresponding to particles in the segmentation. This value is specific for each segmentation and is passed as an input (`particle_cluster_id`) for S2.
+The output segmentations generated from S1 can be visualized by following the instructions in [visualizing the output segmentations](visualizing_segmentations.md). From all the segmentations generated from S1 for a given tomogram, identify the segmentation(s) in which particles are well separated from the background. More than one segmentation may be chosen for the next step. Follow the instructions in [Obtaining particle cluster ID](obtaining_particle_cluster_id.md) to get the voxel value for the voxel corresponding to particles in the segmentation. This value is specific for each segmentation and is passed as an input (`particle_cluster_id`) for S2.
 
 
-#### [**Inputs for S1**](input_for_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S1?**](running_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visualizing the output segmentations](visualizing_segmentations.md)[**Obtaining particle cluster ID**](obtaining_particle_cluster_id.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Outputs**](outputs.md) #TODO
+#### [**Inputs for S1**](input_for_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**How to run S1?**](running_s1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Visualizing the output segmentations](visualizing_segmentations.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Obtaining particle cluster ID**](obtaining_particle_cluster_id.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**Outputs**](outputs.md)
 
 <br/>
 
