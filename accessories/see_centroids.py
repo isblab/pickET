@@ -1,7 +1,6 @@
 import os
 import sys
 import yaml
-import napari
 import numpy as np
 from assets import utils
 
@@ -17,10 +16,10 @@ def main():
         metadata = contents["metadata"]
         read_coords = contents["Predicted_Particle_Centroid_Coordinates"]
 
-    #! Deprecated: Remove this section later on
     tomo_path = metadata["tomogram_path"]
-    tomo_path2 = tomo_path.split("/")[2:]
-    tomo_path = os.path.join("/data2", *tomo_path2)
+    #! Deprecated: Remove this section later on
+    # tomo_path2 = tomo_path.split("/")[2:]
+    # tomo_path = os.path.join("/data2", *tomo_path2)
 
     tomogram, _ = utils.load_tomogram(tomo_path)
 

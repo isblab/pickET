@@ -1,3 +1,4 @@
+import os
 import sys
 import yaml
 import numpy as np
@@ -90,7 +91,6 @@ def main():
                         recall = m["Recall"]
                         random_recall = m["Random Recall"]
                         relative_recall = float(np.sqrt(recall * (1 - random_recall)))
-                        print(m["Recall"], m["Random Recall"], relative_recall)
                         metric_values.append(relative_recall)
 
         metric_values = np.array(metric_values)
@@ -138,7 +138,8 @@ def main():
         plt.xlabel(metric)
     # plt.legend(loc="upper left", bbox_to_anchor=(1, 1))
     plt.tight_layout()
-    plt.savefig(f"{output_dir}/{dataset_id}_{metric}_comparison.png", dpi=600)
+    output_path = os.path.join(output_dir, f"{dataset_id}_{metric}_comparison.png")
+    plt.savefig(output_path, dpi=600)
 
 
 if __name__ == "__main__":

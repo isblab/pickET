@@ -3,22 +3,22 @@ dataset_name: collabiisc
 inputs:
   [
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/collabiisc/axes_corrected_pvl22hrsh06_full_rec.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/collabiisc/denoised_axes_corrected_pvl22hrsh06_full_rec.mrc,
       lower_z-slice_limit: 150,
       upper_z-slice_limit: 300,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/collabiisc/axes_corrected_pvl22hrsh12_full_rec.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/collabiisc/denoised_axes_corrected_pvl22hrsh12_full_rec.mrc,
       lower_z-slice_limit: 150,
       upper_z-slice_limit: 300,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/collabiisc/axes_corrected_pvl22hrsh16_full_rec.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/collabiisc/denoised_axes_corrected_pvl22hrsh16_full_rec.mrc,
       lower_z-slice_limit: 150,
       upper_z-slice_limit: 300,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/collabiisc/axes_corrected_pvl22hrsh20_full_rec.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/collabiisc/denoised_axes_corrected_pvl22hrsh20_full_rec.mrc,
       lower_z-slice_limit: 150,
       upper_z-slice_limit: 300,
     },

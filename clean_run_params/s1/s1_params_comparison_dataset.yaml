@@ -1,0 +1,81 @@
+dataset_name: comparison_dataset
+
+inputs:
+  [
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10001_tomogram2269_denoised_TS_0001.mrc,
+      lower_z-slice_limit: 450,
+      upper_z-slice_limit: 525,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10001_tomogram2271_denoised_TS_0003.mrc,
+      lower_z-slice_limit: 450,
+      upper_z-slice_limit: 525,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10001_tomogram2278_denoised_TS_0010.mrc,
+      lower_z-slice_limit: 450,
+      upper_z-slice_limit: 550,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10008_tomogram1001_denoised_19.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 275,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10008_tomogram995_denoised_10.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 275,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10008_tomogram998_denoised_14.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 275,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10301_tomogram14316_denoised_01122021_BrnoKrios_arctis_lam1_pos4.mrc,
+      lower_z-slice_limit: 175,
+      upper_z-slice_limit: 325,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10301_tomogram14319_denoised_01122021_BrnoKrios_arctis_lam3_pos27.mrc,
+      lower_z-slice_limit: 175,
+      upper_z-slice_limit: 325,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10301_tomogram14324_denoised_15042022_BrnoKrios_Arctis_grid9_Position_32.mrc,
+      lower_z-slice_limit: 200,
+      upper_z-slice_limit: 300,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10440_tomogram17015_denoised_TS_5_4.mrc,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10440_tomogram17031_denoised_TS_73_6.mrc,
+    },
+    {
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10440_tomogram17035_denoised_TS_86_3.mrc,
+    },
+  ]
+
+neighborhood_size: 5
+max_num_neighborhoods_for_fitting: 100_000_000
+
+feature_extraction_params:
+  [
+    { mode: ffts, n_fft_subsets: 64 },
+
+    {
+      mode: gabor,
+      num_neighborhoods_subsets: 5,
+      num_sinusoids: 10,
+      num_parallel_filters: 8,
+      num_output_features: 64,
+    },
+
+    { mode: intensities },
+  ]
+
+clustering_methods: [kmeans, gmm]
+
+output_dir: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/
