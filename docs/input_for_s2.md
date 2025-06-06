@@ -1,4 +1,4 @@
-# Step 2 (S2): Extract particles  
+# Step 2 (S2): Localize particles  
 ## Inputs for S2:
 
 Inputs for S1 are provided through a YAML file containing parameters. An example is provided in `examples/s1_params_example.yaml`. These parameters are described in detail below:
