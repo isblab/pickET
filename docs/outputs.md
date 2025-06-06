@@ -1,5 +1,5 @@
 # Understanding the outputs from PickET:
-A standard run of the PickET workflow results in the following outputs:
+A standard run of the PickET library results in the following outputs:
 1. Semantic segmentations from S1
 2. Instance segmentations from S2
 3. Predicted particle centroids from S2
@@ -35,7 +35,7 @@ python accessories/see_centroids.py <path_to_predicted_centroids>
 </div>
 <br/>
 
-In addition, instance segmentations will also be generated associated with each of the predicted centroids file. These can be visualized using the same [visualizing segmentations](../docs/visualizing_segmentations.md) workflow described above (Fig. 2B).
+In addition, instance segmentations will also be generated associated with each of the predicted centroids file. These can also be visualized following the instructions provided in [visualizing segmentations](../docs/visualizing_segmentations.md) (Fig. 2B).
 
 <div style="display: flex; justify-content: center;">
     <div align="center" style="margin-right: 100px;">

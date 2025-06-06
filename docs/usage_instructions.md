@@ -10,7 +10,7 @@ A typical PickET run comprises two steps - S1 and S2, described in more detail b
 
 ## S1 - Generate semantic segmentation
 
-The first step (S1, semantic segmentation) identifies voxels corresponding to particles in each input tomogram. This step involves three feature extraction modes (`FFTs`, `Gabor`, and `intensities`) and two clustering algorithms (`KMeans` and `GMM`) to classify each voxel as a particle or background. In total, this generates six semantic segmentations for each input tomogram, corresponding to every combination of feature extraction mode and clustering method. The users may then proceed with one or more of these six segmentations for the second step. 
+The first step (S1, semantic segmentation) identifies voxels corresponding to particles in each input tomogram. This step involves three feature extraction modes (`FFTs`, `Gabor`, and `intensities`) and two clustering algorithms (`KMeans` and `GMM`) to classify each voxel as a particle or background. In total, this generates six semantic segmentations for each input tomogram, corresponding to every combination of feature extraction mode and clustering algorithm. The users may then proceed with one or more of these six segmentations for the second step. 
 
 *Note that a workflow that generates the most optimal segmentation for a given tomogram may not necessarily generate the most optimal segmentations for all tomograms in that dataset.*  
 

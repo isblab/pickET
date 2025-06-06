@@ -36,7 +36,7 @@ The entries marked as `#[Optional]#` may be omitted. If you do not wish to speci
     </div>
     <div align="center">
         <img src="../images/Zbounds.jpg" alt="Fig. 2: Z-slice bounds for the two steps in PickET" height="300" align="center">
-        <p align="center"><b>Fig. 2: Z-slice bounds for the two steps in PickET.</b><br> The figure shows a slice of a tomogram along the Z-axis along with <br> annotations for the upper and lower bounds for the PickET workflow </p>
+        <p align="center"><b>Fig. 2: Z-slice bounds for the two steps in PickET.</b><br> The figure shows a slice of a tomogram along the Z-axis along with <br> annotations for the upper and lower bounds to be specified for a PickET run </p>
     </div>
 </div>
 <br/>

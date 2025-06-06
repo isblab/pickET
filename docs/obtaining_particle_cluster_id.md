@@ -1,6 +1,6 @@
 # Obtaining particle cluster ID
 
-Look at the each of the six segmentations generated from S1 for the tomograms in the dataset following the workflow described in [visualizing segmentations](visualizing_segmentations.md). Identify the segmentation(s) in which particles are well separated from the background. More than one segmentation may be chosen for the next step. 
+Look at the each of the six segmentations generated from S1 for the tomograms in the dataset following the instructions in [visualizing segmentations](visualizing_segmentations.md). Identify the segmentation(s) in which particles are well separated from the background. More than one segmentation may be chosen for the next step. 
 
 For each of the chosen segmentations, identify the voxel value for the voxel corresponding to particles in the segmentation. This value is different for each segmentation. It could be 0 or 1 and is called the `particle_cluster_id`. Either of the following ways can be used to obtain the `particle_cluster_id`:
 

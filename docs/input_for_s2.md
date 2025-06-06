@@ -41,7 +41,7 @@ Similar to the `inputs`, `particle_extraction_params` is also a list of dictiona
 
 First, for `mode: connected_component_labeling`, there are no hyperparameters. This mode is fast and works well for less crowded datasets.
 
-Second, for `mode: watershed_segmentation`, there is one hyperparameter. This mode uses the watershed segmentation workflow for splitting semantic segmentation into instance segmentation. It uses the `min_distance` hyperparameter that defines the minimum separation between two detected particles in voxels.
+Second, for `mode: watershed_segmentation`, there is one hyperparameter. This mode uses watershed segmentation for converting the semantic segmentation into instance segmentation. It uses the `min_distance` hyperparameter that defines the minimum separation between two detected particles in voxels.
 
     output_dir: /data/picket_results/
 As the name suggests, `output_dir` describes the path to the directory where the output segmentations will be saved.  
