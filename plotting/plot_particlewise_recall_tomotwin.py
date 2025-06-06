@@ -9,7 +9,7 @@ def main():
     particlewise_recall_fname = sys.argv[1]
     particle_details_fname = sys.argv[2]
     output_dir = sys.argv[3]
-    x_keys = ["MW_pdb", "Rg"]
+    x_keys = ["MW_pdb", "Rg", "Solidity"]
 
     with open(particlewise_recall_fname, "r") as input_f:
         particlewise_recall = yaml.safe_load(input_f)

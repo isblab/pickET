@@ -3,479 +3,599 @@ particles:
     MW: 240
     MW_pdb: 280
     Rg: 42.1629
+    Solidity: 0.766155312825178
   1g3i:
     MW: 602
     MW_pdb: 826
     Rg: 63.1583
+    Solidity: 0.7695244167722952
   1n9g:
     MW: 247
     MW_pdb: 256
     Rg: 50.5212
+    Solidity: 0.7201428158731831
   1qvr:
     MW: 260
     MW_pdb: 297
     Rg: 48.5321
+    Solidity: 0.6860026761274892
   1s3x:
     MW: 45
     MW_pdb: 43
     Rg: 21.2164
+    Solidity: 0.8877028329829371
   1ss8:
     MW: 359
     MW_pdb: 386
     Rg: 53.4155
+    Solidity: 0.8725023053446883
   1u6g:
     MW: 205
     MW_pdb: 239
     Rg: 45.9412
+    Solidity: 0.7919104344594053
   1ul1:
     MW: 174
     MW_pdb: 214
     Rg: 47.8521
+    Solidity: 0.6864612726884651
   2cg9:
     MW: 156
     MW_pdb: 189
     Rg: 40.1175
+    Solidity: 0.769564155184208
   2dfs:
     MW: 393
     MW_pdb: 454
     Rg: 109.1231
+    Solidity: 0.4638628179102075
   2r9r:
     MW: 80
     MW_pdb: 207
     Rg: 87.0221
+    Solidity: 0.6007224703942139
   2rhs:
     MW: 233
     MW_pdb: 245
     Rg: 48.6246
+    Solidity: 0.7056906348552384
   2vz9:
     MW: 422
     MW_pdb: 548
     Rg: 62.5275
+    Solidity: 0.683870681200369
   2ww2:
     MW: 266
     MW_pdb: 253
     Rg: 41.4854
+    Solidity: 0.8482732008781825
   2xnx:
     MW: 316
     MW_pdb: 371
     Rg: 64.6532
+    Solidity: 0.5641191763918133
   3cf3:
     MW: 226
     MW_pdb: 271
     Rg: 44.4708
+    Solidity: 0.7948299756304931
   3d2f:
     MW: 215
     MW_pdb: 236
     Rg: 50.8059
+    Solidity: 0.731058799772275
   3gl1:
     MW: 89
     MW_pdb: 85
     Rg: 27.9325
+    Solidity: 0.8575528738804286
   3h84:
     MW: 72
     MW_pdb: 79
     Rg: 28.8212
+    Solidity: 0.8020535578796109
   3lue:
     MW: 502
     MW_pdb: 541
     Rg: 83.3765
+    Solidity: 0.692576951523765
   3mkq:
     MW: 313
     MW_pdb: 333
     Rg: 77.0091
+    Solidity: 0.5657342028574561
   3qm1:
     MW: 30
     MW_pdb: 31
     Rg: 18.0329
+    Solidity: 0.8969905342009985
   3ulv:
     MW: 206
     MW_pdb: 226
     Rg: 60.3703
+    Solidity: 0.6153759782095589
   4cr2:
     MW: 1057
     MW_pdb: 1309
     Rg: 79.6838
+    Solidity: 0.696131127953678
   4uic:
     MW: 70
     MW_pdb: 87
     Rg: 41.4247
+    Solidity: 0.755033046991449
   4wrm:
     MW: 59
     MW_pdb: 74
     Rg: 44.7969
+    Solidity: 0.6391974453214436
   4xk8:
     MW: 464
     MW_pdb: 1046
     Rg: 75.0634
+    Solidity: 0.7481590870381245
   5a20:
     MW: 168
     MW_pdb: 198
     Rg: 68.191
+    Solidity: 0.6550521485189821
   5csa:
     MW: 180
     MW_pdb: 209
     Rg: 53.4759
+    Solidity: 0.661819918386182
   5g04:
     MW: 864
     MW_pdb: 1251
     Rg: 73.545
+    Solidity: 0.7138871755395338
   5h0s:
     MW: 249
     MW_pdb: 297
     Rg: 50.7519
+    Solidity: 0.7142744635948293
   5jh9:
     MW: 206
     MW_pdb: 231
     Rg: 43.4678
+    Solidity: 0.7334373488872871
   5ljo:
     MW: 179
     MW_pdb: 180
     Rg: 44.5066
+    Solidity: 0.7279871344339137
   5mrc:
     MW: 2781
     MW_pdb: 3326
     Rg: 98.4276
+    Solidity: 0.7156391389576311
   5o32:
     MW: 518
     MW_pdb: 569
     Rg: 61.2776
+    Solidity: 0.7367293915488388
   5ool:
     MW: 1348
     MW_pdb: 1797
     Rg: 75.8118
+    Solidity: 0.6934747541658424
   5vkq:
     MW: 551
     MW_pdb: 779
     Rg: 78.3557
+    Solidity: 0.623983432247058
   6ahu:
     MW: 399
     MW_pdb: 493
     Rg: 53.0916
+    Solidity: 0.7604627641614036
   6bq1:
     MW: 490
     MW_pdb: 607
     Rg: 76.6327
+    Solidity: 0.6443997601639639
   6ces:
     MW: 250
     MW_pdb: 370
     Rg: 53.1712
+    Solidity: 0.7316659486032859
   6cnj:
     MW: 333
     MW_pdb: 470
     Rg: 55.6331
+    Solidity: 0.6562899025012415
   6duz:
     MW: 957
     MW_pdb: 1746
     Rg: 87.5612
+    Solidity: 0.8596213606227481
   6emk:
     MW: 633
     MW_pdb: 1041
     Rg: 70.5921
+    Solidity: 0.7193431676579394
   6f8l:
     MW: 410
     MW_pdb: 1818
     Rg: 58.266
+    Solidity: 0.8166870381205482
   6gy6:
     MW: 956
     MW_pdb: 1118
     Rg: 92.2813
+    Solidity: 0.6674054795110138
   6gym:
     MW: 838
     MW_pdb: 1297
     Rg: 81.8655
+    Solidity: 0.6741036602673567
   6i0d:
     MW: 488
     MW_pdb: 1081
     Rg: 101.2118
+    Solidity: 0.5441733332008433
   6id1:
     MW: 1066
     MW_pdb: 2148
     Rg: 84.035
+    Solidity: 0.6196289601014568
   6igc:
     MW: 1759
     MW_pdb: 2366
     Rg: 90.8394
+    Solidity: 0.6955515869483867
   6jy0:
     MW: 881
     MW_pdb: 1157
     Rg: 73.1392
+    Solidity: 0.7130372086355651
   6klh:
     MW: 382
     MW_pdb: 513
     Rg: 55.7833
+    Solidity: 0.7645295791211426
   6krk:
     MW: 280
     MW_pdb: 289
     Rg: 50.6553
+    Solidity: 0.7946392722728989
   6ksp:
     MW: 313
     MW_pdb: 383
     Rg: 63.9558
+    Solidity: 0.6706086085349922
   6lmt:
     MW: 231
     MW_pdb: 296
     Rg: 41.8299
+    Solidity: 0.8535369922340643
   6lx3:
     MW: 152
     MW_pdb: 208
     Rg: 45.3813
+    Solidity: 0.6935507569630407
   6lxk:
     MW: 291
     MW_pdb: 353
     Rg: 52.1839
+    Solidity: 0.6670520976062333
   6lxv:
     MW: 732
     MW_pdb: 751
     Rg: 60.6979
+    Solidity: 0.782006246980679
   6m04:
     MW: 456
     MW_pdb: 596
     Rg: 62.4691
+    Solidity: 0.8044003682305106
   6mrc:
     MW: 877
     MW_pdb: 944
     Rg: 74.123
+    Solidity: 0.8703673432709362
   6pif:
     MW: 383
     MW_pdb: 422
     Rg: 61.3247
+    Solidity: 0.7023514254531545
   6scj:
     MW: 529
     MW_pdb: 618
     Rg: 66.0305
+    Solidity: 0.7230608492904365
   6ta5:
     MW: 652
     MW_pdb: 733
     Rg: 88.5511
+    Solidity: 0.7282213583982636
   6tav:
     MW: 590
     MW_pdb: 666
     Rg: 63.435
+    Solidity: 0.7842533254045096
   6tgc:
     MW: 439
     MW_pdb: 602
     Rg: 93.7317
+    Solidity: 0.5280192883622775
   6tps:
     MW: 663
     MW_pdb: 880
     Rg: 65.2254
+    Solidity: 0.7151915589133802
   6u8q:
     MW: 280
     MW_pdb: 512
     Rg: 55.3803
+    Solidity: 0.7331016360906092
   6up6:
     MW: 1131
     MW_pdb: 1797
     Rg: 126.6084
+    Solidity: 0.47659837668135735
   6vgr:
     MW: 162
     MW_pdb: 203
     Rg: 45.7709
+    Solidity: 0.6935380479586047
   6vn1:
     MW: 258
     MW_pdb: 393
     Rg: 59.2703
+    Solidity: 0.6789254349089078
   6vz8:
     MW: 556
     MW_pdb: 955
     Rg: 70.3476
+    Solidity: 0.7474925006136586
   6w6m:
     MW: 574
     MW_pdb: 874
     Rg: 67.0975
+    Solidity: 0.8044336184311622
   6wzt:
     MW: 296
     MW_pdb: 324
     Rg: 55.0377
+    Solidity: 0.6689515433865542
   6x5z:
     MW: 375
     MW_pdb: 486
     Rg: 63.0474
+    Solidity: 0.7236655596644957
   6x9q:
     MW: 2627
     MW_pdb: 2796
     Rg: 106.3875
+    Solidity: 0.6413219501126395
   6xf8:
     MW: 636
     MW_pdb: 690
     Rg: 81.633
+    Solidity: 0.5925959072981375
   6yt5:
     MW: 518
     MW_pdb: 1410
     Rg: 69.3012
+    Solidity: 0.7388312243734216
   6z3a:
     MW: 607
     MW_pdb: 722
     Rg: 64.0608
+    Solidity: 0.7846685377721678
   6z6o:
     MW: 1023
     MW_pdb: 1145
     Rg: 85.583
+    Solidity: 0.5887918323733107
   6z80:
     MW: 285
     MW_pdb: 361
     Rg: 42.4384
+    Solidity: 0.8329181024452388
   6ziu:
     MW: 131
     MW_pdb: 198
     Rg: 76.0646
+    Solidity: 0.5274900252932707
   6zqj:
     MW: 200
     MW_pdb: 280
     Rg: 60.6833
+    Solidity: 0.5820136114119986
   7amv:
     MW: 597
     MW_pdb: 699
     Rg: 57.955
+    Solidity: 0.7975395029556288
   7b5s:
     MW: 101
     MW_pdb: 167
     Rg: 47.5839
+    Solidity: 0.6691669025785673
   7b7u:
     MW: 331
     MW_pdb: 554
     Rg: 48.6773
+    Solidity: 0.8025984628562804
   7bkc:
     MW: 865
     MW_pdb: 1070
     Rg: 86.0946
+    Solidity: 0.579166877046803
   7blq:
     MW: 154
     MW_pdb: 167
     Rg: 59.3002
+    Solidity: 0.6533565271011469
   7blr:
     MW: 197
     MW_pdb: 242
     Rg: 61.4326
+    Solidity: 0.6071246861259683
   7dd9:
     MW: 493
     MW_pdb: 715
     Rg: 51.6123
+    Solidity: 0.8121971009407688
   7e1y:
     MW: 468
     MW_pdb: 608
     Rg: 63.8901
+    Solidity: 0.6739651794387257
   7e6g:
     MW: 112
     MW_pdb: 122
     Rg: 45.1375
+    Solidity: 0.718634469100494
   7e8h:
     MW: 591
     MW_pdb: 653
     Rg: 76.4922
+    Solidity: 0.6361181796899553
   7eep:
     MW: 899
     MW_pdb: 1049
     Rg: 67.8697
+    Solidity: 0.786413094712977
   7egd:
     MW: 622
     MW_pdb: 1380
     Rg: 78.5858
+    Solidity: 0.6302167831416494
   7ege:
     MW: 547
     MW_pdb: 1281
     Rg: 76.6239
+    Solidity: 0.6007667228540506
   7egq:
     MW: 727
     MW_pdb: 801
     Rg: 82.6967
+    Solidity: 0.6452266515306857
   7etm:
     MW: 595
     MW_pdb: 944
     Rg: 57.77
+    Solidity: 0.7918668945381959
   7ey7:
     MW: 1023
     MW_pdb: 2040
     Rg: 70.8509
+    Solidity: 0.7012843166286596
   7jsn:
     MW: 257
     MW_pdb: 305
     Rg: 48.4336
+    Solidity: 0.7144250321418898
   7k5x:
     MW: 251
     MW_pdb: 311
     Rg: 48.4139
+    Solidity: 0.7166556127045126
   7kdv:
     MW: 681
     MW_pdb: 760
     Rg: 78.2821
+    Solidity: 0.6719784054560431
   7kfe:
     MW: 152
     MW_pdb: 277
     Rg: 41.6592
+    Solidity: 0.7445522742801638
   7kj2:
     MW: 377
     MW_pdb: 496
     Rg: 61.8004
+    Solidity: 0.7365925058123034
   7lsy:
     MW: 491
     MW_pdb: 762
     Rg: 76.6413
+    Solidity: 0.567076149332549
   7mei:
     MW: 921
     MW_pdb: 1214
     Rg: 81.0818
+    Solidity: 0.718606969353231
   7nhs:
     MW: 424
     MW_pdb: 645
     Rg: 61.6441
+    Solidity: 0.7641169835622932
   7niu:
     MW: 204
     MW_pdb: 239
     Rg: 51.3217
+    Solidity: 0.674627791733888
   7nyz:
     MW: 515
     MW_pdb: 619
     Rg: 91.7854
+    Solidity: 0.6191293192616396
   7o01:
     MW: 847
     MW_pdb: 918
     Rg: 103.8688
+    Solidity: 0.6705536874852551
   7q21:
     MW: 629
     MW_pdb: 735
     Rg: 66.3462
+    Solidity: 0.8161345006229916
   7qj0:
     MW: 671
     MW_pdb: 1224
     Rg: 87.0423
+    Solidity: 0.6085105350066947
   7r04:
     MW: 478
     MW_pdb: 635
     Rg: 83.9646
+    Solidity: 0.617240447847184
   7s7k:
     MW: 55
     MW_pdb: 60
     Rg: 52.2046
+    Solidity: 0.6108675772825306
   7sfw:
     MW: 511
     MW_pdb: 607
     Rg: 73.449
+    Solidity: 0.6006854183698541
   7sgm:
     MW: 193
     MW_pdb: 194
     Rg: 49.185
+    Solidity: 0.6632790798784601
   7shk:
     MW: 139
     MW_pdb: 172
     Rg: 54.2485
+    Solidity: 0.6343865210792634
   7sn7:
     MW: 1200
     MW_pdb: 1291
     Rg: 93.2791
+    Solidity: 0.6354820471496486
   7t3u:
     MW: 588
     MW_pdb: 1201
     Rg: 78.9117
+    Solidity: 0.6283546947699821
   7vtq:
     MW: 1014
     MW_pdb: 1467
     Rg: 84.0461
+    Solidity: 0.7780411887722376
   7wbt:
     MW: 191
     MW_pdb: 209
     Rg: 41.8451
+    Solidity: 0.7801996980500635
   7woo:
     MW: 881
     MW_pdb: 1286
     Rg: 93.2086
+    Solidity: 0.5842265022790578
