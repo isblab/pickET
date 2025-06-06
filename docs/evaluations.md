@@ -1,7 +1,7 @@
 # Evaluating predictions from PickET
 
 ## Centroid-based evaluation:
-This evaluation computes the precision, recall and F1-score for the predicted centroids by comparing the distance between a predicted the shortest Euclidean distance between predicted centroids and ground truth centroids.
+This evaluation computes the precision, recall and F1-score for the predicted centroids by comparing the shortest Euclidean distance between predicted centroids and ground truth centroids.
 
 Along with these computations, $N$ (where $N=\text {number of predictions from PickET}$) number of random predictions are also made to get the random baseline. 
 
