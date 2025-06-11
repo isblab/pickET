@@ -10,7 +10,7 @@ ssh -X <username>@<ip_address of the remote computing node>
 
 Now, run the following command on each of the segmentations to visualize an overlay of the segmentation on the input tomogram in Napari:  
 ```
-python see_segmentations.py <path_to_segmentation> <segmentation_type>
+python accessories/see_segmentations.py <path_to_segmentation> <segmentation_type>
 ```
 where `segmentation_type` is either `semantic_segmentation` or `instance_segmentation`.
 

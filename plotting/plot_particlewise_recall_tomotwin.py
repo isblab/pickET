@@ -41,6 +41,8 @@ def main():
             plt.xlabel("Molecular weight obtained from PDB (kDa)")
         elif x_key == "Rg":
             plt.xlabel("Radius of gyration (Å)")
+        elif x_key == "Solidity":
+            plt.xlabel("Solidity")
 
         plt.ylabel("Average recall")
         plt.text(max(all_x) * 0.75, 0.1, f"Slope: {slope:.4f}")

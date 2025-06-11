@@ -113,7 +113,8 @@ def compute_global_metrics(
     results: dict[str, dict[str, float]],
 ) -> dict[str, dict[str, float]]:
     precisions, recalls, f1scores = [], [], []
-    random_precisions, random_recalls, random_f1scores = [], [], []
+    gtr_precisions, gtr_recalls, gtr_f1scores = [], [], []
+    mdr_precisions, mdr_recalls, mdr_f1scores = [], [], []
     for tomo in results:
         if not tomo.startswith("Tomo_"):
             continue
@@ -122,23 +123,33 @@ def compute_global_metrics(
         precisions.append(results[tomo]["Precision"])
         recalls.append(results[tomo]["Recall"])
         f1scores.append(results[tomo]["F1-score"])
-        random_precisions.append(results[tomo]["Random Precision"])
-        random_recalls.append(results[tomo]["Random Recall"])
-        random_f1scores.append(results[tomo]["Random F1-score"])
+        gtr_precisions.append(results[tomo]["GTR Precision"])
+        gtr_recalls.append(results[tomo]["GTR Recall"])
+        gtr_f1scores.append(results[tomo]["GTR F1-score"])
+        mdr_precisions.append(results[tomo]["MDR Precision"])
+        mdr_recalls.append(results[tomo]["MDR Recall"])
+        mdr_f1scores.append(results[tomo]["MDR F1-score"])
 
     glob_prec = float(np.mean(np.array(precisions)))
     glob_recall = float(np.mean(np.array(recalls)))
     glob_f1score = float(np.mean(np.array(f1scores)))
-    glob_random_prec = float(np.mean(np.array(random_precisions)))
-    glob_random_recall = float(np.mean(np.array(random_recalls)))
-    glob_random_f1score = float(np.mean(np.array(random_f1scores)))
+    glob_gtr_prec = float(np.mean(np.array(gtr_precisions)))
+    glob_gtr_recall = float(np.mean(np.array(gtr_recalls)))
+    glob_gtr_f1score = float(np.mean(np.array(gtr_f1scores)))
+    glob_mdr_prec = float(np.mean(np.array(mdr_precisions)))
+    glob_mdr_recall = float(np.mean(np.array(mdr_recalls)))
+    glob_mdr_f1score = float(np.mean(np.array(mdr_f1scores)))
+
     results["Global"] = {
         "Precision": glob_prec,
         "Recall": glob_recall,
         "F1-score": glob_f1score,
-        "Random Precision": glob_random_prec,
-        "Random Recall": glob_random_recall,
-        "Random F1-score": glob_random_f1score,
+        "GTR Precision": glob_gtr_prec,
+        "GTR Recall": glob_gtr_recall,
+        "GTR F1-score": glob_gtr_f1score,
+        "MDR Precision": glob_mdr_prec,
+        "MDR Recall": glob_mdr_recall,
+        "MDR F1-score": glob_mdr_f1score,
     }
 
     return results

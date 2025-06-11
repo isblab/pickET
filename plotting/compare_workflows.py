@@ -42,6 +42,8 @@ def main():
     dataset_id = sys.argv[2]
     output_dir = sys.argv[3]
     result_fnames = sys.argv[4:]
+    plot_mdr = False
+    plot_gtr = True
 
     color_palette = {
         "intensities_KM_CC": "#399424",
@@ -74,33 +76,37 @@ def main():
     }
     xvals = []
     results = []
-    random_results = []
+    gtr_results = []
+    mdr_results = []
     for idx, result_fname in enumerate(result_fnames):
         with open(result_fname, "r") as f:
             run_results = yaml.safe_load(f)
-            metric_values = []
-            random_metric_values = []
-            for tomo, m in run_results.items():
-                if tomo != "Global":
-                    if metric in ("Precision", "Recall", "F1-score"):
-                        metric_values.append(m[metric])
-                        random_metric_values.append(m[f"Random {metric}"])
-                    elif metric == "Total time taken":
-                        metric_values.append(m[metric] / 60)
-                    elif metric == "Relative recall":
-                        recall = m["Recall"]
-                        random_recall = m["Random Recall"]
-                        relative_recall = float(np.sqrt(recall * (1 - random_recall)))
-                        metric_values.append(relative_recall)
-
+        metric_values = []
+        gtr_metric_values = []
+        mdr_metric_values = []
+        for tomo, m in run_results.items():
+            if tomo != "Global":
+                if metric in ("Precision", "Recall", "F1-score"):
+                    metric_values.append(m[metric])
+                    gtr_metric_values.append(m[f"GTR {metric}"])
+                    mdr_metric_values.append(m[f"MDR {metric}"])
+                elif metric == "Total time taken":
+                    metric_values.append(m[metric] / 60)
+                elif metric == "Relative recall":
+                    recall = m["Recall"]
+                    random_recall = m["MDR Recall"]
+                    relative_recall = float(np.sqrt(recall * (1 - random_recall)))
+                    metric_values.append(relative_recall)
         metric_values = np.array(metric_values)
-        random_metric_values = np.array(random_metric_values)
+        gtr_metric_values = np.array(gtr_metric_values)
+        mdr_metric_values = np.array(mdr_metric_values)
 
         runname = "_".join(result_fname.split("/")[-3:])
         key_val = get_key_val(runname)
 
         results.append(metric_values)
-        random_results.append(random_metric_values)
+        gtr_results.append(gtr_metric_values)
+        mdr_results.append(mdr_metric_values)
         xvals.append(key_val)
 
     results_vp = plt.violinplot(results, vert=False, showextrema=False)
@@ -111,19 +117,46 @@ def main():
         elif xvals[idx].split("_")[-2] == "GMM":
             body.set_alpha(0.2)
 
-    if metric in ("Precision", "Recall", "F1-score"):
-        random_results_vp = plt.violinplot(
-            random_results, vert=False, showextrema=False
-        )
-        for body in random_results_vp["bodies"]:  # type:ignore
-            body.set_facecolor("#aeaeae")
-            body.set_alpha(0.6)
-
     bxplt = plt.boxplot(
         results, orientation="horizontal", showfliers=False
     )  # type:ignore
     for mdn in bxplt["medians"]:
         mdn.set(color="#000000")
+
+    if plot_mdr:
+        if metric in ("Precision", "Recall", "F1-score"):
+            random_results_vp = plt.violinplot(
+                mdr_results, vert=False, showextrema=False
+            )
+            for body in random_results_vp["bodies"]:  # type:ignore
+                body.set_facecolor("#ff4e4e")
+                body.set_alpha(0.6)
+
+        bxplt = plt.boxplot(
+            mdr_results,
+            orientation="horizontal",
+            showfliers=False,
+            boxprops=dict(color="#aeaeae"),
+            whiskerprops=dict(color="#aeaeae"),
+            capprops=dict(color="#aeaeae"),
+            medianprops=dict(color="#aeaeae"),
+        )  # type:ignore
+
+    if plot_gtr:
+        if metric in ("Precision", "Recall", "F1-score"):
+            # plt.axvline(
+            #     x=float(np.mean(gtr_results)),
+            #     color="#aeaeae",
+            #     linestyle="--",
+            #     # alpha=0.6,
+            # )
+
+            random_results_vp = plt.violinplot(
+                mdr_results, vert=False, showextrema=False
+            )
+            for body in random_results_vp["bodies"]:  # type:ignore
+                body.set_facecolor("#aeaeae")
+                body.set_alpha(0.75)
 
     xlabels = [workflow_names[k] for k in xvals]
 

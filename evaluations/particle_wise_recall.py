@@ -21,6 +21,7 @@ def read_annotations_w_deets(fname: str) -> dict[str, np.ndarray]:
         elif "particle_name" in ln:
             particle_id = ln.get("particle_name")
         else:
+            print(ln)
             raise KeyError("Particle annotations dont have a label on them")
 
         if particle_id not in p_deets:

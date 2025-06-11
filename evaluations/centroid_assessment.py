@@ -31,12 +31,9 @@ def main():
             track(pc_fname, description=f"Processing {group_name}")
         ):
             pred_centroids, pred_metadata = assessment_utils.load_predictions(target)
-            try:
-                zslice_lb = pred_metadata["z_lb_for_particle_extraction"]
-                zslice_ub = pred_metadata["z_ub_for_particle_extraction"]
-            except KeyError:
-                zslice_lb = "None"
-                zslice_ub = "None"
+            zslice_lb = pred_metadata.get("z_lb_for_particle_extraction", "None")
+            zslice_ub = pred_metadata.get("z_ub_for_particle_extraction", "None")
+
             tomo_shape = tuple(np.array(pred_metadata["tomogram_shape"]).tolist())
             gt_fpath = assessment_utils.get_ground_truth_fpath(
                 pred_metadata["tomogram_path"],
@@ -47,34 +44,43 @@ def main():
                 angstrom_threshold, pred_metadata["voxel_size"]
             )
             pred_centroids = utils.read_yaml_coords(target)
-            # print(target, len(pred_centroids), sep=":\t")
 
             if len(pred_centroids) <= 1_000_000:
-                random_centroids = assessment_utils.get_random_centroids(
-                    tomo_shape, num_centroids=len(pred_centroids)
-                )
                 true_centroids = assessment_utils.read_ndjson_coords(gt_fpath)
                 true_centroids = assessment_utils.zslice_filter_ground_truth_centroids(
                     true_centroids, zslice_lb, zslice_ub
                 )
+                gtr_centroids = assessment_utils.get_random_centroids(
+                    tomo_shape, num_centroids=len(true_centroids)
+                )
+                mdr_centroids = assessment_utils.get_random_centroids(
+                    tomo_shape, num_centroids=len(pred_centroids)
+                )
 
                 n_pred = len(pred_centroids)
                 n_true = len(true_centroids)
-                n_rand = len(random_centroids)
+                n_gtr = len(gtr_centroids)
+                n_mdr = len(mdr_centroids)
+                if n_true == 0:
+                    continue
 
                 distances = cdist(pred_centroids, true_centroids, metric="euclidean")
-                distances_random = cdist(
-                    random_centroids, true_centroids, metric="euclidean"
-                )
+                distances_gtr = cdist(gtr_centroids, true_centroids, metric="euclidean")
+                distances_mdr = cdist(mdr_centroids, true_centroids, metric="euclidean")
 
                 precision, recall, f1score = (
                     assessment_utils.compute_precision_recall_f1score(
                         distances, threshold, num_pred=n_pred, num_true=n_true
                     )
                 )
-                random_precision, random_recall, random_f1score = (
+                gtr_precision, gtr_recall, gtr_f1score = (
                     assessment_utils.compute_precision_recall_f1score(
-                        distances_random, threshold, num_pred=n_rand, num_true=n_true
+                        distances_gtr, threshold, num_pred=n_gtr, num_true=n_true
+                    )
+                )
+                mdr_precision, mdr_recall, mdr_f1score = (
+                    assessment_utils.compute_precision_recall_f1score(
+                        distances_mdr, threshold, num_pred=n_mdr, num_true=n_true
                     )
                 )
 
@@ -82,9 +88,12 @@ def main():
                     "Precision": precision,
                     "Recall": recall,
                     "F1-score": f1score,
-                    "Random Precision": random_precision,
-                    "Random Recall": random_recall,
-                    "Random F1-score": random_f1score,
+                    "GTR Precision": gtr_precision,
+                    "GTR Recall": gtr_recall,
+                    "GTR F1-score": gtr_f1score,
+                    "MDR Precision": mdr_precision,
+                    "MDR Recall": mdr_recall,
+                    "MDR F1-score": mdr_f1score,
                     "Time taken for S1": pred_metadata["time_taken_for_s1"],
                     "Time taken for S2": pred_metadata["time_taken_for_s2"],
                     "Total time taken": pred_metadata["time_taken_for_s1"]
@@ -97,12 +106,16 @@ def main():
                     "Precision": np.nan,
                     "Recall": np.nan,
                     "F1-score": np.nan,
-                    "Random Precision": np.nan,
-                    "Random Recall": np.nan,
-                    "Random F1-score": np.nan,
-                    "Time taken for S1": np.nan,
-                    "Time taken for S2": np.nan,
-                    "Total time taken": np.nan,
+                    "GTR Precision": np.nan,
+                    "GTR Recall": np.nan,
+                    "GTR F1-score": np.nan,
+                    "MDR Precision": np.nan,
+                    "MDR Recall": np.nan,
+                    "MDR F1-score": np.nan,
+                    "Time taken for S1": pred_metadata["time_taken_for_s1"],
+                    "Time taken for S2": pred_metadata["time_taken_for_s2"],
+                    "Total time taken": pred_metadata["time_taken_for_s1"]
+                    + pred_metadata["time_taken_for_s2"],
                 }
 
         results = assessment_utils.compute_global_metrics(results)

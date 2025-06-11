@@ -55,7 +55,7 @@ def main():
     particle_extraction_method = "_".join(fname_head.split("_")[4:])
     plt.savefig(
         os.path.join(
-            f"/home/shreyas/Dropbox/miningTomograms/particlewise_recall/{dataset_id}/",
+            f"/home/shreyas/Dropbox/miningTomograms/particle_wise_recall/{dataset_id}/",
             f"particlewise_recall_{feature_extraction_method}_{clustering_method}_{particle_extraction_method}.png",
         ),
         dpi=600,

@@ -110,7 +110,7 @@ def read_yaml_coords(pred_coords_fname: str) -> np.ndarray:
     return coords
 
 
-def load_in_napari(tomogram: np.ndarray, segmentation: np.ndarray, segname: str):
+def load_in_napari(tomogram, segmentation, segname):
     viewer = napari.Viewer()
     viewer.add_image(tomogram, name="Tomogram")
     viewer.add_labels(segmentation, name=segname)

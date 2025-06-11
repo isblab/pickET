@@ -70,4 +70,3 @@ class Segmentations:
                 self.instance_segmentation = seg_group[  # type:ignore
                     "instance_segmentation"
                 ][:]
-                print(np.unique(np.array(self.instance_segmentation)))
