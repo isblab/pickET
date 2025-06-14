@@ -1,60 +1,60 @@
-dataset_name: comparison_dataset
+dataset_name: comparison_w_milopyp/picket_run/
 
 inputs:
   [
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10001_tomogram2269_denoised_TS_0001.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2269/denoised_TS_0001.mrc,
       lower_z-slice_limit: 450,
       upper_z-slice_limit: 525,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10001_tomogram2271_denoised_TS_0003.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2271/denoised_TS_0003.mrc,
       lower_z-slice_limit: 450,
       upper_z-slice_limit: 525,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10001_tomogram2278_denoised_TS_0010.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10001/tomogram_2278/denoised_TS_0010.mrc,
       lower_z-slice_limit: 450,
       upper_z-slice_limit: 550,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10008_tomogram1001_denoised_19.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10008/tomogram_1001/denoised_19.mrc,
       lower_z-slice_limit: 200,
       upper_z-slice_limit: 275,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10008_tomogram995_denoised_10.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10008/tomogram_995/denoised_10.mrc,
       lower_z-slice_limit: 200,
       upper_z-slice_limit: 275,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10008_tomogram998_denoised_14.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10008/tomogram_998/denoised_14.mrc,
       lower_z-slice_limit: 200,
       upper_z-slice_limit: 275,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10301_tomogram14316_denoised_01122021_BrnoKrios_arctis_lam1_pos4.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14316/denoised_01122021_BrnoKrios_arctis_lam1_pos4.mrc,
       lower_z-slice_limit: 175,
       upper_z-slice_limit: 325,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10301_tomogram14319_denoised_01122021_BrnoKrios_arctis_lam3_pos27.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14319/denoised_01122021_BrnoKrios_arctis_lam3_pos27.mrc,
       lower_z-slice_limit: 175,
       upper_z-slice_limit: 325,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10301_tomogram14324_denoised_15042022_BrnoKrios_Arctis_grid9_Position_32.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10301/tomogram_14324/denoised_15042022_BrnoKrios_Arctis_grid9_Position_32.mrc,
       lower_z-slice_limit: 200,
       upper_z-slice_limit: 300,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10440_tomogram17015_denoised_TS_5_4.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17015/denoised_TS_5_4.mrc,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10440_tomogram17031_denoised_TS_73_6.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17031/denoised_TS_73_6.mrc,
     },
     {
-      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/comparison_dataset/denoised_10440_tomogram17035_denoised_TS_86_3.mrc,
+      tomogram: /data/shreyas/mining_tomograms/datasets/cryoet_dataportal/10440/tomogram_17035/denoised_TS_86_3.mrc,
     },
   ]
 

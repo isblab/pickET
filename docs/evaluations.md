@@ -64,3 +64,23 @@ The comparison can then be plotted by running the [plotting script](../plotting/
 python evaluations/comparison_w_milopyp.py <path_to_MiLoPYP_evaluation> <path_to_PickET_evaluation>
 ```
 where `<path_to_MiLoPYP_evaluation>` is the output `.yaml` file generated from running the evaluation step above on MiLoPYP predictions; similarly, the `<path_to_PickET_evaluation>` is the output `.yaml` file generated from running the evaluation step above on PickET predictions.
+
+## Plot particle-wise segmentations (Fig. 6 in the paper)
+Run the following commands, one at a time, for each each of the rows in the figure:
+```bash
+python plotting/make_a_particle_wise_segmentation_image.py /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10001_denoised/instance_segmentations/instance_segmentation_0_gabor_kmeans_watershed_segmentation.h5 400 600
+```
+```bash 
+python plotting/make_a_particle_wise_segmentation_image.py /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/instance_segmentations/instance_segmentation_0_gabor_kmeans_watershed_segmentation.h5 200 300
+```
+```bash 
+python plotting/make_a_particle_wise_segmentation_image.py /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/instance_segmentations/instance_segmentation_1_gabor_kmeans_watershed_segmentation.h5 200 300
+```
+```bash 
+python plotting/make_a_particle_wise_segmentation_image.py /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/instance_segmentations/instance_segmentation_3_gabor_kmeans_watershed_segmentation.h5 200 300
+```
+```bash 
+python plotting/make_a_particle_wise_segmentation_image.py /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/instance_segmentations/instance_segmentation_4_gabor_kmeans_watershed_segmentation.h5 200 300
+```
+
+Each of these commands will load a Napari window with the input tomogram, semantic segmentation, instance segmentation and a particle-wise segmentation for the input tomogram. Save a screenshot of the tomogram alone, tomogram overlayed with instance segmentation and instance segmentation alone on the Z-slice that gets opened by default. Once you close the Napari window, a set of `.mrc` files will be saved, each of which contains a binary matrix of the shape of the input tomogram. Each of these `.mrc` files is a segmentation for each particle type. Load these in ChimeraX, set the thresholds to `0.999` and color them as per the key provided in `plotting/make_a_particle_wise_segmentation_image.py`. Set the step size to `1`, graphics to `soft` mode and save the image using the `save` command. 
