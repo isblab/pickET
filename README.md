@@ -11,7 +11,7 @@
 Python package to pick particles in cryo-electron tomograms in an unsupervised manner
 
 <div align="center">
-    <img src="images/F0 Graphical abstract.png" alt="PickET graphical abstract" width="600" align="center">
+    <img src="images/F0 Graphical abstract.jpg" alt="PickET graphical abstract" width="600" align="center">
 </div>
 
 
