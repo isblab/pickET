@@ -1,6 +1,7 @@
 import os
 import sys
 import yaml
+import glob
 import numpy as np
 from rich.progress import track
 from scipy.spatial.distance import cdist
@@ -22,7 +23,10 @@ def main():
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 
-    groups = assessment_utils.separate_files_into_groups(parent_path)
+    if dataset_name == "comparison_w_milopyp/picket_run":
+        groups = {"picket_run": glob.glob(os.path.join(parent_path, "*.yaml"))}
+    else:
+        groups = assessment_utils.separate_files_into_groups(parent_path)
 
     for group_name, pc_fname in groups.items():
         results = {}
@@ -84,21 +88,36 @@ def main():
                     )
                 )
 
-                results[f"Tomo_ID - {idx}"] = {
-                    "Precision": precision,
-                    "Recall": recall,
-                    "F1-score": f1score,
-                    "GTR Precision": gtr_precision,
-                    "GTR Recall": gtr_recall,
-                    "GTR F1-score": gtr_f1score,
-                    "MDR Precision": mdr_precision,
-                    "MDR Recall": mdr_recall,
-                    "MDR F1-score": mdr_f1score,
-                    "Time taken for S1": pred_metadata["time_taken_for_s1"],
-                    "Time taken for S2": pred_metadata["time_taken_for_s2"],
-                    "Total time taken": pred_metadata["time_taken_for_s1"]
-                    + pred_metadata["time_taken_for_s2"],
-                }
+                if "milopyp_run" in dataset_name:
+                    results[f"Tomo_ID - {idx}"] = {
+                        "Precision": precision,
+                        "Recall": recall,
+                        "F1-score": f1score,
+                        "GTR Precision": gtr_precision,
+                        "GTR Recall": gtr_recall,
+                        "GTR F1-score": gtr_f1score,
+                        "MDR Precision": mdr_precision,
+                        "MDR Recall": mdr_recall,
+                        "MDR F1-score": mdr_f1score,
+                        # "Total time taken": pred_metadata["time_taken_for_s1"]
+                        # + pred_metadata["time_taken_for_s2"],
+                    }
+                else:
+                    results[f"Tomo_ID - {idx}"] = {
+                        "Precision": precision,
+                        "Recall": recall,
+                        "F1-score": f1score,
+                        "GTR Precision": gtr_precision,
+                        "GTR Recall": gtr_recall,
+                        "GTR F1-score": gtr_f1score,
+                        "MDR Precision": mdr_precision,
+                        "MDR Recall": mdr_recall,
+                        "MDR F1-score": mdr_f1score,
+                        "Time taken for S1": pred_metadata["time_taken_for_s1"],
+                        "Time taken for S2": pred_metadata["time_taken_for_s2"],
+                        "Total time taken": pred_metadata["time_taken_for_s1"]
+                        + pred_metadata["time_taken_for_s2"],
+                    }
 
             else:  # Ignore the tomogram where the number of predicted particles is over 1M
                 print(f"Ignoring {target}")

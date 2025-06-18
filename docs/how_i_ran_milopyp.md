@@ -74,7 +74,7 @@ Place this file in a `data/` directory. Ensure to name the directory `data`. But
 
 
 #### 2. Train the model
-Again, I used the `3d` mode of the workflow assuming that we don't have access to the tilt-series.
+Again, I used the `3d` mode of the workflow assuming that we don't have access to the tilt-series. The model was trained on all the tomograms in a given dataset and the predictions were also performed on the entire dataset.
 ```bash
 python cet_pick/cet_pick/simsiam_main.py simsiam3d --num_epochs 20 --exp_id test_sample --bbox 36 --dataset simsiam3d --arch simsiam2d_18 --lr 1e-3 --train_img_txt sample_train_explore_img.txt --batch_size 256 --val_intervals 20 --save_all --gauss 0.8 --dog 3,5 --order xyz
 ```

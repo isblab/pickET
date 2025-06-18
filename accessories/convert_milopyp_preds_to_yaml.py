@@ -18,7 +18,7 @@ def main():
     pred_npz_fpath = sys.argv[1]
     milopyp_inputs_fpath = sys.argv[2]
     output_dir = sys.argv[3]
-    output_dir = os.path.join(output_dir, "pred_centroids")
+    output_dir = os.path.join(output_dir, "predicted_particles")
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 
