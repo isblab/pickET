@@ -10,7 +10,9 @@
 # **PickET:** Unsupervised particle picking protocol for cryo-electron tomograms
 Python package to pick particles in cryo-electron tomograms in an unsupervised manner
 
-<img src="images/GraphicalAbstract.jpeg" alt="PickET graphical abstract" width="600">
+<div align="center">
+    <img src="images/F0 Graphical abstract.jpg" alt="PickET graphical abstract" width="600" align="center">
+</div>
 
 
 ## Table of contents:
