@@ -15,14 +15,24 @@ def _read_milopyp_inputs_file(fpath: str):
 
 
 def main():
-    pred_npz_fpath = sys.argv[1]
-    milopyp_inputs_fpath = sys.argv[2]
-    output_dir = sys.argv[3]
-    output_dir = os.path.join(output_dir, "predicted_particles")
+    dataset_id = str(sys.argv[1])
+    parent_path = sys.argv[2]
+    time_log_fname = sys.argv[3]
+
+    milopyp_inputs_fpath = os.path.join(parent_path, "data", f"input_{dataset_id}.txt")
+    pred_npz_fpath = os.path.join(
+        parent_path, "exp", "simsiam3d", dataset_id, "all_output_info.npz"
+    )
+
+    output_dir = os.path.join(
+        parent_path, "exp", "simsiam3d", dataset_id, "predicted_particles"
+    )
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 
     tomo_paths = _read_milopyp_inputs_file(milopyp_inputs_fpath)
+    with open(time_log_fname, "r") as tlf:
+        time_logs = yaml.safe_load(tlf)
 
     preds = np.load(pred_npz_fpath)
     all_coords = preds["coords"]
@@ -36,6 +46,8 @@ def main():
                 "tomogram_path": tomo_path,
                 "tomogram_shape": [int(nvox) for nvox in tomo.shape],
                 "voxel_size": [float(vs) for vs in voxel_sizes],
+                "time_taken_for_s1": time_logs[dataset_id]["s1"],
+                "time_taken_for_s2": time_logs[dataset_id]["s2"],
             },
             "Predicted_Particle_Centroid_Coordinates": [],
         }

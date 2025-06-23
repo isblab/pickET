@@ -4,9 +4,18 @@ import numpy as np
 from assets import utils, segmentation_io
 
 
+def fix_tomo_path(tomo_path: str, dataset_dir_drive: str) -> str:
+    tomo_path_broken = tomo_path.split("/")
+    tomo_path_broken[1] = dataset_dir_drive
+    tomo_path = os.path.join("/", *tomo_path_broken)
+    return tomo_path
+
+
 def main():
     seg_path = sys.argv[1]
     seg_type = sys.argv[2]
+    dataset_dir_drive = sys.argv[3]
+
     if seg_type not in ("semantic_segmentation", "instance_segmentation"):
         raise ValueError(
             "Segmentation type can only be either 'semantic_segmentation' or 'instance_segmentation'"
@@ -21,11 +30,10 @@ def main():
     else:
         segmentation = np.array(segmentation_handler.instance_segmentation)
 
-    tomo_path: str = str(segmentation_metadata["tomogram_path"])
+    tomo_path = str(segmentation_metadata["tomogram_path"])
 
-    #! Deprecated: Remove this section later on
-    tomo_path2 = tomo_path.split("/")[2:]
-    tomo_path = os.path.join("/data2", *tomo_path2)
+    if tomo_path.split("/")[1] != dataset_dir_drive:
+        tomo_path = fix_tomo_path(tomo_path, dataset_dir_drive)
 
     tomogram, _ = utils.load_tomogram(tomo_path)
     print("Loaded segmentation and tomogram successfully...")

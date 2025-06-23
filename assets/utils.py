@@ -1,5 +1,4 @@
 import yaml
-import h5py
 import napari
 import ndjson
 import mrcfile
@@ -23,6 +22,7 @@ def load_tomogram(tomogram_path: str) -> tuple[np.ndarray, np.ndarray]:
     return tomogram, voxel_sizes
 
 
+#! deprecated function. Can be deleted
 def write_coords_as_ndjson(coords: np.ndarray, out_fname: str) -> None:
     lines = []
     for coord in coords:

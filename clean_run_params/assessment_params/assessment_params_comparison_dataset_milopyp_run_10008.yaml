@@ -1,0 +1,8 @@
+dataset_name: comparison_w_milopyp/milopyp_run/exp/simsiam3d/10008
+
+parent_path: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/comparison_w_milopyp/milopyp_run/exp/simsiam3d/10008/predicted_particles/
+annot_dir_head: annotations
+
+threshold_in_angstrom: 125
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/
