@@ -29,8 +29,9 @@ jobs:
 
       - name: Set up Python dependencies
         run: |
-          python -m pip install .[dev]
-          python -m pip install pytest
+          pip install uv
+          uv run pip install .[dev]
+          uv run pip install pytest
 
       - name: Run the tests
         run: pytest

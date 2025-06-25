@@ -7,7 +7,7 @@ authors = [
     { name = "Shreyas Arvindekar", email = "shreyasarvindekar@gmail.com" },
     { name = "Shruthi Viswanath", email = "shruthis@emailid.com" },         # Todo 
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.11"
 dependencies = [
     "h5py>=3.14.0",
     "matplotlib>=3.10.3",
@@ -34,6 +34,6 @@ build-backend = "hatchling.build"
 dev = [
     "biopython>=1.85",
     "mkdocs-material>=9.6.14",
- "pandas>=2.3.0",
- "pygments>=2.19.2",
+    "pandas>=2.3.0",
+    "pygments>=2.19.2",
 ]
