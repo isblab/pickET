@@ -1,7 +1,7 @@
 import os
 import sys
 import numpy as np
-from assets import utils, segmentation_io
+from picket.core import utils, segmentation_io
 
 
 def fix_tomo_path(tomo_path: str, dataset_dir_drive: str) -> str:

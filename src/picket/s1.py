@@ -5,9 +5,13 @@ import datetime
 import numpy as np
 from rich.progress import track
 from rich.console import Console
-import socket
-import slack_bot
-from assets import utils, preprocessing, feature_extraction, clustering, segmentation_io
+from picket.core import (
+    utils,
+    preprocessing,
+    feature_extraction,
+    clustering,
+    segmentation_io,
+)
 
 
 def main():
@@ -42,7 +46,7 @@ def main():
                 "max_num_neighborhoods_for_fitting"
             )
             console.print(
-                f"Processing tomogram {idx+1}/{len(inputs)} using {ftex_mode} as the feature extraction method"
+                f"Processing tomogram {idx + 1}/{len(inputs)} using {ftex_mode} as the feature extraction method"
             )
 
             # Preprocess tomogram
@@ -211,13 +215,8 @@ def main():
             time_taken = toc - tic
 
             console.print(
-                f"Tomogram {idx+1} processed in {int(round(time_taken/60,0))} minutes\n"
+                f"Tomogram {idx + 1} processed in {int(round(time_taken / 60, 0))} minutes\n"
             )
-
-            message = f"Processed tomogram {idx+1}/{len(inputs)} "
-            message += f"with {ftex_mode} as the feature extraction mode on {socket.gethostname()} "
-            message += f"in {int(round(time_taken/60,0))} minutes"
-            slack_bot.send_slack_dm(message)
 
 
 if __name__ == "__main__":

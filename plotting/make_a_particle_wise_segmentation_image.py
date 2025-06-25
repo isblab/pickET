@@ -4,8 +4,7 @@ import napari
 import ndjson
 import mrcfile
 import numpy as np
-from assets import utils, segmentation_io
-from icecream import ic
+from picket.core import utils, segmentation_io
 
 
 def get_gt_coords(fpath: str) -> dict:

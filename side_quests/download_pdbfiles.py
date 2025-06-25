@@ -2,7 +2,7 @@ import os
 import sys
 import yaml
 import requests
-from tqdm import tqdm
+from rich.progress import track
 
 
 def get_pdb_file(pdb_id: str, download_path: str) -> None:
@@ -24,7 +24,7 @@ def main():
     with open(particle_details_fname, "r") as pdeet_f:
         particle_details = yaml.safe_load(pdeet_f)["particles"]
 
-    for particle_id in tqdm(particle_details):
+    for particle_id in track(particle_details):
         get_pdb_file(particle_id, out_dir)
 
 

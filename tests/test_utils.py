@@ -1,5 +1,5 @@
 import numpy as np
-from assets import utils
+from picket.core import utils
 
 
 def test_load_params_from_yaml():

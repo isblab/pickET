@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.ndimage import gaussian_filter
 
-from assets import preprocessing
+from picket.core import preprocessing
 
 
 def test_get_z_section():

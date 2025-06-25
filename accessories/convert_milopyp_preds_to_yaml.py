@@ -4,7 +4,7 @@ import yaml
 import numpy as np
 import pandas as pd
 from rich.progress import track
-from assets import utils
+from picket.core import utils
 
 
 def _read_milopyp_inputs_file(fpath: str):

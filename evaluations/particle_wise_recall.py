@@ -6,7 +6,7 @@ import numpy as np
 from rich.progress import track
 from scipy.spatial.distance import cdist
 
-from assets import utils
+from picket.core import utils
 import assessment_utils
 
 

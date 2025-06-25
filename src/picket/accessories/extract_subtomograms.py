@@ -2,7 +2,7 @@ import os
 import sys
 import yaml
 import numpy as np
-from assets import utils, particle_extraction
+from picket.core import utils, particle_extraction
 
 
 def main():

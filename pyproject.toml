@@ -1,0 +1,39 @@
+[project]
+name = "picket"
+version = "0.1.0"
+description = "Python package to pick particles in cryo-electron tomograms in an unsupervised manner"
+readme = "README.md"
+authors = [
+    { name = "Shreyas Arvindekar", email = "shreyasarvindekar@gmail.com" },
+    { name = "Shruthi Viswanath", email = "shruthis@emailid.com" },         # Todo 
+]
+requires-python = ">=3.13"
+dependencies = [
+    "h5py>=3.14.0",
+    "matplotlib>=3.10.3",
+    "mrcfile>=1.5.4",
+    "napari>=0.6.1",
+    "ndjson>=0.3.1",
+    "numpy>=2.3.1",
+    "pyyaml>=6.0.2",
+    "rich>=14.0.0",
+    "scikit-image>=0.25.2",
+    "scikit-learn>=1.7.0",
+    "scipy>=1.16.0",
+]
+
+[project.scripts]
+picket_generate_semantic_segmentation = "picket.s1:main"
+picket_localize_particles = "picket.s2:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "biopython>=1.85",
+    "mkdocs-material>=9.6.14",
+ "pandas>=2.3.0",
+ "pygments>=2.19.2",
+]

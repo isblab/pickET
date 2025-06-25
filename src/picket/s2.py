@@ -2,12 +2,10 @@ import os
 import sys
 import yaml
 import time
-import socket
 import datetime
 import numpy as np
 
-import slack_bot
-from assets import utils, particle_extraction, segmentation_io
+from picket.core import utils, particle_extraction, segmentation_io
 
 
 def main():

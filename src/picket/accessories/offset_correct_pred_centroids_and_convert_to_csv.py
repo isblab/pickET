@@ -3,7 +3,7 @@ import ast
 import argparse
 import numpy as np
 
-from assets import utils
+from picket.core import utils
 
 
 def parse_args():

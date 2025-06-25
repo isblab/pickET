@@ -1,8 +1,7 @@
-import os
 import sys
 import yaml
 import numpy as np
-from assets import utils
+from picket.core import utils
 
 
 def main():
