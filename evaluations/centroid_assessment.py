@@ -1,7 +1,6 @@
 import os
 import sys
 import yaml
-import glob
 import numpy as np
 from rich.progress import track
 from scipy.spatial.distance import cdist
@@ -23,10 +22,7 @@ def main():
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 
-    if dataset_name == "comparison_w_milopyp/picket_run":
-        groups = {"picket_run": glob.glob(os.path.join(parent_path, "*.yaml"))}
-    else:
-        groups = assessment_utils.separate_files_into_groups(parent_path)
+    groups = assessment_utils.separate_files_into_groups(parent_path)
 
     for group_name, pc_fname in groups.items():
         results = {}
@@ -65,59 +61,53 @@ def main():
                 n_true = len(true_centroids)
                 n_gtr = len(gtr_centroids)
                 n_mdr = len(mdr_centroids)
-                if n_true == 0:
-                    continue
 
-                distances = cdist(pred_centroids, true_centroids, metric="euclidean")
-                distances_gtr = cdist(gtr_centroids, true_centroids, metric="euclidean")
-                distances_mdr = cdist(mdr_centroids, true_centroids, metric="euclidean")
+                if n_true != 0 and n_pred != 0:
+                    distances = cdist(
+                        pred_centroids, true_centroids, metric="euclidean"
+                    )
+                    distances_gtr = cdist(
+                        gtr_centroids, true_centroids, metric="euclidean"
+                    )
+                    distances_mdr = cdist(
+                        mdr_centroids, true_centroids, metric="euclidean"
+                    )
 
-                precision, recall, f1score = (
-                    assessment_utils.compute_precision_recall_f1score(
-                        distances, threshold, num_pred=n_pred, num_true=n_true
+                    precision, recall, f1score = (
+                        assessment_utils.compute_precision_recall_f1score(
+                            distances, threshold, num_pred=n_pred, num_true=n_true
+                        )
                     )
-                )
-                gtr_precision, gtr_recall, gtr_f1score = (
-                    assessment_utils.compute_precision_recall_f1score(
-                        distances_gtr, threshold, num_pred=n_gtr, num_true=n_true
+                    gtr_precision, gtr_recall, gtr_f1score = (
+                        assessment_utils.compute_precision_recall_f1score(
+                            distances_gtr, threshold, num_pred=n_gtr, num_true=n_true
+                        )
                     )
-                )
-                mdr_precision, mdr_recall, mdr_f1score = (
-                    assessment_utils.compute_precision_recall_f1score(
-                        distances_mdr, threshold, num_pred=n_mdr, num_true=n_true
+                    mdr_precision, mdr_recall, mdr_f1score = (
+                        assessment_utils.compute_precision_recall_f1score(
+                            distances_mdr, threshold, num_pred=n_mdr, num_true=n_true
+                        )
                     )
-                )
-
-                if "milopyp_run" in dataset_name:
-                    results[f"Tomo_ID - {idx}"] = {
-                        "Precision": precision,
-                        "Recall": recall,
-                        "F1-score": f1score,
-                        "GTR Precision": gtr_precision,
-                        "GTR Recall": gtr_recall,
-                        "GTR F1-score": gtr_f1score,
-                        "MDR Precision": mdr_precision,
-                        "MDR Recall": mdr_recall,
-                        "MDR F1-score": mdr_f1score,
-                        # "Total time taken": pred_metadata["time_taken_for_s1"]
-                        # + pred_metadata["time_taken_for_s2"],
-                    }
                 else:
-                    results[f"Tomo_ID - {idx}"] = {
-                        "Precision": precision,
-                        "Recall": recall,
-                        "F1-score": f1score,
-                        "GTR Precision": gtr_precision,
-                        "GTR Recall": gtr_recall,
-                        "GTR F1-score": gtr_f1score,
-                        "MDR Precision": mdr_precision,
-                        "MDR Recall": mdr_recall,
-                        "MDR F1-score": mdr_f1score,
-                        "Time taken for S1": pred_metadata["time_taken_for_s1"],
-                        "Time taken for S2": pred_metadata["time_taken_for_s2"],
-                        "Total time taken": pred_metadata["time_taken_for_s1"]
-                        + pred_metadata["time_taken_for_s2"],
-                    }
+                    precision, recall, f1score = np.nan, np.nan, np.nan
+                    gtr_precision, gtr_recall, gtr_f1score = np.nan, np.nan, np.nan
+                    mdr_precision, mdr_recall, mdr_f1score = np.nan, np.nan, np.nan
+
+                results[f"Tomo_ID - {idx}"] = {
+                    "Precision": precision,
+                    "Recall": recall,
+                    "F1-score": f1score,
+                    "GTR Precision": gtr_precision,
+                    "GTR Recall": gtr_recall,
+                    "GTR F1-score": gtr_f1score,
+                    "MDR Precision": mdr_precision,
+                    "MDR Recall": mdr_recall,
+                    "MDR F1-score": mdr_f1score,
+                    "Time taken for S1": pred_metadata.get("time_taken_for_s1", np.nan),
+                    "Time taken for S2": pred_metadata.get("time_taken_for_s2", np.nan),
+                    "Total time taken": pred_metadata.get("time_taken_for_s1", np.nan)
+                    + pred_metadata.get("time_taken_for_s2", np.nan),
+                }
 
             else:  # Ignore the tomogram where the number of predicted particles is over 1M
                 print(f"Ignoring {target}")
@@ -131,10 +121,10 @@ def main():
                     "MDR Precision": np.nan,
                     "MDR Recall": np.nan,
                     "MDR F1-score": np.nan,
-                    "Time taken for S1": pred_metadata["time_taken_for_s1"],
-                    "Time taken for S2": pred_metadata["time_taken_for_s2"],
-                    "Total time taken": pred_metadata["time_taken_for_s1"]
-                    + pred_metadata["time_taken_for_s2"],
+                    "Time taken for S1": pred_metadata.get("time_taken_for_s1", np.nan),
+                    "Time taken for S2": pred_metadata.get("time_taken_for_s2", np.nan),
+                    "Total time taken": pred_metadata.get("time_taken_for_s1", np.nan)
+                    + pred_metadata.get("time_taken_for_s2", np.nan),
                 }
 
         results = assessment_utils.compute_global_metrics(results)

@@ -51,6 +51,7 @@ def main():
     ### Input block
     params_fname = sys.argv[1]
     out_dir = sys.argv[2]
+    hero_workflow = sys.argv[3]  # fexmode_clmode_pexmode
     params = utils.load_params_from_yaml(params_fname)
 
     angstrom_threshold = params["threshold_in_angstrom"]
@@ -65,6 +66,9 @@ def main():
     ### Processing block
     groups = assessment_utils.separate_files_into_groups(parent_path)
     for group_name, pc_fname in groups.items():
+        print(group_name)
+        if group_name != hero_workflow:
+            continue
         results = {}
         feature_extraction_method = ""
         clustering_method = ""
@@ -91,9 +95,9 @@ def main():
             particle_extraction_method = pred_metadata["pex_mode"]
             zslice_lb = pred_metadata.get("lower_z-slice_limit")
             zslice_ub = pred_metadata.get("upper_z-slice_limit")
-            if zslice_lb == None:
+            if zslice_lb is None:
                 zslice_lb = "None"
-            if zslice_ub == None:
+            if zslice_ub is None:
                 zslice_ub = "None"
 
             tomo_shape = tuple(np.array(pred_metadata["tomogram_shape"]).tolist())

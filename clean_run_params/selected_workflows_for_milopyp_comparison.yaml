@@ -28,26 +28,27 @@
 
 "10301":
   {
-    0: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/gabor_kmeans_watershed_segmentation.yaml,
-    1: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/gabor_kmeans_watershed_segmentation.yaml,
-    2: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/gabor_kmeans_watershed_segmentation.yaml,
-    3: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/gabor_gmm_watershed_segmentation.yaml,
-    4: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/gabor_kmeans_watershed_segmentation.yaml,
-    5: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/gabor_kmeans_watershed_segmentation.yaml,
-    6: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/gabor_kmeans_watershed_segmentation.yaml,
-    7: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/gabor_kmeans_watershed_segmentation.yaml,
-    8: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/ffts_kmeans_watershed_segmentation.yaml,
-    9: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/ffts_kmeans_watershed_segmentation.yaml,
+    0: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_gabor_kmeans_watershed_segmentation.yaml,
+    1: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_gabor_kmeans_watershed_segmentation.yaml,
+    2: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_gabor_kmeans_watershed_segmentation.yaml,
+    3: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_gabor_gmm_watershed_segmentation.yaml,
+    4: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_gabor_kmeans_watershed_segmentation.yaml,
+    5: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_gabor_kmeans_watershed_segmentation.yaml,
+    6: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_gabor_kmeans_watershed_segmentation.yaml,
+    7: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_gabor_kmeans_watershed_segmentation.yaml,
+    8: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_ffts_kmeans_watershed_segmentation.yaml,
+    9: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10301_denoised/evaluations/overall_results_ffts_kmeans_watershed_segmentation.yaml,
   }
 
 "10440":
   {
-    0: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/intensities_gmm_watershed_segmentation.yaml,
-    1: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/intensities_gmm_watershed_segmentation.yaml,
-    2: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/intensities_gmm_watershed_segmentation.yaml,
-    3: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/intensities_gmm_watershed_segmentation.yaml,
-    4: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/intensities_gmm_watershed_segmentation.yaml,
-    5: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/intensities_gmm_watershed_segmentation.yaml,
+    0: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/overall_results_intensities_gmm_watershed_segmentation.yaml,
+    1: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/overall_results_intensities_gmm_watershed_segmentation.yaml,
+    2: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/overall_results_intensities_gmm_watershed_segmentation.yaml,
+    3: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/overall_results_intensities_gmm_watershed_segmentation.yaml,
+    4: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/overall_results_intensities_gmm_watershed_segmentation.yaml,
+    5: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/overall_results_intensities_gmm_watershed_segmentation.yaml,
+    6: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/czi_ds-10440_denoised/evaluations/overall_results_intensities_gmm_watershed_segmentation.yaml,
   }
 
 tomotwin:
@@ -62,12 +63,12 @@ tomotwin:
     7: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_kmeans_connected_component_labeling.yaml,
     8: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_gmm_connected_component_labeling.yaml,
     9: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
-    10: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_ffts_gmm_connected_component_labeling.yaml,
+    10: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
 
     11: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_gmm_connected_component_labeling.yaml,
     12: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_kmeans_connected_component_labeling.yaml,
-    13: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_ffts_gmm_connected_component_labeling.yaml,
-    14: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_ffts_gmm_connected_component_labeling.yaml,
+    13: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
+    14: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     15: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_gmm_connected_component_labeling.yaml,
     16: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     17: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_gmm_connected_component_labeling.yaml,
@@ -83,7 +84,7 @@ tomotwin:
     26: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     27: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     28: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
-    29: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_ffts_gmm_connected_component_labeling.yaml,
+    29: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     30: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
 
     31: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
@@ -100,7 +101,7 @@ tomotwin:
     41: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     42: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     43: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
-    44: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_ffts_gmm_connected_component_labeling.yaml,
+    44: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     45: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     46: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_gmm_connected_component_labeling.yaml,
     47: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
@@ -117,7 +118,7 @@ tomotwin:
     57: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     58: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_gmm_connected_component_labeling.yaml,
     59: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_gmm_connected_component_labeling.yaml,
-    60: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_ffts_gmm_connected_component_labeling.yaml,
+    60: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
 
     61: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     62: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
@@ -138,8 +139,8 @@ tomotwin:
     76: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     77: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
     78: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
-    79: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_ffts_gmm_connected_component_labeling.yaml,
-    80: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_ffts_gmm_connected_component_labeling.yaml,
+    79: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
+    80: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_intensities_gmm_connected_component_labeling.yaml,
 
     81: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_gmm_connected_component_labeling.yaml,
     82: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/evaluations/overall_results_gabor_gmm_connected_component_labeling.yaml,

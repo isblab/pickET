@@ -7,6 +7,8 @@ __pycache__/
 npz_save_metadata_test.py
 npz_save_metadata_test2.py
 .vscode/
+.venv/
+.pytest_cache/
 evaluations/tomotwin_particles_backup.yaml
 docs_mk/
 *.sh

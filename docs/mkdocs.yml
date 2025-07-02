@@ -1,0 +1,54 @@
+site_name: PickET
+site_url: https://url_to_documentation
+copyright: "Copyright &copy; 2025 Integrative Structural Biology Lab, NCBS-TIFR, Bangalore"
+repo_name: PickET
+repo_url: https://github.com/isblab/pickET.git
+edit_uri: blob/main/docs/
+theme:
+  name: material
+  font:
+    text: Noto Sans
+
+  palette:
+    scheme: slate
+    primary: blue
+extra_css:
+  - css/todos.css
+  - css/figure_caption.css
+  - stylesheets/general.css
+
+nav:
+  - Introduction: index.md
+  - Getting Started: installation.md
+  - Usage instructions: usage_instructions.md
+  - Generating semantic segmentation:
+      - Inputs for semantic segmentation: input_for_s1.md
+      - Performing semantic segmentation: running_s1.md
+  - Visualizations:
+      - Visualizing segmentations: visualizing_segmentations.md
+      - Obtaining particle cluster ID: obtaining_particle_cluster_id.md
+  - Localizing particles:
+      - Inputs for localizing particles: input_for_s2.md
+      - Performing particle localization: running_s2.md
+  - Evaluations:
+      - Evaluating PickET: evaluations.md
+      - Comparison with MiLoPYP: how_we_ran_milopyp.md
+  - Outputs: outputs.md
+  - Accessories:
+      - Preprocessing the ground truth: preproc_gt.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.extra
+  - pymdownx.arithmatex
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - toc:
+      permalink: true
+      toc_depth: 5

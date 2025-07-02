@@ -6,7 +6,7 @@ import numpy as np
 
 
 def separate_files_into_groups(parent_fpath: str) -> dict:
-    all_fpath = glob.glob(os.path.join(parent_fpath, "*.yaml"))
+    all_fpath = sorted(glob.glob(os.path.join(parent_fpath, "*.yaml")))
     out_groups = {}
 
     for fpath in all_fpath:

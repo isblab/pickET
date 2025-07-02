@@ -1,13 +1,13 @@
 import os
-
-DEFAULT_NTHREADS = 8
-os.environ["OPENBLAS_NUM_THREADS"] = f"{DEFAULT_NTHREADS}"
-os.environ["MKL_NUM_THREADS"] = f"{DEFAULT_NTHREADS}"
-os.environ["OMP_NUM_THREADS"] = f"{DEFAULT_NTHREADS}"
-
 import numpy as np
+from threadpoolctl import threadpool_limits
 from sklearn.cluster import KMeans
 from sklearn.mixture import GaussianMixture
+
+DEFAULT_NTHREADS = 8
+# os.environ["OPENBLAS_NUM_THREADS"] = f"{DEFAULT_NTHREADS}"
+# os.environ["MKL_NUM_THREADS"] = f"{DEFAULT_NTHREADS}"
+# os.environ["OMP_NUM_THREADS"] = f"{DEFAULT_NTHREADS}"
 
 
 def set_larger_cluster_as_bg(segmentation: np.ndarray) -> np.ndarray:
@@ -25,12 +25,16 @@ def set_larger_cluster_as_bg(segmentation: np.ndarray) -> np.ndarray:
 
 
 def fit_kmeans_clustering(features: np.ndarray) -> KMeans:
-    clusterer = KMeans(n_clusters=2)
-    clusterer.fit(features)
+    with threadpool_limits(limits=DEFAULT_NTHREADS):
+        clusterer = KMeans(n_clusters=2)
+        features = features.astype(np.float16)
+        clusterer.fit(features)
     return clusterer
 
 
 def fit_gmm_clustering(features: np.ndarray):
-    clusterer = GaussianMixture(n_components=2)
-    clusterer.fit(features)
+    with threadpool_limits(limits=DEFAULT_NTHREADS):
+        clusterer = GaussianMixture(n_components=2)
+        features = features.astype(np.float16)
+        clusterer.fit(features)
     return clusterer

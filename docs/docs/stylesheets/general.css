@@ -1,0 +1,58 @@
+:root {
+    --md-font-size: 0.7rem;
+    --md-h1-size: 2.4em;
+    --md-h2-size: 2em;
+    --md-h3-size: 1.5em;
+    --md-h4-size: 1.25em;
+    --md-h5-size: 1em;
+    --md-h6-size: 0.9em;
+    --md-code-size: 0.85em;
+    --md-nav-font-size: 0.7rem;
+    --md-toc-font-size: 0.6rem;
+}
+
+.md-typeset p {
+    font-size: var(--md-font-size);
+}
+
+.md-typeset li {
+    font-size: var(--md-font-size);
+}
+
+.md-typeset h1 {
+    font-size: var(--md-h1-size);
+}
+
+.md-typeset h2 {
+    font-size: var(--md-h2-size);
+}
+
+.md-typeset h3 {
+    font-size: var(--md-h3-size);
+}
+
+.md-typeset h4 {
+    font-size: var(--md-h4-size);
+    font-weight: normal;
+}
+
+.md-typeset h5 {
+    font-size: var(--md-h5-size);
+}
+
+.md-typeset h6 {
+    font-size: var(--md-h6-size);
+}
+
+.md-typeset code {
+    font-size: var(--md-code-size);
+}
+
+.md-nav__link {
+    font-size: var(--md-nav-font-size);
+    line-height: 1.75
+}
+
+.md-sidebar--secondary .md-nav__link {
+    font-size: var(--md-toc-font-size);
+}

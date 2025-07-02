@@ -53,7 +53,7 @@ class Segmentations:
                     v = v.tolist()
                 elif isinstance(v, np.generic):
                     v = v.item()
-                elif v == None:
+                elif v is None:
                     v = "None"
                 seg_group.attrs[k] = v
 
