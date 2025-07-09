@@ -37,6 +37,20 @@ def write_coords_as_ndjson(coords: np.ndarray, out_fname: str) -> None:
         ndjson.dump(lines, out_annot_f)
 
 
+def load_predictions(pred_fname: str) -> tuple[np.ndarray, dict]:
+    with open(pred_fname, "r") as predf:
+        contents = yaml.safe_load(predf)
+        particle_annotations = contents["Predicted_Particle_Centroid_Coordinates"]
+        metadata = contents["metadata"]
+
+    pred_coords = np.nan * np.ones((len(particle_annotations), 3), dtype=np.int32)
+    for idx, ln in enumerate(particle_annotations):
+        pred_coords[idx] = np.array([ln["z"], ln["y"], ln["x"]])
+    if np.any(np.isnan(pred_coords)):
+        raise ValueError("Something went wrong when reading coords")
+    return pred_coords, metadata
+
+
 def prepare_out_coords(
     coords: np.ndarray,
     metadata: dict,
@@ -93,21 +107,6 @@ def subsample_neighborhoods(
 ) -> np.ndarray:
     idxs = np.random.choice(len(neighborhoods), num_output_neighborhoods, replace=False)
     return neighborhoods[idxs]
-
-
-def read_yaml_coords(pred_coords_fname: str) -> np.ndarray:
-    with open(pred_coords_fname, "r") as pred_coords_f:
-        annotations = yaml.safe_load(pred_coords_f)[
-            "Predicted_Particle_Centroid_Coordinates"
-        ]
-
-    coords = np.nan * np.ones((len(annotations), 3), dtype=np.int32)
-    for idx, ln in enumerate(annotations):
-        coords[idx] = np.array([ln["z"], ln["y"], ln["x"]])
-    if np.any(np.isnan(coords)):
-        raise ValueError("Something went wrong when reading coords")
-
-    return coords
 
 
 def load_in_napari(tomogram, segmentation, segname):

@@ -25,7 +25,7 @@ cd <path_to_new_virtual_environment>
 python -m venv picket_env
 ```
 
-#### - Activate the environment <a name="env_activate"></a>
+### 2. Activate the environment <a name="env_activate"></a>
 ```bash
 source <path_to_new_virtual_environment>/bin/activate
 ```
@@ -34,14 +34,14 @@ source <path_to_new_virtual_environment>/bin/activate
 
 
 
-### 2. Install all the Python dependencies:
+### 3. Install all the Python dependencies:
 
 ```
 pip install -r requirements.txt
 ```
 
 
-### 3. Install CuPy:  
+### 4. Install CuPy:  
 
 If the CUDA version is `12.<something>`, install CuPy by running
     
@@ -58,7 +58,7 @@ pip install cupy-cuda11x
 !!! note
     *The CUDA version can be checked by running `nvidia-smi` from the terminal. It will be shown on the top right corner in the generated output.*
 
-### 4. Install TomoEED:  
+### 5. Install TomoEED:  
 1. Visit the official [TomoEED webpage](https://sites.google.com/site/3demimageprocessing/tomoeed).  
 
 2. Fill and submit the Google Form.  

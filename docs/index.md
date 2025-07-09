@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 
 [![DOI](DOI badge)](https://zenodo.org/badge/latestdoi/{ID})  
 [![Zenodo](Zenodo badge)](https://zenodo.org/badge/latestdoi/{ID})
@@ -14,7 +18,7 @@ Python package to pick particles in cryo-electron tomograms in an unsupervised m
 </div>
 
 
-## Table of contents:
+## Table of contents
 1. [Getting started](installation.md)  
 2. [Usage instructions](usage_instructions.md)  
     * [Input for S1](input_for_s1.md)

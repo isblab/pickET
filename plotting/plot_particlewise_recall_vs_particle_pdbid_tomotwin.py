@@ -1,9 +1,9 @@
-# import os
+import os
 import sys
 import yaml
 import numpy as np
 
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.io as pio
 import plotly.express as px
@@ -56,19 +56,19 @@ def main():
     )
     fig.show()
 
-    # fname_head = particlewise_recall_fname.split("/")[-1][:-5]
-    # feature_extraction_method = fname_head.split("_")[2]
-    # clustering_method = fname_head.split("_")[3]
-    # particle_extraction_method = "_".join(fname_head.split("_")[4:])
-    # plt.savefig(
-    #     os.path.join(
-    #         *particlewise_recall_fname.split("/")[:-1],
-    #         f"particlewise_recall_{feature_extraction_method}_{clustering_method}_{particle_extraction_method}.png",
-    #     ),
-    #     dpi=600,
-    # )
-    # plt.show()
-    # plt.close()
+    fname_head = particlewise_recall_fname.split("/")[-1][:-5]
+    feature_extraction_method = fname_head.split("_")[2]
+    clustering_method = fname_head.split("_")[3]
+    particle_extraction_method = "_".join(fname_head.split("_")[4:])
+    plt.savefig(
+        os.path.join(
+            *particlewise_recall_fname.split("/")[:-1],
+            f"particlewise_recall_{feature_extraction_method}_{clustering_method}_{particle_extraction_method}.png",
+        ),
+        dpi=600,
+    )
+    plt.show()
+    plt.close()
 
 
 if __name__ == "__main__":

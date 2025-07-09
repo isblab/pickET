@@ -29,7 +29,7 @@ def parse_args():
         required=True,
         help="Coordinates to the new origin. \
             The input file assumes the origin to be at the top left front corner of the tomogram. \
-                Pass the argument as '(z,y,x)' with quotes.",
+                Pass the argument as '(z,y,x)' with quotes. Use '(0,0,0)' if you dont want to change the origin.",
     )
     return parser.parse_args()
 
@@ -53,13 +53,11 @@ def main():
     args = parse_args()
     new_origin = get_new_origin(args.new_origin)
 
-    ori_coords = utils.read_yaml_coords(args.in_fname)
+    ori_coords, ori_metadata = utils.load_predictions(args.in_fname)
     offset_corrected_coords = (ori_coords - new_origin).astype(np.int32)
 
     out_fname = args.in_fname.split("/")[-1]
     out_fname = f"{os.path.join(args.out_dir, out_fname[:-4])}csv"
-    print(out_fname)
-    print(offset_corrected_coords)
 
     with open(out_fname, "w") as outf:
         outf.write("x,y,z\n")

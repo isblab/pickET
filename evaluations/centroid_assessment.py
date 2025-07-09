@@ -30,22 +30,21 @@ def main():
         for idx, target in enumerate(
             track(pc_fname, description=f"Processing {group_name}")
         ):
-            pred_centroids, pred_metadata = assessment_utils.load_predictions(target)
-            zslice_lb = pred_metadata.get("z_lb_for_particle_extraction", "None")
-            zslice_ub = pred_metadata.get("z_ub_for_particle_extraction", "None")
+            pred_centroids, pred_metadata = utils.load_predictions(target)
+            if len(pred_centroids) < 1_000_000:
+                zslice_lb = pred_metadata.get("z_lb_for_particle_extraction", "None")
+                zslice_ub = pred_metadata.get("z_ub_for_particle_extraction", "None")
 
-            tomo_shape = tuple(np.array(pred_metadata["tomogram_shape"]).tolist())
-            gt_fpath = assessment_utils.get_ground_truth_fpath(
-                pred_metadata["tomogram_path"],
-                annot_dir_head=params["annot_dir_head"],
-            )
+                tomo_shape = tuple(np.array(pred_metadata["tomogram_shape"]).tolist())
+                gt_fpath = assessment_utils.get_ground_truth_fpath(
+                    pred_metadata["tomogram_path"],
+                    annot_dir_head=params["annot_dir_head"],
+                )
 
-            threshold = assessment_utils.get_voxel_threshold(
-                angstrom_threshold, pred_metadata["voxel_size"]
-            )
-            pred_centroids = utils.read_yaml_coords(target)
+                threshold = assessment_utils.get_voxel_threshold(
+                    angstrom_threshold, pred_metadata["voxel_size"]
+                )
 
-            if len(pred_centroids) <= 1_000_000:
                 true_centroids = assessment_utils.read_ndjson_coords(gt_fpath)
                 true_centroids = assessment_utils.zslice_filter_ground_truth_centroids(
                     true_centroids, zslice_lb, zslice_ub
@@ -88,46 +87,39 @@ def main():
                             distances_mdr, threshold, num_pred=n_mdr, num_true=n_true
                         )
                     )
+                    relative_recall = assessment_utils.compute_relative_recall(
+                        recall, mdr_random_recall=mdr_recall
+                    )
                 else:
                     precision, recall, f1score = np.nan, np.nan, np.nan
                     gtr_precision, gtr_recall, gtr_f1score = np.nan, np.nan, np.nan
                     mdr_precision, mdr_recall, mdr_f1score = np.nan, np.nan, np.nan
+                    relative_recall = np.nan
 
-                results[f"Tomo_ID - {idx}"] = {
-                    "Precision": precision,
-                    "Recall": recall,
-                    "F1-score": f1score,
-                    "GTR Precision": gtr_precision,
-                    "GTR Recall": gtr_recall,
-                    "GTR F1-score": gtr_f1score,
-                    "MDR Precision": mdr_precision,
-                    "MDR Recall": mdr_recall,
-                    "MDR F1-score": mdr_f1score,
-                    "Time taken for S1": pred_metadata.get("time_taken_for_s1", np.nan),
-                    "Time taken for S2": pred_metadata.get("time_taken_for_s2", np.nan),
-                    "Total time taken": pred_metadata.get("time_taken_for_s1", np.nan)
-                    + pred_metadata.get("time_taken_for_s2", np.nan),
-                }
+            else:
+                precision, recall, f1score = np.nan, np.nan, np.nan
+                gtr_precision, gtr_recall, gtr_f1score = np.nan, np.nan, np.nan
+                mdr_precision, mdr_recall, mdr_f1score = np.nan, np.nan, np.nan
+                relative_recall = np.nan
 
-            else:  # Ignore the tomogram where the number of predicted particles is over 1M
-                print(f"Ignoring {target}")
-                results[f"Tomo_ID - {idx}"] = {
-                    "Precision": np.nan,
-                    "Recall": np.nan,
-                    "F1-score": np.nan,
-                    "GTR Precision": np.nan,
-                    "GTR Recall": np.nan,
-                    "GTR F1-score": np.nan,
-                    "MDR Precision": np.nan,
-                    "MDR Recall": np.nan,
-                    "MDR F1-score": np.nan,
-                    "Time taken for S1": pred_metadata.get("time_taken_for_s1", np.nan),
-                    "Time taken for S2": pred_metadata.get("time_taken_for_s2", np.nan),
-                    "Total time taken": pred_metadata.get("time_taken_for_s1", np.nan)
-                    + pred_metadata.get("time_taken_for_s2", np.nan),
-                }
+            results[f"Tomo_ID - {idx}"] = {
+                "Precision": precision,
+                "Recall": recall,
+                "F1-score": f1score,
+                "GTR Precision": gtr_precision,
+                "GTR Recall": gtr_recall,
+                "GTR F1-score": gtr_f1score,
+                "MDR Precision": mdr_precision,
+                "MDR Recall": mdr_recall,
+                "MDR F1-score": mdr_f1score,
+                "Relative recall": relative_recall,
+                "Time taken for S1": pred_metadata.get("time_taken_for_s1", np.nan),
+                "Time taken for S2": pred_metadata.get("time_taken_for_s2", np.nan),
+                "Total time taken": pred_metadata.get("time_taken_for_s1", np.nan)
+                + pred_metadata.get("time_taken_for_s2", np.nan),
+            }
 
-        results = assessment_utils.compute_global_metrics(results)
+        # results = assessment_utils.compute_global_metrics(results)
 
         with open(
             os.path.join(

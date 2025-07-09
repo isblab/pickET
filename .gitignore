@@ -12,3 +12,4 @@ npz_save_metadata_test2.py
 evaluations/tomotwin_particles_backup.yaml
 docs_mk/
 *.sh
+.github/workflows/deploy_docs.yaml

@@ -1,8 +1,8 @@
-import os
 import sys
 import yaml
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -25,13 +25,11 @@ def load_yaml(fname: str):
 def main():
     picket_particle_wise_recalls_fname = sys.argv[1]
     milopyp_particle_wise_recalls_fname = sys.argv[2]
-    out_dir = sys.argv[3]
 
     picket_pids, picket_recalls = load_yaml(picket_particle_wise_recalls_fname)
     milopyp_pids, milopyp_recalls = load_yaml(milopyp_particle_wise_recalls_fname)
     assert picket_pids == milopyp_pids  # Break if the order is inconsistent
 
-    print("Came here")
     df1 = pd.DataFrame(
         {
             "milopyp": milopyp_recalls,
@@ -58,6 +56,14 @@ def main():
         )
     )
     fig.show()
+
+    plt.scatter(df1["milopyp"], df1["picket"], s=5, c="Orange")
+    plt.plot(df2["x"], df2["y"], color="#aeaeae", alpha=0.7, linestyle="--")
+    plt.xlabel("MiloPYP recall")
+    plt.ylabel("PickET recall")
+    plt.xlim(0, 1)
+    plt.ylim(0, 1)
+    plt.show()
 
 
 if __name__ == "__main__":

@@ -40,13 +40,6 @@ def read_annotations_w_deets(fname: str) -> dict[str, np.ndarray]:
     return p_deets
 
 
-def convert_centroids_dict_to_arr(centroids: list[dict]) -> np.ndarray:
-    out_arr = np.nan * np.ones((len(centroids), 3))
-    for idx, c in enumerate(centroids):
-        out_arr[idx] = np.array([c["z"], c["y"], c["x"]])
-    return out_arr
-
-
 def main():
     ### Input block
     params_fname = sys.argv[1]
@@ -77,10 +70,7 @@ def main():
         for idx, target in enumerate(
             track(pc_fname, description=f"Processing {group_name}")
         ):
-            pred_centroids_dicts, pred_metadata = assessment_utils.load_predictions(
-                target
-            )
-            pred_centroids = convert_centroids_dict_to_arr(pred_centroids_dicts)
+            pred_centroids, pred_metadata = assessment_utils.load_predictions(target)
             gt_fpath = assessment_utils.get_ground_truth_fpath(
                 pred_metadata["tomogram_path"],
                 annot_dir_head=params["annot_dir_head"],
@@ -90,9 +80,9 @@ def main():
                 angstrom_threshold, pred_metadata["voxel_size"]
             )
 
-            feature_extraction_method = pred_metadata["fex_mode"]
-            clustering_method = pred_metadata["clustering_method"]
-            particle_extraction_method = pred_metadata["pex_mode"]
+            feature_extraction_method = pred_metadata.get("fex_mode", None)
+            clustering_method = pred_metadata.get("clustering_method", None)
+            particle_extraction_method = pred_metadata.get("pex_mode", None)
             zslice_lb = pred_metadata.get("lower_z-slice_limit")
             zslice_ub = pred_metadata.get("upper_z-slice_limit")
             if zslice_lb is None:

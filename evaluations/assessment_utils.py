@@ -47,14 +47,6 @@ def read_ndjson_coords(fname: str) -> np.ndarray:
     return coords
 
 
-def load_predictions(pred_fname: str) -> tuple[list[dict], dict]:
-    with open(pred_fname, "r") as predf:
-        contents = yaml.safe_load(predf)
-        pred_coords = contents["Predicted_Particle_Centroid_Coordinates"]
-        metadata = contents["metadata"]
-    return pred_coords, metadata
-
-
 def get_voxel_threshold(angs_threshold: float, voxel_sizes: list) -> int:
     voxel_size = np.max(np.array(voxel_sizes))
     threshold = int(round(angs_threshold / voxel_size, 0))
@@ -78,16 +70,10 @@ def zslice_filter_ground_truth_centroids(
 def get_random_centroids(
     tomo_shape: tuple[int, int, int], num_centroids: int
 ) -> np.ndarray:
-    random_centroids = []
-    while len(random_centroids) < num_centroids:
-        rc = (
-            np.random.randint(0, tomo_shape[0]),
-            np.random.randint(0, tomo_shape[1]),
-            np.random.randint(0, tomo_shape[2]),
-        )
-        random_centroids.append(rc)
-
-    return np.array(random_centroids)
+    random_centroids = np.random.uniform(
+        low=(0, 0, 0), high=tomo_shape, size=(num_centroids, 3)
+    )
+    return random_centroids.astype(np.int32)
 
 
 def compute_precision_recall_f1score(
@@ -107,6 +93,10 @@ def compute_precision_recall_f1score(
         f1_score = 2 * (precision * recall) / (precision + recall)
 
     return float(precision), float(recall), float(f1_score)
+
+
+def compute_relative_recall(recall: float, mdr_random_recall: float):
+    return float(np.sqrt(recall * (1 - mdr_random_recall)))
 
 
 def compute_global_metrics(

@@ -42,4 +42,6 @@ dev = [
     "pygments>=2.19.2",
     "pytest>=8.4.1",
     "pytest-coverage>=0.0",
+    "scikit-posthocs>=0.11.4",
+    "statannot>=0.2.3",
 ]
