@@ -1,4 +1,4 @@
-# Understanding outputs from PickET:
+# Understanding outputs from PickET
 A standard run of the PickET library results in the following outputs:  
 
 1. Semantic segmentations from S1  

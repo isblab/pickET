@@ -1,4 +1,4 @@
-# Visualizing segmentations from S1
+# Visualizing segmentations
 
 !!! note "Note"
     *This step launches the [Napari](https://napari.org/) GUI. If the PickET workflow is being run on a remote computing node, we recommend users to connect to the remote computing node using `ssh` with `-X` flag. In other words, connect to the remote computing node using the following command:*  

@@ -30,10 +30,10 @@ nav:
   - Localizing particles:
       - Inputs for localizing particles: input_for_s2.md
       - Performing particle localization: running_s2.md
+  - Outputs: outputs.md
   - Evaluations:
       - Evaluating PickET: evaluations.md
       - Comparison with MiLoPYP: how_we_ran_milopyp.md
-  - Outputs: outputs.md
   - Accessories:
       - Preprocessing the ground truth: preproc_gt.md
 
@@ -44,7 +44,8 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.extra
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -52,3 +53,6 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 5
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

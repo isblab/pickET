@@ -1,5 +1,5 @@
 # Step 2 (S2): Localize particles  
-## Running S2:
+## Running S2
 Run the following command to obtain centroids for predicted particles.
 
 ```bash

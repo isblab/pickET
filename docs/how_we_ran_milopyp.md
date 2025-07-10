@@ -2,7 +2,7 @@
 This documentation takes content from the [official MiLoPYP tutorial](https://nextpyp.app/milopyp/)  
 
 ## Installation
-#### 1. Create a new conda environment [optional, but recommended]:
+#### 1. Create a new conda environment [optional, but recommended]
 ```bash
 conda create --name MiLoPYP python=3.8
 ```
@@ -12,22 +12,22 @@ And activate the environment.
 conda activate MiLoPYP
 ```
 
-#### 2. Clone the cet_pick repo:
+#### 2. Clone the cet_pick repo
 ```bash
 git clone https://github.com/nextpyp/cet_pick.git
 ```
 
-#### 3. Install the requirements:
+#### 3. Install the requirements
 ```bash
 pip install -r cet_pick/requirements.txt
 ```
 
-#### 4. Install PyTorch:
+#### 4. Install PyTorch
 ```bash
 pip install torch torchvision torchaudio
 ```
 
-#### 5. Install cet_pick package and dependencies:
+#### 5. Install cet_pick package and dependencies
 ```bash
 pip install -e cet_pick
 ```
@@ -43,7 +43,7 @@ tar xvfz milopyp_globular_tutorial.tbz
 This dataset contains 5 tomograms named as `tilt*.rec`
 Alternatively, any of the existing datasets can be used as described below:
 
-## Usage instructions:
+## Usage instructions
 There are two steps in their workflow:  
 1. Cellular Content Exploration
 2. Particle Refined Localization  

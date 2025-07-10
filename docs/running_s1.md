@@ -1,7 +1,7 @@
 # Step 1 (S1): Generate semantic segmentations 
-## Running S1:
+## Running S1
 
-### 1. Denoise tomograms:
+### 1. Denoise tomograms
 First, denoise the input tomograms using `TomoEED` by running the following command:
 ```bash
 <tomoeed_directory>/bin/tomoeed full_path_to_input_tomogram.mrc denoised_tomograms/output_tomogram.mrc

@@ -1,5 +1,5 @@
 # Step 1 (S1): Generate semantic segmentations 
-## Inputs for S1:
+## Inputs for S1
 
 Inputs for S1 are provided through a YAML file containing parameters. An example is provided in `examples/s1_params_example.yaml`. 
 
@@ -57,7 +57,7 @@ We recommend using the `neighborhood_size: 5` for picking particles from tomogra
 max_num_neighborhoods_for_fitting: 100_000_000 
 ```
 
-This parameter specifies the number of voxel neighborhoods for fitting the clustering algorithm. Reducing this number will reduce the computational memory/time, but will come at the cost of accuracy. On the contrary, increasing this number will increase the time/memory but may result in better segmentations.
+This parameter specifies the size of the neighborhoods in terms of number of voxels for fitting the clustering algorithm. Reducing this number will reduce the computational memory/time, but will come at the cost of accuracy. On the contrary, increasing this number will increase the time/memory but may result in better segmentations.
 
 We recommend users to optimize this number according to the computing time and GPU memory available. This number needs to be optimized only once for a computing node. Once optimized, the same can be used for all datasets that will be processed using PickET on that computing node in the future.
 
@@ -87,13 +87,13 @@ feature_extraction_params:
 ]
 ```
 
-These hyperparameters describe the feature extraction modes. Similar to `inputs`, `feature_extraction_params` is also a list of dictionaries. Each dictionary defined in this list describes a feature extraction mode. Here, we provide three feature extraction modes `ffts`, `gabor` and `intensities`. 
+These parameters describe the feature extraction modes. Similar to `inputs`, `feature_extraction_params` is also a list of dictionaries. Each dictionary defined in this list describes a feature extraction mode. Here, we provide three feature extraction modes `ffts`, `gabor` and `intensities`. 
 
-First, for `mode: ffts`, there is only one hyperparameter, `n_fft_subsets`. This hyperparameter defines how many neighborhoods will be processed simultaneously for feature extraction. Higher the value, the faster the FFT feature extraction, but higher the computational memory required.
+First, for `mode: ffts`, there is only one parameter, `n_fft_subsets`. This parameter defines how many neighborhoods will be processed simultaneously for feature extraction. Higher the value, the faster the FFT feature extraction, but higher the computational memory required.
 
-Second, for `mode: gabor`, there are four key hyperparameters. The number of Gabor filters used for Gabor feature extraction is the cube of the `num_sinusoids`. The user may choose to not tweak this hyperparameter. The `num_neighborhoods_subsets` and `num_parallel_filters` define the number of neighborhoods and number of Gabor filters to be processed simultaneously. Increasing the `num_neighborhoods_subsets` and reducing the `num_parallel_filters` will result in the feature extraction requiring less GPU memory, but will result in longer runtimes. The `num_output_features` defines the number of features with the highest standard deviation to be used for clustering. The user may choose not to tweak this hyperparameter.
+Second, for `mode: gabor`, there are four key parameters. The number of Gabor filters used for Gabor feature extraction is the cube of the `num_sinusoids`. The user may choose to not tweak this parameter. The `num_neighborhoods_subsets` and `num_parallel_filters` define the number of neighborhoods and number of Gabor filters to be processed simultaneously. Increasing the `num_neighborhoods_subsets` and reducing the `num_parallel_filters` will result in the feature extraction requiring less GPU memory, but will result in longer runtimes. The `num_output_features` defines the number of features with the highest standard deviation to be used for clustering. The user may choose not to tweak this parameter.
 
-Third, for `mode: intensities`, there are no hyperparameters. It will use the voxel intensities obtained from the neighborhoods as features for clustering.
+Third, for `mode: intensities`, there are no parameters. It will use the voxel intensities obtained from the neighborhoods as features for clustering.
 
 ### Clustering methods
 ```yaml

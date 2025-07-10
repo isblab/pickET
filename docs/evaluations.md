@@ -1,6 +1,6 @@
 # Evaluating predictions from PickET
 
-## Centroid-based evaluation:
+## Centroid-based evaluation
 
 This evaluation computes the precision, recall and F1-score for the predicted centroids by comparing the shortest Euclidean distance between predicted centroids and ground truth centroids.
 
