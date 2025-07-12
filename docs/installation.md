@@ -3,7 +3,7 @@ This document provides a detailed guide for installing PickET.
 
 ## Dependencies
 
-* Python dependencies are mentioned in `requirements.txt`.
+* Python dependencies can be found in `pyproject.toml`.
 * [CuPy](https://cupy.dev) 
 * [TomoEED](https://sites.google.com/site/3demimageprocessing/tomoeed)
   
@@ -34,14 +34,7 @@ source <path_to_new_virtual_environment>/bin/activate
 
 
 
-### 3. Install all the Python dependencies
-
-```
-pip install -r requirements.txt
-```
-
-
-### 4. Install CuPy  
+### 3. Install CuPy  
 
 If the CUDA version is `12.<something>`, install CuPy by running
     
@@ -57,6 +50,16 @@ pip install cupy-cuda11x
 
 !!! note
     *The CUDA version can be checked by running `nvidia-smi` from the terminal. It will be shown on the top right corner in the generated output.*
+
+
+
+### 4. Install all the Python dependencies
+
+```
+pip install .
+```
+Installing PickET via `pip` using the above command builds executables for the two steps in a PickET run - generating semantic segmentation and localizing particles. (See also [Usage instructions](usage_instructions.md))
+
 
 ### 5. Install TomoEED  
 1. Visit the official [TomoEED webpage](https://sites.google.com/site/3demimageprocessing/tomoeed).  

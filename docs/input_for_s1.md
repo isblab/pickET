@@ -57,7 +57,7 @@ We recommend using the `neighborhood_size: 5` for picking particles from tomogra
 max_num_neighborhoods_for_fitting: 100_000_000 
 ```
 
-This parameter specifies the size of the neighborhoods in terms of number of voxels for fitting the clustering algorithm. Reducing this number will reduce the computational memory/time, but will come at the cost of accuracy. On the contrary, increasing this number will increase the time/memory but may result in better segmentations.
+This parameter specifies the number of voxels to be used for fitting the clustering algorithm. Reducing this number will reduce the computational memory/time, but will come at the cost of accuracy. On the contrary, increasing this number will increase the time/memory but may result in better segmentations.
 
 We recommend users to optimize this number according to the computing time and GPU memory available. This number needs to be optimized only once for a computing node. Once optimized, the same can be used for all datasets that will be processed using PickET on that computing node in the future.
 

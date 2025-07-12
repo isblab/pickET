@@ -10,7 +10,7 @@ Python package to pick particles in cryo-electron tomograms in an unsupervised m
     <img src="images/F0 Graphical abstract.png" alt="PickET graphical abstract" width="600" align="center">
 </div>
 
-A detailed documentation describing the PickET library can be found [here](add_path_to_documentation).
+A detailed documentation describing the PickET library can be found [here](add_path_to_documentation). #TODO: Add path to GitHub pages
 
 ## Publication and Data
 * Shreyas Arvindekar, Omkar Golatkar, and Shruthi Viswanath, **PickET - A library of methods for unsupervised particle-picking from cryo-electron tomograms**, . #TODO: Add a formal citation

@@ -36,9 +36,9 @@ class FeatureExtractor:
             wave = np.cos(
                 2 * np.pi * (freqs[0] * z + freqs[1] * y + freqs[2] * x) + psi
             )
-            gaussian = wave * get_gaussian()
+            gaussian = get_gaussian()
             gabor_filter = wave * gaussian
-            gabor_filter /= np.sum(gabor_filter)
+            # gabor_filter /= np.sum(gabor_filter)
             return gabor_filter
 
         num_sinusoids = self.feature_extraction_params["num_sinusoids"]
