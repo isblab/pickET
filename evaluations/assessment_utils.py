@@ -1,8 +1,8 @@
 import os
 import glob
-import yaml
 import ndjson
 import numpy as np
+from scipy import stats
 
 
 def separate_files_into_groups(parent_fpath: str) -> dict:
@@ -96,7 +96,7 @@ def compute_precision_recall_f1score(
 
 
 def compute_relative_recall(recall: float, mdr_random_recall: float):
-    return float(np.sqrt(recall * (1 - mdr_random_recall)))
+    return float(stats.hmean([recall, (1 - mdr_random_recall)]))
 
 
 def compute_global_metrics(

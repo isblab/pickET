@@ -151,7 +151,7 @@ def main():
         # Compare against each other
         h_stat, pvalue = kruskal(*results_arr)
         print(
-            f"Kruskal-Wallis H-statistic and p-value were found to be {h_stat:.4f} and {pvalue:.4f} for a comparison between all results"
+            f"Kruskal-Wallis H-statistic and p-value on {metric} were found to be {h_stat:.4f} and {pvalue:.4f} for a comparison between all results"
         )
         if pvalue < 0.05:  # If significant Kruskal-Wallis, perform pairwise comparison
             names = []
@@ -256,11 +256,43 @@ def main():
                         va="center",
                         fontdict={"size": 8},
                     )
+        if plot_time and metric == "Total time taken":
+            for idx in range(len(bxplt["medians"])):
+                plt.text(
+                    x=np.max(results) + 10 + 1,
+                    y=(idx) + 0.98,
+                    s=f"n={len(results[idx])}",
+                    ha="left",
+                    va="center",
+                    fontdict={"size": 8},
+                )
+        elif metric in ("Precision", "Recall", "F1-score"):
+            for idx in range(len(bxplt["medians"])):
+                plt.text(
+                    x=1.1,
+                    y=(idx) + 0.98,
+                    s=f"n={len(results[idx])}",
+                    ha="left",
+                    va="center",
+                    fontdict={"size": 8},
+                )
+        else:
+            for idx in range(len(bxplt["medians"])):
+                plt.text(
+                    x=1.025,
+                    y=(idx) + 0.98,
+                    s=f"n={len(results[idx])}",
+                    ha="left",
+                    va="center",
+                    fontdict={"size": 8},
+                )
 
         xlabels = [WORKFLOWS[k] for k in xvals]
 
         if metric in ("Precision", "Recall", "F1-score", "Relative recall"):
             plt.xlim(0, 1)
+        if plot_time and metric == "Total time taken":
+            plt.xlim(0, np.max(results) + 10)
 
         plt.yticks(range(1, len(xlabels) + 1), xlabels)
         if metric == "Total time taken":

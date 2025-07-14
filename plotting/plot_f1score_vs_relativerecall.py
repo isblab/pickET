@@ -15,7 +15,15 @@ def main():
         for tomo, m in run_results.items():
             if tomo.startswith("Tomo"):
                 f1scores.append(m["F1-score"])
-                relative_recalls.append(m["Relative recall"])
+                epsilon = 1e-8
+                # relative_recalls.append(m["Relative recall"])
+                # relative_recall = float(np.sqrt(m["Recall"] * (1 - m["MDR Recall"]))) # Geometrically
+
+                internal = 1 / (m["Recall"] + epsilon) + 1 / (
+                    1 - m["MDR Recall"] + epsilon
+                )
+                relative_recall = float(2 / internal)  # Harmonically
+                relative_recalls.append(relative_recall)
 
     f1scores, relative_recalls = np.array(f1scores), np.array(relative_recalls)
     # Get best fit line
