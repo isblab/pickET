@@ -96,7 +96,7 @@ def main():
     n_trials = 5
 
     n_preds = np.linspace(1, 2000, pred_count, dtype=np.int32)
-    props_tp = np.linspace(0.01, 1, num_tp_props, dtype=np.float32)
+    props_tp = np.linspace(0.2, 0.8, num_tp_props, dtype=np.float32)
 
     results = []
     n_pred, prop_tp, precision, recall, f1score, mdr_recall, relative_recall = (
@@ -150,7 +150,10 @@ def main():
                 )
 
     results = np.array(results)
-    with open("evaluations/metric_validation/simulated_results.csv", "w") as outf:
+    with open(
+        "/home/shreyas/Dropbox/miningTomograms/metric_validation/simulated_results.csv",
+        "w",
+    ) as outf:
         outf.write(
             "n_pred,prop_tp,precision,recall,f1score,mdr_recall,1 - mdr_recall,relative_recall\n"
         )
@@ -187,7 +190,7 @@ def main():
         ax[1].set_ylabel("1 - MDR_recall")
     plt.tight_layout()
     plt.savefig(
-        f"evaluations/metric_validation/{n_true}_gt_simulated_results_panelA.png",
+        f"/home/shreyas/Dropbox/miningTomograms/metric_validation/{n_true}_gt_simulated_results_panelA.png",
         dpi=600,
     )
     plt.close()
@@ -208,7 +211,7 @@ def main():
         ax[1].set_ylabel("Relative recall")
     plt.tight_layout()
     plt.savefig(
-        f"evaluations/metric_validation/{n_true}_gt_simulated_results_panelB.png",
+        f"/home/shreyas/Dropbox/miningTomograms/metric_validation/{n_true}_gt_simulated_results_panelB.png",
         dpi=600,
     )
     plt.close()
@@ -229,7 +232,7 @@ def main():
         ax[1].set_ylabel("1 - MDR_recall")
     plt.tight_layout()
     plt.savefig(
-        f"evaluations/metric_validation/{n_true}_gt_simulated_results_panelC.png",
+        f"/home/shreyas/Dropbox/miningTomograms/metric_validation/{n_true}_gt_simulated_results_panelC.png",
         dpi=600,
     )
     plt.close()
@@ -250,7 +253,7 @@ def main():
         ax[1].set_ylabel("MDR_recall")
     plt.tight_layout()
     plt.savefig(
-        f"evaluations/metric_validation/{n_true}_gt_simulated_results_panelD.png",
+        f"/home/shreyas/Dropbox/miningTomograms/metric_validation/{n_true}_gt_simulated_results_panelD.png",
         dpi=600,
     )
     plt.close()

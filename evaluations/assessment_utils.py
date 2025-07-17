@@ -90,12 +90,17 @@ def compute_precision_recall_f1score(
     if num_true > 0:
         recall = np.count_nonzero(captured_particle_idxs) / num_true
     f1_score = stats.hmean([precision, recall])
+    if np.isnan(f1_score):
+        f1_score = 0.0
 
     return float(precision), float(recall), float(f1_score)
 
 
 def compute_relative_recall(recall: float, mdr_random_recall: float):
-    return float(stats.hmean([recall, (1 - mdr_random_recall)]))
+    relative_recall = float(stats.hmean([recall, (1 - mdr_random_recall)]))
+    if np.isnan(relative_recall):
+        relative_recall = 0.0
+    return relative_recall
 
 
 def compute_global_metrics(
