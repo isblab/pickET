@@ -13,3 +13,4 @@ evaluations/tomotwin_particles_backup.yaml
 docs_mk/
 *.sh
 .github/workflows/deploy_docs.yaml
+evaluations/metric_validation

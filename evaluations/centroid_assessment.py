@@ -101,6 +101,7 @@ def main():
                 gtr_precision, gtr_recall, gtr_f1score = np.nan, np.nan, np.nan
                 mdr_precision, mdr_recall, mdr_f1score = np.nan, np.nan, np.nan
                 relative_recall = np.nan
+                n_pred, n_true = np.nan, np.nan
 
             results[f"Tomo_ID - {idx}"] = {
                 "Precision": precision,
@@ -113,6 +114,8 @@ def main():
                 "MDR Recall": mdr_recall,
                 "MDR F1-score": mdr_f1score,
                 "Relative recall": relative_recall,
+                "Number of predicted particles": n_pred,
+                "Number of ground truth annotations": n_true,
                 "Time taken for S1": pred_metadata.get("time_taken_for_s1", np.nan),
                 "Time taken for S2": pred_metadata.get("time_taken_for_s2", np.nan),
                 "Total time taken": pred_metadata.get("time_taken_for_s1", np.nan)

@@ -73,6 +73,7 @@ def main():
     tomotwin_picket_pr, tomotwin_picket_re, tomotwin_picket_f1 = [], [], []
 
     all_milopyp_relativerecall, all_picket_relativerecall = [], []
+    all_milopyp_predcount, all_picket_predcount = [], []
 
     milopyp_total_time_taken_10301 = []
     picket_total_time_taken_10301_gabor_gmm_ws = []
@@ -133,17 +134,21 @@ def main():
         with open(milopyp_eval_path, "r") as mep:
             milopyp_evals = yaml.safe_load(mep)
 
-        milopyp_recall, milopyp_relativerecall = [], []
-        picket_recall, picket_relativerecall = [], []
+        milopyp_recall, milopyp_relativerecall, milopyp_predcount = [], [], []
+        picket_recall, picket_relativerecall, picket_predcount = [], [], []
 
         for tomo_id in milopyp_evals:
             if tomo_id.startswith("Tomo_ID"):
                 m_recall = float(milopyp_evals[tomo_id]["Recall"])
                 m_relative_recall = float(milopyp_evals[tomo_id]["Relative recall"])
+                m_predcount = int(
+                    milopyp_evals[tomo_id]["Number of predicted particles"]
+                )
 
                 picket_res = all_picket_results[sel_picket_workflow][tomo_id]
                 p_recall = float(picket_res["Recall"])
                 p_relative_recall = float(picket_res["Relative recall"])
+                p_predcount = int(picket_res["Number of predicted particles"])
 
                 if not math.isnan(m_recall) and not math.isnan(p_recall):
                     milopyp_recall.append(m_recall)
@@ -153,6 +158,10 @@ def main():
                 ):
                     milopyp_relativerecall.append(m_relative_recall)
                     picket_relativerecall.append(p_relative_recall)
+
+                if not math.isnan(m_predcount) and not math.isnan(p_predcount):
+                    milopyp_predcount.append(m_predcount)
+                    picket_predcount.append(p_predcount)
 
                 if dataset_id == "10301":
                     milopyp_total_time_taken_10301.append(
@@ -183,6 +192,8 @@ def main():
 
         all_milopyp_relativerecall.append(milopyp_relativerecall)
         all_picket_relativerecall.append(picket_relativerecall)
+        all_milopyp_predcount.append(milopyp_predcount)
+        all_picket_predcount.append(picket_predcount)
 
     tomotwin_milopyp_metrics = np.concatenate(
         [
@@ -277,25 +288,72 @@ def main():
     ax1.set_xlabel("Relative recall")
     ax1.set_xlim(0, 1)
 
-    color_palette = ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#5C4033"]
+    # ---
+    ax2 = fig.add_subplot(gs[2, 0])
+    bxplt_m = ax2.boxplot(
+        all_milopyp_predcount,
+        orientation="horizontal",
+        showfliers=True,
+        patch_artist=True,
+    )
+    bxplt_p = ax2.boxplot(
+        all_picket_predcount,
+        orientation="horizontal",
+        showfliers=True,
+        patch_artist=True,
+    )
 
-    ax2 = fig.add_subplot(gs[2:4, 0])
+    all_counts = []
+    for i in (all_milopyp_predcount, all_milopyp_predcount):
+        for j in i:
+            all_counts.extend(j)
+    count_plot_upperlim = np.max(np.array(all_counts)) + 100
+
+    for idx, (pres_i, mres_i) in enumerate(
+        zip(all_picket_predcount, all_milopyp_predcount)
+    ):
+        u_stat, pvalue = mannwhitneyu(pres_i, mres_i)
+        ax2.text(
+            x=count_plot_upperlim + 10000 + 1500,
+            y=(idx) + 0.95,
+            s=get_significance_mark(pvalue),
+            ha="left",
+            va="center",
+            fontdict={"size": 9},
+        )
+
+    xticks = []
+    for i in range(0, count_plot_upperlim + 10000, 10000):
+        xticks.append(i)
+    set_boxplot_visualization(bxplt_m, bxplt_p, milopyp_color, picket_color, alpha)
+    ax2.set_yticks(range(1, len(xlabels) + 1), xlabels)
+    ax2.set_xticks(
+        [i for i in range(1, count_plot_upperlim + 10000, 10000)], xticks, rotation=45
+    )
+    ax2.set_xlim(0, count_plot_upperlim + 10000)
+    ax2.set_ylabel("Dataset")
+    ax2.set_xlabel("Number of predicted particles")
+
+    # ---
+
+    color_palette = ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#5C4033"]
+    ax3 = fig.add_subplot(gs[3:5, 0])
     for idx, (mrrs, prrs) in enumerate(
         zip(all_milopyp_relativerecall, all_picket_relativerecall)
     ):
-        ax2.scatter(
+        ax3.scatter(
             mrrs, prrs, color=color_palette[idx], label=datasets[idx], alpha=0.7
         )
 
     xys = np.linspace(0, 1, 10)
-    ax2.plot(xys, xys, color="#aeaeae", alpha=0.4, linestyle="--")
-    ax2.set_xlim(0, 1)
-    ax2.set_ylim(0, 1)
-    ax2.set_xlabel("MiLoPYP relative recall")
-    ax2.set_ylabel("PickET relative recall")
+    ax3.plot(xys, xys, color="#aeaeae", alpha=0.4, linestyle="--")
+    ax3.set_xlim(0, 1)
+    ax3.set_ylim(0, 1)
+    ax3.set_xlabel("MiLoPYP relative recall")
+    ax3.set_ylabel("PickET relative recall")
 
-    ax3 = fig.add_subplot(gs[0, 1])
-    ax3.barh(
+    ax4 = fig.add_subplot(gs[0, 1])
+    ax4.barh(
         y=["PickET library", "PickET\nGabor-GMM-WS", "MiLoPYP"],
         width=[
             np.sum(np.array(picket_total_time_taken_10301_library_based)) / 60,
@@ -306,7 +364,7 @@ def main():
         color=[picket_color, picket_color, milopyp_color],
         alpha=0.75,
     )
-    ax3.set_xlabel("Total time taken (minutes)")
+    ax4.set_xlabel("Total time taken (minutes)")
 
     plt.tight_layout()
 

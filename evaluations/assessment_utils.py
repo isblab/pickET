@@ -89,8 +89,7 @@ def compute_precision_recall_f1score(
         precision = np.count_nonzero(positive_pred_idxs) / num_pred
     if num_true > 0:
         recall = np.count_nonzero(captured_particle_idxs) / num_true
-    if precision + recall != 0:
-        f1_score = 2 * (precision * recall) / (precision + recall)
+    f1_score = stats.hmean([precision, recall])
 
     return float(precision), float(recall), float(f1_score)
 

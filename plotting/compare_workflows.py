@@ -256,38 +256,10 @@ def main():
                         va="center",
                         fontdict={"size": 8},
                     )
-        if plot_time and metric == "Total time taken":
-            for idx in range(len(bxplt["medians"])):
-                plt.text(
-                    x=np.max(results) + 10 + 1,
-                    y=(idx) + 0.98,
-                    s=f"n={len(results[idx])}",
-                    ha="left",
-                    va="center",
-                    fontdict={"size": 8},
-                )
-        elif metric in ("Precision", "Recall", "F1-score"):
-            for idx in range(len(bxplt["medians"])):
-                plt.text(
-                    x=1.1,
-                    y=(idx) + 0.98,
-                    s=f"n={len(results[idx])}",
-                    ha="left",
-                    va="center",
-                    fontdict={"size": 8},
-                )
-        else:
-            for idx in range(len(bxplt["medians"])):
-                plt.text(
-                    x=1.025,
-                    y=(idx) + 0.98,
-                    s=f"n={len(results[idx])}",
-                    ha="left",
-                    va="center",
-                    fontdict={"size": 8},
-                )
 
         xlabels = [WORKFLOWS[k] for k in xvals]
+        for i, wf in enumerate(xlabels):
+            print(wf, len(results[i]))
 
         if metric in ("Precision", "Recall", "F1-score", "Relative recall"):
             plt.xlim(0, 1)
