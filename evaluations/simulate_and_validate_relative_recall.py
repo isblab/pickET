@@ -89,13 +89,14 @@ def get_color_and_marker_mappings(results, colors, markers):
 
 def main():
     shape = (100, 100)
-    n_true = 1000
+    n_true = 500
     threshold = 2
-    num_variants = 10
+    pred_count = 10
+    num_tp_props = 5
     n_trials = 5
 
-    n_preds = np.linspace(1, 2000, num_variants, dtype=np.int32)
-    props_tp = np.linspace(0.01, 1, num_variants, dtype=np.float32)
+    n_preds = np.linspace(1, 2000, pred_count, dtype=np.int32)
+    props_tp = np.linspace(0.01, 1, num_tp_props, dtype=np.float32)
 
     results = []
     n_pred, prop_tp, precision, recall, f1score, mdr_recall, relative_recall = (
@@ -159,7 +160,7 @@ def main():
             )
 
     colors = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11"]
-    markers = [".", "v", "^", "<", ">", "1", "2", "3", "4", "+", "x"]
+    markers = ["o", "^", "s", "*", "P", "D"]
     color_mapping, marker_mapping = get_color_and_marker_mappings(
         results, colors, markers
     )
