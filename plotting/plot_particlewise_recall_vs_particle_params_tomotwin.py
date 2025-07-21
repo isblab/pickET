@@ -3,6 +3,7 @@ import sys
 import yaml
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.stats import pearsonr
 
 
 def main():
@@ -16,6 +17,12 @@ def main():
     with open(particle_details_fname, "r") as pdeets_f:
         particle_details = yaml.safe_load(pdeets_f)["particles"]
 
+    feature_extraction_method, clustering_method, particle_extraction_method = (
+        "",
+        "",
+        "",
+    )
+    out_stats_dict = {}
     for x_key in x_keys:
         all_x, all_y = [], []
         for particle_id, results in particlewise_recall.items():
@@ -23,20 +30,14 @@ def main():
             all_y.append(results["Average recall"])
 
         all_x, all_y = np.array(all_x), np.array(all_y)
-        # Get best fit line
-        slope, intercept = np.polyfit(all_x, all_y, 1)
-        yfit = slope * all_x + intercept
-
-        # Get R square value
-        sum_squared_residuals = np.sum((all_y - yfit) ** 2)
-        sum_squared_total = np.sum((all_y - np.mean(all_y)) ** 2)
-        r_squared_value = 1 - (sum_squared_residuals / sum_squared_total)
-
-        plt.scatter(x=all_x, y=all_y, color="Orange", alpha=0.75, s=3)
-        plt.plot(all_x, yfit, color="Green", alpha=0.75)
+        pearsons_r, p_value = pearsonr(all_x, all_y)
+        out_stats_dict[x_key] = {
+            "pearsons_r": float(pearsons_r),  # type:ignore
+            "p-value": float(p_value),  # type:ignore
+        }
+        plt.scatter(x=all_x, y=all_y, color="Orange", alpha=0.75, s=5)
         plt.ylim(0, 1)
 
-        print(x_key, np.max(all_x))
         if x_key == "MW_pdb":
             plt.xlabel("Molecular weight obtained from PDB (kDa)")
         elif x_key == "Rg":
@@ -45,9 +46,6 @@ def main():
             plt.xlabel("Solidity")
 
         plt.ylabel("Average recall")
-        plt.text(max(all_x) * 0.75, 0.1, f"Slope: {slope:.4f}")
-        plt.text(max(all_x) * 0.75, 0.16, f"Y-intercept: {intercept:.4f}")
-        plt.text(max(all_x) * 0.75, 0.22, f"R-squared: {r_squared_value:.4f}")
 
         fname_head = particlewise_recall_fname.split("/")[-1][:-5]
         feature_extraction_method = fname_head.split("_")[2]
@@ -61,6 +59,14 @@ def main():
             dpi=600,
         )
         plt.close()
+    with open(
+        os.path.join(
+            output_dir,
+            f"particlewise_recall_{feature_extraction_method}_{clustering_method}_{particle_extraction_method}_stats.yaml",
+        ),
+        "w",
+    ) as outf:
+        yaml.dump(out_stats_dict, outf)
 
 
 if __name__ == "__main__":

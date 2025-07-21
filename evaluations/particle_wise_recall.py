@@ -50,14 +50,13 @@ def main():
     angstrom_threshold = params["threshold_in_angstrom"]
     parent_path = params["parent_path"]
 
-    out_dir = os.path.join(
-        out_dir, f"particle_wise_recall/{params['dataset_name']}/raw/"
-    )
+    out_dir = os.path.join(out_dir, f"particle_wise_recall/raw/")
     if not os.path.isdir(out_dir):
         os.makedirs(out_dir)
 
     ### Processing block
     groups = assessment_utils.separate_files_into_groups(parent_path)
+    print(groups)
     for group_name, pc_fname in groups.items():
         print(group_name)
         if group_name != hero_workflow:
@@ -70,7 +69,7 @@ def main():
         for idx, target in enumerate(
             track(pc_fname, description=f"Processing {group_name}")
         ):
-            pred_centroids, pred_metadata = assessment_utils.load_predictions(target)
+            pred_centroids, pred_metadata = utils.load_predictions(target)
             gt_fpath = assessment_utils.get_ground_truth_fpath(
                 pred_metadata["tomogram_path"],
                 annot_dir_head=params["annot_dir_head"],
