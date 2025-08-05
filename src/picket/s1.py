@@ -46,7 +46,7 @@ def main():
                 "max_num_neighborhoods_for_fitting"
             )
             console.print(
-                f"Processing tomogram {idx + 1}/{len(inputs)} using {ftex_mode} as the feature extraction method"
+                f"Processing tomogram {idx + 1}/{len(inputs)} using [cyan bold]{ftex_mode}[/] as the feature extraction method"
             )
 
             # Preprocess tomogram
@@ -72,12 +72,11 @@ def main():
                 console.log(f"Preshape: {preshape}")
                 status.update(status="Extracting features", spinner="bouncingBall")
                 feature_extractor.extract_features(neighborhoods)
-                console.log(
-                    f"Feature extraction using method [cyan bold]{feature_extraction_params['mode']}[/] completed"
-                )
+                console.log("Feature extraction completed")
                 console.log(
                     f"Features array of shape: {feature_extractor.features.shape}"
                 )
+
             fex_toc = time.perf_counter()
             fex_time = fex_toc - fex_tic
 

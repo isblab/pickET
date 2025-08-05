@@ -39,11 +39,13 @@ class FeatureExtractor:
             gaussian = get_gaussian()
             gabor_filter = wave * gaussian
             # gabor_filter /= np.sum(gabor_filter)
-            return gabor_filter
+            return gabor_filter.astype(np.float32)
 
         num_sinusoids = self.feature_extraction_params["num_sinusoids"]
         max_freq = 0.5  # in Cycles/pixel as per the Nyquist-Shannon sampling theorem
-        filter_bank = np.nan * np.ones((num_sinusoids**3, self.neighborhood_size**3))
+        filter_bank = np.nan * np.ones(
+            (num_sinusoids**3, self.neighborhood_size**3), dtype=np.float32
+        )
 
         idx = 0
         for freq_z in np.linspace(0, max_freq, num_sinusoids):
@@ -60,8 +62,7 @@ class FeatureExtractor:
         num_parallel_neighborhoods = (
             len(neighborhoods) // self.feature_extraction_params["n_fft_subsets"]
         )
-        ffts = np.nan * np.ones(neighborhoods.shape)
-
+        ffts = np.nan * np.ones(neighborhoods.shape, dtype=np.float32)
         for subset_start_idx in range(
             0, len(neighborhoods), num_parallel_neighborhoods
         ):
@@ -124,7 +125,9 @@ class FeatureExtractor:
 
             self.best_feature_idxs = np.argsort(stds)[-num_output_features:]
 
-        features = np.nan * np.ones((len(neighborhoods), num_output_features))
+        features = np.nan * np.ones(
+            (len(neighborhoods), num_output_features), dtype=np.float32
+        )
         for w_start_idx in range(0, len(neighborhoods), neighborhood_subset_size):
             w_end_idx = min(len(neighborhoods), w_start_idx + neighborhood_subset_size)
             w_subset = neighborhoods[w_start_idx:w_end_idx]
@@ -148,8 +151,9 @@ class FeatureExtractor:
             self.features = self.compute_ffts(neighborhoods)
 
         elif self.mode == "gabor":
-            neighborhoods = neighborhoods.reshape((-1, self.neighborhood_size**3))
-            self.features = self.compute_gabor_features(neighborhoods)
+            self.features = self.compute_gabor_features(
+                neighborhoods.reshape((-1, self.neighborhood_size**3))
+            )
 
         else:
             raise ValueError(
