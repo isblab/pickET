@@ -4,6 +4,7 @@ import napari
 import ndjson
 import mrcfile
 import numpy as np
+from rich.progress import track
 from picket.core import utils, segmentation_io
 
 
@@ -12,7 +13,7 @@ def get_gt_coords(fpath: str) -> dict:
         annotations = ndjson.load(in_annot_f)
     out_dict = {}
     for ln in annotations:
-        particle_name = ln["particle_name"]
+        particle_name = ln["particle_id"]
 
         if particle_name not in out_dict:
             out_dict[particle_name] = [
@@ -47,10 +48,25 @@ def mask_peripheral_voxels(segmentation: np.ndarray, window_size: int):
     return segmentation * peripheral_mask
 
 
+chimerax_colors = {
+    "-3": "#CDAB8F",
+    "2": "#99C1F1",
+    "3": "#DC8ADD",
+    "4": "#F66151",
+    "5": "#8FF0A4",
+    "6": "#FF7800",
+    "7": "#4C5EEC",
+    "8": "#45F5EE",
+    "9": "#C44850",
+}
+
+
 def main():
     seg_path = sys.argv[1]
     zl, zu = int(sys.argv[2]), int(sys.argv[3])
     out_dir = sys.argv[4]
+
+    threshold = 0.5
     window_size = 5
     change_data_dir = True
 
@@ -65,18 +81,8 @@ def main():
         )
     print(tomo_path)
 
-    label_ids = {
-        "UNKNOWS": -3,  # #CDAB8F
-        "proton_transporting_atp_synthase_complex-1": 1,  # #F5C211
-        "mitochondrial_proton_transporting_atp_synthase_complex-1": 9,  # #F5C211
-        "cytosolic_ribosome-1": 4,  # #99C1F1
-        "ribulose_bisphosphate_carboxylase_complex-1": 5,  # #DC8ADD
-        "nucleosome-1": 10,  # #F66151
-        "fatty_acid_synthase_complex-1": 11,  # #8FF0A4
-        "hydrogen_dependent_co2_reductase_filament-1": 12,  #
-    }
     gt_annotations_path = os.path.join(
-        "/", *tomo_path.split("/")[:-1], "annotations", "all_annotations.ndjson"
+        "/", *tomo_path.split("/")[:-1], "coords", "all_annotations.ndjson"
     )
     gt_annotations = get_gt_coords(gt_annotations_path)
 
@@ -85,25 +91,29 @@ def main():
     semseg = np.array(segmentation.semantic_segmentation)
     iseg = np.array(segmentation.instance_segmentation)
     masked_iseg = np.zeros(iseg.shape, dtype=np.int16)
-    label_ids_used = []
 
-    for idx, (k, v) in enumerate(gt_annotations.items()):
+    for idx, (k, v) in enumerate(track(gt_annotations.items())):
         v = np.array(v)
         gt_z, gt_y, gt_x = v[:, 0], v[:, 1], v[:, 2]
-        nonzero_idxs = np.where(iseg[gt_z, gt_y, gt_x] != 0)[0]
-        gt_z, gt_y, gt_x = gt_z[nonzero_idxs], gt_y[nonzero_idxs], gt_x[nonzero_idxs]
 
-        target_iseg_vals = iseg[gt_z, gt_y, gt_x]
-        masked_iseg[np.isin(iseg, target_iseg_vals)] = label_ids.get(k, idx)
-        label_ids_used.append(label_ids.get(k, idx))
+        for z, y, x in zip(gt_z, gt_y, gt_x):
+            gt_box = iseg[
+                int(z - window_size) : int(z + window_size) + 1,
+                int(y - window_size) : int(y + window_size) + 1,
+                int(x - window_size) : int(x + window_size) + 1,
+            ]
+            proportion = np.count_nonzero(gt_box) / (window_size**3)
 
-    # semseg = np.where(iseg > 0, -3, 0)
-    c1 = masked_iseg == 0
-    c2 = semseg != 0
-    masked_iseg = np.where(c1 & c2, -3, masked_iseg)
+            if len(np.unique(gt_box)) == 2 and proportion > threshold:
+                for label_val in np.unique(gt_box):
+                    if label_val == 0:
+                        continue
+                    masked_iseg[np.where(iseg == label_val)] = idx
 
+    c1 = semseg != 0
+    c2 = masked_iseg == 0
+    masked_iseg[np.where(c1 & c2)] = -3
     masked_iseg = mask_peripheral_voxels(masked_iseg, window_size)
-    iseg = mask_peripheral_voxels(iseg, window_size)
 
     viewer = napari.Viewer()
     viewer.add_image(tomogram[zl:zu], name="Tomogram")
@@ -111,7 +121,6 @@ def main():
     viewer.add_labels(iseg[zl:zu], name="Instance segmentation")
     viewer.add_labels(masked_iseg[zl:zu], name="Masked instance segmentation")
     napari.run()
-    print()
 
     for i in np.unique(masked_iseg):
         if i != 0:

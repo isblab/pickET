@@ -10,9 +10,9 @@ import assessment_utils
 
 
 def main():
+    np.random.seed(42)
     ### Input block
     params_fname = sys.argv[1]
-
     params = utils.load_params_from_yaml(params_fname)
 
     dataset_name = params["dataset_name"]

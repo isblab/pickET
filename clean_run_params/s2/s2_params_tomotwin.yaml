@@ -3,2211 +3,2211 @@ dataset_name: tomotwin
 inputs:
   [
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_0_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_0_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_0_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_0_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_0_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_0_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_0_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_0_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_0_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_0_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_0_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_0_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_1_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_1_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_1_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_1_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_1_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_1_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_1_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_1_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_1_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_1_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_1_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_1_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_2_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_2_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_2_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_2_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_2_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_2_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_2_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_2_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_2_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_2_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_2_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_2_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_3_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_3_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_3_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_3_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_3_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_3_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_3_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_3_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_3_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_3_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_3_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_3_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_4_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_4_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_4_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_4_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_4_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_4_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_4_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_4_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_4_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_4_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_4_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_4_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_5_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_5_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_5_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_5_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_5_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_5_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_5_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_5_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_5_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_5_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_5_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_5_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_6_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_6_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_6_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_6_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_6_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_6_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_6_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_6_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_6_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_6_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_6_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_6_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_7_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_7_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_7_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_7_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_7_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_7_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_7_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_7_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_7_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_7_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_7_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_7_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_8_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_8_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_8_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_8_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_8_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_8_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_8_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_8_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_8_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_8_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_8_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_8_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_9_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_9_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_9_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_9_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_9_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_9_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_9_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_9_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_9_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_9_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_9_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_9_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_10_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_10_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_10_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_10_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_10_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_10_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_10_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_10_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_10_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_10_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_10_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_10_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_11_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_11_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_11_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_11_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_11_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_11_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_11_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_11_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_11_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_11_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_11_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_11_intensities_kmeans.h5,
+      particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_12_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_12_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_12_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_12_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_12_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_12_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_12_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_12_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_12_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_12_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_12_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_12_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_13_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_13_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_13_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_13_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_13_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_13_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_13_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_13_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_13_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_13_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_13_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_13_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_14_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_14_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_14_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_14_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_14_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_14_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_14_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_14_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_14_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_14_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_14_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_14_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_15_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_15_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_15_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_15_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_15_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_15_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_15_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_15_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_15_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_15_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_15_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_15_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_16_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_16_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_16_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_16_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_16_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_16_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_16_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_16_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_16_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_16_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_16_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_16_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_17_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_17_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_17_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_17_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_17_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_17_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_17_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_17_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_17_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_17_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_17_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_17_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_18_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_18_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_18_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_18_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_18_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_18_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_18_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_18_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_18_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_18_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_18_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_18_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_19_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_19_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_19_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_19_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_19_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_19_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_19_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_19_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_19_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_19_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_19_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_19_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_20_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_20_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_20_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_20_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_20_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_20_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_20_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_20_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_20_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_20_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_20_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_20_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_21_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_21_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_21_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_21_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_21_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_21_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_21_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_21_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_21_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_21_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_21_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_21_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_22_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_22_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_22_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_22_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_22_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_22_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_22_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_22_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_22_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_22_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_22_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_22_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_23_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_23_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_23_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_23_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_23_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_23_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_23_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_23_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_23_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_23_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_23_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_23_intensities_kmeans.h5,
+      particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_24_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_24_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_24_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_24_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_24_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_24_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_24_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_24_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_24_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_24_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_24_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_24_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_25_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_25_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_25_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_25_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_25_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_25_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_25_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_25_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_25_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_25_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_25_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_25_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_26_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_26_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_26_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_26_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_26_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_26_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_26_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_26_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_26_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_26_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_26_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_26_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_27_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_27_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_27_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_27_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_27_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_27_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_27_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_27_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_27_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_27_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_27_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_27_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_28_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_28_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_28_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_28_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_28_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_28_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_28_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_28_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_28_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_28_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_28_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_28_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_29_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_29_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_29_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_29_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_29_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_29_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_29_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_29_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_29_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_29_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_29_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_29_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_30_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_30_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_30_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_30_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_30_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_30_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_30_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_30_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_30_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_30_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_30_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_30_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_31_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_31_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_31_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_31_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_31_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_31_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_31_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_31_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_31_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_31_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_31_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_31_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_32_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_32_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_32_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_32_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_32_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_32_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_32_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_32_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_32_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_32_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_32_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_32_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_33_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_33_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_33_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_33_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_33_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_33_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_33_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_33_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_33_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_33_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_33_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_33_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_34_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_34_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_34_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_34_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_34_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_34_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_34_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_34_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_34_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_34_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_34_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_34_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_35_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_35_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_35_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_35_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_35_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_35_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_35_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_35_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_35_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_35_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_35_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_35_intensities_kmeans.h5,
+      particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_36_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_36_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_36_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_36_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_36_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_36_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_36_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_36_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_36_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_36_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_36_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_36_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_37_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_37_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_37_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_37_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_37_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_37_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_37_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_37_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_37_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_37_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_37_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_37_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_38_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_38_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_38_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_38_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_38_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_38_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_38_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_38_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_38_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_38_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_38_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_38_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_39_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_39_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_39_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_39_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_39_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_39_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_39_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_39_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_39_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_39_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_39_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_39_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_40_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_40_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_40_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_40_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_40_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_40_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_40_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_40_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_40_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_40_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_40_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_40_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_41_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_41_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_41_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_41_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_41_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_41_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_41_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_41_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_41_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_41_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_41_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_41_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_42_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_42_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_42_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_42_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_42_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_42_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_42_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_42_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_42_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_42_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_42_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_42_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_43_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_43_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_43_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_43_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_43_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_43_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_43_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_43_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_43_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_43_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_43_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_43_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_44_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_44_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_44_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_44_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_44_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_44_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_44_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_44_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_44_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_44_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_44_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_44_intensities_kmeans.h5,
+      particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_45_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_45_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_45_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_45_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_45_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_45_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_45_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_45_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_45_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_45_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_45_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_45_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_46_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_46_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_46_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_46_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_46_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_46_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_46_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_46_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_46_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_46_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_46_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_46_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_47_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_47_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_47_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_47_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_47_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_47_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_47_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_47_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_47_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_47_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_47_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_47_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_48_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_48_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_48_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_48_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_48_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_48_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_48_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_48_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_48_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_48_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_48_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_48_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_49_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_49_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_49_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_49_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_49_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_49_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_49_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_49_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_49_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_49_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_49_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_49_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_50_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_50_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_50_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_50_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_50_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_50_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_50_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_50_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_50_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_50_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_50_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_50_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_51_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_51_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_51_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_51_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_51_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_51_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_51_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_51_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_51_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_51_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_51_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_51_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_52_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_52_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_52_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_52_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_52_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_52_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_52_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_52_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_52_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_52_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_52_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_52_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_53_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_53_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_53_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_53_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_53_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_53_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_53_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_53_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_53_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_53_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_53_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_53_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_54_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_54_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_54_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_54_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_54_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_54_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_54_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_54_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_54_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_54_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_54_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_54_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_55_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_55_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_55_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_55_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_55_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_55_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_55_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_55_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_55_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_55_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_55_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_55_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_56_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_56_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_56_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_56_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_56_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_56_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_56_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_56_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_56_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_56_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_56_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_56_intensities_kmeans.h5,
+      particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_57_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_57_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_57_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_57_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_57_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_57_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_57_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_57_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_57_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_57_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_57_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_57_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_58_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_58_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_58_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_58_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_58_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_58_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_58_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_58_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_58_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_58_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_58_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_58_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_59_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_59_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_59_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_59_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_59_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_59_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_59_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_59_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_59_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_59_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_59_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_59_intensities_kmeans.h5,
+      particle_cluster_id: 1,
     },
 
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_60_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_60_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_60_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_60_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_60_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_60_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_60_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_60_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_60_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_60_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_60_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_60_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_61_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_61_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_61_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_61_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_61_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_61_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_61_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_61_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_61_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_61_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_61_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_61_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_62_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_62_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_62_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_62_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_62_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_62_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_62_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_62_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_62_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_62_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_62_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_62_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_63_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_63_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_63_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_63_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_63_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_63_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_63_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_63_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_63_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_63_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_63_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_63_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_64_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_64_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_64_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_64_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_64_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_64_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_64_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_64_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_64_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_64_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_64_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_64_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_65_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_65_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_65_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_65_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_65_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_65_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_65_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_65_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_65_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_65_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_65_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_65_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_66_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_66_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_66_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_66_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_66_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_66_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_66_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_66_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_66_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_66_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_66_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_66_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_67_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_67_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_67_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_67_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_67_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_67_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_67_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_67_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_67_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_67_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_67_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_67_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_68_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_68_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_68_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_68_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_68_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_68_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_68_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_68_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_68_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_68_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_68_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_68_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_69_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_69_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_69_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_69_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_69_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_69_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_69_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_69_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_69_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_69_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_69_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_69_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_70_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_70_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_70_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_70_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_70_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_70_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_70_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_70_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_70_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_70_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_70_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_70_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_71_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_71_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_71_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_71_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_71_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_71_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_71_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_71_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_71_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_71_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_71_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_71_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_72_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_72_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_72_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_72_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_72_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_72_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_72_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_72_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_72_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_72_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_72_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_72_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_73_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_73_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_73_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_73_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_73_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_73_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_73_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_73_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_73_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_73_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_73_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_73_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_74_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_74_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_74_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_74_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_74_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_74_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_74_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_74_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_74_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_74_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_74_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_74_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_75_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_75_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_75_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_75_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_75_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_75_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_75_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_75_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_75_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_75_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_75_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_75_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_76_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_76_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_76_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_76_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_76_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_76_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_76_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_76_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_76_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_76_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_76_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_76_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_77_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_77_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_77_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_77_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_77_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_77_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_77_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_77_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_77_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_77_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_77_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_77_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_78_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_78_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_78_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_78_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_78_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_78_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_78_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_78_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_78_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_78_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_78_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_78_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_79_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_79_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_79_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_79_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_79_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_79_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_79_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_79_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_79_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_79_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_79_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_79_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_80_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_80_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_80_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_80_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_80_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_80_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_80_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_80_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_80_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_80_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_80_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_80_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_81_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_81_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_81_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_81_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_81_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_81_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_81_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_81_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_81_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_81_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_81_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_81_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_82_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_82_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_82_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_82_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_82_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_82_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_82_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_82_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_82_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_82_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_82_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_82_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_83_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_83_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_83_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_83_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_83_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_83_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_83_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_83_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_83_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_83_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_83_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_83_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_84_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_84_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_84_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_84_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_84_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_84_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_84_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_84_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_84_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_84_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_84_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_84_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_85_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_85_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_85_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_85_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_85_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_85_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_85_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_85_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_85_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_85_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_85_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_85_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_86_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_86_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_86_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_86_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_86_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_86_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_86_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_86_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_86_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_86_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_86_intensities_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_86_intensities_kmeans.h5,
       particle_cluster_id: 1,
     },
 
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_87_ffts_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_87_ffts_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_87_ffts_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_87_ffts_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_87_gabor_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_87_gabor_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_87_gabor_kmeans.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_87_gabor_kmeans.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_87_intensities_gmm.h5,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_87_intensities_gmm.h5,
       particle_cluster_id: 1,
     },
     {
-      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin/segmentation_87_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/segmentation_87_intensities_kmeans.h5,
+      particle_cluster_id: 1,
     },
   ]
 
@@ -2217,4 +2217,4 @@ particle_extraction_params:
     { mode: watershed_segmentation, min_distance: 15 },
   ]
 
-output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/

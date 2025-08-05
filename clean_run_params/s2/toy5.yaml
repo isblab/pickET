@@ -1,0 +1,37 @@
+dataset_name: toy5
+
+inputs:
+  [
+    {
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/toy5/segmentation_0_ffts_gmm.h5,
+      particle_cluster_id: 1,
+    },
+    {
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/toy5/segmentation_0_ffts_kmeans.h5,
+      particle_cluster_id: 1,
+    },
+    {
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/toy5/segmentation_0_gabor_gmm.h5,
+      particle_cluster_id: 1,
+    },
+    {
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/toy5/segmentation_0_gabor_kmeans.h5,
+      particle_cluster_id: 1,
+    },
+    {
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/toy5/segmentation_0_intensities_gmm.h5,
+      particle_cluster_id: 1,
+    },
+    {
+      segmentation: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/toy5/segmentation_0_intensities_kmeans.h5,
+      particle_cluster_id: 1,
+    },
+  ]
+
+particle_extraction_params:
+  [
+    { mode: connected_component_labeling },
+    { mode: watershed_segmentation, min_distance: 15 },
+  ]
+
+output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/

@@ -59,11 +59,14 @@ def main():
 
     plt.scatter(df1["milopyp"], df1["picket"], s=5, c="Orange")
     plt.plot(df2["x"], df2["y"], color="#aeaeae", alpha=0.7, linestyle="--")
-    plt.xlabel("MiloPYP recall")
-    plt.ylabel("PickET recall")
+    plt.xlabel("Recall on MiloPYP predictions")
+    plt.ylabel("Recall on PickET predictions")
     plt.xlim(0, 1)
     plt.ylim(0, 1)
-    plt.show()
+    plt.savefig(
+        "/home/shreyas/Dropbox/miningTomograms/comparison_w_milopyp/particlewise_recall_comparison_w_milopyp.png",
+        dpi=600,
+    )
 
 
 if __name__ == "__main__":

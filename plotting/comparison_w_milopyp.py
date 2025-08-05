@@ -156,8 +156,9 @@ def main():
                 if not math.isnan(m_relative_recall) and not math.isnan(
                     p_relative_recall
                 ):
-                    milopyp_relativerecall.append(m_relative_recall)
-                    picket_relativerecall.append(p_relative_recall)
+                    if dataset_id != "tomotwin":
+                        milopyp_relativerecall.append(m_relative_recall)
+                        picket_relativerecall.append(p_relative_recall)
 
                 if not math.isnan(m_predcount) and not math.isnan(p_predcount):
                     milopyp_predcount.append(m_predcount)
@@ -190,8 +191,9 @@ def main():
                     tomotwin_picket_re.append(picket_res["Recall"])
                     tomotwin_picket_f1.append(picket_res["F1-score"])
 
-        all_milopyp_relativerecall.append(milopyp_relativerecall)
-        all_picket_relativerecall.append(picket_relativerecall)
+        if len(milopyp_relativerecall) != 0 and len(picket_relativerecall) != 0:
+            all_milopyp_relativerecall.append(milopyp_relativerecall)
+            all_picket_relativerecall.append(picket_relativerecall)
         all_milopyp_predcount.append(milopyp_predcount)
         all_picket_predcount.append(picket_predcount)
 
@@ -213,7 +215,7 @@ def main():
     )
 
     ### Plotting part
-    milopyp_color = "#AEAEAE"
+    milopyp_color = "#e377c2"
     picket_color = "#48A3F8"
     alpha = 0.5
     fig = plt.figure(figsize=(10, 10))
@@ -283,7 +285,7 @@ def main():
         )
 
     set_boxplot_visualization(bxplt_m, bxplt_p, milopyp_color, picket_color, alpha)
-    ax1.set_yticks(range(1, len(xlabels) + 1), xlabels)
+    ax1.set_yticks(range(1, len(xlabels)), xlabels[:-1])
     ax1.set_ylabel("Dataset")
     ax1.set_xlabel("Relative recall")
     ax1.set_xlim(0, 1)
@@ -369,7 +371,7 @@ def main():
     plt.tight_layout()
 
     plt.savefig(
-        "/home/shreyas/Dropbox/miningTomograms/manuscript/comparison_w_milopyp/template_comparison_w_milopyp_tomogram-wise.png",
+        "/home/shreyas/Dropbox/miningTomograms/comparison_w_milopyp/template_comparison_w_milopyp_tomogram-wise.png",
         dpi=400,
     )
 

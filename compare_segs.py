@@ -1,5 +1,4 @@
 import sys
-import mrcfile
 import numpy as np
 from picket.core import segmentation_io
 
@@ -22,8 +21,6 @@ def main():
         * np.array(seg1.semantic_segmentation).shape[2]
     )
     print(true_val_count, total, true_val_count / total)
-    mrcfile.new("new.mrc", np.array(seg1.semantic_segmentation).astype(np.float16))
-    mrcfile.new("old.mrc", np.array(seg2.semantic_segmentation).astype(np.float16))
 
 
 if __name__ == "__main__":

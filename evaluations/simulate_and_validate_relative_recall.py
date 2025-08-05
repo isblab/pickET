@@ -95,7 +95,7 @@ def main():
     num_tp_props = 5
     n_trials = 5
 
-    n_preds = np.linspace(1, 2000, pred_count, dtype=np.int32)
+    n_preds = np.linspace(100, 2000, pred_count, dtype=np.int32)
     props_tp = np.linspace(0.2, 0.8, num_tp_props, dtype=np.float32)
 
     results = []
@@ -169,25 +169,34 @@ def main():
     )
 
     fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+    markers_used = []
     for ln in results:
         if ln[0] == "n_pred":
             continue
-        # Relative recall vs F1-score
-        ax[0].scatter(
-            ln[4], ln[7], color=color_mapping[ln[0]], marker=marker_mapping[ln[1]]
-        )
+        # Relative recall vs F1-score and complement of random recall versus precision
+        m = marker_mapping[ln[1]]
+        if m in markers_used:
+            ax[0].scatter(ln[4], ln[7], color=color_mapping[ln[0]], marker=m)
+            ax[1].scatter(ln[2], ln[6], color=color_mapping[ln[0]], marker=m)
+        else:
+            label = f"Precision = {float(ln[1]):.2f}"
+            ax[0].scatter(
+                ln[4], ln[7], color=color_mapping[ln[0]], marker=m, label=label
+            )
+            ax[1].scatter(
+                ln[2], ln[6], color=color_mapping[ln[0]], marker=m, label=label
+            )
+            markers_used.append(m)
         ax[0].set_xlim(0, 1)
         ax[0].set_ylim(0, 1)
         ax[0].set_xlabel("F1-score")
         ax[0].set_ylabel("Relative recall")
-        # 1-MDR recall vs Precision
-        ax[1].scatter(
-            ln[2], ln[6], color=color_mapping[ln[0]], marker=marker_mapping[ln[1]]
-        )
+        ax[0].legend()
         ax[1].set_xlim(0, 1)
         ax[1].set_ylim(0, 1)
         ax[1].set_xlabel("Precision")
-        ax[1].set_ylabel("1 - MDR_recall")
+        ax[1].set_ylabel("Complement of random recall")
+        ax[1].legend()
     plt.tight_layout()
     plt.savefig(
         f"/home/shreyas/Dropbox/miningTomograms/metric_validation/{n_true}_gt_simulated_results_panelA.png",
@@ -196,19 +205,29 @@ def main():
     plt.close()
 
     fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+    markers_used = []
     for ln in results:
         if ln[0] == "n_pred":
             continue
-        # F1-score vs num_predictions
-        ax[0].scatter(ln[0], ln[4], color="Green", marker=marker_mapping[ln[1]])
+        # F1-score vs num_predictions and relative recall vs num_predictions
+        m = marker_mapping[ln[1]]
+        if m in markers_used:
+            ax[0].scatter(ln[0], ln[4], color="Green", marker=m)
+            ax[1].scatter(ln[0], ln[7], color="Green", marker=m)
+        else:
+            label = f"Precision = {float(ln[1]):.2f}"
+            ax[0].scatter(ln[0], ln[4], color="Green", marker=m, label=label)
+            ax[1].scatter(ln[0], ln[7], color="Green", marker=m, label=label)
+            markers_used.append(m)
+
         ax[0].set_ylim(0, 1)
         ax[0].set_xlabel("Number of predictions")
         ax[0].set_ylabel("F1-score")
-        # Relative recall vs num_predictions
-        ax[1].scatter(ln[0], ln[7], color="Green", marker=marker_mapping[ln[1]])
+        ax[0].legend()
         ax[1].set_ylim(0, 1)
         ax[1].set_xlabel("Number of predictions")
         ax[1].set_ylabel("Relative recall")
+        ax[1].legend()
     plt.tight_layout()
     plt.savefig(
         f"/home/shreyas/Dropbox/miningTomograms/metric_validation/{n_true}_gt_simulated_results_panelB.png",
@@ -217,19 +236,31 @@ def main():
     plt.close()
 
     fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+    markers_used = []
     for ln in results:
         if ln[0] == "n_pred":
             continue
-        # Precision vs num_predictions
-        ax[0].scatter(ln[0], ln[2], color="Green", marker=marker_mapping[ln[1]])
+        # Precision vs num_predictions and complement of random recall vs num_predictions
+        m = marker_mapping[ln[1]]
+        if m in markers_used:
+            ax[0].scatter(ln[0], ln[2], color="Green", marker=m)
+            ax[1].scatter(ln[0], ln[6], color="Green", marker=m)
+        else:
+            label = f"Precision = {float(ln[1]):.2f}"
+            ax[0].scatter(ln[0], ln[2], color="Green", marker=m, label=label)
+            ax[1].scatter(ln[0], ln[6], color="Green", marker=m, label=label)
+            markers_used.append(m)
+
         ax[0].set_ylim(0, 1)
         ax[0].set_xlabel("Number of predictions")
         ax[0].set_ylabel("Precision")
-        # 1-MDR_recall vs num_predictions
-        ax[1].scatter(ln[0], ln[6], color="Green", marker=marker_mapping[ln[1]])
+        ax[0].legend()
+
         ax[1].set_ylim(0, 1)
         ax[1].set_xlabel("Number of predictions")
-        ax[1].set_ylabel("1 - MDR_recall")
+        ax[1].set_ylabel("Complement of random recall")
+        ax[1].legend()
+
     plt.tight_layout()
     plt.savefig(
         f"/home/shreyas/Dropbox/miningTomograms/metric_validation/{n_true}_gt_simulated_results_panelC.png",
@@ -238,19 +269,31 @@ def main():
     plt.close()
 
     fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+    markers_used = []
     for ln in results:
         if ln[0] == "n_pred":
             continue
-        # Recall vs num_predictions
-        ax[0].scatter(ln[0], ln[3], color="Green", marker=marker_mapping[ln[1]])
+        # Recall vs num_predictions and MDR_recall vs num_predictions
+        m = marker_mapping[ln[1]]
+        if m in markers_used:
+            ax[0].scatter(ln[0], ln[3], color="Green", marker=m)
+            ax[1].scatter(ln[0], ln[5], color="Green", marker=m)
+        else:
+            label = f"Precision = {float(ln[1]):.2f}"
+            ax[0].scatter(ln[0], ln[3], color="Green", marker=m, label=label)
+            ax[1].scatter(ln[0], ln[5], color="Green", marker=m, label=label)
+            markers_used.append(m)
+
         ax[0].set_ylim(0, 1)
         ax[0].set_xlabel("Number of predictions")
         ax[0].set_ylabel("Recall")
-        # MDR_recall vs num_predictions
-        ax[1].scatter(ln[0], ln[5], color="Green", marker=marker_mapping[ln[1]])
+        ax[0].legend()
+
         ax[1].set_ylim(0, 1)
         ax[1].set_xlabel("Number of predictions")
         ax[1].set_ylabel("MDR_recall")
+        ax[1].legend()
+
     plt.tight_layout()
     plt.savefig(
         f"/home/shreyas/Dropbox/miningTomograms/metric_validation/{n_true}_gt_simulated_results_panelD.png",

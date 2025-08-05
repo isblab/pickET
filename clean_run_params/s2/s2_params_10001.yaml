@@ -4,13 +4,13 @@ inputs:
   [
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_0_ffts_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 400,
       upper_z-slice_limit: 600,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_0_ffts_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 400,
       upper_z-slice_limit: 600,
     },
@@ -34,14 +34,14 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_0_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 400,
       upper_z-slice_limit: 600,
     },
 
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_1_ffts_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 375,
       upper_z-slice_limit: 625,
     },
@@ -65,7 +65,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_1_intensities_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 375,
       upper_z-slice_limit: 625,
     },
@@ -78,13 +78,13 @@ inputs:
 
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_2_ffts_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 375,
       upper_z-slice_limit: 625,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_2_ffts_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 375,
       upper_z-slice_limit: 625,
     },
@@ -102,7 +102,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_2_intensities_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 375,
       upper_z-slice_limit: 625,
     },
@@ -115,7 +115,7 @@ inputs:
 
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_3_ffts_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 325,
       upper_z-slice_limit: 650,
     },
@@ -133,7 +133,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_3_gabor_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 325,
       upper_z-slice_limit: 650,
     },
@@ -145,14 +145,14 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_3_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 325,
       upper_z-slice_limit: 650,
     },
 
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_4_ffts_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 100,
       upper_z-slice_limit: 400,
     },
@@ -164,25 +164,25 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_4_gabor_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 100,
       upper_z-slice_limit: 400,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_4_gabor_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 100,
       upper_z-slice_limit: 400,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_4_intensities_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 100,
       upper_z-slice_limit: 400,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_4_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 100,
       upper_z-slice_limit: 400,
     },
@@ -195,7 +195,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_5_ffts_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 150,
       upper_z-slice_limit: 325,
     },
@@ -207,7 +207,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_5_gabor_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 150,
       upper_z-slice_limit: 325,
     },
@@ -219,7 +219,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_5_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 150,
       upper_z-slice_limit: 325,
     },
@@ -232,7 +232,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_6_ffts_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 200,
       upper_z-slice_limit: 310,
     },
@@ -244,7 +244,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_6_gabor_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 200,
       upper_z-slice_limit: 310,
     },
@@ -256,7 +256,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_6_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 200,
       upper_z-slice_limit: 310,
     },
@@ -269,19 +269,19 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_7_ffts_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 100,
       upper_z-slice_limit: 400,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_7_gabor_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 100,
       upper_z-slice_limit: 400,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_7_gabor_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 100,
       upper_z-slice_limit: 400,
     },
@@ -293,20 +293,20 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_7_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 100,
       upper_z-slice_limit: 400,
     },
 
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_8_ffts_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 75,
       upper_z-slice_limit: 375,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_8_ffts_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 75,
       upper_z-slice_limit: 375,
     },
@@ -318,7 +318,7 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_8_gabor_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 75,
       upper_z-slice_limit: 375,
     },
@@ -330,14 +330,14 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_8_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 75,
       upper_z-slice_limit: 375,
     },
 
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_9_ffts_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 325,
       upper_z-slice_limit: 650,
     },
@@ -355,19 +355,19 @@ inputs:
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_9_gabor_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 325,
       upper_z-slice_limit: 650,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_9_intensities_gmm.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 325,
       upper_z-slice_limit: 650,
     },
     {
       segmentation: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10001_denoised/segmentation_9_intensities_kmeans.h5,
-      particle_cluster_id: 0,
+      particle_cluster_id: 1,
       lower_z-slice_limit: 325,
       upper_z-slice_limit: 650,
     },
