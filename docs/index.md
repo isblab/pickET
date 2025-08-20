@@ -4,7 +4,7 @@ hide:
 ---
 
 [![DOI](DOI badge)](https://zenodo.org/badge/latestdoi/{ID})  
-[![Zenodo](Zenodo badge)](https://zenodo.org/badge/latestdoi/{ID})
+[![Zenodo](Zenodo badge)](https://zenodo.org/badge/latestdoi/10.5281/zenodo.16909581)
 
 <span class="todo">TODO: Update Zenodo badge</span>
  

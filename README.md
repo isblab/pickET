@@ -1,5 +1,5 @@
 [![DOI](DOI badge)](https://zenodo.org/badge/latestdoi/{ID})  
-[![Zenodo](Zenodo badge)](https://zenodo.org/badge/latestdoi/{ID}) 
+[![Zenodo](Zenodo badge)](https://zenodo.org/badge/latestdoi/10.5281/zenodo.16909581) 
 
 #? TODO
 
