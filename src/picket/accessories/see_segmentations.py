@@ -34,7 +34,7 @@ def main():
 
     if tomo_path.split("/")[1] != dataset_dir_drive:
         tomo_path = fix_tomo_path(tomo_path, dataset_dir_drive)
-
+    print(tomo_path)
     tomogram, _ = utils.load_tomogram(tomo_path)
     print("Loaded segmentation and tomogram successfully...")
     utils.load_in_napari(tomogram, segmentation, segname=seg_type)

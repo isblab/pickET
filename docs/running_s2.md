@@ -3,7 +3,7 @@
 Run the following command to obtain centroids for predicted particles.
 
 ```bash
-python s2.py <s2_param_file_path> 
+python src/picket/s2.py <s2_param_file_path> 
 ```
 
 ---

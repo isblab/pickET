@@ -42,7 +42,7 @@ inputs:
 The entries marked as `#[Optional]#` may be omitted. If you do not wish to specify these, these lines should be deleted from from the `param_file.yaml`.
 
 <div align="center">
-    <img src="../images/Zbounds.jpg" alt="Fig. 2: Z-slice bounds for the two steps in PickET" align="center">
+    <img src="../images/Zbounds.png" alt="Fig. 2: Z-slice bounds for the two steps in PickET" align="center">
     <p align="center"><span class="caption">Fig. 2: Z-slice bounds for the two steps in PickET. </span><br><span class="caption_description"> The figure shows a slice of a tomogram along the Z-axis along with <br> annotations for the upper and lower bounds to be specified for a PickET run </span></p>
 </div>
 

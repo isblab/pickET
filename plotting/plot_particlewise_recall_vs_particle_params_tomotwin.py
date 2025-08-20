@@ -2,6 +2,7 @@ import os
 import sys
 import yaml
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import pearsonr
 
@@ -59,6 +60,18 @@ def main():
             dpi=600,
         )
         plt.close()
+
+        outcsv_fname = f"{os.path.join(output_dir, f'source_data_particlewise_recall_{feature_extraction_method}_{clustering_method}_{particle_extraction_method}_{x_key}')}.csv"
+        all_x_arr, all_y_arr = (
+            np.expand_dims(all_x, axis=0),
+            np.expand_dims(all_y, axis=0),
+        )
+        comb_arr = np.concatenate((all_x_arr, all_y_arr), axis=0)
+        comb_arr = comb_arr.T
+        cols = [x_key, "Average recall"]
+        df = pd.DataFrame(comb_arr, columns=cols)
+        df.to_csv(outcsv_fname, sep=",", index=False)
+
     with open(
         os.path.join(
             output_dir,

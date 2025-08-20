@@ -1,18 +1,14 @@
 # Visualizing segmentations
 
-!!! note "Note"
-    *This step launches the [Napari](https://napari.org/) GUI. If the PickET workflow is being run on a remote computing node, we recommend users to connect to the remote computing node using `ssh` with `-X` flag. In other words, connect to the remote computing node using the following command:*  
-
-```bash
-ssh -X <username>@<ip_address of the remote computing node>
-```
-
 Now, run the following command on each of the segmentations to visualize an overlay of the segmentation on the input tomogram in Napari:  
 ```bash
-python accessories/see_segmentations.py <path_to_segmentation> <segmentation_type>
+python src/picket/accessories/see_segmentations.py <path_to_segmentation> <segmentation_type>
 ```
 
 where `segmentation_type` is either `semantic_segmentation` or `instance_segmentation`.
+
+!!! note "Note"
+    *This step displays the segmentation overlayed on the input tomogram in a [Napari](https://napari.org/) window.*  
 
 <div style="display: flex; justify-content: center;">
     <div align="center" style="margin-right: 100px;">

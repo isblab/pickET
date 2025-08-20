@@ -50,6 +50,7 @@ def mask_peripheral_voxels(segmentation: np.ndarray, window_size: int):
 
 chimerax_colors = {
     "-3": "#CDAB8F",
+    "1": "#AEAEAE",
     "2": "#99C1F1",
     "3": "#DC8ADD",
     "4": "#F66151",

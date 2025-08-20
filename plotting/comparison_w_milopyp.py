@@ -4,6 +4,7 @@ import glob
 import yaml
 import math
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from scipy.stats import mannwhitneyu
@@ -68,6 +69,7 @@ def get_significance_mark(pvalue: float) -> str:
 def main():
     milopyp_parent_path = sys.argv[1]
     picket_runs_parent_path = sys.argv[2]
+    out_dir = "/home/shreyas/Dropbox/miningTomograms/comparison_w_milopyp/"
 
     tomotwin_milopyp_pr, tomotwin_milopyp_re, tomotwin_milopyp_f1 = [], [], []
     tomotwin_picket_pr, tomotwin_picket_re, tomotwin_picket_f1 = [], [], []
@@ -75,9 +77,9 @@ def main():
     all_milopyp_relativerecall, all_picket_relativerecall = [], []
     all_milopyp_predcount, all_picket_predcount = [], []
 
-    milopyp_total_time_taken_10301 = []
-    picket_total_time_taken_10301_gabor_gmm_ws = []
-    picket_total_time_taken_10301_library_based = []
+    milopyp_total_time_taken_tomotwin = []
+    picket_total_time_taken_tomotwin_gabor_gmm_cc = []
+    picket_total_time_taken_tomotwin_library_based = []
 
     xlabels = []
     datasets = ["10001", "10008", "10301", "10440", "tomotwin"]
@@ -164,8 +166,8 @@ def main():
                     milopyp_predcount.append(m_predcount)
                     picket_predcount.append(p_predcount)
 
-                if dataset_id == "10301":
-                    milopyp_total_time_taken_10301.append(
+                if dataset_id == "tomotwin":
+                    milopyp_total_time_taken_tomotwin.append(
                         milopyp_evals[tomo_id]["Total time taken"]
                     )
 
@@ -174,11 +176,11 @@ def main():
                     for _, pr in all_picket_results.items():
                         picket_time_taken_for_s1 += pr[tomo_id]["Time taken for S1"]
                         picket_time_taken_for_s2 += pr[tomo_id]["Time taken for S2"]
-                    picket_total_time_taken_10301_library_based.append(
+                    picket_total_time_taken_tomotwin_library_based.append(
                         picket_time_taken_for_s1 + picket_time_taken_for_s2
                     )
 
-                    picket_total_time_taken_10301_gabor_gmm_ws.append(
+                    picket_total_time_taken_tomotwin_gabor_gmm_cc.append(
                         float(picket_res["Total time taken"])
                     )
 
@@ -194,8 +196,29 @@ def main():
         if len(milopyp_relativerecall) != 0 and len(picket_relativerecall) != 0:
             all_milopyp_relativerecall.append(milopyp_relativerecall)
             all_picket_relativerecall.append(picket_relativerecall)
+            milopyp_relativerecall = np.expand_dims(
+                np.array(milopyp_relativerecall), axis=1
+            )
+            picket_relativerecall = np.expand_dims(
+                np.array(picket_relativerecall), axis=1
+            )
+            relrecalls = np.concatenate(
+                (milopyp_relativerecall, picket_relativerecall), axis=1
+            )
+            rel_recall_df = pd.DataFrame(relrecalls, columns=["MiLoPYP", "PickET"])
+            rel_recall_df.to_csv(
+                os.path.join(out_dir, f"{dataset_id}_relative_recalls.csv"), index=False
+            )
+
         all_milopyp_predcount.append(milopyp_predcount)
         all_picket_predcount.append(picket_predcount)
+        milopyp_predcount = np.expand_dims(np.array(milopyp_predcount), axis=1)
+        picket_predcount = np.expand_dims(np.array(picket_predcount), axis=1)
+        predcounts = np.concatenate((milopyp_predcount, picket_predcount), axis=1)
+        predcount_df = pd.DataFrame(predcounts, columns=["MiLoPYP", "PickET"])
+        predcount_df.to_csv(
+            os.path.join(out_dir, f"{dataset_id}_predcounts.csv"), index=False
+        )
 
     tomotwin_milopyp_metrics = np.concatenate(
         [
@@ -212,6 +235,45 @@ def main():
             np.expand_dims(np.array(tomotwin_picket_pr), axis=1),
         ],
         axis=1,
+    )
+
+    tomotwin_df_milopyp = pd.DataFrame(
+        tomotwin_milopyp_metrics, columns=["F1-score", "Recall", "Precision"]
+    )
+    tomotwin_df_picket = pd.DataFrame(
+        tomotwin_picket_metrics, columns=["F1-score", "Recall", "Precision"]
+    )
+    tomotwin_df_milopyp.to_csv(
+        os.path.join(out_dir, "tomotwin_milopyp_prref1.csv"), sep=",", index=False
+    )
+    tomotwin_df_picket.to_csv(
+        os.path.join(out_dir, "tomotwin_picket_prref1.csv"), sep=",", index=False
+    )
+
+    milopyp_total_time_taken_tomotwin_arr = (
+        np.expand_dims(np.array(milopyp_total_time_taken_tomotwin), axis=1) / 60
+    )
+    picket_total_time_taken_tomotwin_gabor_gmm_cc_arr = (
+        np.expand_dims(np.array(picket_total_time_taken_tomotwin_gabor_gmm_cc), axis=1)
+        / 60
+    )
+    picket_total_time_taken_tomotwin_library_based_arr = (
+        np.expand_dims(np.array(picket_total_time_taken_tomotwin_library_based), axis=1)
+        / 60
+    )
+    tomotwin_times = np.concatenate(
+        (
+            milopyp_total_time_taken_tomotwin_arr,
+            picket_total_time_taken_tomotwin_gabor_gmm_cc_arr,
+            picket_total_time_taken_tomotwin_library_based_arr,
+        ),
+        axis=1,
+    )
+    tomotwin_times_df = pd.DataFrame(
+        tomotwin_times, columns=["MiLoPYP", "PickET_Gabor-GMM-CC", "PickET_Library"]
+    )
+    tomotwin_times_df.to_csv(
+        os.path.join(out_dir, "tomotwin_time_taken.csv"), sep=",", index=False
     )
 
     ### Plotting part
@@ -356,11 +418,11 @@ def main():
 
     ax4 = fig.add_subplot(gs[0, 1])
     ax4.barh(
-        y=["PickET library", "PickET\nGabor-GMM-WS", "MiLoPYP"],
+        y=["PickET library", "PickET\nGabor-GMM-CC", "MiLoPYP"],
         width=[
-            np.sum(np.array(picket_total_time_taken_10301_library_based)) / 60,
-            np.sum(np.array(picket_total_time_taken_10301_gabor_gmm_ws)) / 60,
-            milopyp_total_time_taken_10301[0] / 60,
+            np.sum(np.array(picket_total_time_taken_tomotwin_library_based)) / 60,
+            np.sum(np.array(picket_total_time_taken_tomotwin_gabor_gmm_cc)) / 60,
+            milopyp_total_time_taken_tomotwin[0] / 60,
         ],
         height=0.5,
         color=[picket_color, picket_color, milopyp_color],
@@ -371,8 +433,8 @@ def main():
     plt.tight_layout()
 
     plt.savefig(
-        "/home/shreyas/Dropbox/miningTomograms/comparison_w_milopyp/template_comparison_w_milopyp_tomogram-wise.png",
-        dpi=400,
+        os.path.join(out_dir, "template_comparison_w_milopyp_tomogram-wise.png"),
+        dpi=600,
     )
 
 

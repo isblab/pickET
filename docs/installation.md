@@ -4,7 +4,6 @@ This document provides a detailed guide for installing PickET.
 ## Dependencies
 
 * Python dependencies can be found in `pyproject.toml`.
-* [CuPy](https://cupy.dev) 
 * [TomoEED](https://sites.google.com/site/3demimageprocessing/tomoeed)
   
 Instructions for installing the Python dependencies, CuPy and TomoEED are provided below:
@@ -16,7 +15,11 @@ In a new terminal window, run the following command to install venv package:
 ```bash 
 pip install venv
 ```
-
+!!! note
+    *On Ubuntu-like operating systems, this command needs to be run as shown here:*
+    ```bash 
+    sudo apt install python3-venv 
+    ```
 
 Then, run the following commands sequentially to create a new virtual environment:
 ```bash
@@ -24,6 +27,7 @@ mkdir <path_to_new_virtual_environment>
 cd <path_to_new_virtual_environment>
 python -m venv picket_env
 ```
+
 
 ### 2. Activate the environment <a name="env_activate"></a>
 ```bash
@@ -34,7 +38,7 @@ source <path_to_new_virtual_environment>/bin/activate
 
 
 
-### 3. Install CuPy  
+### 3. Install [CuPy](https://cupy.dev)    
 
 If the CUDA version is `12.<something>`, install CuPy by running
     
@@ -53,9 +57,11 @@ pip install cupy-cuda11x
 
 
 
-### 4. Install all the Python dependencies
+### 4. Install all the PickET
 
-```
+```bash
+git clone https://github.com/isblab/pickET.git
+cd pickET
 pip install .
 ```
 Installing PickET via `pip` using the above command builds executables for the two steps in a PickET run - generating semantic segmentation and localizing particles. (See also [Usage instructions](usage_instructions.md))

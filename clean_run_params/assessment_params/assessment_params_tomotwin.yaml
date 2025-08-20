@@ -1,8 +1,0 @@
-dataset_name: tomotwin
-
-parent_path: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/tomotwin/predicted_particles/
-annot_dir_head: coords
-
-threshold_in_angstrom: 100
-
-output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v3/

@@ -2,6 +2,7 @@ import os
 import sys
 import yaml
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import mannwhitneyu
 
@@ -207,6 +208,17 @@ def main():
         )
         plt.savefig(output_path, dpi=600)
         plt.close()
+
+        outcsv_fname = f"{os.path.join(output_dir, f'mainfig_source_data_{metric}_{dataset_id}')}.csv"
+
+        results = metric_values.T
+        out_results_dict = {}
+        for i, wf in enumerate(workflow_names):
+            out_results_dict[wf] = results[i]
+
+        df = pd.DataFrame.from_dict(out_results_dict, orient="index")
+        df = df.T
+        df.to_csv(outcsv_fname, sep=",", index=False)
 
 
 if __name__ == "__main__":

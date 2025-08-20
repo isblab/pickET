@@ -1,8 +1,0 @@
-dataset_name: tomotwin_8tomos_r1_milopyp_preds
-
-parent_path: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin_8tomos_r1_milopyp_preds/pred_centroids/
-annot_dir_head: coords
-
-threshold_in_angstrom: 100
-
-output_dir: /data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/

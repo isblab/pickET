@@ -5,11 +5,11 @@ import subprocess
 
 def main():
     input_fname_mapping = {
-        "10001": "input_10001.txt",
-        "10008": "input_10008.txt",
+        # "10001": "input_10001.txt",
+        # "10008": "input_10008.txt",
         "10301": "input_10301.txt",
-        "10440": "input_10440.txt",
-        "tomotwin": "input_tomotwin.txt",
+        # "10440": "input_10440.txt",
+        # "tomotwin": "input_tomotwin.txt",
     }
     time_taken = {}
 
@@ -86,8 +86,8 @@ def main():
 
         time_taken[dataset_id]["s2"] = toc_s2 - tic_s2
 
-    with open("time_log.yaml",'w') as outf:
-        yaml.dump(time_taken,outf)
+    with open("time_log.yaml", "w") as outf:
+        yaml.dump(time_taken, outf)
 
 
 if __name__ == "__main__":

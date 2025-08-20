@@ -103,10 +103,7 @@ def main():
         results = []
         gtr_results = []
         plot_time = False
-        if (
-            "10301" in result_fnames[0]
-            or "tomotwin_efficiency_runs" in result_fnames[0]
-        ):
+        if "10301" in result_fnames[0] or "tomotwin" in result_fnames[0]:
             plot_time = True
 
         for idx, result_fname in enumerate(result_fnames):
@@ -276,6 +273,18 @@ def main():
         output_path = os.path.join(output_dir, f"{dataset_id}_{metric}_comparison.png")
         plt.savefig(output_path, dpi=600)
         plt.close()
+
+        outcsv_fname = (
+            f"{os.path.join(output_dir, f'source_data_{metric}_{dataset_id}')}.csv"
+        )
+
+        out_results_dict = {}
+        for i, wf in enumerate(xlabels):
+            out_results_dict[wf] = results[i]
+
+        df = pd.DataFrame.from_dict(out_results_dict, orient="index")
+        df = df.T
+        df.to_csv(outcsv_fname, sep=",", index=False)
 
 
 if __name__ == "__main__":

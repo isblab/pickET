@@ -130,7 +130,9 @@ def main():
                             tomogram_zslab, neighborhood_size
                         )
                         feature_extractor.extract_features(slab_neighborhoods)
-                        slab_labels = clusterer.predict(feature_extractor.features)
+                        slab_labels = clusterer.predict(
+                            feature_extractor.features.astype(np.float64)
+                        )
 
                         seg = slab_labels.reshape(slab_preshape).astype(np.int16)
                         segmentation[
@@ -140,7 +142,9 @@ def main():
                         ] = seg
 
                 else:
-                    labels = clusterer.predict(feature_extractor.features)
+                    labels = clusterer.predict(
+                        feature_extractor.features.astype(np.float64)
+                    )
                     segmentation = labels.reshape(preshape)
                     segmentation = np.pad(
                         segmentation, half_size, mode="constant", constant_values=-1

@@ -1,8 +1,0 @@
-dataset_name: lugan
-
-parent_path: /data2/shreyas/mining_tomograms/s1_clean_results_picket_v2/lugan/predicted_particles/
-annot_dir_head: ""
-
-threshold_in_angstrom: 55
-
-output_dir: /data2/shreyas/mining_tomograms/s1_clean_results_picket_v2/

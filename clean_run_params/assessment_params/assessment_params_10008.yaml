@@ -1,8 +1,0 @@
-dataset_name: czi_ds-10008_denoised
-
-parent_path: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/czi_ds-10008_denoised/predicted_particles/
-annot_dir_head: annotations
-
-threshold_in_angstrom: 125
-
-output_dir: /data/shreyas/mining_tomograms/s1_clean_results_picket_v2/

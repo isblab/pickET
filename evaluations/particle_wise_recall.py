@@ -50,13 +50,12 @@ def main():
     angstrom_threshold = params["threshold_in_angstrom"]
     parent_path = params["parent_path"]
 
-    out_dir = os.path.join(out_dir, f"particle_wise_recall/raw/")
+    out_dir = os.path.join(out_dir, "particle_wise_recall/raw/")
     if not os.path.isdir(out_dir):
         os.makedirs(out_dir)
 
     ### Processing block
     groups = assessment_utils.separate_files_into_groups(parent_path)
-    print(groups)
     for group_name, pc_fname in groups.items():
         print(group_name)
         if group_name != hero_workflow:
