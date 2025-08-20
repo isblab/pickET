@@ -13,7 +13,7 @@ The output from S1 is a number of semantic segmentations. These can be visualize
     *For each input tomogram six output semantic segmentations will be generated - each using one of the PickET S1 workflows (for example intensities_kmeans, intensities_gmm, gabor_kmeans, etc.). The users may choose to use more than one of these semantic segmentations in the next step, S2.*
 
 <div align="center">
-    <img src="../images/semantic_segmentation.png" alt="Fig. 2A: Output from S1 - Semantic segmentation" width="300" align="center">
+    <img src="images/semantic_segmentation.png" alt="Fig. 2A: Output from S1 - Semantic segmentation" width="300" align="center">
     <p align="center"><span class="caption">Fig. 2A: Output from S1 - Semantic segmentation </span></p>
 </div>
 
@@ -30,14 +30,14 @@ python src/picket/accessories/see_centroids.py <path_to_predicted_centroids>
 
 
 <div align="center">
-    <img src="../images/predicted_centroids.png" alt="Fig. 4: Output from S2 - Predicted centroids" width="300" align="center">
+    <img src="images/predicted_centroids.png" alt="Fig. 4: Output from S2 - Predicted centroids" width="300" align="center">
     <p align="center"><span class="caption">Fig. 4: Output from S2 - Predicted centroids</span></p>
 </div>
 
 In addition, instance segmentations will also be generated associated with each of the predicted centroids file. These can also be visualized following the instructions provided in [visualizing segmentations](visualizing_segmentations.md) (Fig. 2B).
 
 <div align="center">
-    <img src="../images/instance_segmentation.png" alt="Fig. 2B: Output from S2 - Instance segmentation" width="300" align="center">
+    <img src="images/instance_segmentation.png" alt="Fig. 2B: Output from S2 - Instance segmentation" width="300" align="center">
     <p align="center"><span class="caption">Fig. 2B: Output from S2 - Instance segmentation</span></p>
 </div>
 

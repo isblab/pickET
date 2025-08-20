@@ -30,7 +30,7 @@ inputs:
 
 `inputs` is a list (enclosed within square brackets) that can be expanded with similar entries, enclosed in curly brackets as shown above. 
 <div align="center">
-    <img src="../images/input_tomo_example.png" alt="Fig. 1: Central Z-slice from an example input tomogram" width="300" align="center">
+    <img src="images/input_tomo_example.png" alt="Fig. 1: Central Z-slice from an example input tomogram" width="300" align="center">
     <p align="center"><span class='caption'>Fig. 1: Central Z-slice from an example input tomogram. </span><br/><span class="caption_description">Tomogram obtained from CZI-10301 (Khavnekar, S. <i>et al.</i> Microscopy and Microanalysis (2023))</span> </p>
 </div>
 
@@ -42,7 +42,7 @@ inputs:
 The entries marked as `#[Optional]#` may be omitted. If you do not wish to specify these, these lines should be deleted from from the `param_file.yaml`.
 
 <div align="center">
-    <img src="../images/Zbounds.png" alt="Fig. 2: Z-slice bounds for the two steps in PickET" align="center">
+    <img src="images/Zbounds.png" alt="Fig. 2: Z-slice bounds for the two steps in PickET" align="center">
     <p align="center"><span class="caption">Fig. 2: Z-slice bounds for the two steps in PickET. </span><br><span class="caption_description"> The figure shows a slice of a tomogram along the Z-axis along with <br> annotations for the upper and lower bounds to be specified for a PickET run </span></p>
 </div>
 
