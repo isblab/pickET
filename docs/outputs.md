@@ -41,6 +41,9 @@ In addition, instance segmentations will also be generated associated with each 
     <p align="center"><span class="caption">Fig. 2B: Output from S2 - Instance segmentation</span></p>
 </div>
 
+!!! note "Note"
+    *An optimal instance segmentation is one in which, first, the particles are well separated from the background and, second, the individual particle instances are well separated from each other.*
+
 The predicted particle coordinates are based on Cartesian coordinate system that assumes the top-left-front of the tomogram to be the origin (0,0,0). These predicted coordinates can be converted to assume any other point in the tomogram as the origin and the origin adjusted predictions can be exported in `.csv` format using the [converter script](https://github.com/isblab/pickET/blob/main/accessories/offset_correct_pred_centroids_and_convert_to_csv.py) which can be run as follows:
 ```bash
 python src/picket/accessories/offset_correct_pred_centroids_and_convert_to_csv.py -i <input_fname> -o <output_dir> -n "<new_origin>"
