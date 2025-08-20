@@ -3,13 +3,8 @@ hide:
   - toc
 ---
 
-[![DOI](DOI badge)](https://zenodo.org/badge/latestdoi/{ID})  
-[![Zenodo](Zenodo badge)](https://zenodo.org/badge/latestdoi/10.5281/zenodo.16909581)
-
-<span class="todo">TODO: Update Zenodo badge</span>
- 
-
 # **PickET:** Unsupervised particle picking protocol for cryo-electron tomograms
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16909580.svg)](https://doi.org/10.5281/zenodo.16909580)   
 
 Python package to pick particles in cryo-electron tomograms in an unsupervised manner
 
