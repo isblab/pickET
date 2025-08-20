@@ -12,11 +12,11 @@ where `segmentation_type` is either `semantic_segmentation` or `instance_segment
 
 <div style="display: flex; justify-content: center;">
     <div align="center" style="margin-right: 100px;">
-        <img src="images/semantic_segmentation.png" alt="Fig. 2A: Output from S1 - Semantic segmentation" height="300" align="center">
+        <img src="/images/semantic_segmentation.png" alt="Fig. 2A: Output from S1 - Semantic segmentation" height="300" align="center">
         <p align="center"><span class="caption">Fig. 2A: Output from S1 - Semantic segmentation</span></p>
     </div>
     <div align="center">
-        <img src="images/instance_segmentation.png" alt="Fig. 2B: Output from S2 - Instance segmentation" height="300" align="center">
+        <img src="/images/instance_segmentation.png" alt="Fig. 2B: Output from S2 - Instance segmentation" height="300" align="center">
         <p align="center"><span class="caption">Fig. 2B: Output from S2 - Instance segmentation</span></p>
     </div>
 </div>
