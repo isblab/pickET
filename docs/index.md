@@ -3,8 +3,8 @@ hide:
   - toc
 ---
 
-# **PickET:** Unsupervised particle picking protocol for cryo-electron tomograms
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16909580.svg)](https://doi.org/10.5281/zenodo.16909580)   
+# **PickET:** Unsupervised particle picking protocol for cryo-electron tomograms
 
 Python package to pick particles in cryo-electron tomograms in an unsupervised manner
 

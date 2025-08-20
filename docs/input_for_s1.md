@@ -30,7 +30,7 @@ inputs:
 
 `inputs` is a list (enclosed within square brackets) that can be expanded with similar entries, enclosed in curly brackets as shown above. 
 <div align="center">
-    <img src="docs/images/input_tomo_example.png" alt="Fig. 1: Central Z-slice from an example input tomogram" width="300" align="center">
+    <img src="images/input_tomo_example.png" alt="Fig. 1: Central Z-slice from an example input tomogram" width="300" align="center">
     <p align="center"><span class='caption'>Fig. 1: Central Z-slice from an example input tomogram. </span><br/><span class="caption_description">Tomogram obtained from CZI-10301 (Khavnekar, S. <i>et al.</i> Microscopy and Microanalysis (2023))</span> </p>
 </div>
 
