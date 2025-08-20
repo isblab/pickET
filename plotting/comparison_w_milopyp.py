@@ -316,7 +316,7 @@ def main():
         ["F1-score", "Recall", "Precision"],
     )
     ax0.set_ylabel("Metrics")
-    ax0.set_xlabel("Metric values")
+    ax0.set_xlabel("Metrics on the simulated dataset")
     ax0.set_xlim(0, 1)
 
     ax1 = fig.add_subplot(gs[1, 0])

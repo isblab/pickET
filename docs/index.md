@@ -34,9 +34,7 @@ Python package to pick particles in cryo-electron tomograms in an unsupervised m
 
 ## Publication and Data
 * Shreyas Arvindekar, Omkar Golatkar, and Shruthi Viswanath, **PickET - A library of methods for unsupervised particle-picking from cryo-electron tomograms**, . <span class="todo">TODO: Add a formal citation</span>
-* Data is deposited in [Zenodo](https://www.doi.org/)  
-<span class="todo">#TODO: Update Zenodo ID</span>  
-<span class="todo">#TODO: Zenodo contains installer of TomoEED</span>
+* Data is deposited in [Zenodo](https://www.doi.org/10.5281/zenodo.16909580)  
 
 ## Information
 __Author(s):__ Shreyas Arvindekar, Shruthi Viswanath  
