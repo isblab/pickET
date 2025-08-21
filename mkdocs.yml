@@ -3,7 +3,6 @@ site_url: https://isblab.github.io/pickET/
 copyright: "Copyright &copy; 2025 Integrative Structural Biology Lab, NCBS-TIFR, Bangalore"
 repo_name: PickET
 repo_url: https://github.com/isblab/pickET.git
-# edit_uri: blob/main/docs/
 theme:
   name: material
   font:
@@ -38,6 +37,8 @@ nav:
       - Preprocessing the ground truth: preproc_gt.md
 
 markdown_extensions:
+  - md_in_html
+  - attr_list
   - admonition
   - pymdownx.details
   - pymdownx.inlinehilite

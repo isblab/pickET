@@ -11,7 +11,7 @@ For each of the chosen segmentations, identify the voxel value for the voxel cor
 !!! warning "Important" 
     *The `particle_cluster_id` may not be the same for all the segmentations generated from S1 for a given tomogram.*
 
+![Fig. 3: Obtaining the 'particle_cluster_id'](images/napari_demo.jpg){: style="height: 300px; display: block; margin-left: auto; margin-right: auto;"}
 <div align="center">
-    <img src="/images/napari_demo.jpg" alt="Fig. 3: Obtaining the 'particle_cluster_id'" height="300" align="center">
     <p align="center"><b>Fig. 3: Obtaining the "particle_cluster_id" </p>
 </div>

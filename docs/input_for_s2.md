@@ -35,8 +35,8 @@ inputs:
 !!! note "Note" 
     *These bounds define the bounds on the region from which particles will be picked. These bounds can be more relaxed than the ones used for [generating semantic segmentations](running_s1.md). See also Fig 2.* 
 
+![Fig. 2: Z-slice bounds for the two steps in PickET](images/Zbounds.png){: style="width: 600px; display: block; margin-left: auto; margin-right: auto;"}
 <div align="center">
-    <img src="/images/Zbounds.png" alt="Fig. 2: Z-slice bounds for the two steps in PickET" width="600" align="center">
     <p align="center"><b>Fig. 2:</b> Z-slice bounds for the two steps in PickET </p>
 </div>  
 
