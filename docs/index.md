@@ -8,7 +8,7 @@ hide:
 
 Python package to pick particles in cryo-electron tomograms in an unsupervised manner
 
-![PickET graphical abstract](images/F0_Graphical_abstract.png){: style="width: 300px; display: block; margin-left: auto; margin-right: auto;"}
+![PickET graphical abstract](images/F0_Graphical_abstract.png){: style="width: 600px; display: block; margin-left: auto; margin-right: auto;"}
 
 
 ## Table of contents
