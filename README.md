@@ -11,7 +11,7 @@ Python package to pick particles in cryo-electron tomograms in an unsupervised m
 A detailed documentation describing the PickET library can be found [here](https://isblab.github.io/pickET/).
 
 ## Publication and Data
-* Shreyas Arvindekar, Omkar Golatkar, and Shruthi Viswanath, **PickET - A library of methods for unsupervised particle-picking from cryo-electron tomograms**, biorXiv, 2025. #TODO DOI
+* Arvindekar, S., Golatkar, O., & Viswanath, S. (2025). **PickET: An unsupervised method for localizing macromolecules in cryo-electron tomograms**. *bioRxiv*. https://doi.org/10.1101/2025.08.20.671250
 * Data is deposited in [Zenodo](https://www.doi.org/10.5281/zenodo.16909580) 
 
 ## Information
@@ -21,4 +21,4 @@ __License:__ [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
 International License.  
 __Testable:__ Yes  
-__Publications:__  Arvindekar, S., _et. al._ PickET - A library of methods for unsupervised particle-picking from cryo-electron tomograms, biorXiv, 2025. #TODO DOI
+__Publications:__  Arvindekar, S., Golatkar, O., & Viswanath, S. (2025). **PickET: An unsupervised method for localizing macromolecules in cryo-electron tomograms**. *bioRxiv*. https://doi.org/10.1101/2025.08.20.671250
