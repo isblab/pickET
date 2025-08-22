@@ -4,8 +4,9 @@
 Python package to pick particles in cryo-electron tomograms in an unsupervised manner
 
 <div align="center">
-    <img src="images/F0 Graphical abstract.png" alt="PickET graphical abstract" width="600" align="center">
+    <img src="docs/images/F0_Graphical_abstract.png" alt="PickET graphical abstract" width="600" align="center">
 </div>
+
 
 A detailed documentation describing the PickET library can be found [here](https://isblab.github.io/pickET/).
 
