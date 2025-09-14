@@ -1,0 +1,1388 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://isblab.github.io/pickET/how_we_ran_milopyp/">
+      
+      
+        <link rel="prev" href="../evaluations/">
+      
+      
+        <link rel="next" href="../preproc_gt/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+    
+    
+      
+        <title>Comparison with MiLoPYP - PickET</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/todos.css">
+    
+      <link rel="stylesheet" href="../css/figure_caption.css">
+    
+      <link rel="stylesheet" href="../stylesheets/general.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-we-ran-milopyp-pattern-mining-mi-and-particle-localization-lo-python-py-pipeline-p" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PickET" class="md-header__button md-logo" aria-label="PickET" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PickET
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Comparison with MiLoPYP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/isblab/pickET.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PickET
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PickET" class="md-nav__button md-logo" aria-label="PickET" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PickET
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/isblab/pickET.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PickET
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage_instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usage instructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Generating semantic segmentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Generating semantic segmentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input_for_s1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs for semantic segmentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running_s1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Performing semantic segmentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Visualizations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Visualizations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualizing_segmentations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visualizing segmentations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obtaining_particle_cluster_id/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtaining particle cluster ID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Localizing particles
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Localizing particles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input_for_s2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs for localizing particles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running_s2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Performing particle localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Outputs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Evaluations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Evaluations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evaluating PickET
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Comparison with MiLoPYP
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comparison with MiLoPYP
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-new-conda-environment-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create a new conda environment [optional, but recommended]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-clone-the-cet_pick-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Clone the cet_pick repo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-the-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install the requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-install-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Install PyTorch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-install-cet_pick-package-and-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Install cet_pick package and dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-tutorial-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download tutorial dataset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prepare-input-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Prepare input file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-train-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Train the model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-inference-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Inference step
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-2d-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 2D visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5a-convert-the-predicted-coordinates-to-a-yaml-file-similar-to-one-that-picket-workflow-generates" class="md-nav__link">
+    <span class="md-ellipsis">
+      5A. Convert the predicted coordinates to a yaml file similar to one that PickET workflow generates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6a-setting-up-the-environment-for-the-interactive-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      6A. Setting up the environment for the interactive steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-3d-interactive-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 3D interactive session
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 3D interactive session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-load-local-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Load local images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-the-interactive-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Start the interactive session
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Accessories
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Accessories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preproc_gt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Preprocessing the ground truth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-new-conda-environment-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create a new conda environment [optional, but recommended]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-clone-the-cet_pick-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Clone the cet_pick repo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-the-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install the requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-install-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Install PyTorch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-install-cet_pick-package-and-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Install cet_pick package and dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-tutorial-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download tutorial dataset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prepare-input-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Prepare input file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-train-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Train the model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-inference-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Inference step
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-2d-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 2D visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5a-convert-the-predicted-coordinates-to-a-yaml-file-similar-to-one-that-picket-workflow-generates" class="md-nav__link">
+    <span class="md-ellipsis">
+      5A. Convert the predicted coordinates to a yaml file similar to one that PickET workflow generates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6a-setting-up-the-environment-for-the-interactive-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      6A. Setting up the environment for the interactive steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-3d-interactive-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 3D interactive session
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 3D interactive session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-load-local-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Load local images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-the-interactive-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Start the interactive session
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="how-we-ran-milopyp-pattern-mining-mi-and-particle-localization-lo-python-py-pipeline-p">How we ran MiLoPYP (Pattern Mining (Mi) and particle Localization (Lo) PYthon (PY) Pipeline (P))<a class="headerlink" href="#how-we-ran-milopyp-pattern-mining-mi-and-particle-localization-lo-python-py-pipeline-p" title="Permanent link">&para;</a></h1>
+<p>This documentation takes content from the <a href="https://nextpyp.app/milopyp/">official MiLoPYP tutorial</a>  </p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h4 id="1-create-a-new-conda-environment-optional-but-recommended">1. Create a new conda environment [optional, but recommended]<a class="headerlink" href="#1-create-a-new-conda-environment-optional-but-recommended" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>MiLoPYP<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8
+</span></code></pre></div>
+<p>And activate the environment.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>MiLoPYP
+</span></code></pre></div></p>
+<h4 id="2-clone-the-cet_pick-repo">2. Clone the cet_pick repo<a class="headerlink" href="#2-clone-the-cet_pick-repo" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/nextpyp/cet_pick.git
+</span></code></pre></div>
+<h4 id="3-install-the-requirements">3. Install the requirements<a class="headerlink" href="#3-install-the-requirements" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>cet_pick/requirements.txt
+</span></code></pre></div>
+<h4 id="4-install-pytorch">4. Install PyTorch<a class="headerlink" href="#4-install-pytorch" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio
+</span></code></pre></div>
+<h4 id="5-install-cet_pick-package-and-dependencies">5. Install cet_pick package and dependencies<a class="headerlink" href="#5-install-cet_pick-package-and-dependencies" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>cet_pick
+</span></code></pre></div>
+<hr />
+<h4 id="download-tutorial-dataset">Download tutorial dataset<a class="headerlink" href="#download-tutorial-dataset" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>wget<span class="w"> </span>https://nextpyp.app/files/data/milopyp_globular_tutorial.tbz
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>tar<span class="w"> </span>xvfz<span class="w"> </span>milopyp_globular_tutorial.tbz
+</span></code></pre></div>
+<p>This dataset contains 5 tomograms named as <code>tilt*.rec</code>
+Alternatively, any of the existing datasets can be used as described below:</p>
+<h2 id="usage-instructions">Usage instructions<a class="headerlink" href="#usage-instructions" title="Permanent link">&para;</a></h2>
+<p>There are two steps in their workflow:<br />
+1. Cellular Content Exploration
+2. Particle Refined Localization  </p>
+<p>For comparison with the PickET output, I have only used the first (Cellular Content Exploration) step.</p>
+<h4 id="1-prepare-input-file">1. Prepare input file<a class="headerlink" href="#1-prepare-input-file" title="Permanent link">&para;</a></h4>
+<p>You need to make a <code>.txt</code> input file. Since we are working with only the reconstructed tomograms, we only need to make the following file:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>image_name   rec_path
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>tomo1   path_to_rec_1
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>tomo2   path_to_rec_2
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>...
+</span></code></pre></div></p>
+<p>where <code>path_to_rec_1</code> is the path to a reconstructed tomogram. More than one tomogram can be processed at a time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>This is a tab separated file.</em></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Although tilt-series files are available for tutorial dataset, I am assuming that we don't have access to these as for all the tomograms in our dataset, there are no tilt-series files available</em></p>
+</div>
+<p>Place this file in a <code>data/</code> directory. Ensure to name the directory <code>data</code>. But whenever pointing to this file in the subsequent steps, you don't need to mention <code>data/</code>. </p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p><em>Note that the scripts will automatically add this to the prefix whenever you open this file from their scripts.</em></p>
+</div>
+<h4 id="2-train-the-model">2. Train the model<a class="headerlink" href="#2-train-the-model" title="Permanent link">&para;</a></h4>
+<p>Again, I used the <code>3d</code> mode of the workflow assuming that we don't have access to the tilt-series. The model was trained on all the tomograms in a given dataset and the predictions were also performed on the entire dataset.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python<span class="w"> </span>cet_pick/cet_pick/simsiam_main.py<span class="w"> </span>simsiam3d<span class="w"> </span>--num_epochs<span class="w"> </span><span class="m">20</span><span class="w"> </span>--exp_id<span class="w"> </span>test_sample<span class="w"> </span>--bbox<span class="w"> </span><span class="m">36</span><span class="w"> </span>--dataset<span class="w"> </span>simsiam3d<span class="w"> </span>--arch<span class="w"> </span>simsiam2d_18<span class="w"> </span>--lr<span class="w"> </span>1e-3<span class="w"> </span>--train_img_txt<span class="w"> </span>sample_train_explore_img.txt<span class="w"> </span>--batch_size<span class="w"> </span><span class="m">256</span><span class="w"> </span>--val_intervals<span class="w"> </span><span class="m">20</span><span class="w"> </span>--save_all<span class="w"> </span>--gauss<span class="w"> </span><span class="m">0</span>.8<span class="w"> </span>--dog<span class="w"> </span><span class="m">3</span>,5<span class="w"> </span>--order<span class="w"> </span>xyz
+</span></code></pre></div></p>
+<p>where <code>sample_train_explore_img.txt</code> is the tab separated file that we made above. I did not tweak with other hyperparameters. You can change the value of <code>--exp_id</code> to give a name to your dataset. </p>
+<h4 id="3-inference-step">3. Inference step<a class="headerlink" href="#3-inference-step" title="Permanent link">&para;</a></h4>
+<p>Again, I used the <code>3d</code> mode of the workflow assuming that we don't have access to the tilt-series.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python<span class="w"> </span>cet_pick/cet_pick/simsiam_test_hm_3d.py<span class="w"> </span>simsiam3d<span class="w"> </span>--exp_id<span class="w"> </span>test_sample<span class="w"> </span>--bbox<span class="w"> </span><span class="m">36</span><span class="w"> </span>--dataset<span class="w"> </span>simsiam3d<span class="w"> </span>--arch<span class="w"> </span>simsiam2d_18<span class="w"> </span>--test_img_txt<span class="w"> </span>sample_train_explore_img.txt<span class="w"> </span>--load_model<span class="w"> </span>exp/simsiam3d/test_sample/model_20.pth<span class="w"> </span>--gauss<span class="w"> </span><span class="m">0</span>.8<span class="w"> </span>--dog<span class="w"> </span><span class="m">3</span>,5<span class="w"> </span>--order<span class="w"> </span>xyz
+</span></code></pre></div></p>
+<p>where <code>sample_train_explore_img.txt</code> is the tab separated file that we made above. Note that the inference may also be performed on other tomograms using the same trained model.</p>
+<h4 id="4-2d-visualization">4. 2D visualization<a class="headerlink" href="#4-2d-visualization" title="Permanent link">&para;</a></h4>
+<p>This step also perform UMAP and clustering. This step is needed to get the coordinates of predicted particles.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>python cet_pick/cet_pick/plot_2d.py --input exp/simsiam2d3d/test_sample/all_output_info.npz --n_cluster 48 --num_neighbor 40 --mode umap --path exp/simsiam2d3d/test_sample/ --min_dist_vis 1.3e-3 --gpus &#39;-1&#39;
+</span></code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>All the output files are stored in a directory called <code>exp</code>. This directory will be automatically generated.</em></p>
+</div>
+<h4 id="5a-convert-the-predicted-coordinates-to-a-yaml-file-similar-to-one-that-picket-workflow-generates">5A. Convert the predicted coordinates to a yaml file similar to one that PickET workflow generates<a class="headerlink" href="#5a-convert-the-predicted-coordinates-to-a-yaml-file-similar-to-one-that-picket-workflow-generates" title="Permanent link">&para;</a></h4>
+<p>This is a custom script that I wrote to evaluate coordinates predicted by MiLoPYP using our evaluation scripts.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>python<span class="w"> </span>pickET/accessories/convert_milopyp_preds_to_yaml.py<span class="w"> </span>../milopyp/tomotwin_8tomo_r1/exp/simsiam3d/tomotwin_8r1/all_output_info.npz<span class="w"> </span>../milopyp/tomotwin_8tomo_r1/data/tomotwin_input.txt<span class="w">  </span>/data2/shreyas/mining_tomograms/working/s1_clean_results_picket_v2/tomotwin_8tomos_r1_milopyp_preds/
+</span></code></pre></div></p>
+<p>This script takes the output from MiLoPYP as input along with the input .txt file used to run MiLoPYP and the output directory where the newly generated file should be saved. The output is a yaml file in a form similar to the output from PickET. It can then be visualized with the <code>see_centroids.py</code> from PickET accessories.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong><em>This is where I stopped when I was comparing the MiLoPYP and PickET predictions.</em></strong></p>
+</div>
+<hr />
+<h4 id="6a-setting-up-the-environment-for-the-interactive-steps">6A. Setting up the environment for the interactive steps<a class="headerlink" href="#6a-setting-up-the-environment-for-the-interactive-steps" title="Permanent link">&para;</a></h4>
+<p>MiLoPYP uses <a href="https://docs.arize.com/phoenix">Arize-AI's Phoenix library</a> for interactive visualization in 3D. Note that the Phoenix library installed in the MiLoPYP conda environment will likely now work due to some broken Numpy dependencies. I had created a separate <code>venv</code> environment for <code>Phoenix</code> outside the MiLoPYP conda environment using the following steps:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>conda<span class="w"> </span>deactivate
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">cd</span><span class="w"> </span>~/Projects/mining_tomograms/environments
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>mkdir<span class="w"> </span>phoenix
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>phoenix
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nb">source</span><span class="w"> </span>~/Projects/mining_tomograms/environments/phoenix/bin/activate
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>pip<span class="w"> </span>install<span class="w"> </span>arize-phoenix
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>pip<span class="w"> </span>install<span class="w"> </span>arize-phoenix<span class="o">[</span>embeddings<span class="o">]</span>
+</span></code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Make sure to deactivate the MiLoPYP conda environment and activate the phoenix venv environment before running the interactive steps.</em></p>
+</div>
+<h4 id="7-3d-interactive-session">7. 3D interactive session<a class="headerlink" href="#7-3d-interactive-session" title="Permanent link">&para;</a></h4>
+<h5 id="1-load-local-images">1. Load local images<a class="headerlink" href="#1-load-local-images" title="Permanent link">&para;</a></h5>
+<p>Loading local images generated by <code>plot_2d.py</code> in the directory <code>exp/simsiam3d/test_sample/imgs/</code> onto a server by running the following command:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">7000</span>
+</span></code></pre></div></p>
+<h5 id="2-start-the-interactive-session">2. Start the interactive session<a class="headerlink" href="#2-start-the-interactive-session" title="Permanent link">&para;</a></h5>
+<p>Deactivate the MiLoPYP conda environment and activate the <code>phoenix</code> venv environment made in step 6A by running the following command:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>conda<span class="w"> </span>deactivate
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">source</span><span class="w"> </span>~/Projects/mining_tomograms/environments/phoenix/bin/activate
+</span></code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p><em>Modify the <code>cet_pick/cet_pick/phoenix_visualization.py</code> as follows:</em></p>
+<p>First, import time module by adding the following line at the top of the script:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span></code></pre></div></p>
+<p>Then, change line 78 in  from:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>    <span class="n">session</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">launch_app</span><span class="p">(</span><span class="n">train_ds</span><span class="p">)</span>
+</span></code></pre></div>
+to
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Launching app&quot;</span><span class="p">)</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="n">session</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">launch_app</span><span class="p">(</span><span class="n">train_ds</span><span class="p">)</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Phoenix UI launched at: </span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Press Ctrl+C to stop the server and exit.&quot;</span><span class="p">)</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    <span class="c1"># Keep the script running indefinitely</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Sleep for a short duration to prevent busy-waiting</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Phoenix server stopped by user (Ctrl+C detected).&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
+</div>
+<p>Now, in a new terminal tab, activate the <code>phoenix</code> venv environment and start the Phoenix server by running the following command:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">source</span><span class="w"> </span>~/Projects/mining_tomograms/environments/phoenix/bin/activate
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>phoenix<span class="w"> </span>serve
+</span></code></pre></div></p>
+<p>Then, go back to the previous terminal tab and run the following python script to start the interactive session:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>python<span class="w"> </span>cet_pick/cet_pick/phoenix_visualization.py<span class="w"> </span>--input<span class="w"> </span>exp/simsiam3d/test_sample/interactive_info_parquet.gzip
+</span></code></pre></div></p>
+<p>In the terminal output, look for the following text: 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>To view the Phoenix app in you browser, visit http://localhost:xxxx
+</span></code></pre></div></p>
+<p>Where, <code>xxxx</code> corresponds to the port on which Phoenix app is hosted. Open the link in a browser window.
+Follow the instructions on the <a href="https://nextpyp.app/milopyp/explore/#3d-interactive-session">MiLoPYP tutorial</a> to select embeddings. You can then download the coordinates of the particles corresponding to the selected embeddings in .parquet format.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Integrative Structural Biology Lab, NCBS-TIFR, Bangalore
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
