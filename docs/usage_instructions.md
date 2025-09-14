@@ -34,8 +34,8 @@ In the second step (S2, particle localization), particle segmentations are obtai
 
 !!! note 
     *PickET is best run on a large computing node (a local workstation or a remote computing cluster, if you have access to high-performance computing). Otherwise, the following options can be adjusted to run it on the available memory.  
-       1. The central Z-slab can be made narrower for fitting the clusterer by setting a `lower_z-slice_limit` and `upper_z-slice_limit`.
-       2. The `max_num_neighborhoods_for_fitting` can be decreased. 
+       1. The central Z-slab can be made narrower for fitting the clusterer by setting a `lower_z-slice_limit` and `upper_z-slice_limit`.  
+       2. The `max_num_neighborhoods_for_fitting` can be decreased.  
     Note that these changes need to be made only for the S1 stage (feature extraction and clustering) and not S2 stage.*
 
 <br/>
