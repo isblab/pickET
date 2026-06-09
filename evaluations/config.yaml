@@ -1,0 +1,84 @@
+experiment:
+  name: tutorial_80S
+
+dataset:
+  name: tutorial_dataset
+  path: ../tm_tutorial/dataset
+  type: tutorial
+  
+particle:
+  type: 80S_ribosome
+  template_matching_diameter_angstrom: 300
+  extraction_diameter_angstrom: auto
+  pdb: 
+
+template:
+  input: ../tm_tutorial/templates/EMD-2938.map
+  
+ground_truth:
+  directory: ../tm_tutorial/dataset
+  
+conversion:
+  particle_name: ribosome
+
+template_generation:
+  input_voxel_size: auto
+  invert: true
+  output_name: template.mrc
+  
+template_mask:
+  output_name: mask.mrc
+
+template_matching:
+  rotational_symmetry: 1
+  random_phase_correction: false
+  
+search_region:
+  enabled: false
+  x: [0,0]
+  y: [0,0]
+  z: [0,0]
+  
+tomogram_mask:
+  enabled: true
+  directory: ../tm_tutorial/picket_masks
+
+ctf:
+  enabled: true
+  mode: constant 
+  defocus: 3
+  amplitude_contrast: 0.08
+  spherical_aberration: 2.7
+  voltage: 200
+  tomogram_ctf_model: phase-flip
+  per_tilt_weighting: false
+  
+tilt_angles:
+  min: -60
+  max: 60
+
+compute:
+  gpu_ids: [0]
+  volume_split:
+    x: 1
+    y: 1
+    z: 1
+    
+execution:
+  generate_template: false
+  generate_mask: false
+  run_template_matching: false
+  run_extraction: false
+  run_roc: false
+  run_conversion: false
+  run_evaluation: true
+  run_benchmark_summary: true
+  
+extraction:
+  number_of_particles: 10000
+  cutoff: auto
+  
+roc:
+  number_of_particles: 800
+  bins: 16
+  crop_plot: true
