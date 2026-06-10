@@ -158,7 +158,7 @@ print(
     f"Extraction cutoff: "
     f"{config['extraction']['cutoff']}"
 )
-
+#TODO add args for PDB
 print(
     "Low pass: 40 A"
 )
@@ -189,7 +189,7 @@ results_dir = os.path.join(
 os.makedirs(
     results_dir,
     exist_ok=True
-)
+) #TODO crosscheck 
 
 print(
     f"\nResults directory: "
