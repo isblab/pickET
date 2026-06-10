@@ -5,7 +5,7 @@ import shutil
 from modules.config import load_config
 
 from modules.metadata import (
-build_dataset
+get_metadata
 )
 
 from modules.template import (
@@ -176,14 +176,11 @@ experiment_dir = (
     config["experiment"]["name"]
 )
 
-os.mkdir(
-    experiment_dir,
-    exist_ok=True
-) #TODO crosscheck 
+os.mkdir(experiment_dir) #TODO crosscheck 
 
 print(
     f"\nExperiment directory: "
-    f"{results_dir}"
+    f"{experiment_dir}"
 )
 
 template_dir = os.path.join(
@@ -191,10 +188,7 @@ template_dir = os.path.join(
     "template"
 )
 
-os.mkdir(
-    template_dir,
-    exist_ok=True
-)
+os.mkdir(template_dir)
 
 # --------------------------------------------------
 # DATASET DISCOVERY
@@ -362,20 +356,12 @@ for tomo in dataset:
         f"{tomo['dose']}"
     )
 
-    if tomo["tilt_info"]["mode"] == "rawtlt":
-
+    if tomo['rawtlt'] is None:
         print(
-            f"  Tilt Angles: "
-            f"{tomo['tilt_info']['file']}"
-        )
-
-    else:
-
-        print(
-            f"  Tilt Range: "
-            f"{tomo['tilt_info']['min']} "
+            f" Tilt Range: "
+            f"{config['tilt_angles']['min']} "
             f"to "
-            f"{tomo['tilt_info']['max']}"
+            f"{config['tilt_angles']['max']}"
         )
 
     print()
@@ -853,11 +839,11 @@ for tomo in dataset:
         )
 
 # --------------------------------------------------
-# CONVERSION
+# STAR TO YAML PREDICTION FILE CONVERSION
 # --------------------------------------------------
 
 print(
-    "\n=== CONVERSION ===\n"
+    "\n=== STAR TO YAML PREDICTION FILE CONVERSION ===\n"
 )
 
 for tomo in dataset:
