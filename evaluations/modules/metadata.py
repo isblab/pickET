@@ -58,21 +58,6 @@ def find_mrc_files(dataset_path):
 
     return sorted(mrc_files)
 
-def get_tilt_information(mrc_path, config):
-
-    if sidecars["rawtlt"] is not None:
-
-        return {
-            "mode": "rawtlt",
-            "file": sidecars["rawtlt"]
-        }
-
-    return {
-        "mode": "range",
-        "min": config["tilt_angles"]["min"],
-        "max": config["tilt_angles"]["max"]
-    }
-
 def discover_sidecar_files(mrc_path):
 
     base = os.path.splitext(mrc_path)[0]
@@ -135,8 +120,6 @@ def get_metdata(dataset_path, config):
             "rawtlt": sidecars["rawtlt"],
             "defocus": sidecars["defocus"],
             "dose": sidecars["dose"],
-            "tilt_info": get_tilt_information(
-                sidecars, config),
             "mask_path": mask_path
         }
 
