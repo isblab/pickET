@@ -4,15 +4,12 @@ import mrcfile
 def fix_tutorial_voxel_headers(
     dataset_path
 ):
-
     for fname in os.listdir(
         dataset_path
     ):
-
         if not (
             fname.endswith(".mrc")
         ):
-
             continue
 
         mrc_path = os.path.join(
@@ -47,11 +44,8 @@ def get_tomogram_shape(mrc_path):
 def find_mrc_files(dataset_path):
 
     mrc_files = []
-
     for fname in os.listdir(dataset_path):
-
         if fname.endswith(".mrc"):
-
             mrc_files.append(
                 os.path.join(dataset_path, fname)
             )
@@ -61,7 +55,6 @@ def find_mrc_files(dataset_path):
 def discover_sidecar_files(mrc_path):
 
     base = os.path.splitext(mrc_path)[0]
-
     files = {
         "rawtlt": None,
         "defocus": None,
@@ -94,7 +87,6 @@ def get_metdata(dataset_path, config):
         )
 
     dataset = []
-
     mrc_files = find_mrc_files(dataset_path)
 
     for mrc_file in mrc_files:
