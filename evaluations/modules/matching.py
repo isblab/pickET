@@ -61,13 +61,13 @@ def build_tm_command(
     # Tilt angles
     # ---------------------------------
 
-    if tomo["tilt_info"]["mode"] == "rawtlt":
+    if tomo["rawtlt"] is not None:
 
         cmd.extend([
 
             "-a",
 
-            tomo["tilt_info"]["file"]
+            tomo["rawtlt"]
 
         ])
 
@@ -78,11 +78,11 @@ def build_tm_command(
             "-a",
 
             str(
-                tomo["tilt_info"]["min"]
+                config["tilt_angles"]["min"]
             ),
 
             str(
-                tomo["tilt_info"]["max"]
+                config["tilt_angles"]["max"]
             )
 
         ])
