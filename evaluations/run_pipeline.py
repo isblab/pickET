@@ -172,28 +172,28 @@ print(
 # RESULTS DIRECTORY
 # --------------------------------------------------
 
-dataset_name = (
-    config["dataset"]["name"]
+experiment_dir = (
+    config["experiment"]["name"]
 )
 
-particle_type = (
-    config["particle"]["type"]
-)
-
-results_dir = os.path.join(
-    "results",
-    dataset_name,
-    particle_type
-)
-
-os.makedirs(
-    results_dir,
+os.mkdir(
+    experiment_dir,
     exist_ok=True
 ) #TODO crosscheck 
 
 print(
-    f"\nResults directory: "
+    f"\nExperiment directory: "
     f"{results_dir}"
+)
+
+template_dir = os.path.join(
+    experiment_dir,
+    "template"
+)
+
+os.mkdir(
+    template_dir,
+    exist_ok=True
 )
 
 # --------------------------------------------------
@@ -202,7 +202,7 @@ print(
 
 dataset_path = config["dataset"]["path"]
 
-dataset = build_dataset(
+dataset = get_metadata(
     dataset_path,
     config
 )
@@ -326,7 +326,7 @@ for tomo in dataset:
     )
 
     tomo_results_dir = os.path.join(
-        results_dir,
+        experiment_dir,
         basename
     )
 
@@ -385,7 +385,7 @@ for tomo in dataset:
 # --------------------------------------------------
 
 template_output = os.path.join(
-    results_dir,
+    template_dir,
     config["template_generation"]["output_name"]
 )
 
@@ -458,7 +458,7 @@ else:
 # --------------------------------------------------
 
 mask_output = os.path.join(
-    results_dir,
+    template_dir,
     config["template_mask"]["output_name"]
 )
 
@@ -514,7 +514,7 @@ for tomo in dataset:
     )
 
     tomo_results_dir = os.path.join(
-        results_dir,
+        experiment_dir,
         basename
     )
 
@@ -574,7 +574,7 @@ for tomo in dataset:
     )
 
     tomo_results_dir = os.path.join(
-        results_dir,
+        experiment_dir,
         basename
     )
 
@@ -719,7 +719,7 @@ for tomo in dataset:
     )
 
     tomo_results_dir = os.path.join(
-        results_dir,
+        experiment_dir,
         basename
     )
 
@@ -871,7 +871,7 @@ for tomo in dataset:
     )
 
     tomo_results_dir = os.path.join(
-        results_dir,
+        experiment_dir,
         basename
     )
 
@@ -1016,7 +1016,7 @@ for tomo in dataset:
         )
 
     tomo_results_dir = os.path.join(
-        results_dir,
+        experiment_dir,
         basename
     )
 
@@ -1141,7 +1141,7 @@ if config["execution"][
 
         dataset,
 
-        results_dir
+        experiment_dir
 
     )
 
@@ -1149,7 +1149,7 @@ if config["execution"][
 
     csv_file = os.path.join(
 
-        results_dir,
+        experiment_dir,
 
         "benchmark_summary.csv"
 
@@ -1175,7 +1175,7 @@ if config["execution"][
 
     summary_file = os.path.join(
 
-        results_dir,
+        experiment_dir,
 
         "benchmark_statistics.csv"
 
@@ -1197,7 +1197,7 @@ if config["execution"][
 
         df,
 
-        results_dir
+        experiment_dir
 
     )
 
@@ -1205,7 +1205,7 @@ if config["execution"][
 
         df,
 
-        results_dir
+        experiment_dir
 
     )
 
