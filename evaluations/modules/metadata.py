@@ -60,8 +60,6 @@ def find_mrc_files(dataset_path):
 
 def get_tilt_information(mrc_path, config):
 
-    sidecars = discover_sidecar_files(mrc_path)
-
     if sidecars["rawtlt"] is not None:
 
         return {
@@ -96,7 +94,7 @@ def discover_sidecar_files(mrc_path):
 
     return files
 
-def build_dataset(dataset_path, config):
+def get_metdata(dataset_path, config):
 
     if config["dataset"][
         "type"
@@ -123,38 +121,23 @@ def build_dataset(dataset_path, config):
         mask_path = None
 
         if config["tomogram_mask"]["enabled"]:
-
             mask_path = os.path.join(
-
                 config["tomogram_mask"]["directory"],
-
                 f"{basename}_mask.mrc"
-
             )
 
         sidecars = discover_sidecar_files(mrc_file)
 
         tomogram = {
-
             "path": mrc_file,
-
             "shape": get_tomogram_shape(mrc_file),
-
             "voxel_size": get_voxel_size(mrc_file),
-
             "rawtlt": sidecars["rawtlt"],
-
             "defocus": sidecars["defocus"],
-
             "dose": sidecars["dose"],
-
             "tilt_info": get_tilt_information(
-                mrc_file,
-                config
-            ),
-
+                sidecars, config),
             "mask_path": mask_path
-
         }
 
         dataset.append(tomogram)
