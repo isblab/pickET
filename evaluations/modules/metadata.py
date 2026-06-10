@@ -72,19 +72,15 @@ def discover_sidecar_files(mrc_path):
 
     return files
 
-def get_metdata(dataset_path, config):
+def get_metadata(dataset_path, config):
 
     if config["dataset"][
         "type"
     ] == "tutorial":
 
-        print(
-            "\nApplying tutorial voxel-size correction..."
-        )
+        print("\nApplying tutorial voxel-size correction...")
 
-        fix_tutorial_voxel_headers(
-            dataset_path
-        )
+        fix_tutorial_voxel_headers(dataset_path)
 
     dataset = []
     mrc_files = find_mrc_files(dataset_path)
@@ -116,9 +112,5 @@ def get_metdata(dataset_path, config):
         }
 
         dataset.append(tomogram)
-
-        print(
-            f"{basename} --> {mask_path}"
-        )
 
     return dataset
