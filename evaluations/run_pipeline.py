@@ -30,9 +30,8 @@ from modules.roc import (
     run_roc_command
 )
 
-from modules.conversion import run_conversion
-
 from modules.evaluation import (
+    run_conversion,
     run_evaluation,
     get_threshold_angstrom
 )
