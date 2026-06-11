@@ -4,6 +4,7 @@ import subprocess
 def build_roc_command(
     job_file,
     config,
+    extraction_particle_diameter,
     ignore_tomogram_mask = False
 ):
 
@@ -19,6 +20,9 @@ def build_roc_command(
             config["roc"]
                   ["number_of_particles"]
         ),
+
+        "--particle-diameter",
+        str(extraction_particle_diameter),
 
         "--bins",
         str(
