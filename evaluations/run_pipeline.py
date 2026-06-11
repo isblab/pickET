@@ -163,7 +163,7 @@ if config["execution"]["generate_template"]:
     print(f"\nTemplate generated: {template_output}")
 
 else:
-print(f"\nSkipping template generation. Using existing template: {template_output}")
+    print(f"\nSkipping template generation. Using existing template: {template_output}")
 
 # --------------------------------------------------
 # MASK GENERATION
@@ -215,8 +215,8 @@ for tomo in dataset:
         tomo_results_dir
     )
 
-    print(f"\nGenerated TM command:\n {" ".join(cmd)}")
-    print()
+    print("\nGenerated TM command:")
+    print(" ".join(cmd))
 
     if config["execution"]["run_template_matching"]:
         run_tm_command(cmd)
@@ -257,10 +257,10 @@ for tomo in dataset:
         ignore_tomogram_mask = False
     )
     
-    print(f"\nGenerated Baseline Extraction Command:\n {" ".join(baseline_cmd)}")
-    print(f"\nGenerated PickET Extraction Command:\n {" ".join(picket_cmd)}")
-
-    print()
+    print("\nGenerated Baseline Extraction Command:")
+    print(" ".join(baseline_cmd))
+    print("\nGenerated PickET Extraction Command:") 
+    print(" ".join(picket_cmd))
 
     if config["execution"]["run_extraction"]:
         run_extraction_command(baseline_cmd)
@@ -302,10 +302,10 @@ for tomo in dataset:
         ignore_tomogram_mask=False
     )
 
-    print(f"\nGenerated Baseline ROC Command:\n {" ".join(baseline_cmd)}")
-    print(f"\nGenerated PickET ROC Command:\n {" ".join(picket_cmd)}")
-
-    print()
+    print(f"\nGenerated Baseline ROC Command:") 
+    print(" ".join(baseline_cmd))
+    print(f"\nGenerated PickET ROC Command:") 
+    print(" ".join(picket_cmd))
 
     if config["execution"]["run_roc"]:
         baseline_log = os.path.join(tomo_results_dir,"roc.log")
