@@ -99,7 +99,7 @@ def rename_roc_outputs(
 
 
 def main():
- 
+
     if len(sys.argv) != 2:
         print(
             "Usage: python run_pipeline.py config.yaml"
@@ -115,7 +115,7 @@ def main():
     # --------------------------------------------------
 
     experiment_dir = config["experiment"]["name"]
-    os.mkdir(experiment_dir) 
+    os.mkdir(experiment_dir)
     template_dir = os.path.join(experiment_dir, "template")
     os.mkdir(template_dir)
 
@@ -143,8 +143,8 @@ def main():
             "or pdb must be provided."
         )
 
-    extraction_particle_diameter = config["particle"]
-        ["extraction_diameter_angstrom"]
+    extraction_particle_diameter = config["particle][
+        "extraction_diameter_angstrom"]
 
     if extraction_particle_diameter is None:
         extraction_particle_diameter = tm_particle_diameter
@@ -192,7 +192,7 @@ def main():
         template_input = config["template"]["input"]
         template_voxel_size = get_template_voxel_size(template_input)
         tomogram_voxel_size = dataset[0]["voxel_size"]
-        
+
         generate_template(
             template_input,
             template_output,
@@ -303,7 +303,7 @@ def main():
 
         print("\nGenerated Baseline Extraction Command:")
         print(" ".join(baseline_cmd))
-        print("\nGenerated PickET Extraction Command:") 
+        print("\nGenerated PickET Extraction Command:")
         print(" ".join(picket_cmd))
 
         if config["execution"]["run_extraction"]:
@@ -313,7 +313,7 @@ def main():
             rename_extraction_outputs(tomo_results_dir, basename, "picket")
 
         else:
-           print("Extraction disabled.")
+            print("Extraction disabled.")
 
     # --------------------------------------------------
     # ROC
@@ -346,9 +346,9 @@ def main():
             ignore_tomogram_mask=False
         )
 
-        print(f"\nGenerated Baseline ROC Command:") 
+        print(f"\nGenerated Baseline ROC Command:")
         print(" ".join(baseline_cmd))
-        print(f"\nGenerated PickET ROC Command:") 
+        print(f"\nGenerated PickET ROC Command:")
         print(" ".join(picket_cmd))
 
         if config["execution"]["run_roc"]:
@@ -380,11 +380,15 @@ def main():
         )
 
         tomo_results_dir = os.path.join(experiment_dir, basename)
-        baseline_star = os.path.join(tomo_results_dir, "baseline_particles.star")
-        baseline_yaml = os.path.join(tomo_results_dir, "baseline_prediction.yaml")
-        picket_star = os.path.join(tomo_results_dir, "picket_particles.star")
-        picket_yaml = os.path.join(tomo_results_dir, "picket_prediction.yaml")
-    
+        baseline_star = os.path.join(
+            tomo_results_dir, "baseline_particles.star")
+        baseline_yaml = os.path.join(
+            tomo_results_dir, "baseline_prediction.yaml")
+        picket_star = os.path.join(
+            tomo_results_dir, "picket_particles.star")
+        picket_yaml = os.path.join(
+            tomo_results_dir, "picket_prediction.yaml")
+
         if config["execution"]["run_conversion"]:
             run_conversion(
                 baseline_star,
@@ -424,7 +428,7 @@ def main():
         )
 
         ground_truth_ndjson = os.path.join(
-            config["ground_truth"]["directory"], 
+            config["ground_truth"]["directory"],
             f"{basename}.ndjson"
         )
 
@@ -434,12 +438,17 @@ def main():
             )
 
         tomo_results_dir = os.path.join(experiment_dir, basename)
-        baseline_prediction_yaml = os.path.join(tomo_results_dir, "baseline_prediction.yaml")
-        baseline_evaluation_yaml = os.path.join(tomo_results_dir, "baseline_evaluation.yaml")
-        picket_prediction_yaml = os.path.join(tomo_results_dir, "picket_prediction.yaml")
-        picket_evaluation_yaml = os.path.join(tomo_results_dir, "picket_evaluation.yaml")
+        baseline_prediction_yaml = os.path.join(
+            tomo_results_dir, "baseline_prediction.yaml")
+        baseline_evaluation_yaml = os.path.join(
+            tomo_results_dir, "baseline_evaluation.yaml")
+        picket_prediction_yaml = os.path.join(
+            tomo_results_dir, "picket_prediction.yaml")
+        picket_evaluation_yaml = os.path.join(
+            tomo_results_dir, "picket_evaluation.yaml")
 
-        threshold_angstrom = (get_threshold_angstrom(config["dataset"]["type"]))
+        threshold_angstrom = (get_threshold_angstrom(
+            config["dataset"]["type"]))
         print(f"\nUsing threshold: {threshold_angstrom} A")
 
         if config["execution"]["run_evaluation"]:
@@ -481,4 +490,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
