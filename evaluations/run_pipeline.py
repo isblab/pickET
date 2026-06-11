@@ -8,11 +8,10 @@ from modules.metadata import get_metadata
 
 from modules.template import (
     get_template_voxel_size,
+    get_particle_diameter,
     generate_template,
     generate_mask
 )
-
-from modules.particle_diameter import get_particle_diameter
 
 from modules.matching import (
     build_tm_command,
