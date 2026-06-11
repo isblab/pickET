@@ -9,7 +9,7 @@ dataset:
 particle:
   type: 80S_ribosome
   template_matching_diameter_angstrom: 300
-  extraction_diameter_angstrom: auto
+  extraction_diameter_angstrom:
   pdb: 
 
 template:
@@ -22,7 +22,7 @@ conversion:
   particle_name: ribosome
 
 template_generation:
-  input_voxel_size: auto
+  input_voxel_size:
   invert: true
   output_name: template.mrc
   
@@ -76,9 +76,8 @@ execution:
   
 extraction:
   number_of_particles: 10000
-  cutoff: auto
+  cutoff:
   
 roc:
-  number_of_particles: 800
   bins: 16
   crop_plot: true
