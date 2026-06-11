@@ -143,8 +143,9 @@ def main():
             "or pdb must be provided."
         )
 
-    extraction_particle_diameter = config[
-        "particle
+    extraction_particle_diameter = 
+        config[
+            "particle
     ]["extraction_diameter_angstrom"]
 
     if extraction_particle_diameter is None:
