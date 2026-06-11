@@ -1,10 +1,34 @@
 import subprocess
 
 
+def count_particles(star_file):
+
+    count = 0
+
+    with open(star_file) as f:
+
+        for line in f:
+
+            line = line.strip()
+
+            if (
+                not line
+                or line.startswith("#")
+                or line.startswith("data_")
+                or line.startswith("loop_")
+                or line.startswith("_")
+            ):
+                continue
+
+            count += 1
+
+    return count
+    
 def build_roc_command(
     job_file,
     config,
     extraction_particle_diameter,
+    number_of_particles,
     ignore_tomogram_mask = False
 ):
 
@@ -16,10 +40,7 @@ def build_roc_command(
         job_file,
 
         "-n",
-        str(
-            config["roc"]
-                  ["number_of_particles"]
-        ),
+        str(number_of_particles),
 
         "--particle-diameter",
         str(extraction_particle_diameter),
