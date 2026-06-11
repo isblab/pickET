@@ -99,14 +99,14 @@ def rename_roc_outputs(
 
 
 def main():
-    
+ 
     if len(sys.argv) != 2:
         print(
             "Usage: python run_pipeline.py config.yaml"
         )
 
         sys.exit(1)
-    
+
     config_file = sys.argv[1]
     config = load_config(config_file)
 
@@ -138,9 +138,13 @@ def main():
         print(f"Estimated diameter: {tm_particle_diameter} A")
 
     else:
-        raise ValueError("\nEither template_matching_diameter_angstrom or pdb must be provided.")
+        raise ValueError(
+            "Either template_matching_diameter_angstrom "
+            "or pdb must be provided."
+        )
 
-    extraction_particle_diameter = config["particle"]["extraction_diameter_angstrom"]
+    extraction_particle_diameter = config["particle"]
+        ["extraction_diameter_angstrom"]
 
     if extraction_particle_diameter is None:
         extraction_particle_diameter = tm_particle_diameter
@@ -350,11 +354,11 @@ def main():
         if config["execution"]["run_roc"]:
             baseline_log = os.path.join(tomo_results_dir, "roc.log")
             run_roc_command(baseline_cmd, baseline_log)
-            rename_roc_outputs(tomo_results_dir,basename, "baseline")
+            rename_roc_outputs(tomo_results_dir, basename, "baseline")
 
             picket_log = os.path.join(tomo_results_dir, "roc.log")
             run_roc_command(picket_cmd, picket_log)
-            rename_roc_outputs(tomo_results_dir,basename, "picket")
+            rename_roc_outputs(tomo_results_dir, basename, "picket")
 
         else:
             print("ROC disabled.")
@@ -429,7 +433,7 @@ def main():
                 f"Missing GT file:\n {ground_truth_ndjson}"
             )
 
-        tomo_results_dir = os.path.join(experiment_dir,basename)
+        tomo_results_dir = os.path.join(experiment_dir, basename)
         baseline_prediction_yaml = os.path.join(tomo_results_dir, "baseline_prediction.yaml")
         baseline_evaluation_yaml = os.path.join(tomo_results_dir, "baseline_evaluation.yaml")
         picket_prediction_yaml = os.path.join(tomo_results_dir, "picket_prediction.yaml")
@@ -477,3 +481,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
