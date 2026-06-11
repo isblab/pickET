@@ -36,7 +36,7 @@ def build_extraction_command(
 
     ])
 
-    if cutoff != "auto":
+    if cutoff is not None:
 
         cmd.extend([
 
