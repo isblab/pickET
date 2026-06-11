@@ -7,43 +7,47 @@ from modules.config import load_config
 from modules.metadata import get_metadata
 
 from modules.template import (
-get_template_voxel_size,
-generate_template,
-generate_mask
+     get_template_voxel_size,
+     generate_template,
+     generate_mask
 )
 
 from modules.particle_diameter import get_particle_diameter
 
 from modules.matching import (
-build_tm_command,
-run_tm_command
+     build_tm_command,
+     run_tm_command
 )
 
 from modules.extraction import (
-build_extraction_command,
-run_extraction_command
+     build_extraction_command,
+     run_extraction_command
 )
 
 from modules.roc import (
-build_roc_command,
-run_roc_command
+     build_roc_command,
+     run_roc_command
 )
 
 from modules.conversion import run_conversion
 
 from modules.evaluation import (
-run_evaluation,
-get_threshold_angstrom
+     run_evaluation,
+     get_threshold_angstrom
 )
 
 from modules.benchmark import (
-build_benchmark_dataframe,
-compute_summary_statistics,
-generate_violin_plots,
-generate_boxplots
+     build_benchmark_dataframe,
+     compute_summary_statistics,
+     generate_violin_plots,
+     generate_boxplots
 )
 
-def rename_extraction_outputs(tomo_results_dir,basename,prefix):
+def rename_extraction_outputs(
+    tomo_results_dir,
+    basename,
+    prefix,
+):
     
     shutil.move(os.path.join(tomo_results_dir, f"{basename}_particles.star"),
                 os.path.join(tomo_results_dir,f"{prefix}_particles.star")
@@ -53,7 +57,11 @@ def rename_extraction_outputs(tomo_results_dir,basename,prefix):
                 os.path.join(tomo_results_dir,f"{prefix}_extraction_graph.svg")
                )
 
-def rename_roc_outputs(tomo_results_dir,basename,prefix):
+def rename_roc_outputs(
+    tomo_results_dir,
+    basename,
+    prefix,
+):
 
     shutil.move(os.path.join(tomo_results_dir,"roc.log"),
                 os.path.join(tomo_results_dir,f"{prefix}_roc.log")
@@ -66,7 +74,9 @@ def rename_roc_outputs(tomo_results_dir,basename,prefix):
 def main():
 
   if len(sys.argv) != 2:
-      print("Usage: python run_pipeline.py config.yaml")
+      print(
+          "Usage: python run_pipeline.py config.yaml"
+      )
 
     sys.exit(1)
 
