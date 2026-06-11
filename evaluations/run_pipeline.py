@@ -338,12 +338,14 @@ def main():
         baseline_cmd = build_roc_command(
             job_file,
             config,
+            extraction_particle_diameter,
             ignore_tomogram_mask=True
         )
 
         picket_cmd = build_roc_command(
             job_file,
             config,
+            extraction_particle_diameter,
             ignore_tomogram_mask=False
         )
 
