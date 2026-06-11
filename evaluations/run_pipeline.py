@@ -489,6 +489,5 @@ def main():
     else:
         print("Benchmark summary disabled.")
 
-
 if __name__ == "__main__":
     main()
