@@ -25,7 +25,7 @@ from modules.extraction import (
 )
 
 from modules.roc import (
-    count_particles
+    count_particles,
     build_roc_command,
     run_roc_command
 )
