@@ -2,12 +2,10 @@ experiment:
   name: tutorial_80S
 
 dataset:
-  name: tutorial_dataset
   path: ../tm_tutorial/dataset
   type: tutorial
   
 particle:
-  type: 80S_ribosome
   template_matching_diameter_angstrom: 300
   extraction_diameter_angstrom:
   pdb: 
@@ -71,8 +69,8 @@ execution:
   run_extraction: false
   run_roc: false
   run_conversion: false
-  run_evaluation: true
-  run_benchmark_summary: true
+  run_evaluation: false
+  run_benchmark_summary: false
   
 extraction:
   number_of_particles: 10000
