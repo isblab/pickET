@@ -25,6 +25,7 @@ from modules.extraction import (
 )
 
 from modules.roc import (
+    count_particles
     build_roc_command,
     run_roc_command
 )
@@ -334,6 +335,7 @@ def main():
 
         tomo_results_dir = os.path.join(experiment_dir, basename)
         job_file = os.path.join(tomo_results_dir, f"{basename}_job.json")
+        baseline_star = os.path.join(tomo_results_dir, "baseline_particles.star")
 
         baseline_cmd = build_roc_command(
             job_file,
