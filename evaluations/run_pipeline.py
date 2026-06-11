@@ -251,11 +251,8 @@ extraction_particle_diameter = (
           ["extraction_diameter_angstrom"]
 )
 
-if extraction_particle_diameter == "auto":
-
-    extraction_particle_diameter = (
-        tm_particle_diameter
-    )
+if extraction_particle_diameter is None:
+    extraction_particle_diameter = tm_particle_diameter
 
 tomogram_voxel_size = (
     dataset[0]["voxel_size"]
