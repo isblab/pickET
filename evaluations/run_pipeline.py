@@ -49,60 +49,25 @@ generate_violin_plots,
 generate_boxplots
 )
 
-def diameter_to_voxels(
-    diameter_angstrom,
-    voxel_size
-):
+def rename_extraction_outputs(tomo_results_dir,basename,prefix):
+    
+    shutil.move(os.path.join(tomo_results_dir, f"{basename}_particles.star"),
+                os.path.join(tomo_results_dir,f"{prefix}_particles.star")
+               )
 
-    return (
-        diameter_angstrom /
-        voxel_size
-    )
+    shutil.move(os.path.join(tomo_results_dir,f"{basename}_extraction_graph.svg"),
+                os.path.join(tomo_results_dir,f"{prefix}_extraction_graph.svg")
+               )
 
+def rename_roc_outputs(tomo_results_dir,basename,prefix):
 
-def compute_box_size(
-    diameter_angstrom,
-    voxel_size
-):
+    shutil.move(os.path.join(tomo_results_dir,"roc.log"),
+                os.path.join(tomo_results_dir,f"{prefix}_roc.log")
+               )
 
-    diameter_voxels = (
-        diameter_to_voxels(
-            diameter_angstrom,
-            voxel_size
-        )
-    )
-
-    box_size = int(
-        diameter_voxels * 3
-    )
-
-    if box_size % 2 != 0:
-        box_size += 1
-
-    return box_size
-
-
-def compute_mask_radius(
-    diameter_angstrom,
-    voxel_size
-):
-
-    diameter_voxels = (
-        diameter_to_voxels(
-            diameter_angstrom,
-            voxel_size
-        )
-    )
-
-    particle_radius = round(
-        diameter_voxels / 2
-    )
-
-    mask_radius = int(
-        particle_radius * 1.10
-    )
-
-    return mask_radius
+    shutil.move(os.path.join(tomo_results_dir,f"{basename}_roc.svg"),
+                os.path.join(tomo_results_dir,f"{prefix}_roc.svg")
+               )
 
 def main():
 
@@ -258,32 +223,14 @@ tomogram_voxel_size = (
     dataset[0]["voxel_size"]
 )
 
-particle_diameter_voxels = (
-    diameter_to_voxels(
-        tm_particle_diameter,
-        tomogram_voxel_size
-    )
-)
+particle_diameter_voxels = tm_particle_diameter/tomogram_voxel_size
 
-box_size = compute_box_size(
-    tm_particle_diameter,
-    tomogram_voxel_size
-)
+box_size = int(particle_diameter_voxels*3)
+if box_size%2 != 0:
+    box_size+=1
 
-mask_radius = compute_mask_radius(
-    tm_particle_diameter,
-    tomogram_voxel_size
-)
-
-print(
-    f"\nTM Particle diameter: "
-    f"{tm_particle_diameter:.1f} Å"
-)
-
-print(
-    f"Extraction diameter: "
-    f"{extraction_particle_diameter:.1f} Å"
-)
+particle_radius = round(particle_diameter_voxels/2)
+mask_radius = int(particle_radius*1.1)
 
 print(
     f"Particle diameter: "
@@ -614,69 +561,10 @@ for tomo in dataset:
     ]:
 
         run_extraction_command(baseline_cmd)
+        rename_extraction_outputs(tomo_results_dir, basename, "baseline")
 
-
-        baseline_star = os.path.join(
-            tomo_results_dir,
-            f"{basename}_particles.star"
-        )
-
-        baseline_graph = os.path.join(
-            tomo_results_dir,
-            f"{basename}_extraction_graph.svg"
-        )
-
-        shutil.move(
-
-            baseline_star,
-
-            os.path.join(
-                tomo_results_dir,
-                "baseline_particles.star"
-            )
-
-        )
-
-        shutil.move(
-
-            baseline_graph,
-
-            os.path.join(
-                tomo_results_dir,
-                "baseline_extraction_graph.svg"
-            )
-
-        )
-
-        run_extraction_command(
-        picket_cmd
-        )
-
-        picket_star = os.path.join(
-            tomo_results_dir,
-            f"{basename}_particles.star"
-        )
-
-        picket_graph = os.path.join(
-            tomo_results_dir,
-            f"{basename}_extraction_graph.svg"
-        )
-
-        shutil.move(
-            picket_star,
-            os.path.join(
-                tomo_results_dir,
-                "picket_particles.star"
-            )
-        )
-
-        shutil.move(
-            picket_graph,
-            os.path.join(
-                tomo_results_dir,
-                "picket_extraction_graph.svg"
-            )
-        )
+        run_extraction_command(picket_cmd)
+        rename_extraction_outputs(tomo_results_dir, basename, "picket")
 
     else:
        print(
@@ -763,33 +651,7 @@ for tomo in dataset:
             baseline_log
         )
 
-        shutil.move(
-
-            os.path.join(
-                tomo_results_dir,
-                "roc.log"
-            ),
-
-            os.path.join(
-                tomo_results_dir,
-                "baseline_roc.log"
-            )
-
-        )
-
-        shutil.move(
-
-            os.path.join(
-                tomo_results_dir,
-                f"{basename}_roc.svg"
-            ),
-
-            os.path.join(
-                tomo_results_dir,
-                "baseline_roc.svg"
-            )
-
-        )
+        rename_roc_outputs(tomo_results_dir,basename,"baseline")
 
         picket_log = os.path.join(
             tomo_results_dir,
@@ -801,33 +663,7 @@ for tomo in dataset:
             picket_log
         )
 
-        shutil.move(
-
-            os.path.join(
-                tomo_results_dir,
-                "roc.log"
-            ),
-
-            os.path.join(
-                tomo_results_dir,
-                "picket_roc.log"
-            )
-
-        )
-
-        shutil.move(
-
-            os.path.join(
-                tomo_results_dir,
-                f"{basename}_roc.svg"
-            ),
-
-            os.path.join(
-                tomo_results_dir,
-                "picket_roc.svg"
-            )
-
-        )
+        rename_roc_outputs(tomo_results_dir,basename,"picket")
 
     else:
 
