@@ -81,19 +81,19 @@ def rename_roc_outputs(
 
     shutil.move(
          os.path.join(
-              tomo_results_dir,"roc.log"
+              tomo_results_dir, "roc.log"
          ),
          os.path.join(
-              tomo_results_dir,f"{prefix}_roc.log"
+              tomo_results_dir, f"{prefix}_roc.log"
          ),
     )
 
     shutil.move(
          os.path.join(
-              tomo_results_dir,f"{basename}_roc.svg"
+              tomo_results_dir, f"{basename}_roc.svg"
          ),
          os.path.join(
-              tomo_results_dir,f"{prefix}_roc.svg"
+              tomo_results_dir, f"{prefix}_roc.svg"
          ),
     )
 
@@ -115,7 +115,7 @@ config = load_config(config_file)
 
 experiment_dir = config["experiment"]["name"]
 os.mkdir(experiment_dir) 
-template_dir = os.path.join(experiment_dir,"template")
+template_dir = os.path.join(experiment_dir, "template")
 os.mkdir(template_dir)
 
 # --------------------------------------------------
@@ -168,7 +168,7 @@ for tomo in dataset:
         )[0]
     )
 
-    tomo_results_dir = os.path.join(experiment_dir,basename)
+    tomo_results_dir = os.path.join(experiment_dir, basename)
     os.mkdir(tomo_results_dir)
 
 # --------------------------------------------------
@@ -240,7 +240,7 @@ for tomo in dataset:
         )[0]
     )
 
-    tomo_results_dir = os.path.join(experiment_dir,basename)
+    tomo_results_dir = os.path.join(experiment_dir, basename)
 
     cmd = build_tm_command(
         tomo,
@@ -276,8 +276,8 @@ for tomo in dataset:
         )[0]
     )
 
-    tomo_results_dir = os.path.join(experiment_dir,basename)
-    job_file = os.path.join(tomo_results_dir,f"{basename}_job.json")
+    tomo_results_dir = os.path.join(experiment_dir, basename)
+    job_file = os.path.join(tomo_results_dir, f"{basename}_job.json")
 
     baseline_cmd = build_extraction_command(
         job_file,
@@ -323,8 +323,8 @@ for tomo in dataset:
         )[0]
     )
 
-    tomo_results_dir = os.path.join(experiment_dir,basename)
-    job_file = os.path.join(tomo_results_dir,f"{basename}_job.json")
+    tomo_results_dir = os.path.join(experiment_dir, basename)
+    job_file = os.path.join(tomo_results_dir, f"{basename}_job.json")
 
     baseline_cmd = build_roc_command(
         job_file,
@@ -344,13 +344,13 @@ for tomo in dataset:
     print(" ".join(picket_cmd))
 
     if config["execution"]["run_roc"]:
-        baseline_log = os.path.join(tomo_results_dir,"roc.log")
-        run_roc_command(baseline_cmd,baseline_log)
-        rename_roc_outputs(tomo_results_dir,basename,"baseline")
+        baseline_log = os.path.join(tomo_results_dir, "roc.log")
+        run_roc_command(baseline_cmd, baseline_log)
+        rename_roc_outputs(tomo_results_dir,basename, "baseline")
 
-        picket_log = os.path.join(tomo_results_dir,"roc.log")
-        run_roc_command(picket_cmd,picket_log)
-        rename_roc_outputs(tomo_results_dir,basename,"picket")
+        picket_log = os.path.join(tomo_results_dir, "roc.log")
+        run_roc_command(picket_cmd, picket_log)
+        rename_roc_outputs(tomo_results_dir,basename, "picket")
 
     else:
         print("ROC disabled.")
@@ -373,11 +373,11 @@ for tomo in dataset:
         )[0]
     )
 
-    tomo_results_dir = os.path.join(experiment_dir,basename)
-    baseline_star = os.path.join(tomo_results_dir,"baseline_particles.star")
-    baseline_yaml = os.path.join(tomo_results_dir,"baseline_prediction.yaml")
-    picket_star = os.path.join(tomo_results_dir,"picket_particles.star")
-    picket_yaml = os.path.join(tomo_results_dir,"picket_prediction.yaml")
+    tomo_results_dir = os.path.join(experiment_dir, basename)
+    baseline_star = os.path.join(tomo_results_dir, "baseline_particles.star")
+    baseline_yaml = os.path.join(tomo_results_dir, "baseline_prediction.yaml")
+    picket_star = os.path.join(tomo_results_dir, "picket_particles.star")
+    picket_yaml = os.path.join(tomo_results_dir, "picket_prediction.yaml")
     
     if config["execution"]["run_conversion"]:
         run_conversion(
@@ -418,7 +418,7 @@ for tomo in dataset:
         )[0]
     )
 
-    ground_truth_ndjson = os.path.join(config["ground_truth"]["directory"],f"{basename}.ndjson")
+    ground_truth_ndjson = os.path.join(config["ground_truth"]["directory"], f"{basename}.ndjson")
 
     if not os.path.exists(ground_truth_ndjson):
         raise FileNotFoundError(
@@ -426,10 +426,10 @@ for tomo in dataset:
         )
 
     tomo_results_dir = os.path.join(experiment_dir,basename)
-    baseline_prediction_yaml = os.path.join(tomo_results_dir,"baseline_prediction.yaml")
-    baseline_evaluation_yaml = os.path.join(tomo_results_dir,"baseline_evaluation.yaml")
-    picket_prediction_yaml = os.path.join(tomo_results_dir,"picket_prediction.yaml")
-    picket_evaluation_yaml = os.path.join(tomo_results_dir,"picket_evaluation.yaml")
+    baseline_prediction_yaml = os.path.join(tomo_results_dir, "baseline_prediction.yaml")
+    baseline_evaluation_yaml = os.path.join(tomo_results_dir, "baseline_evaluation.yaml")
+    picket_prediction_yaml = os.path.join(tomo_results_dir, "picket_prediction.yaml")
+    picket_evaluation_yaml = os.path.join(tomo_results_dir, "picket_evaluation.yaml")
 
     threshold_angstrom = (get_threshold_angstrom(config["dataset"]["type"]))
     print(f"\nUsing threshold: {threshold_angstrom} A")
@@ -459,17 +459,17 @@ for tomo in dataset:
 print("\n=== BENCHMARK SUMMARY ===\n")
 
 if config["execution"]["run_benchmark_summary"]:
-    df = build_benchmark_dataframe(dataset,experiment_dir)
-    csv_file = os.path.join(experiment_dir,"benchmark_summary.csv")
+    df = build_benchmark_dataframe(dataset, experiment_dir)
+    csv_file = os.path.join(experiment_dir, "benchmark_summary.csv")
     df.to_csv(csv_file, index=False)
     summary_df = (compute_summary_statistics(df))
-    summary_file = os.path.join(experiment_dir,"benchmark_statistics.csv")
+    summary_file = os.path.join(experiment_dir, "benchmark_statistics.csv")
     summary_df.to_csv(summary_file, index=False)
-    generate_violin_plots(df,experiment_dir)
-    generate_boxplots(df,experiment_dir)
+    generate_violin_plots(df, experiment_dir)
+    generate_boxplots(df, experiment_dir)
 
 else:
-print("Benchmark summary disabled.")
+    print("Benchmark summary disabled.")
 
 if __name__ == "__main__":
     main()
