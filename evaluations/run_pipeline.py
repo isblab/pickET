@@ -336,11 +336,15 @@ def main():
         tomo_results_dir = os.path.join(experiment_dir, basename)
         job_file = os.path.join(tomo_results_dir, f"{basename}_job.json")
         baseline_star = os.path.join(tomo_results_dir, "baseline_particles.star")
+        baseline_n = 3*(count_particles(baseline_star))
+        picket_star = os.path.join(tomo_results_dir, "picket_particles.star")
+        picket_n = 3*(count_particles(picket_star))
 
         baseline_cmd = build_roc_command(
             job_file,
             config,
             extraction_particle_diameter,
+            baseline_n,
             ignore_tomogram_mask=True
         )
 
@@ -348,9 +352,12 @@ def main():
             job_file,
             config,
             extraction_particle_diameter,
+            picket_n,
             ignore_tomogram_mask=False
         )
 
+        print(f"Baseline ROC particles: {baseline_n}")
+        print(f"PickET ROC particles: {picket_n}")
         print(f"\nGenerated Baseline ROC Command:")
         print(" ".join(baseline_cmd))
         print(f"\nGenerated PickET ROC Command:")
