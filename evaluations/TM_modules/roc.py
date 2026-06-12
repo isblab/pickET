@@ -1,4 +1,5 @@
 import subprocess
+import os
 
 
 def count_particles(star_file):
