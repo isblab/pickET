@@ -381,13 +381,19 @@ def main():
         print(" ".join(picket_cmd))
 
         if config["execution"]["run_roc"]:
-            baseline_log = os.path.join(tomo_results_dir, "roc.log")
-            run_roc_command(baseline_cmd, baseline_log)
-            rename_roc_outputs(tomo_results_dir, basename, "baseline")
-
-            picket_log = os.path.join(tomo_results_dir, "roc.log")
-            run_roc_command(picket_cmd, picket_log)
-            rename_roc_outputs(tomo_results_dir, basename, "picket")
+            if baseline_n > 0:
+                baseline_log = os.path.join(tomo_results_dir, "roc.log")
+                run_roc_command(baseline_cmd, baseline_log)
+                rename_roc_outputs(tomo_results_dir, basename, "baseline")
+            else:
+                print("Skipping baseline ROC: 0 particles extracted")
+                
+            if picket_n > 0:
+                picket_log = os.path.join(tomo_results_dir, "roc.log")
+                run_roc_command(picket_cmd, picket_log)
+                rename_roc_outputs(tomo_results_dir, basename, "picket")
+            else:
+                print("Skipping picket ROC: 0 particles extracted")
 
         else:
             print("ROC disabled.")
