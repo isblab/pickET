@@ -56,7 +56,7 @@ def discover_sidecar_files(mrc_path):
 
     base = os.path.splitext(mrc_path)[0]
     files = {
-        "rawtlt": None,
+        "rawtlt": None
     }
 
     if os.path.exists(base + ".rawtlt"):
