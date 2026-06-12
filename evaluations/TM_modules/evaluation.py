@@ -381,6 +381,9 @@ def run_conversion(
     voxel_size
 
 ):
+    if not os.path.exists(input_star):
+        print(f"Missing STAR file: {input_star}")
+        return
 
     print(
         "\nRunning Conversion:\n"
@@ -425,6 +428,9 @@ def run_evaluation(
     output_yaml
 
 ):
+    if not os.path.exists(prediction_yaml):
+        print(f"Missing prediction file: {prediction_yaml}")
+        return
 
     print(
         "\nRunning Evaluation...\n"
@@ -439,6 +445,20 @@ def run_evaluation(
         prediction_yaml
 
     )
+
+    if len(pred_coords) == 0:
+        print("No predicted particles.")
+        results = {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0, 
+            "num_predictions": 0.0
+        }
+
+        with open(output_yaml, "w") as f:
+            yaml.dump(results, f, sort_keys=False)
+
+        return
 
     # ----------------------------------------------
     # Read GT
