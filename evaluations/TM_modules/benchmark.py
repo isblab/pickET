@@ -6,6 +6,15 @@ import matplotlib.pyplot as plt
 
 def load_metrics(yaml_file):
 
+    if not os.path.exists(yaml_file):
+        print(f"Missing metrics file: {yaml_file}")
+        return {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0, 
+            "num_predictions": 0
+        }
+
     with open(yaml_file) as f:
         data = yaml.safe_load(f)
 
