@@ -115,9 +115,9 @@ def main():
     # --------------------------------------------------
 
     experiment_dir = config["experiment"]["name"]
-    os.mkdir(experiment_dir)
+    os.makedirs(experiment_dir, exist_ok=True)
     template_dir = os.path.join(experiment_dir, "template")
-    os.mkdir(template_dir)
+    os.makedirs(template_dir, exist_ok=True)
 
     # --------------------------------------------------
     # DATASET DISCOVERY
@@ -194,7 +194,7 @@ def main():
         )
 
         tomo_results_dir = os.path.join(experiment_dir, basename)
-        os.mkdir(tomo_results_dir)
+        os.makedirs(tomo_results_dir, exist_ok=True)
 
     # --------------------------------------------------
     # TEMPLATE GENERATION
