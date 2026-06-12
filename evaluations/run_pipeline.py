@@ -159,8 +159,7 @@ def main():
                 "RG-based extraction diameter."
             )
 
-        extraction_particle_diameter = 
-            get_extraction_diameter(pdb_file)
+        extraction_particle_diameter = get_extraction_diameter(pdb_file)
         print("\nUsing RG-based extraction diameter.")
 
     else:
