@@ -57,18 +57,10 @@ def discover_sidecar_files(mrc_path):
     base = os.path.splitext(mrc_path)[0]
     files = {
         "rawtlt": None,
-        "defocus": None,
-        "dose": None
     }
 
     if os.path.exists(base + ".rawtlt"):
         files["rawtlt"] = base + ".rawtlt"
-
-    if os.path.exists(base + ".defocus"):
-        files["defocus"] = base + ".defocus"
-
-    if os.path.exists(base + "_dose.txt"):
-        files["dose"] = base + "_dose.txt"
 
     return files
 
@@ -106,8 +98,6 @@ def get_metadata(dataset_path, config):
             "shape": get_tomogram_shape(mrc_file),
             "voxel_size": get_voxel_size(mrc_file),
             "rawtlt": sidecars["rawtlt"],
-            "defocus": sidecars["defocus"],
-            "dose": sidecars["dose"],
             "mask_path": mask_path
         }
 
