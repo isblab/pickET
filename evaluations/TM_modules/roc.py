@@ -3,6 +3,9 @@ import subprocess
 
 def count_particles(star_file):
 
+    if not os.path.exists(star_file):
+        return 0
+
     count = 0
 
     with open(star_file) as f:
