@@ -2,41 +2,41 @@ import sys
 import os
 import shutil
 
-from modules.config import load_config
+from TM_modules.config import load_config
 
-from modules.metadata import get_metadata
+from TM_modules.metadata import get_metadata
 
-from modules.template import (
+from TM_modules.template import (
     get_template_voxel_size,
     get_particle_diameter,
     generate_template,
     generate_mask
 )
 
-from modules.matching import (
+from TM_modules.matching import (
     build_tm_command,
     run_tm_command
 )
 
-from modules.extraction import (
+from TM_modules.extraction import (
     get_extraction_diameter,
     build_extraction_command,
     run_extraction_command
 )
 
-from modules.roc import (
+from TM_modules.roc import (
     count_particles,
     build_roc_command,
     run_roc_command
 )
 
-from modules.evaluation import (
+from TM_modules.evaluation import (
     run_conversion,
     run_evaluation,
     get_threshold_angstrom
 )
 
-from modules.benchmark import (
+from TM_modules.benchmark import (
     build_benchmark_dataframe,
     compute_summary_statistics,
     generate_violin_plots,
