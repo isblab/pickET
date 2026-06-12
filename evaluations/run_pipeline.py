@@ -19,6 +19,7 @@ from modules.matching import (
 )
 
 from modules.extraction import (
+    get_extraction_diameter,
     build_extraction_command,
     run_extraction_command
 )
@@ -146,8 +147,27 @@ def main():
         "particle"
     ]["extraction_diameter_angstrom"]
 
-    if extraction_particle_diameter is None:
+    if extraction_particle_diameter is not None:
+        print("\nUsing user-provided extraction diameter.")
+
+    elif config["particle"][
+        "extraction_diameter_required"
+    ]:
+        if pdb_file is None:
+            raise ValueError(
+                "PDB file required for "
+                "RG-based extraction diameter."
+            )
+
+        extraction_particle_diameter = 
+            get_extraction_diameter(pdb_file)
+        print("\nUsing RG-based extraction diameter.")
+
+    else:
         extraction_particle_diameter = tm_particle_diameter
+        print("\nUsing template matching diameter for extraction.")
+
+    print(f"Extraction diameter: {extraction_particle_diameter} A")
 
     tomogram_voxel_size = dataset[0]["voxel_size"]
     particle_diameter_voxels = tm_particle_diameter/tomogram_voxel_size
