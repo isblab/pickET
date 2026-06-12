@@ -425,23 +425,30 @@ def main():
             tomo_results_dir, "picket_prediction.yaml")
 
         if config["execution"]["run_conversion"]:
-            run_conversion(
-                baseline_star,
-                baseline_yaml,
-                config["conversion"]["particle_name"],
-                tomo["shape"],
-                tomo["path"],
-                tomo["voxel_size"]
-            )
 
-            run_conversion(
-                picket_star,
-                picket_yaml,
-                config["conversion"]["particle_name"],
-                tomo["shape"],
-                tomo["path"],
-                tomo["voxel_size"]
-            )
+            if os.path.exists(baseline_star):
+                run_conversion(
+                    baseline_star,
+                    baseline_yaml,
+                    config["conversion"]["particle_name"],
+                    tomo["shape"],
+                    tomo["path"],
+                    tomo["voxel_size"]
+                )
+            else:
+                print("Skipping baseline conversion.")
+
+            if os.path.exists(picket_star):
+                run_conversion(
+                    picket_star,
+                    picket_yaml,
+                    config["conversion"]["particle_name"],
+                    tomo["shape"],
+                    tomo["path"],
+                    tomo["voxel_size"]
+                )
+            else:
+                print("Skipping picket conversion.")
 
         else:
             print("Conversion disabled.")
@@ -487,19 +494,25 @@ def main():
         print(f"\nUsing threshold: {threshold_angstrom} A")
 
         if config["execution"]["run_evaluation"]:
-            run_evaluation(
-                baseline_prediction_yaml,
-                ground_truth_ndjson,
-                threshold_angstrom,
-                baseline_evaluation_yaml
-            )
+            if os.path.exists(baseline_prediction_yaml):
+                run_evaluation(
+                    baseline_prediction_yaml,
+                    ground_truth_ndjson,
+                    threshold_angstrom,
+                    baseline_evaluation_yaml
+                )
+            else:
+                print("Skipping baseline evaluation.")
 
-            run_evaluation(
-                picket_prediction_yaml,
-                ground_truth_ndjson,
-                threshold_angstrom,
-                picket_evaluation_yaml
-            )
+            if os.path.exists(picket_prediction_yaml):
+                run_evaluation(
+                    picket_prediction_yaml,
+                    ground_truth_ndjson,
+                    threshold_angstrom,
+                    picket_evaluation_yaml
+                )
+            else:
+                print("Skipping picket evaluation.")
 
         else:
             print("Evaluation disabled.")
