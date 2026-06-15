@@ -233,14 +233,12 @@ def build_tm_command(
 
         ])
 
-        cmd.extend([
+        if config["ctf"]["tomogram_ctf_model"] is not None:
+            cmd.extend([
+                "--tomogram-ctf-model",
+                config["ctf"]["tomogram_ctf_model"]
 
-            "--tomogram-ctf-model",
-
-            config["ctf"]
-                  ["tomogram_ctf_model"]
-
-        ])
+            ])
 
         if config["ctf"]["per_tilt_weighting"]:
 
