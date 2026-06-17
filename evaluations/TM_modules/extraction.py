@@ -154,10 +154,11 @@ def build_extraction_command(
         ])
 
 
-    if ignore_tomogram_mask:
-        cmd.append(
-            "--ignore_tomogram_mask"
-        )
+    if tomogram_mask is not None:
+        cmd.append([
+            "--tomogram-mask",
+            tomogram_mask
+        ])
 
     return cmd
 
