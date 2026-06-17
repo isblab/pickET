@@ -326,6 +326,14 @@ def convert_star_to_yaml(
                 "No coordinate columns found in STAR file."
             )
 
+        x += tomogram_shape[2] / 2
+        y += tomogram_shape[1] / 2
+        z += tomogram_shape[0] / 2
+
+        x = int(round(x))
+        y = int(round(y))
+        z = int(round(z))
+
         out_dict[
             "Predicted_Particle_Centroid_Coordinates"
         ].append({
