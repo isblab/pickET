@@ -304,14 +304,14 @@ def main():
             job_file,
             config,
             extraction_particle_diameter,
-            ignore_tomogram_mask=True
+            tomogram_mask=None
         )
 
         picket_cmd = build_extraction_command(
             job_file,
             config,
             extraction_particle_diameter,
-            ignore_tomogram_mask=False
+            tomogram_mask=tomo["mask_path"]
         )
 
         print("\nGenerated Baseline Extraction Command:")
