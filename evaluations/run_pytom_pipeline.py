@@ -24,12 +24,6 @@ from TM_modules.extraction import (
     run_extraction_command
 )
 
-from TM_modules.roc import (
-    count_particles,
-    build_roc_command,
-    run_roc_command
-)
-
 from TM_modules.evaluation import (
     run_conversion,
     run_evaluation,
