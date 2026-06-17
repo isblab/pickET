@@ -292,32 +292,39 @@ def convert_star_to_yaml(
 
     for _, row in df.iterrows():
 
-        x = int(
-            round(
-                float(
-                    row["rlnCoordinateX"]
-                ),
-                0
-            )
-        )
+    # RELION4 format (voxel coordinates)
+        if "rlnCoordinateX" in row.index:
 
-        y = int(
-            round(
-                float(
-                    row["rlnCoordinateY"]
-                ),
-                0
-            )
-        )
+            x = int(round(float(row["rlnCoordinateX"]), 0))
+            y = int(round(float(row["rlnCoordinateY"]), 0))
+            z = int(round(float(row["rlnCoordinateZ"]), 0))
 
-        z = int(
-            round(
-                float(
-                    row["rlnCoordinateZ"]
-                ),
+    # RELION5 format (centered coordinates in Angstrom)
+        elif "rlnCenteredCoordinateXAngst" in row.index:
+
+            x = int(round(
+                float(row["rlnCenteredCoordinateXAngst"])
+                / voxel_size,
                 0
+            ))
+
+            y = int(round(
+                float(row["rlnCenteredCoordinateYAngst"])
+                / voxel_size,
+                0
+            ))
+
+            z = int(round(
+                float(row["rlnCenteredCoordinateZAngst"])
+                / voxel_size,
+                0
+            ))
+
+        else:
+
+            raise ValueError(
+                "No coordinate columns found in STAR file."
             )
-        )
 
         out_dict[
             "Predicted_Particle_Centroid_Coordinates"
