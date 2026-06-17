@@ -160,6 +160,8 @@ def build_extraction_command(
             tomogram_mask
         ])
 
+    cmd.append("--relion5-compat")
+
     return cmd
 
 
