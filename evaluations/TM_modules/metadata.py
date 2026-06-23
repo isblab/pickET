@@ -126,23 +126,11 @@ def get_metadata(
     # Tilt-angle validation
     # ----------------------------------
 
-    if config["tilt_angles"][
-        "per_tomogram"
-    ]:
+    if config["tilt_angles"]["per_tomogram"]:
 
-        n_ranges = len(
+        n_ranges = len(config["tilt_angles"]["ranges"])
 
-            config[
-                "tilt_angles"
-            ][
-                "ranges"
-            ]
-
-        )
-
-        n_tomos = len(
-            mrc_files
-        )
+        n_tomos = len(mrc_files)
 
         if n_ranges != n_tomos:
 
@@ -157,33 +145,13 @@ def get_metadata(
     # Tomogram discovery
     # ----------------------------------
 
-    for idx, mrc_file in enumerate(
-        mrc_files
-    ):
+    for idx, mrc_file in enumerate(mrc_files):
 
-        basename = os.path.splitext(
+        basename = os.path.splitext(os.path.basename(mrc_file))[0]
 
-            os.path.basename(
-                mrc_file
-            )
+        mask_path = os.path.join(config["preprocessing"]["output_mask_folder"], f"{basename}_mask.mrc")
 
-        )[0]
-
-        mask_path = os.path.join(
-
-            config[
-                "preprocessing"
-            ][
-                "output_mask_folder"
-            ],
-
-            f"{basename}_mask.mrc"
-
-        )
-
-        if not os.path.exists(
-            mask_path
-        ):
+        if not os.path.exists(mask_path):
 
             raise FileNotFoundError(
 
@@ -192,93 +160,42 @@ def get_metadata(
 
             )
 
-        sidecars = discover_sidecar_files(
-            mrc_file
-        )
+        sidecars = discover_sidecar_files(mrc_file)
 
         # ----------------------------------
         # Tilt-angle handling
         # ----------------------------------
 
-        if config["tilt_angles"][
-            "per_tomogram"
-        ]:
+        if config["tilt_angles"]["per_tomogram"]:
 
-            min_tilt = (
+            min_tilt = config["tilt_angles"]["ranges"][idx][0]
 
-                config[
-                    "tilt_angles"
-                ][
-                    "ranges"
-                ][idx][0]
-
-            )
-
-            max_tilt = (
-
-                config[
-                    "tilt_angles"
-                ][
-                    "ranges"
-                ][idx][1]
-
-            )
+            max_tilt = config["tilt_angles"]["ranges"][idx][1]
 
         else:
 
-            min_tilt = (
+            min_tilt = config["tilt_angles"]["min"]
 
-                config[
-                    "tilt_angles"
-                ][
-                    "min"
-                ]
-
-            )
-
-            max_tilt = (
-
-                config[
-                    "tilt_angles"
-                ][
-                    "max"
-                ]
-
-            )
+            max_tilt = config["tilt_angles"]["max"]
 
         tomogram = {
 
-            "path":
-                mrc_file,
+            "path": mrc_file,
 
-            "shape":
-                get_tomogram_shape(
-                    mrc_file
-                ),
+            "shape": get_tomogram_shape(mrc_file),
 
-            "voxel_size":
-                get_voxel_size(
-                    mrc_file
-                ),
+            "voxel_size": get_voxel_size(mrc_file),
 
-            "rawtlt":
-                sidecars[
-                    "rawtlt"
-                ],
+            "rawtlt": sidecars["rawtlt"],
 
-            "mask_path":
-                mask_path,
+            "mask_path": mask_path,
 
-            "min_tilt":
-                min_tilt,
+            "min_tilt": min_tilt,
 
-            "max_tilt":
-                max_tilt
+            "max_tilt": max_tilt
 
         }
 
-        dataset.append(
-            tomogram
-        )
+        dataset.append(tomogram)
 
     return dataset
