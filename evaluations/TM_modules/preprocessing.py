@@ -57,7 +57,6 @@ def run_preprocessing(
 
     seg_iter = iter(segmentation_files)
     for tomo_file in tomogram_files:
-        print(f"{os.path.basename(tomo_file)} <-- {os.path.basename(h5_file)}")
         tomo_name = os.path.splitext(
             os.path.basename(tomo_file))[0]
         tomo_cfg = tomogram_config.get(tomo_name, {})
