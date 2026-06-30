@@ -2,53 +2,23 @@ import os
 import glob
 import ndjson
 
-def convert_annotations(
-    annotation_folder,
-    output_folder,
-    annotation_suffix
-):
+def convert_annotations(annotation_folder, output_folder, annotation_suffix):
 
-    os.makedirs(
-        output_folder,
-        exist_ok=True
-    )
+    os.makedirs(output_folder, exist_ok=True)
 
-    pattern = os.path.join(
-        annotation_folder,
-        f"*_{annotation_suffix}.csv"
-    )
+    pattern = os.path.join(annotation_folder, f"*_{annotation_suffix}.csv")
 
-    annotation_files = sorted(
-        glob.glob(pattern)
-    )
+    annotation_files = sorted(glob.glob(pattern))
 
-    print(
-        f"Found {len(annotation_files)} "
-        f"annotation file(s)"
-    )
+    print(f"Found {len(annotation_files)} annotation file(s)")
 
     for fname in annotation_files:
 
-        basename = (
-            os.path.basename(fname)
-            .replace(
-                f"_{annotation_suffix}.csv",
-                ""
-            )
-        )
-
-        out_fname = os.path.join(
-            output_folder,
-            f"{basename}.ndjson"
-        )
+        basename = os.path.basename(fname).replace(f"_{annotation_suffix}.csv", "")
+        out_fname = os.path.join(output_folder, f"{basename}.ndjson")
 
         if os.path.exists(out_fname):
-
-            print(
-                f"Skipping existing file: "
-                f"{out_fname}"
-            )
-
+            print(f"Skipping existing file: {out_fname}")
             continue
 
         coords = []
@@ -62,9 +32,7 @@ def convert_annotations(
                 if not line:
                     continue
 
-                x, y, z = (
-                    ln.split(",")[:3]
-                )
+                x, y, z = (ln.split(",")[:3])
 
                 coords.append(
                     {
@@ -73,41 +41,15 @@ def convert_annotations(
 
                         "location":
                             {
-                                "x":
-                                    int(
-                                        round(
-                                            float(x)
-                                        )
-                                    ),
-
-                                "y":
-                                    int(
-                                        round(
-                                            float(y)
-                                        )
-                                    ),
-
-                                "z":
-                                    int(
-                                        round(
-                                            float(z)
-                                        )
-                                    )
+                                "x":int(round(float(x))),
+                                "y":int(round(float(y))),
+                                "z":int(round(float(z)))
                             }
                     }
                 )
 
-        with open(
-            out_fname,
-            "w"
-        ) as out_f:
+        with open(out_fname, "w") as out_f:
 
-            ndjson.dump(
-                coords,
-                out_f
-            )
+            ndjson.dump(coords, out_f)
 
-        print(
-            f"Saved: {out_fname}"
-        )
-
+        print(f"Saved: {out_fname}")
