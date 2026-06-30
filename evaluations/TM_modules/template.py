@@ -7,28 +7,18 @@ from Bio.PDB import PDBParser
 
 def get_template_voxel_size(template_path):
 
-    with mrcfile.open(
-        template_path,
-        permissive=True
-    ) as mrc:
+    with mrcfile.open(template_path, permissive=True) as mrc:
 
-        voxel_size = float(
-            mrc.voxel_size.x
-        )
+        voxel_size = float(mrc.voxel_size.x)
 
     return voxel_size
 
 
-def get_atom_coordinates(
-    pdb_file
-):
+def get_atom_coordinates(pdb_file):
 
     parser = PDBParser()
 
-    structure = parser.get_structure(
-        "structure",
-        pdb_file
-    )
+    structure = parser.get_structure("structure", pdb_file)
 
     coordinates = []
 
@@ -40,76 +30,35 @@ def get_atom_coordinates(
 
                 for atom in residue:
 
-                    coordinates.append(
-                        atom.get_coord()
-                    )
+                    coordinates.append(atom.get_coord())
 
-    return np.array(
-        coordinates
-    )
+    return np.array(coordinates)
 
-def estimate_diameter_from_pdb(
-    pdb_file
-):
+def estimate_diameter_from_pdb(pdb_file):
 
-    atom_coords = (
-        get_atom_coordinates(
-            pdb_file
-        )
-    )
+    atom_coords = get_atom_coordinates(pdb_file)
 
     max_internal_distance = 0
 
-    atom_coords_subsets = (
-        np.array_split(
-            atom_coords,
-            10
-        )
-    )
+    atom_coords_subsets = np.array_split(atom_coords, 10)
 
     for subset in atom_coords_subsets:
 
-        distances = cdist(
+        distances = cdist(subset, atom_coords, metric="euclidean")
 
-            subset,
+        local_max = np.max(distances)
 
-            atom_coords,
+        if local_max > max_internal_distance:
 
-            metric="euclidean"
+            max_internal_distance = local_max
 
-        )
+    return float(max_internal_distance)
 
-        local_max = np.max(
-            distances
-        )
+def get_particle_diameter(pdb_file):
 
-        if local_max > (
-            max_internal_distance
-        ):
+    diameter = estimate_diameter_from_pdb(pdb_file)
 
-            max_internal_distance = (
-                local_max
-            )
-
-    return float(
-        max_internal_distance
-    )
-
-def get_particle_diameter(
-    pdb_file
-):
-
-    diameter = (
-        estimate_diameter_from_pdb(
-            pdb_file
-        )
-    )
-
-    return int(
-        round(
-            diameter
-        )
-    )
+    return int(round(diameter))
 
 
 def generate_template(
@@ -152,17 +101,10 @@ def generate_template(
 
     print(" ".join(cmd))
 
-    subprocess.run(
-        cmd,
-        check=True
-    )
+    subprocess.run(cmd, check=True)
 
 
-def generate_mask(
-    box_size,
-    radius,
-    output_mask
-):
+def generate_mask(box_size, radius, output_mask):
 
     cmd = [
 
@@ -185,7 +127,4 @@ def generate_mask(
 
     print(" ".join(cmd))
 
-    subprocess.run(
-        cmd,
-        check=True
-    )
+    subprocess.run(cmd, check=True)
