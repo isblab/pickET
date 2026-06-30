@@ -56,25 +56,39 @@ def read_ndjson_coords(fname):
 # READ PREDICTION YAML
 # ==================================================
 
-def read_prediction_yaml(fname):
+def read_prediction_star(fname, tomogram_shape, voxel_size):
 
-    with open(fname, "r") as f:
-
-        data = yaml.safe_load(f)
+    df = starfile.read(fname)
 
     coords = []
 
-    for particle in data["Predicted_Particle_Centroid_Coordinates"]:
+    for _, row in df.iterrows():
 
-        coords.append([
+        if "rlnCoordinateX" in row.index:
 
-            particle["z"],
+            x = int(round(float(row["rlnCoordinateX"])))
+            y = int(round(float(row["rlnCoordinateY"])))
+            z = int(round(float(row["rlnCoordinateZ"])))
 
-            particle["y"],
+        elif "rlnCenteredCoordinateXAngst" in row.index:
 
-            particle["x"]
+            x = int(round(float(row["rlnCenteredCoordinateXAngst"]) / voxel_size))
+            y = int(round(float(row["rlnCenteredCoordinateYAngst"]) / voxel_size))
+            z = int(round(float(row["rlnCenteredCoordinateZAngst"]) / voxel_size))
 
-        ])
+            x += tomogram_shape[2] / 2
+            y += tomogram_shape[1] / 2
+            z += tomogram_shape[0] / 2
+
+            x = int(round(x))
+            y = int(round(y))
+            z = int(round(z))
+
+        else:
+
+            raise ValueError("No coordinate columns found.")
+
+        coords.append([z, y, x])
 
     return np.array(coords)
 
@@ -121,7 +135,7 @@ def compute_metrics(distances, threshold, num_predictions, num_ground_truth):
 
     return (float(precision), float(recall), float(f1))
 
-
+"""
 def convert_star_to_yaml(input_star, output_yaml, tomogram_shape, tomogram_path, voxel_size):
 
     # =====================================================
@@ -202,7 +216,6 @@ def convert_star_to_yaml(input_star, output_yaml, tomogram_shape, tomogram_path,
 
     print(len(out_dict["Predicted_Particle_Centroid_Coordinates"]))
 
-
 def run_conversion(input_star, output_yaml, tomogram_shape, tomogram_path, voxel_size):
     
     if not os.path.exists(input_star):
@@ -212,15 +225,22 @@ def run_conversion(input_star, output_yaml, tomogram_shape, tomogram_path, voxel
     print("\nRunning Conversion:\n")
 
     convert_star_to_yaml(input_star, output_yaml, tomogram_shape, tomogram_path, voxel_size)
+"""
 
 # ==================================================
 # MAIN EVALUATION
 # ==================================================
 
-def run_evaluation(prediction_yaml, gt_ndjson, threshold_angstrom, output_yaml):
+def run_evaluation(prediction_star,
+    gt_ndjson,
+    threshold_angstrom,
+    output_yaml,
+    tomogram_shape,
+    voxel_size
+):
     
-    if not os.path.exists(prediction_yaml):
-        print(f"Missing prediction file: {prediction_yaml}")
+    if not os.path.exists(prediction_star):
+        print(f"Missing prediction file: {prediction_star}")
         return
 
     print("\nRunning Evaluation...\n")
@@ -229,7 +249,7 @@ def run_evaluation(prediction_yaml, gt_ndjson, threshold_angstrom, output_yaml):
     # Read predictions
     # ----------------------------------------------
 
-    pred_coords = read_prediction_yaml(prediction_yaml)
+    pred_coords = read_prediction_yaml(prediction_star, tomogram_shape, voxel_size)
 
     if len(pred_coords) == 0:
         print("No predicted particles.")
@@ -250,18 +270,6 @@ def run_evaluation(prediction_yaml, gt_ndjson, threshold_angstrom, output_yaml):
     # ----------------------------------------------
 
     gt_coords = read_ndjson_coords(gt_ndjson)
-
-    # ----------------------------------------------
-    # Read metadata
-    # ----------------------------------------------
-
-    with open(prediction_yaml, "r") as f:
-
-        pred_yaml = yaml.safe_load(f)
-
-    voxel_size = float(pred_yaml["metadata"]["voxel_size"])
-
-    voxel_threshold = get_voxel_threshold(threshold_angstrom, voxel_size)
 
     # ----------------------------------------------
     # Distance matrix
