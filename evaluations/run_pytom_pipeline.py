@@ -101,9 +101,9 @@ def main():
         run_preprocessing(
             tomogram_folder=config["dataset"]["path"],
             segmentation_folder=
-                config["preprocessing"]["segmentation_folder"],
+                config["preprocessing"]["picket_in_h5"],
             output_mask_folder=
-                config["preprocessing"]["output_mask_folder"],
+                config["preprocessing"]["picket_out_mrc"],
                 tomogram_config=config.get("tomograms", {})
         )
 
