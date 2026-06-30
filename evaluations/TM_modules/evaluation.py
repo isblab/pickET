@@ -249,7 +249,7 @@ def run_evaluation(prediction_star,
     # Read predictions
     # ----------------------------------------------
 
-    pred_coords = read_prediction_yaml(prediction_star, tomogram_shape, voxel_size)
+    pred_coords = read_prediction_star(prediction_star, tomogram_shape, voxel_size)
 
     if len(pred_coords) == 0:
         print("No predicted particles.")
@@ -270,6 +270,8 @@ def run_evaluation(prediction_star,
     # ----------------------------------------------
 
     gt_coords = read_ndjson_coords(gt_ndjson)
+
+    voxel_threshold = get_voxel_threshold(threshold_angstrom, voxel_size)
 
     # ----------------------------------------------
     # Distance matrix
