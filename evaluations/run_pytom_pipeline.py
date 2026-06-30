@@ -416,8 +416,6 @@ def main():
     # BENCHMARK SUMMARY
     # --------------------------------------------------
 
-    print("\n=== BENCHMARK SUMMARY ===\n")
-
     if config["execution"]["run_benchmark_summary"]:
         df = build_benchmark_dataframe(dataset, experiment_dir)
         csv_file = os.path.join(experiment_dir, "benchmark_summary.csv")
