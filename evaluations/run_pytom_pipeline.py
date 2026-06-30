@@ -28,12 +28,6 @@ from TM_modules.extraction import (
     run_extraction_command
 )
 
-#from TM_modules.roc import (
-    #count_particles,
-    #build_roc_command,
-    #run_roc_command
-#)
-
 from TM_modules.evaluation import (
     run_evaluation,
     get_threshold_angstrom
@@ -74,31 +68,6 @@ def rename_extraction_outputs(
               f"{prefix}_extraction_graph.svg"
          ),
     )
-
-
-#def rename_roc_outputs(
-#   tomo_results_dir,
-#    basename,
-#    prefix,
-#):
-
-#    shutil.move(
-#         os.path.join(
-#              tomo_results_dir, "roc.log"
-#         ),
-#         os.path.join(
-#              tomo_results_dir, f"{prefix}_roc.log"
-#         ),
-#    )
-
-#    shutil.move(
-#         os.path.join(
-#              tomo_results_dir, f"{basename}_roc.svg"
-#         ),
-#         os.path.join(
-#              tomo_results_dir, f"{prefix}_roc.svg"
-#         ),
-#    )
 
 
 def main():
