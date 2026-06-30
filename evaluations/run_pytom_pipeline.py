@@ -35,7 +35,6 @@ from TM_modules.extraction import (
 #)
 
 from TM_modules.evaluation import (
-    run_conversion,
     run_evaluation,
     get_threshold_angstrom
 )
@@ -379,7 +378,7 @@ def main():
 
         else:
             print("Extraction disabled.")
-
+"""
     # --------------------------------------------------
     # ROC
     # --------------------------------------------------
@@ -496,6 +495,7 @@ def main():
 
         else:
             print("Conversion disabled.")
+"""
 
     # --------------------------------------------------
     # EVALUATION
@@ -540,20 +540,24 @@ def main():
         if config["execution"]["run_evaluation"]:
             if os.path.exists(baseline_prediction_yaml):
                 run_evaluation(
-                    baseline_prediction_yaml,
+                    baseline_star,
                     ground_truth_ndjson,
                     threshold_angstrom,
-                    baseline_evaluation_yaml
+                    baseline_evaluation_yaml,
+                    tomo["shape"],
+                    tomo["voxel_size"]
                 )
             else:
                 print("Skipping baseline evaluation.")
 
             if os.path.exists(picket_prediction_yaml):
                 run_evaluation(
-                    picket_prediction_yaml,
+                    picket_star,
                     ground_truth_ndjson,
                     threshold_angstrom,
-                    picket_evaluation_yaml
+                    baseline_evaluation_yaml,
+                    tomo["shape"],
+                    tomo["voxel_size"]
                 )
             else:
                 print("Skipping picket evaluation.")
