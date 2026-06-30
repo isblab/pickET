@@ -106,8 +106,8 @@ def get_metadata(dataset_path, config):
         # ----------------------------------
 
         if sidecars["rawtlt"] is not None:
-            min_tlt = None
-            max_tlt = None
+            min_tilt = None
+            max_tilt = None
 
         elif "tilt_range" in tomo_cfg:
 
