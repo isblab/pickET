@@ -77,13 +77,9 @@ def build_tm_command(
 
             "-a",
 
-            str(
-                tomo["min_tilt"]
-            ),
+            str(tomo["min_tilt"]),
 
-            str(
-                tomo["max_tilt"]
-            )
+            str(tomo["max_tilt"])
 
         ])
 
@@ -167,24 +163,6 @@ def build_tm_command(
         ])
 
     # ---------------------------------
-    # Tomogram mask
-    # ---------------------------------
-
-#    if (
-#        config["tomogram_mask"]["enabled"]
-#        and
-#        tomo["mask_path"] is not None
-#       ):
-
-#        cmd.extend([
-
-#           "--tomogram-mask",
-
-#            tomo["mask_path"]
-
-#        ])
-
-    # ---------------------------------
     # CTF
     # ---------------------------------
 
@@ -194,9 +172,7 @@ def build_tm_command(
 
             "--defocus",
 
-            str(
-                config["ctf"]["defocus"]
-            )
+            str(config["ctf"]["defocus"])
 
         ])
 
@@ -204,10 +180,7 @@ def build_tm_command(
 
             "--amplitude-contrast",
 
-            str(
-                config["ctf"]
-                      ["amplitude_contrast"]
-            )
+            str(config["ctf"]["amplitude_contrast"])
 
         ])
 
@@ -215,10 +188,7 @@ def build_tm_command(
 
             "--spherical-aberration",
 
-            str(
-                config["ctf"]
-                      ["spherical_aberration"]
-            )
+            str(config["ctf"]["spherical_aberration"])
 
         ])
 
@@ -226,10 +196,7 @@ def build_tm_command(
 
             "--voltage",
 
-            str(
-                config["ctf"]
-                      ["voltage"]
-            )
+            str(config["ctf"]["voltage"])
 
         ])
 
@@ -242,11 +209,7 @@ def build_tm_command(
 
         if config["ctf"]["per_tilt_weighting"]:
 
-            cmd.extend([
-
-                "--per-tilt-weighting"
-
-            ])
+            cmd.extend(["--per-tilt-weighting"])
 
     # ---------------------------------
     # Random phase correction
