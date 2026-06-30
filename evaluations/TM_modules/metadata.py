@@ -85,7 +85,7 @@ def get_metadata(dataset_path, config):
 
         tomo_cfg = config.get("tomograms", {}).get(basename, {})
 
-        unknown = set(tomo_cfg.keys()) - {"segmentation", "invert_mask", "tilt_range"}
+        unknown = set(tomo_cfg.keys()) - {"picket_segmentation", "invert_mask", "tilt_range"}
 
         if unknown:
 
@@ -93,7 +93,7 @@ def get_metadata(dataset_path, config):
 
         mask_path = os.path.join(
 
-            config["preprocessing"]["output_mask_folder"], f"{basename}_mask.mrc")
+            config["preprocessing"]["picket_out_h5"], f"{basename}_mask.mrc")
 
         if not os.path.exists(mask_path):
 
