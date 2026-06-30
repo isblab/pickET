@@ -524,21 +524,17 @@ def main():
             )
 
         tomo_results_dir = os.path.join(experiment_dir, basename)
-        baseline_prediction_yaml = os.path.join(
-            tomo_results_dir, "baseline_prediction.yaml")
-        baseline_evaluation_yaml = os.path.join(
-            tomo_results_dir, "baseline_evaluation.yaml")
-        picket_prediction_yaml = os.path.join(
-            tomo_results_dir, "picket_prediction.yaml")
-        picket_evaluation_yaml = os.path.join(
-            tomo_results_dir, "picket_evaluation.yaml")
+        baseline_star = os.path.join(tomo_results_dir, "baseline_particles.star")
+        baseline_evaluation_yaml = os.path.join(tomo_results_dir, "baseline_evaluation.yaml")
+        picket_star = os.path.join(tomo_results_dir, "picket_particles.star")
+        picket_evaluation_yaml = os.path.join(tomo_results_dir, "picket_evaluation.yaml")
 
         threshold_angstrom = (get_threshold_angstrom(
             config["dataset"]["type"]))
         print(f"\nUsing threshold: {threshold_angstrom} A")
 
         if config["execution"]["run_evaluation"]:
-            if os.path.exists(baseline_prediction_yaml):
+            if os.path.exists(baseline_star):
                 run_evaluation(
                     baseline_star,
                     ground_truth_ndjson,
@@ -550,12 +546,12 @@ def main():
             else:
                 print("Skipping baseline evaluation.")
 
-            if os.path.exists(picket_prediction_yaml):
+            if os.path.exists(picket_star):
                 run_evaluation(
                     picket_star,
                     ground_truth_ndjson,
                     threshold_angstrom,
-                    baseline_evaluation_yaml,
+                    picket_evaluation_yaml,
                     tomo["shape"],
                     tomo["voxel_size"]
                 )
