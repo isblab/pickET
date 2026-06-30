@@ -2,110 +2,46 @@ import subprocess
 import numpy as np
 from Bio.PDB import PDBParser
 
-def get_masses_and_coords(
-    pdb_file
-):
+def get_masses_and_coords(pdb_file):
 
-    parser = PDBParser(
-        QUIET=True
-    )
+    parser = PDBParser(QUIET=True)
 
-    structure = parser.get_structure(
-        "structure",
-        pdb_file
-    )
+    structure = parser.get_structure("structure", pdb_file)
 
     masses = []
     coords = []
 
     for atom in structure.get_atoms():
 
-        masses.append(
-            atom.mass
-        )
+        masses.append(atom.mass)
 
-        coords.append(
-            atom.coord
-        )
+        coords.append(atom.coord)
 
-    return (
-
-        np.array(masses),
-
-        np.array(coords)
-
-    )
+    return (np.array(masses), np.array(coords))
 
 
-def get_radius_of_gyration(
-    pdb_file
-):
+def get_radius_of_gyration(pdb_file):
 
-    masses, coords = (
-        get_masses_and_coords(
-            pdb_file
-        )
-    )
+    masses, coords = get_masses_and_coords(pdb_file)
 
-    total_mass = np.sum(
-        masses
-    )
+    total_mass = np.sum(masses)
 
-    weighted_coords = (
-        coords.T * masses
-    )
+    weighted_coords = coords.T * masses
 
-    center_of_mass = (
+    center_of_mass = np.sum(weighted_coords, axis=1) / total_mass
 
-        np.sum(
-            weighted_coords,
-            axis=1
-        )
+    squared_distances = np.sum((coords - center_of_mass) ** 2, axis=1)
 
-        /
+    rg = np.sqrt(np.sum(squared_distances * masses) / total_mass)
 
-        total_mass
-
-    )
-
-    squared_distances = np.sum(
-
-        (coords - center_of_mass) ** 2,
-
-        axis=1
-
-    )
-
-    rg = np.sqrt(
-
-        np.sum(
-            squared_distances * masses
-        )
-
-        /
-
-        total_mass
-
-    )
-
-    return float(
-        rg
-    )
+    return float(rg)
 
 
-def get_extraction_diameter(
-    pdb_file
-):
+def get_extraction_diameter(pdb_file):
 
-    rg = get_radius_of_gyration(
-        pdb_file
-    )
+    rg = get_radius_of_gyration(pdb_file)
 
-    return int(
-        round(
-            2 * rg
-        )
-    )
+    return int(round(2 * rg))
 
 
 def build_extraction_command(
@@ -153,12 +89,6 @@ def build_extraction_command(
 
         ])
 
-
-#    if ignore_tomogram_mask:
-#        cmd.append(
-#            "--ignore_tomogram_mask"
-#        )
-
     if tomogram_mask is not None:
         cmd.extend([
             "--tomogram-mask",
@@ -172,15 +102,8 @@ def build_extraction_command(
 
 def run_extraction_command(cmd):
 
-    print(
-        "\nRunning Extraction:\n"
-    )
+    print("\nRunning Extraction:\n")
 
-    print(
-        " ".join(cmd)
-    )
+    print(" ".join(cmd))
 
-    subprocess.run(
-        cmd,
-        check=True
-    )
+    subprocess.run(cmd, check=True)
