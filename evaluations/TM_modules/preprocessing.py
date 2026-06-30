@@ -38,16 +38,16 @@ def save_mrc_mask(mask, output_path):
 
 def run_preprocessing(
     tomogram_folder,
-    segmentation_folder,
-    output_mask_folder,
+    picket_in_h5,
+    picket_out_mrc,
     tomogram_config=None
 ):
 
     if tomogram_config is None:
         tomogram_config = {}
-    os.makedirs(output_mask_folder, exist_ok=True)
+    os.makedirs(picket_out_mrc, exist_ok=True)
     segmentation_files = sorted(
-        glob.glob(os.path.join(segmentation_folder, "*.h5")), key=numeric_key)
+        glob.glob(os.path.join(picket_in_h5, "*.h5")), key=numeric_key)
     tomogram_files = sorted(
         glob.glob(os.path.join(tomogram_folder, "*.mrc")), key=numeric_key)
     if len(segmentation_files) != len(tomogram_files):
@@ -60,10 +60,10 @@ def run_preprocessing(
         tomo_name = os.path.splitext(
             os.path.basename(tomo_file))[0]
         tomo_cfg = tomogram_config.get(tomo_name, {})
-        if "segmentation" in tomo_cfg:
+        if "picket_segmentation" in tomo_cfg:
             h5_file = os.path.join(
-                segmentation_folder,
-                tomo_cfg["segmentation"]
+                picket_in_h5,
+                tomo_cfg["picket_segmentation"]
             )
             if not os.path.exists(h5_file):
                 raise FileNotFoundError(
@@ -80,7 +80,7 @@ def run_preprocessing(
             inverted = True
         occupancy = compute_occupancy(mask)
         output_path = os.path.join(
-            output_mask_folder, f"{tomo_name}_mask.mrc")
+            picket_out_mrc, f"{tomo_name}_mask.mrc")
         occupancy_summary[
             tomo_name
         ] = {
@@ -99,7 +99,7 @@ def run_preprocessing(
             continue
         save_mrc_mask(mask, output_path)
 
-    summary_path = os.path.join(output_mask_folder, "occupancy_summary.yaml")
+    summary_path = os.path.join(picket_out_mrc, "occupancy_summary.yaml")
     with open(summary_path, "w") as f:
         yaml.dump(occupancy_summary, f, sort_keys=False)
     print("\nSaved occupancy summary:")
