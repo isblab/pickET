@@ -11,56 +11,33 @@ from scipy import stats
 # READ DATASET TYPE
 # ==================================================
 
-def get_threshold_angstrom(
-    dataset_type
-):
+def get_threshold_angstrom(dataset_type):
 
-    if dataset_type in [
-        "tutorial",
-        "real"
-    ]:
+    if dataset_type in ["tutorial", "real"]:
 
         return 125
 
-    elif dataset_type == (
-        "simulated"
-    ):
+    elif dataset_type == ("simulated"):
 
         return 100
 
     else:
 
-        raise ValueError(
-            f"Unknown dataset type: "
-            f"{dataset_type}"
-        )
+        raise ValueError(f"Unknown dataset type: {dataset_type}")
 
 # ==================================================
 # READ GROUND TRUTH NDJSON
 # ==================================================
 
-def read_ndjson_coords(
-    fname
-):
+def read_ndjson_coords(fname):
 
-    with open(
-        fname,
-        "r"
-    ) as f:
+    with open(fname, "r") as f:
 
         annotations = ndjson.load(f)
 
-    coords = np.zeros(
+    coords = np.zeros((len(annotations), 3), dtype=np.int32)
 
-        (len(annotations), 3),
-
-        dtype=np.int32
-
-    )
-
-    for idx, ann in enumerate(
-        annotations
-    ):
+    for idx, ann in enumerate(annotations):
 
         coords[idx] = [
 
@@ -79,22 +56,15 @@ def read_ndjson_coords(
 # READ PREDICTION YAML
 # ==================================================
 
-def read_prediction_yaml(
-    fname
-):
+def read_prediction_yaml(fname):
 
-    with open(
-        fname,
-        "r"
-    ) as f:
+    with open(fname, "r") as f:
 
         data = yaml.safe_load(f)
 
     coords = []
 
-    for particle in data[
-        "Predicted_Particle_Centroid_Coordinates"
-    ]:
+    for particle in data["Predicted_Particle_Centroid_Coordinates"]:
 
         coords.append([
 
@@ -106,110 +76,40 @@ def read_prediction_yaml(
 
         ])
 
-    return np.array(
-        coords
-    )
+    return np.array(coords)
 
 
 # ==================================================
 # ANGSTROM -> VOXEL THRESHOLD
 # ==================================================
 
-def get_voxel_threshold(
+def get_voxel_threshold(angstrom_threshold, voxel_size):
 
-    angstrom_threshold,
-
-    voxel_size
-
-):
-
-    return int(
-
-        round(
-
-            angstrom_threshold
-            /
-            voxel_size,
-
-            0
-
-        )
-
-    )
+    return int(round(angstrom_threshold / voxel_size, 0))
 
 
 # ==================================================
 # PICKET-STYLE METRICS
 # ==================================================
 
-def compute_metrics(
+def compute_metrics(distances, threshold, num_predictions, num_ground_truth):
 
-    distances,
+    masked = np.where(distances <= threshold, 1, 0)
 
-    threshold,
+    positive_prediction_idxs = np.any(masked, axis=1)
 
-    num_predictions,
-
-    num_ground_truth
-
-):
-
-    masked = np.where(
-
-        distances <= threshold,
-
-        1,
-
-        0
-
-    )
-
-    positive_prediction_idxs = np.any(
-
-        masked,
-
-        axis=1
-
-    )
-
-    captured_ground_truth_idxs = np.any(
-
-        masked,
-
-        axis=0
-
-    )
+    captured_ground_truth_idxs = np.any(masked, axis=0)
 
     precision = 0.0
     recall = 0.0
 
     if num_predictions > 0:
 
-        precision = (
-
-            np.count_nonzero(
-
-                positive_prediction_idxs
-
-            )
-            /
-            num_predictions
-
-        )
+        precision = (np.count_nonzero(positive_prediction_idxs) / num_predictions)
 
     if num_ground_truth > 0:
 
-        recall = (
-
-            np.count_nonzero(
-
-                captured_ground_truth_idxs
-
-            )
-            /
-            num_ground_truth
-
-        )
+        recall = (np.count_nonzero(captured_ground_truth_idxs) / num_ground_truth)
 
     if precision == 0 or recall == 0:
 
@@ -217,48 +117,18 @@ def compute_metrics(
 
     else:
 
-        f1 = float(
+        f1 = float(stats.hmean([precision, recall]))
 
-            stats.hmean(
-
-                [precision, recall]
-
-            )
-
-        )
-
-    return (
-
-        float(precision),
-
-        float(recall),
-
-        float(f1)
-
-    )
+    return (float(precision), float(recall), float(f1))
 
 
-def convert_star_to_yaml(
-
-    input_star,
-
-    output_yaml,
-
-    tomogram_shape,
-
-    tomogram_path,
-
-    voxel_size
-
-):
+def convert_star_to_yaml(input_star, output_yaml, tomogram_shape, tomogram_path, voxel_size):
 
     # =====================================================
     # LOAD STAR FILE
     # =====================================================
 
-    df = starfile.read(
-        input_star
-    )
+    df = starfile.read(input_star)
 
     # =====================================================
     # PREPARE OUTPUT STRUCTURE
@@ -278,9 +148,7 @@ def convert_star_to_yaml(
 
     }
 
-    out_dict[
-        "Predicted_Particle_Centroid_Coordinates"
-    ] = []
+    out_dict["Predicted_Particle_Centroid_Coordinates"] = []
 
     # =====================================================
     # CONVERT COORDINATES
@@ -298,29 +166,15 @@ def convert_star_to_yaml(
     # RELION5 format (centered coordinates in Angstrom)
         elif "rlnCenteredCoordinateXAngst" in row.index:
 
-            x = int(round(
-                float(row["rlnCenteredCoordinateXAngst"])
-                / voxel_size,
-                0
-            ))
+            x = int(round(float(row["rlnCenteredCoordinateXAngst"]) / voxel_size, 0))
 
-            y = int(round(
-                float(row["rlnCenteredCoordinateYAngst"])
-                / voxel_size,
-                0
-            ))
+            y = int(round(float(row["rlnCenteredCoordinateYAngst"]) / voxel_size, 0))
 
-            z = int(round(
-                float(row["rlnCenteredCoordinateZAngst"])
-                / voxel_size,
-                0
-            ))
+            z = int(round(float(row["rlnCenteredCoordinateZAngst"]) / voxel_size, 0))
 
         else:
 
-            raise ValueError(
-                "No coordinate columns found in STAR file."
-            )
+            raise ValueError("No coordinate columns found in STAR file.")
 
         x += tomogram_shape[2] / 2
         y += tomogram_shape[1] / 2
@@ -330,129 +184,52 @@ def convert_star_to_yaml(
         y = int(round(y))
         z = int(round(z))
 
-        out_dict[
-            "Predicted_Particle_Centroid_Coordinates"
-        ].append({
-
-            "x": x,
-
-            "y": y,
-
-            "z": z
-
-        })
+        out_dict["Predicted_Particle_Centroid_Coordinates"].append({"x": x, "y": y, "z": z})
 
     # =====================================================
     # WRITE YAML
     # =====================================================
 
-    with open(
-        output_yaml,
-        "w"
-    ) as outf:
+    with open(output_yaml, "w") as outf:
 
-        yaml.dump(
-            out_dict,
-            outf,
-            sort_keys=False
-        )
+        yaml.dump(out_dict, outf, sort_keys=False)
 
-    print(
-        f"\nSaved prediction YAML:"
-    )
+    print(f"\nSaved prediction YAML:")
 
-    print(
-        output_yaml
-    )
+    print(output_yaml)
 
-    print(
-        f"\nNumber of particles converted:"
-    )
+    print(f"\nNumber of particles converted:")
 
-    print(
-        len(
-            out_dict[
-                "Predicted_Particle_Centroid_Coordinates"
-            ]
-        )
-    )
+    print(len(out_dict["Predicted_Particle_Centroid_Coordinates"]))
 
 
-def run_conversion(
-
-    input_star,
-
-    output_yaml,
-
-    tomogram_shape,
-
-    tomogram_path,
-
-    voxel_size
-
-):
+def run_conversion(input_star, output_yaml, tomogram_shape, tomogram_path, voxel_size):
+    
     if not os.path.exists(input_star):
         print(f"Missing STAR file: {input_star}")
         return
 
-    print(
-        "\nRunning Conversion:\n"
-    )
+    print("\nRunning Conversion:\n")
 
-    print(
-        f"Input STAR: {input_star}"
-    )
-
-    print(
-        f"Output YAML: {output_yaml}"
-    )
-
-    convert_star_to_yaml(
-
-        input_star,
-
-        output_yaml,
-
-        tomogram_shape,
-
-        tomogram_path,
-
-        voxel_size
-
-    )
+    convert_star_to_yaml(input_star, output_yaml, tomogram_shape, tomogram_path, voxel_size)
 
 # ==================================================
 # MAIN EVALUATION
 # ==================================================
 
-def run_evaluation(
-
-    prediction_yaml,
-
-    gt_ndjson,
-
-    threshold_angstrom,
-
-    output_yaml
-
-):
+def run_evaluation(prediction_yaml, gt_ndjson, threshold_angstrom, output_yaml):
+    
     if not os.path.exists(prediction_yaml):
         print(f"Missing prediction file: {prediction_yaml}")
         return
 
-    print(
-        "\nRunning Evaluation...\n"
-    )
+    print("\nRunning Evaluation...\n")
 
     # ----------------------------------------------
     # Read predictions
     # ----------------------------------------------
 
-    pred_coords = read_prediction_yaml(
-
-        prediction_yaml
-
-    )
+    pred_coords = read_prediction_yaml(prediction_yaml)
 
     if len(pred_coords) == 0:
         print("No predicted particles.")
@@ -472,64 +249,27 @@ def run_evaluation(
     # Read GT
     # ----------------------------------------------
 
-    gt_coords = read_ndjson_coords(
-
-        gt_ndjson
-
-    )
+    gt_coords = read_ndjson_coords(gt_ndjson)
 
     # ----------------------------------------------
     # Read metadata
     # ----------------------------------------------
 
-    with open(
-        prediction_yaml,
-        "r"
-    ) as f:
+    with open(prediction_yaml, "r") as f:
 
         pred_yaml = yaml.safe_load(f)
 
-    voxel_size = float(
+    voxel_size = float(pred_yaml["metadata"]["voxel_size"])
 
-        pred_yaml["metadata"][
-            "voxel_size"
-        ]
-
-    )
-
-    voxel_threshold = get_voxel_threshold(
-
-        threshold_angstrom,
-
-        voxel_size
-
-    )
+    voxel_threshold = get_voxel_threshold(threshold_angstrom, voxel_size)
 
     # ----------------------------------------------
     # Distance matrix
     # ----------------------------------------------
 
-    distances = cdist(
+    distances = cdist(pred_coords, gt_coords, metric="euclidean")
 
-        pred_coords,
-
-        gt_coords,
-
-        metric="euclidean"
-
-    )
-
-    precision, recall, f1 = compute_metrics(
-
-        distances,
-
-        voxel_threshold,
-
-        len(pred_coords),
-
-        len(gt_coords)
-
-    )
+    precision, recall, f1 = compute_metrics(distances, voxel_threshold, len(pred_coords), len(gt_coords))
 
     results = {
 
@@ -539,53 +279,22 @@ def run_evaluation(
 
         "f1_score": f1,
 
-        "num_predictions": int(
-            len(pred_coords)
-        ),
+        "num_predictions": int(len(pred_coords)),
 
-        "num_ground_truth": int(
-            len(gt_coords)
-        ),
+        "num_ground_truth": int(len(gt_coords)),
 
-        "threshold_angstrom":
-            threshold_angstrom,
+        "threshold_angstrom": threshold_angstrom,
 
-        "voxel_threshold":
-            voxel_threshold
+        "voxel_threshold": voxel_threshold
 
     }
 
-    with open(
-        output_yaml,
-        "w"
-    ) as f:
+    with open(output_yaml, "w") as f:
 
-        yaml.dump(
+        yaml.dump(results, f, sort_keys=False)
 
-            results,
+    print("\nEvaluation Results:\n")
 
-            f,
+    print(yaml.dump(results,sort_keys=False))
 
-            sort_keys=False
-
-        )
-
-    print(
-        "\nEvaluation Results:\n"
-    )
-
-    print(
-
-        yaml.dump(
-
-            results,
-
-            sort_keys=False
-
-        )
-
-    )
-
-    print(
-        f"Saved: {output_yaml}"
-    )
+    print(f"Saved: {output_yaml}")
