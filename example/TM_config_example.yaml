@@ -1,0 +1,115 @@
+experiment:
+  name: experiment_1 #main folder in which results will be submitted after completion of workflow. 
+
+dataset:
+  # Directory containing tomograms and sidefiles - rawtlt files. Rawtlt files SHOULD BE in the same directory as tomograms. 
+  path: ../Datasets_&_picket_masks/dataset_exp1
+
+  # Dataset type: tutorial, real, or simulated - for voxel threshold, for real/tutorial: 125 A, for simulated: 100 A
+  type: real
+  
+preprocessing:
+  picket_in_h5: #folder containing picket segmentations in original, h5 format
+  picket_out_mrc: ../Datasets_&_picket_masks/picket_masks_exp1 #folder containing picket segmentations in converted, mrc format
+  
+tomograms:
+  TS_0001:
+    picket_segmentation: #If tomograms and their picket masks are ordered (eg. tomograms = TS_001 - TS010, and segmentations = segmentation_0_"" - segmentation_9_"", then this is not required, pipeline will automatically match tomo's to their corresponding masks. Only if order is different.
+    invert_mask: false #if annotations are inverted
+    tilt_range: [-60, 60] #if rawtlt and dataset level tilt angles not available. Between these 3 options, order of preference should be: (if rawtlt present, use it) > (if per-tomogram angles present, use it) > (if dataset level tilt range present, use it) 
+  TS_0002:
+    invert_mask: false
+  TS_0003:
+    invert_mask: false
+  TS_0004:
+    invert_mask: false
+  TS_0005:
+    invert_mask: false
+  TS_0006:
+    invert_mask: false
+  TS_0007:
+    invert_mask: false
+  TS_0008:
+    invert_mask: false
+  TS_0009:
+    invert_mask: false
+  TS_0010:
+    invert_mask: false
+
+tilt_angles: #dataset level range
+    min:
+    max:
+  
+ground_truth:
+  directory: ../Datasets_&_picket_masks/dataset_exp1 #directory for ground truth annotations
+  
+gt_annotation_conversion: #not required if evaluation is not run, or if ground truth already in ndjson format. Very specific to Defocus like dataset where original GT was in CSV format. 
+  annotation_folder: ../Datasets_&_picket_masks/particle_lists
+  annotation_suffix: cyto_ribosomes
+
+particle:
+  template_matching_diameter_angstrom: 300
+
+  # User-specified extraction diameter (optional, only required for elongated particles, o/w same as TM diameter 
+  extraction_diameter_angstrom:
+
+  # Use RG-based extraction diameter if extraction diameter is unknown
+  extraction_diameter_required: false
+
+  # PDB file used for diameter estimation
+  pdb:
+
+template:
+  # Input density map for template generation
+  input: ../Datasets_&_picket_masks/templates/emd_14409.map
+
+template_generation:
+  # Invert density values during template creation
+  invert: true
+  output_template_file: template.mrc
+  output_mask_file: mask.mrc
+
+template_matching:
+  rotational_symmetry: 1 #if C1, use 1, if C2, use 2, & so on. If unsure, leave as it is. 
+  random_phase_correction: false #might improve results but at the cost of doubling the runtime. Generally false, coz not much improvement. 
+
+search_region:
+  enabled: false #if you know the specific region for template matching, give the ranges here.
+  x: [0,0]
+  y: [0,0]
+  z: [0,0]
+
+ctf:
+  enabled: true
+  mode: constant
+  defocus: 3
+  amplitude_contrast: 0.07 #General value for Titan Krios microscope
+  spherical_aberration: 2.7 #General value for Titan Krios microscope
+  voltage: 300 #General value for Titan Krios microscope
+  tomogram_ctf_model: phase-flip #reconstruction software = IMOD
+  per_tilt_weighting: false #Keep true if you have rawtlt files, although not much effect. 
+
+compute:
+  gpu_ids: [0, 1]
+  volume_split:
+    x: 2
+    y: 2
+    z: 1
+
+execution:
+  # Enable or disable pipeline stages
+  run_annotation_conversion: false #if you have GT in CSV format, run this
+  run_preprocessing: false #for converting h5 PickET masks to mrc. Required ONCE for one dataset, and then can be turned to false if other experiments are run on the same dataset. Mandatory once as PyTOM only takes .mrc masks.
+  generate_template: false #Generate template
+  generate_mask: false #Generate mask for the template
+  run_template_matching: false #Run template matching on the dataset tomograms
+  run_extraction: false #After TM, run this to get list of particles/peaks in .star files. 
+  run_evaluation: true #If you have GT to compare with TM results, run this.
+  run_benchmark_summary: true #Run this to get a dataset level statistics CSV file, along with boxplots and violin plots for f1 score, precision, and recall. 
+
+extraction:
+  # Number of particles to extract (arbitrarily large number, don't need to change this) 
+  number_of_particles: 100000
+
+  # Score cutoff for extracting particles (blank = PyTOM automatic estimation)
+  cutoff:
