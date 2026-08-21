@@ -54,9 +54,24 @@ def estimate_diameter_from_pdb(pdb_file):
 
     return float(max_internal_distance)
 
-def get_particle_diameter(pdb_file):
+def get_particle_diameter(config):
 
-    diameter = estimate_diameter_from_pdb(pdb_file)
+    diameter = config["particle"]["template_matching_diameter_angstrom"]
+    pdb_file = config["particle"]["pdb"]
+
+    if diameter is not None:
+        print("\nUsing user-provided particle diameter.")
+
+    elif pdb_file is not None:
+        print("\nEstimating particle diameter from PDB...")
+        diameter = estimate_diameter_from_pdb(pdb_file)
+        print(f"Estimated diameter: {diameter} A")
+
+    else:
+        raise ValueError(
+            "Either template_matching_diameter_angstrom "
+            "or pdb must be provided."
+        )
 
     return int(round(diameter))
 

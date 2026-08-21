@@ -48,35 +48,20 @@ def rename_extraction_outputs(
 ):
 
     shutil.move(
-         os.path.join(
-              tomo_results_dir,
-              f"{basename}_particles.star"
-         ),
-         os.path.join(
-              tomo_results_dir,
-              f"{prefix}_particles.star"
-         ),
+        os.path.join(tomo_results_dir, f"{basename}_particles.star"),
+        os.path.join(tomo_results_dir, f"{prefix}_particles.star"),
     )
 
     shutil.move(
-         os.path.join(
-              tomo_results_dir,
-              f"{basename}_extraction_graph.svg"
-         ),
-         os.path.join(
-              tomo_results_dir,
-              f"{prefix}_extraction_graph.svg"
-         ),
+        os.path.join(tomo_results_dir, f"{basename}_extraction_graph.svg"),
+        os.path.join(tomo_results_dir, f"{prefix}_extraction_graph.svg"),
     )
 
 
 def main():
 
     if len(sys.argv) != 2:
-        print(
-            "Usage: python run_pipeline.py config.yaml"
-        )
-
+        print("Usage: python run_pipeline.py config.yaml")
         sys.exit(1)
 
     config_file = sys.argv[1]
@@ -100,11 +85,9 @@ def main():
 
         run_preprocessing(
             tomogram_folder=config["dataset"]["path"],
-            picket_in_h5=
-                config["preprocessing"]["picket_in_h5"],
-            picket_out_mrc=
-                config["preprocessing"]["picket_out_mrc"],
-                tomogram_config=config.get("tomograms", {})
+            picket_in_h5=config["preprocessing"]["picket_in_h5"],
+            picket_out_mrc=config["preprocessing"]["picket_out_mrc"],
+            tomogram_config=config.get("tomograms", {})
         )
 
     else:
@@ -118,16 +101,9 @@ def main():
         print("\n=== ANNOTATION CONVERSION ===\n")
 
         convert_annotations(
-            annotation_folder =
-                config["gt_annotation_conversion"][
-                    "annotation_folder"
-                ],
-            output_folder=
-                config["ground_truth"]["directory"],
-            annotation_suffix=
-                config["gt_annotation_conversion"][
-                    "annotation_suffix"
-                ]
+            annotation_folder=config["gt_annotation_conversion"]["annotation_folder"],
+            output_folder=config["ground_truth"]["directory"],
+            annotation_suffix=config["gt_annotation_conversion"]["annotation_suffix"]
         )
 
     else:
@@ -139,44 +115,10 @@ def main():
 
     dataset_path = config["dataset"]["path"]
     dataset = get_metadata(dataset_path, config)
-    tm_particle_diameter = config["particle"][
-        "template_matching_diameter_angstrom"]
-    pdb_file = config["particle"]["pdb"]
+    tm_particle_diameter = get_particle_diameter(config)
+    extraction_particle_diameter = get_extraction_diameter(config)
 
-    if tm_particle_diameter is not None:
-        print("\nUsing user-provided particle diameter.")
-
-    elif pdb_file is not None:
-        print("\nEstimating particle diameter from PDB...")
-        tm_particle_diameter = get_particle_diameter(pdb_file)
-        print(f"Estimated diameter: {tm_particle_diameter} A")
-
-    else:
-        raise ValueError(
-            "Either template_matching_diameter_angstrom "
-            "or pdb must be provided."
-        )
-
-    extraction_particle_diameter = config[
-        "particle"
-    ]["extraction_diameter_angstrom"]
-
-    if extraction_particle_diameter is not None:
-        print("\nUsing user-provided extraction diameter.")
-
-    elif config["particle"][
-        "extraction_diameter_required"
-    ]:
-        if pdb_file is None:
-            raise ValueError(
-                "PDB file required for "
-                "RG-based extraction diameter."
-            )
-
-        extraction_particle_diameter = get_extraction_diameter(pdb_file)
-        print("\nUsing RG-based extraction diameter.")
-
-    else:
+    if extraction_particle_diameter is None:
         extraction_particle_diameter = tm_particle_diameter
         print("\nUsing template matching diameter for extraction.")
 
@@ -199,14 +141,7 @@ def main():
 
     for tomo in dataset:
 
-        basename = (
-            os.path.splitext(
-                os.path.basename(
-                    tomo["path"]
-                )
-            )[0]
-        )
-
+        basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
         tomo_results_dir = os.path.join(experiment_dir, basename)
         os.makedirs(tomo_results_dir, exist_ok=True)
 
@@ -273,14 +208,7 @@ def main():
 
     for tomo in dataset:
 
-        basename = (
-            os.path.splitext(
-                os.path.basename(
-                    tomo["path"]
-                )
-            )[0]
-        )
-
+        basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
         tomo_results_dir = os.path.join(experiment_dir, basename)
 
         cmd = build_tm_command(
@@ -309,14 +237,7 @@ def main():
 
     for tomo in dataset:
 
-        basename = (
-            os.path.splitext(
-                os.path.basename(
-                    tomo["path"]
-                )
-            )[0]
-        )
-
+        basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
         tomo_results_dir = os.path.join(experiment_dir, basename)
         job_file = os.path.join(tomo_results_dir, f"{basename}_job.json")
 
@@ -356,14 +277,7 @@ def main():
 
     for tomo in dataset:
 
-        basename = (
-            os.path.splitext(
-                os.path.basename(
-                    tomo["path"]
-                )
-            )[0]
-        )
-
+        basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
         ground_truth_ndjson = os.path.join(
             config["ground_truth"]["directory"],
             f"{basename}.ndjson"
@@ -374,9 +288,8 @@ def main():
         baseline_evaluation_yaml = os.path.join(tomo_results_dir, "baseline_evaluation.yaml")
         picket_star = os.path.join(tomo_results_dir, "picket_particles.star")
         picket_evaluation_yaml = os.path.join(tomo_results_dir, "picket_evaluation.yaml")
+        threshold_angstrom = get_threshold_angstrom(config["dataset"]["type"])
 
-        threshold_angstrom = (get_threshold_angstrom(
-            config["dataset"]["type"]))
         print(f"\nUsing threshold: {threshold_angstrom} A")
 
         if config["execution"]["run_evaluation"]:

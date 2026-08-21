@@ -37,11 +37,31 @@ def get_radius_of_gyration(pdb_file):
     return float(rg)
 
 
-def get_extraction_diameter(pdb_file):
+def get_extraction_diameter(config):
 
-    rg = get_radius_of_gyration(pdb_file)
+    tm_particle_diameter = config["particle"]["template_matching_diameter_angstrom"]
+    extraction_particle_diameter = config["particle"]["extraction_diameter_angstrom"]
+    pdb_file = config["particle"]["pdb"]
 
-    return int(round(2 * rg))
+    if extraction_particle_diameter is not None:
+        print("\nUsing user-provided extraction diameter.")
+
+    elif config["particle"]["extraction_diameter_required"]:
+        if pdb_file is None:
+            raise ValueError(
+                "PDB file required for "
+                "RG-based extraction diameter."
+            )
+
+        rg = get_radius_of_gyration(pdb_file)
+        extraction_particle_diameter = int(round(2 * rg))
+        print("\nUsing RG-based extraction diameter.")
+
+    else:
+        extraction_particle_diameter = tm_particle_diameter
+        print("\nUsing template matching diameter for extraction.")
+
+    return extraction_particle_diameter
 
 
 def build_extraction_command(
