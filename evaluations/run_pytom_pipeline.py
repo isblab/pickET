@@ -369,11 +369,6 @@ def main():
             f"{basename}.ndjson"
         )
 
-        if not os.path.exists(ground_truth_ndjson):
-            raise FileNotFoundError(
-                f"Missing GT file:\n {ground_truth_ndjson}"
-            )
-
         tomo_results_dir = os.path.join(experiment_dir, basename)
         baseline_star = os.path.join(tomo_results_dir, "baseline_particles.star")
         baseline_evaluation_yaml = os.path.join(tomo_results_dir, "baseline_evaluation.yaml")
@@ -385,6 +380,12 @@ def main():
         print(f"\nUsing threshold: {threshold_angstrom} A")
 
         if config["execution"]["run_evaluation"]:
+
+            if not os.path.exists(ground_truth_ndjson):
+                raise FileNotFoundError(
+                    f"Missing GT file:\n {ground_truth_ndjson}"
+                )
+
             if os.path.exists(baseline_star):
                 run_evaluation(
                     baseline_star,

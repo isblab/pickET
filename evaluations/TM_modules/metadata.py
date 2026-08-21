@@ -93,7 +93,7 @@ def get_metadata(dataset_path, config):
 
         mask_path = os.path.join(
 
-            config["preprocessing"]["picket_out_h5"], f"{basename}_mask.mrc")
+            config["preprocessing"]["picket_out_mrc"], f"{basename}_mask.mrc")
 
         if not os.path.exists(mask_path):
 
