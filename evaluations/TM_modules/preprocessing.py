@@ -47,6 +47,12 @@ def get_tomogram_files(tomogram_folder, dataset="experimental"):
         tomogram_files = sorted([
             f for f in tomogram_files if f.endswith("denoised_tiltseries_rec.mrc")
         ])
+    else:
+        raise ValueError(
+            f"Invalid parameter dataset: {dataset}"
+            "Valid options: 'experimental' or 'simulated'"
+        )
+
     return tomogram_files
 
 def run_preprocessing(
