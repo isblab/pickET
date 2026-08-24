@@ -6,7 +6,7 @@ from TM_modules.config import load_config
 
 from TM_modules.metadata import get_metadata
 
-from TM_modules.preprocessing import run_preprocessing
+from TM_modules.preprocessing import run_preprocessing, get_tomogram_files
 
 from TM_modules.annotation_conversion import convert_annotations
 
@@ -83,8 +83,11 @@ def main():
     if config["execution"]["run_preprocessing"]:
         print("\n=== PREPROCESSING ===\n")
 
+        tomogram_folder = config["dataset"]["path"]
+        tomogram_files=get_tomogram_files(tomogram_folder, dataset=config["dataset"]["type"])
+
         run_preprocessing(
-            tomogram_folder=config["dataset"]["path"],
+            tomogram_files=tomogram_files,
             picket_in_h5=config["preprocessing"]["picket_in_h5"],
             picket_out_mrc=config["preprocessing"]["picket_out_mrc"],
             tomogram_config=config.get("tomograms", {})

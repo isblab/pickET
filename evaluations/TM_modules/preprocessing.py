@@ -36,8 +36,21 @@ def save_mrc_mask(mask, output_path):
     with mrcfile.new(output_path, overwrite=True) as m:
         m.set_data(mask)
 
+def get_tomogram_files(tomogram_folder, dataset="experimental"):
+
+    if dataset=="experimental":
+        tomogram_files = sorted(
+            glob.glob(os.path.join(tomogram_folder, "*.mrc")), key=numeric_key
+        )
+    elif dataset=="simulated":
+        tomogram_files = glob.glob(os.path.join(tomogram_folder, "**", "*.mrc"), recursive=True)
+        tomogram_files = sorted([
+            f for f in tomogram_files if f.endswith("denoised_tiltseries_rec.mrc")
+        ])
+    return tomogram_files
+
 def run_preprocessing(
-    tomogram_folder,
+    tomogram_files,
     picket_in_h5,
     picket_out_mrc,
     tomogram_config=None
@@ -47,9 +60,8 @@ def run_preprocessing(
         tomogram_config = {}
     os.makedirs(picket_out_mrc, exist_ok=True)
     segmentation_files = sorted(
-        glob.glob(os.path.join(picket_in_h5, "*.h5")), key=numeric_key)
-    tomogram_files = sorted(
-        glob.glob(os.path.join(tomogram_folder, "*.mrc")), key=numeric_key)
+        glob.glob(os.path.join(picket_in_h5, "*.h5")), key=numeric_key
+    )
     if len(segmentation_files) != len(tomogram_files):
         raise ValueError("Mismatch between tomograms and segmentations.")
 
@@ -57,8 +69,7 @@ def run_preprocessing(
 
     seg_iter = iter(segmentation_files)
     for tomo_file in tomogram_files:
-        tomo_name = os.path.splitext(
-            os.path.basename(tomo_file))[0]
+        tomo_name = os.path.splitext(os.path.basename(tomo_file))[0]
         tomo_cfg = tomogram_config.get(tomo_name, {})
         if "picket_segmentation" in tomo_cfg:
             h5_file = os.path.join(
@@ -79,11 +90,8 @@ def run_preprocessing(
             mask = invert_mask(mask)
             inverted = True
         occupancy = compute_occupancy(mask)
-        output_path = os.path.join(
-            picket_out_mrc, f"{tomo_name}_mask.mrc")
-        occupancy_summary[
-            tomo_name
-        ] = {
+        output_path = os.path.join(picket_out_mrc, f"{tomo_name}_mask.mrc")
+        occupancy_summary[tomo_name] = {
             "occupancy_percent": round(occupancy, 2),
             "inverted": inverted,
             "segmentation_file": os.path.basename(h5_file)
