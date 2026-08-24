@@ -2,16 +2,14 @@ import os
 import mrcfile
 
 
-def fix_tutorial_voxel_headers(dataset_path):
+def fix_tutorial_voxel_headers(tomogram_files):
     
-    for fname in os.listdir(dataset_path):
+    for fpath in tomogram_files:
         
-        if not (fname.endswith(".mrc")):
+        if not (fpath.endswith(".mrc")):
             continue
 
-        mrc_path = os.path.join(dataset_path, fname)
-
-        with mrcfile.open(mrc_path, mode="r+", permissive=True) as mrc:
+        with mrcfile.open(fpath, mode="r+", permissive=True) as mrc:
 
             mrc.voxel_size = 13.79
 
@@ -34,19 +32,6 @@ def get_tomogram_shape(mrc_path):
     return shape
 
 
-def find_mrc_files(dataset_path):
-
-    mrc_files = []
-
-    for fname in os.listdir(dataset_path):
-
-        if fname.endswith(".mrc"):
-
-            mrc_files.append(os.path.join(dataset_path, fname))
-
-    return sorted(mrc_files)
-
-
 def discover_sidecar_files(mrc_path):
 
     base = os.path.splitext(mrc_path)[0]
@@ -60,7 +45,7 @@ def discover_sidecar_files(mrc_path):
     return files
 
 
-def get_metadata(dataset_path, config):
+def get_metadata(tomogram_files, config):
 
     if config["dataset"]["type"] == "tutorial":
 
@@ -69,17 +54,15 @@ def get_metadata(dataset_path, config):
             "voxel-size correction..."
         )
 
-        fix_tutorial_voxel_headers(dataset_path)
+        fix_tutorial_voxel_headers(tomogram_files)
 
     dataset = []
-
-    mrc_files = find_mrc_files(dataset_path)
 
     # ----------------------------------
     # Tomogram discovery
     # ----------------------------------
 
-    for idx, mrc_file in enumerate(mrc_files):
+    for idx, mrc_file in enumerate(tomogram_files):
 
         basename = os.path.splitext(os.path.basename(mrc_file))[0]
 
@@ -91,9 +74,7 @@ def get_metadata(dataset_path, config):
 
             raise ValueError(f"{basename}: unknown tomogram keys {unknown}")
 
-        mask_path = os.path.join(
-
-            config["preprocessing"]["picket_out_mrc"], f"{basename}_mask.mrc")
+        mask_path = os.path.join(config["preprocessing"]["picket_out_mrc"], f"{basename}_mask.mrc")
 
         if not os.path.exists(mask_path):
 
