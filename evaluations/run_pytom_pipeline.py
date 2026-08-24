@@ -75,6 +75,8 @@ def main():
     os.makedirs(experiment_dir, exist_ok=True)
     template_dir = os.path.join(experiment_dir, "template")
     os.makedirs(template_dir, exist_ok=True)
+    dataset_path = config["dataset"]["path"]
+    tomogram_files=get_tomogram_files(dataset_path, dataset=config["dataset"]["type"])
 
     # --------------------------------------------------
     #  PREPROCESSING
@@ -82,9 +84,6 @@ def main():
 
     if config["execution"]["run_preprocessing"]:
         print("\n=== PREPROCESSING ===\n")
-
-        tomogram_folder = config["dataset"]["path"]
-        tomogram_files=get_tomogram_files(tomogram_folder, dataset=config["dataset"]["type"])
 
         run_preprocessing(
             tomogram_files=tomogram_files,
@@ -116,8 +115,7 @@ def main():
     # DATASET DISCOVERY
     # --------------------------------------------------
 
-    dataset_path = config["dataset"]["path"]
-    dataset = get_metadata(dataset_path, config)
+    dataset = get_metadata(tomogram_files, config)
     tm_particle_diameter = get_particle_diameter(config)
     extraction_particle_diameter = get_extraction_diameter(config)
 
@@ -144,7 +142,11 @@ def main():
 
     for tomo in dataset:
 
-        basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
+        if config["dataset"]["type"] == "simulated":
+            basename = os.path.basename(os.path.dirname(tomo["path"]))
+        elif config["dataset"]["type"] == "experimental":
+            basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
+        tomo_results_dir = os.path.join(experiment_dir, basename)
         tomo_results_dir = os.path.join(experiment_dir, basename)
         os.makedirs(tomo_results_dir, exist_ok=True)
 
@@ -211,7 +213,10 @@ def main():
 
     for tomo in dataset:
 
-        basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
+        if config["dataset"]["type"] == "simulated":
+            basename = os.path.basename(os.path.dirname(tomo["path"]))
+        elif config["dataset"]["type"] == "experimental":
+            basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
         tomo_results_dir = os.path.join(experiment_dir, basename)
 
         cmd = build_tm_command(
