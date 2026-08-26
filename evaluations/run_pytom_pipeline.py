@@ -5,7 +5,10 @@ import argparse
 
 from TM_modules.config import load_config
 
-from TM_modules.metadata import get_metadata
+from TM_modules.metadata import (
+    get_metadata,
+    get_result_dirname,
+)
 
 from TM_modules.preprocessing import (
     run_preprocessing,
@@ -64,15 +67,6 @@ def rename_extraction_outputs(
         os.path.join(tomo_results_dir, f"{prefix}_extraction_graph.svg"),
     )
 
-def get_result_dirname(dataset_type, tomogram_path):
-
-    if dataset_type == "simulated":
-        basename = os.path.basename(os.path.dirname(tomogram_path))
-
-    elif dataset_type == "experimental":
-        basename = os.path.splitext(os.path.basename(tomogram_path))[0]
-
-    return basename
 
 def main(config, outdir=None):
 
@@ -105,7 +99,7 @@ def main(config, outdir=None):
 
     print(f"Extraction diameter: {extraction_particle_diameter} A")
 
-    tomogram_voxel_size = dataset[0]["voxel_size"]
+    tomogram_voxel_size = dataset[0]["voxel_size"] #!? assumes all tomograms have equal voxel size
     particle_diameter_voxels = tm_particle_diameter/tomogram_voxel_size
     box_size = int(particle_diameter_voxels*3)
     if box_size % 2 != 0:
@@ -124,14 +118,15 @@ def main(config, outdir=None):
     #  PREPROCESSING
     # --------------------------------------------------
 
+    print("\n=== PREPROCESSING ===\n")
     if config["execution"]["run_preprocessing"]:
-        print("\n=== PREPROCESSING ===\n")
 
         run_preprocessing(
             tomogram_files=tomogram_files,
             picket_in_h5=config["preprocessing"]["picket_in_h5"],
             picket_out_mrc=config["preprocessing"]["picket_out_mrc"],
-            tomogram_config=config.get("tomograms", {})
+            tomogram_config=config.get("tomograms", {}),
+            dataset_type=dataset_type,
         )
 
     else:
@@ -141,8 +136,8 @@ def main(config, outdir=None):
     # ANNOTATION CONVERSION
     # --------------------------------------------------
 
+    print("\n=== ANNOTATION CONVERSION ===\n")
     if config["execution"]["run_annotation_conversion"]:
-        print("\n=== ANNOTATION CONVERSION ===\n")
 
         if config["dataset"]["type"] in ["experimental", "tutorial"]:
 
@@ -155,10 +150,10 @@ def main(config, outdir=None):
         elif config["dataset"]["type"] == "simulated":
 
             convert_tomotwin_annotation(
-                tomotwin_data_path=dataset_path,
-                tomogram_shape=[512, 512, 200],
+                tomotwin_sim_round_path=dataset_path,
+                # tomogram_shape=[512, 512, 200],
                 output_folder=config["ground_truth"]["directory"],
-                particles=["7b7u"],
+                particles=["7b7u"], # take this from config
                 ignore_vesicle=True,
                 ignore_fiducial=True,
             )
@@ -175,19 +170,17 @@ def main(config, outdir=None):
         config["template_generation"]["output_template_file"]
     )
 
+    print("\n=== TEMPLATE GENERATION ===\n")
     if config["execution"]["generate_template"]:
-        print("\n=== TEMPLATE GENERATION ===\n")
 
         template_input = config["template"]["input"]
-        template_voxel_size = get_template_voxel_size(template_input)
 
         generate_template(
-            template_input,
-            template_output,
-            template_voxel_size,
-            tomogram_voxel_size,
-            box_size,
-            config["template_generation"]["invert"]
+            template_inpath=template_input,
+            template_outpath=template_output,
+            output_voxel_size=tomogram_voxel_size,
+            box_size=box_size,
+            invert=config["template_generation"]["invert"]
         )
 
         print(f"\nTemplate generated: {template_output}")
@@ -205,13 +198,13 @@ def main(config, outdir=None):
         config["template_generation"]["output_mask_file"]
     )
 
+    print("\n=== MASK GENERATION ===\n")
     if config["execution"]["generate_mask"]:
-        print("\n=== MASK GENERATION ===\n")
 
         generate_mask(
-            box_size,
-            mask_radius,
-            mask_output
+            box_size=box_size,
+            radius=mask_radius,
+            output_mask=mask_output,
         )
 
         print(f"\nMask generated: {mask_output}")
@@ -241,10 +234,9 @@ def main(config, outdir=None):
             tomo_results_dir
         )
 
-        print("\nGenerated TM command:")
-        print(" ".join(cmd))
-
         if config["execution"]["run_template_matching"]:
+            print("\nGenerated TM command:")
+            print(" ".join(cmd))
             run_tm_command(cmd)
 
         else:
@@ -272,12 +264,13 @@ def main(config, outdir=None):
             tomogram_mask=tomo["mask_path"]
         )
 
-        print("\nGenerated Baseline Extraction Command:")
-        print(" ".join(baseline_cmd))
-        print("\nGenerated PickET Extraction Command:")
-        print(" ".join(picket_cmd))
-
         if config["execution"]["run_extraction"]:
+
+            print("\nGenerated Baseline Extraction Command:")
+            print(" ".join(baseline_cmd))
+            print("\nGenerated PickET Extraction Command:")
+            print(" ".join(picket_cmd))
+
             run_extraction_command(baseline_cmd)
             rename_extraction_outputs(tomo_results_dir, basename, "baseline")
             run_extraction_command(picket_cmd)
@@ -304,9 +297,9 @@ def main(config, outdir=None):
         picket_evaluation_yaml = os.path.join(tomo_results_dir, "picket_evaluation.yaml")
         threshold_angstrom = get_threshold_angstrom(config["dataset"]["type"])
 
-        print(f"\nUsing threshold: {threshold_angstrom} A")
-
         if config["execution"]["run_evaluation"]:
+
+            print(f"\nUsing threshold: {threshold_angstrom} A")
 
             if not os.path.exists(ground_truth_ndjson):
                 raise FileNotFoundError(

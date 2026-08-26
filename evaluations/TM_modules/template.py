@@ -5,7 +5,7 @@ from scipy.spatial.distance import cdist
 from Bio.PDB import PDBParser
 
 
-def get_template_voxel_size(template_path):
+def get_template_voxel_size(template_path: str) -> float:
 
     with mrcfile.open(template_path, permissive=True) as mrc:
 
@@ -33,6 +33,7 @@ def get_atom_coordinates(pdb_file):
                     coordinates.append(atom.get_coord())
 
     return np.array(coordinates)
+
 
 def estimate_diameter_from_pdb(pdb_file):
 
@@ -77,23 +78,26 @@ def get_particle_diameter(config):
 
 
 def generate_template(
-    template_path,
-    output_template,
-    input_voxel_size,
-    output_voxel_size,
-    box_size,
-    invert,
+    template_inpath: str,
+    template_outpath: str,
+    output_voxel_size: float,
+    box_size: int,
+    invert: bool,
 ):
+
+    with mrcfile.open(template_inpath, permissive=True) as mrc:
+
+        input_voxel_size = float(mrc.voxel_size.x)
 
     cmd = [
 
         "pytom_create_template.py",
 
         "-i",
-        template_path,
+        template_inpath,
 
         "-o",
-        output_template,
+        template_outpath,
 
         "--input-voxel-size",
         str(input_voxel_size),

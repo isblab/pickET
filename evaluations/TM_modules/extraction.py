@@ -2,6 +2,7 @@ import subprocess
 import numpy as np
 from Bio.PDB import PDBParser
 
+
 def get_masses_and_coords(pdb_file):
 
     parser = PDBParser(QUIET=True)
@@ -48,10 +49,7 @@ def get_extraction_diameter(config):
 
     elif config["particle"]["extraction_diameter_required"]:
         if pdb_file is None:
-            raise ValueError(
-                "PDB file required for "
-                "RG-based extraction diameter."
-            )
+            raise ValueError("PDB file required for RG-based extraction diameter.")
 
         rg = get_radius_of_gyration(pdb_file)
         extraction_particle_diameter = int(round(2 * rg))
@@ -65,10 +63,10 @@ def get_extraction_diameter(config):
 
 
 def build_extraction_command(
-    job_file,
-    config,
-    extraction_particle_diameter,
-    tomogram_mask=None
+    job_file: str,
+    config: dict,
+    extraction_particle_diameter: float,
+    tomogram_mask: str=None,
 ):
 
     cmd = [
@@ -79,40 +77,30 @@ def build_extraction_command(
         job_file,
 
         "-n",
-        str(
-            config["extraction"]
-                  ["number_of_particles"]
-        )
+        str(config["extraction"]["number_of_particles"]),
 
     ]
 
-    cutoff = (
-        config["extraction"]
-              ["cutoff"]
-    )
+    cutoff = config["extraction"]["cutoff"]
 
     cmd.extend([
 
-            "--particle-diameter",
-
-            str(extraction_particle_diameter)
+        "--particle-diameter",
+        str(extraction_particle_diameter)
 
     ])
 
     if cutoff is not None:
 
-        cmd.extend([
-
-            "-c",
-
-            str(cutoff)
-
-        ])
+        cmd.extend(["-c", str(cutoff)])
 
     if tomogram_mask is not None:
+
         cmd.extend([
+
             "--tomogram-mask",
             tomogram_mask
+
         ])
 
     cmd.append("--relion5-compat")

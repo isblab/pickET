@@ -28,33 +28,23 @@ def build_tm_command(
         results_dir,
 
         "--particle-diameter",
-        str(
-            particle_diameter
-        ),
+        str(particle_diameter),
 
         "--low-pass",
-        "15"
+        "15",
     ]
 
     # ---------------------------------
     # Rotational symmetry
     # ---------------------------------
 
-    rot_sym = (
-
-        config["template_matching"]
-              ["rotational_symmetry"]
-
-    )
+    rot_sym = config["template_matching"]["rotational_symmetry"]
 
     if rot_sym > 1:
 
         cmd.extend([
-
             "--z-axis-rotational-symmetry",
-
-            str(rot_sym)
-
+            str(rot_sym),
         ])
 
     # ---------------------------------
@@ -64,23 +54,16 @@ def build_tm_command(
     if tomo["rawtlt"] is not None:
 
         cmd.extend([
-
             "-a",
-
-            tomo["rawtlt"]
-
+            tomo["rawtlt"],
         ])
 
     else:
 
         cmd.extend([
-
             "-a",
-
             str(tomo["min_tilt"]),
-
-            str(tomo["max_tilt"])
-
+            str(tomo["max_tilt"]),
         ])
 
     # ---------------------------------
@@ -88,24 +71,10 @@ def build_tm_command(
     # ---------------------------------
 
     cmd.extend([
-
         "-s",
-
-        str(
-            config["compute"]
-                  ["volume_split"]["x"]
-        ),
-
-        str(
-            config["compute"]
-                  ["volume_split"]["y"]
-        ),
-
-        str(
-            config["compute"]
-                  ["volume_split"]["z"]
-        )
-
+        str(config["compute"]["volume_split"]["x"]),
+        str(config["compute"]["volume_split"]["y"]),
+        str(config["compute"]["volume_split"]["z"]),
     ])
 
     # ---------------------------------
@@ -117,48 +86,16 @@ def build_tm_command(
         cmd.extend([
 
             "--search-x",
-
-            str(
-                config["search_region"]
-                      ["x"][0]
-            ),
-
-            str(
-                config["search_region"]
-                      ["x"][1]
-            )
-
-        ])
-
-        cmd.extend([
+            str(config["search_region"]["x"][0]),
+            str(config["search_region"]["x"][1]),
 
             "--search-y",
-
-            str(
-                config["search_region"]
-                      ["y"][0]
-            ),
-
-            str(
-                config["search_region"]
-                      ["y"][1]
-            )
-
-        ])
-
-        cmd.extend([
+            str(config["search_region"]["y"][0]),
+            str(config["search_region"]["y"][1]),
 
             "--search-z",
-
-            str(
-                config["search_region"]
-                      ["z"][0]
-            ),
-
-            str(
-                config["search_region"]
-                      ["z"][1]
-            )
+            str(config["search_region"]["z"][0]),
+            str(config["search_region"]["z"][1]),
 
         ])
 
@@ -171,40 +108,23 @@ def build_tm_command(
         cmd.extend([
 
             "--defocus",
-
-            str(config["ctf"]["defocus"])
-
-        ])
-
-        cmd.extend([
+            str(config["ctf"]["defocus"]),
 
             "--amplitude-contrast",
-
-            str(config["ctf"]["amplitude_contrast"])
-
-        ])
-
-        cmd.extend([
+            str(config["ctf"]["amplitude_contrast"]),
 
             "--spherical-aberration",
-
-            str(config["ctf"]["spherical_aberration"])
-
-        ])
-
-        cmd.extend([
+            str(config["ctf"]["spherical_aberration"]),
 
             "--voltage",
-
-            str(config["ctf"]["voltage"])
+            str(config["ctf"]["voltage"]),
 
         ])
 
         if config["ctf"]["tomogram_ctf_model"] is not None:
             cmd.extend([
                 "--tomogram-ctf-model",
-                config["ctf"]["tomogram_ctf_model"]
-
+                config["ctf"]["tomogram_ctf_model"],
             ])
 
         if config["ctf"]["per_tilt_weighting"]:
@@ -215,9 +135,7 @@ def build_tm_command(
     # Random phase correction
     # ---------------------------------
 
-    if config["template_matching"][
-        "random_phase_correction"
-    ]:
+    if config["template_matching"]["random_phase_correction"]:
 
         cmd.append("-r")
 
@@ -239,7 +157,4 @@ def run_tm_command(cmd):
 
     print(" ".join(cmd))
 
-    subprocess.run(
-        cmd,
-        check=True
-    )
+    subprocess.run(cmd, check=True)

@@ -7,11 +7,18 @@ import numpy as np
 from scipy.spatial.distance import cdist
 from scipy import stats
 
-# ==================================================
-# READ DATASET TYPE
-# ==================================================
 
-def get_threshold_angstrom(dataset_type):
+def get_threshold_angstrom(dataset_type: str) -> float:
+    """ Get a threshold to consider predicted particle
+    as a match to GT
+
+    Args:
+        dataset_type (str): Type of dataset
+            "simulated" or "experimental" or "tutorial".
+
+    Returns:
+        float: Threshold in angstrom
+    """
 
     if dataset_type in ["tutorial", "real"]:
 
@@ -25,11 +32,16 @@ def get_threshold_angstrom(dataset_type):
 
         raise ValueError(f"Unknown dataset type: {dataset_type}")
 
-# ==================================================
-# READ GROUND TRUTH NDJSON
-# ==================================================
 
-def read_ndjson_coords(fname):
+def read_ndjson_coords(fname: str) -> np.ndarray:
+    """ Read ground truth ndjson file.
+
+    Args:
+        fname (str): Path to ground truth ndjson file
+
+    Returns:
+        np.ndarray: Z, Y, X coordinates of the ground truth particles
+    """
 
     with open(fname, "r") as f:
 
@@ -40,23 +52,29 @@ def read_ndjson_coords(fname):
     for idx, ann in enumerate(annotations):
 
         coords[idx] = [
-
             ann["location"]["z"],
-
             ann["location"]["y"],
-
             ann["location"]["x"]
-
         ]
 
     return coords
 
 
-# ==================================================
-# READ PREDICTION YAML
-# ==================================================
+def read_prediction_star(
+    fname: str,
+    tomogram_shape: tuple,
+    voxel_size: float,
+) -> np.ndarray:
+    """ Read <>_prediction.star file
 
-def read_prediction_star(fname, tomogram_shape, voxel_size):
+    Args:
+        fname (str): Path of <>_prediction.star
+        tomogram_shape (tuple): Shape of the tomogram (X, Y, Z)
+        voxel_size (float): Voxel size in angstrom
+
+    Returns:
+        np.ndarray: Z, Y, X coordinates of predicted particles
+    """
 
     df = starfile.read(fname)
 
@@ -93,22 +111,47 @@ def read_prediction_star(fname, tomogram_shape, voxel_size):
     return np.array(coords)
 
 
-# ==================================================
-# ANGSTROM -> VOXEL THRESHOLD
-# ==================================================
+def get_voxel_threshold(
+    threshold_angstrom: float,
+    voxel_size: float
+):
+    """ Get a voxel threshold to consider predicted particle
+    as a match to GT
 
-def get_voxel_threshold(angstrom_threshold, voxel_size):
+    Args:
+        dataset_type (str): Type of dataset
+            "simulated" or "experimental" or "tutorial".
 
-    return int(round(angstrom_threshold / voxel_size, 0))
+    Args:
+        threshold_angstrom (float): Threshold in angstroms
+        voxel_size (float): Voxel size in angstroms
+
+    Returns:
+        int: Voxel threshold
+    """
+
+    return int(round(threshold_angstrom / voxel_size, 0))
 
 
-# ==================================================
-# PICKET-STYLE METRICS
-# ==================================================
+def compute_metrics(
+    distances: np.ndarray,
+    voxel_threshold: float,
+    num_predictions: int,
+    num_ground_truth: int,
+):
+    """ Compute PickET-style metrics
 
-def compute_metrics(distances, threshold, num_predictions, num_ground_truth):
+    Args:
+        distances (np.ndarray): Distances between GT and predicted particles
+        voxel_threshold (float): Distance threshold between GT and predicted particle (in voxels)
+        num_predictions (int): Total predicted particles
+        num_ground_truth (int): Total GT particles
 
-    masked = np.where(distances <= threshold, 1, 0)
+    Returns:
+        tuple: A tuple of precision, recall, f1-score
+    """
+
+    masked = np.where(distances <= voxel_threshold, 1, 0)
 
     positive_prediction_idxs = np.any(masked, axis=1)
 
@@ -119,11 +162,11 @@ def compute_metrics(distances, threshold, num_predictions, num_ground_truth):
 
     if num_predictions > 0:
 
-        precision = (np.count_nonzero(positive_prediction_idxs) / num_predictions)
+        precision = np.count_nonzero(positive_prediction_idxs) / num_predictions
 
     if num_ground_truth > 0:
 
-        recall = (np.count_nonzero(captured_ground_truth_idxs) / num_ground_truth)
+        recall = np.count_nonzero(captured_ground_truth_idxs) / num_ground_truth
 
     if precision == 0 or recall == 0:
 
@@ -135,30 +178,37 @@ def compute_metrics(distances, threshold, num_predictions, num_ground_truth):
 
     return (float(precision), float(recall), float(f1))
 
-# ==================================================
-# MAIN EVALUATION
-# ==================================================
 
 def run_evaluation(
-    prediction_star,
-    gt_ndjson,
-    threshold_angstrom,
-    output_yaml,
-    tomogram_shape,
-    voxel_size
+    prediction_star: str,
+    gt_ndjson: str,
+    threshold_angstrom: float,
+    output_yaml: str,
+    tomogram_shape: tuple,
+    voxel_size: float,
 ):
-    
+    """ Main evaluation
+
+    Args:
+        prediction_star (str): Path of <>_prediction.star
+        gt_ndjson (str): Path to ground truth ndjson file
+        threshold_angstrom (float): Threshold in angstroms
+        output_yaml (str): Path to yaml file to save evalutation
+        tomogram_shape (tuple): Shape of the tomogram (X, Y, Z)
+        voxel_size (float): Voxel size in angstrom
+    """
+
     if not os.path.exists(prediction_star):
         print(f"Missing prediction file: {prediction_star}")
         return
 
     print("\nRunning Evaluation...\n")
 
-    # ----------------------------------------------
-    # Read predictions
-    # ----------------------------------------------
-
-    pred_coords = read_prediction_star(prediction_star, tomogram_shape, voxel_size)
+    pred_coords = read_prediction_star(
+        fname=prediction_star,
+        tomogram_shape=tomogram_shape,
+        voxel_size=voxel_size,
+    )
 
     if len(pred_coords) == 0:
         print("No predicted particles.")
@@ -166,7 +216,7 @@ def run_evaluation(
             "precision": 0.0,
             "recall": 0.0,
             "f1_score": 0.0,
-            "num_predictions": 0.0
+            "num_predictions": 0.0,
         }
 
         with open(output_yaml, "w") as f:
@@ -174,38 +224,30 @@ def run_evaluation(
 
         return
 
-    # ----------------------------------------------
-    # Read GT
-    # ----------------------------------------------
+    gt_coords = read_ndjson_coords(fname=gt_ndjson)
 
-    gt_coords = read_ndjson_coords(gt_ndjson)
-
-    voxel_threshold = get_voxel_threshold(threshold_angstrom, voxel_size)
-
-    # ----------------------------------------------
-    # Distance matrix
-    # ----------------------------------------------
+    voxel_threshold = get_voxel_threshold(
+        threshold_angstrom=threshold_angstrom,
+        voxel_size=voxel_size,
+    )
 
     distances = cdist(pred_coords, gt_coords, metric="euclidean")
 
-    precision, recall, f1 = compute_metrics(distances, voxel_threshold, len(pred_coords), len(gt_coords))
+    precision, recall, f1 = compute_metrics(
+        distances=distances,
+        threshold=voxel_threshold,
+        num_predictions=len(pred_coords),
+        num_ground_truth=len(gt_coords),
+    )
 
     results = {
-
         "precision": precision,
-
         "recall": recall,
-
         "f1_score": f1,
-
         "num_predictions": int(len(pred_coords)),
-
         "num_ground_truth": int(len(gt_coords)),
-
         "threshold_angstrom": threshold_angstrom,
-
-        "voxel_threshold": voxel_threshold
-
+        "voxel_threshold": voxel_threshold,
     }
 
     with open(output_yaml, "w") as f:
@@ -214,6 +256,6 @@ def run_evaluation(
 
     print("\nEvaluation Results:\n")
 
-    print(yaml.dump(results,sort_keys=False))
+    print(yaml.dump(results, sort_keys=False))
 
     print(f"Saved: {output_yaml}")
