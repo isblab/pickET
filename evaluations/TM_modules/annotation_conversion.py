@@ -2,6 +2,7 @@ import os
 import glob
 import ndjson
 import argparse
+import mrcfile
 import numpy as np
 
 def convert_annotations(annotation_folder, output_folder, annotation_suffix):
@@ -57,22 +58,28 @@ def convert_annotations(annotation_folder, output_folder, annotation_suffix):
         print(f"Saved: {out_fname}")
 
 def convert_tomotwin_annotation(
-    tomotwin_data_path,
-    tomogram_shape,
+    tomotwin_sim_round_path,
     output_folder: None,
     particles=["all"],
     ignore_fiducial=True,
     ignore_vesicle=True
 ):
 
-    tomo_shape = np.array(tomogram_shape, dtype=np.int32)
+    tomo_data_paths = glob.glob(os.path.join(tomotwin_sim_round_path, "tomo_*"), recursive=True)
 
-    tomo_data_paths = glob.glob(os.path.join(tomotwin_data_path, "tomo_*"), recursive=True)
-
-    offset_x, offset_y, offset_z = tomo_shape // 2
-    print(offset_x, offset_y, offset_z)
+    offset_x, offset_y, offset_z = None, None, None
 
     for td_path in tomo_data_paths:
+
+        # assumes all tomotwin tomograms in a round are of same shape
+        if offset_x is None:
+            mrcpath = os.path.join(td_path, "tiltseries_rec.mrc")
+            with mrcfile.open(mrcpath) as mf:
+                tomo_shape = np.array(mf.data.shape, dtype=np.int32)
+
+            offset_z, offset_y, offset_x = tomo_shape // 2 #! note the order
+
+        assert all(o is not None for o in (offset_x, offset_y, offset_z))
 
         path_to_coords_files = os.path.join(td_path, "coords")
 
@@ -88,6 +95,7 @@ def convert_tomotwin_annotation(
 
         all_coords_files = glob.glob(os.path.join(path_to_coords_files, "*.txt"))
         print(f"Number of coords files: {len(all_coords_files)}")
+
         _particles = [f.split("_")[0] for f in os.listdir(path_to_coords_files)]
         if particles[0] == "all":
             particles = _particles
@@ -103,7 +111,6 @@ def convert_tomotwin_annotation(
 
                 if particle_id in particles:
 
-                    # particle_id = fname.split("/")[-1][:4]
                     with open(fname, "r") as f1:
                         for line in f1.readlines():
                             if not line.startswith("#") and not line.startswith(" "):
@@ -128,16 +135,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        "--tomotwin_data_path",
+        "--tomotwin_sim_round_path",
         required=True,
         help="Path to tomotwin dataset (e.g. /path/to/tomo_simulation_round_1)"
-    )
-
-    parser.add_argument(
-        "--tomogram_shape",
-        required=True,
-        nargs=3,
-        help="X,Y,Z shape of tomogram (e.g. 200 512 512)"
     )
 
     parser.add_argument(
@@ -155,13 +155,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     particles = args.particles.split(",")
-    tomotwin_data_path = args.tomotwin_data_path
-    tomogram_shape = args.tomogram_shape
+    tomotwin_sim_round_path = args.tomotwin_sim_round_path
     output_folder = args.outdir
 
     convert_tomotwin_annotation(
-        tomotwin_data_path=tomotwin_data_path,
-        tomogram_shape=tomogram_shape,
+        tomotwin_sim_round_path=tomotwin_sim_round_path,
         output_folder=output_folder,
         particles=particles,
         ignore_vesicle=True,
