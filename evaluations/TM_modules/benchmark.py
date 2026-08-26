@@ -29,21 +29,18 @@ def load_metrics(yaml_file):
             data["num_predictions"]
     }
 
-
-def build_benchmark_dataframe(dataset, results_dir):
+def build_benchmark_dataframe(results_dir):
 
     rows = []
-    
-    for tomo in dataset:
-        basename = (
-            os.path.splitext(
-                os.path.basename(
-                    tomo["path"]
-                )
-            )[0]
-        )
 
-        tomo_results_dir = os.path.join(results_dir, basename)
+    result_tomograms = [
+        f for f in os.listdir(results_dir)
+        if f != "template" and os.path.isdir(os.path.join(results_dir, f))
+    ]
+
+    for result_name in result_tomograms:
+
+        tomo_results_dir = os.path.join(results_dir, result_name)
         baseline_yaml = os.path.join(tomo_results_dir, "baseline_evaluation.yaml")
         picket_yaml = os.path.join(tomo_results_dir, "picket_evaluation.yaml")
         baseline = load_metrics(baseline_yaml)
@@ -51,7 +48,7 @@ def build_benchmark_dataframe(dataset, results_dir):
 
         rows.append({
             "tomogram":
-                basename,
+                result_name,
             "baseline_precision":
                 baseline["precision"],
             "baseline_recall":

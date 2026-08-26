@@ -139,7 +139,8 @@ def compute_metrics(distances, threshold, num_predictions, num_ground_truth):
 # MAIN EVALUATION
 # ==================================================
 
-def run_evaluation(prediction_star,
+def run_evaluation(
+    prediction_star,
     gt_ndjson,
     threshold_angstrom,
     output_yaml,

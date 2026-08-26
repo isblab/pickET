@@ -1,14 +1,21 @@
 import sys
 import os
 import shutil
+import argparse
 
 from TM_modules.config import load_config
 
 from TM_modules.metadata import get_metadata
 
-from TM_modules.preprocessing import run_preprocessing, get_tomogram_files
+from TM_modules.preprocessing import (
+    run_preprocessing,
+    get_tomogram_files,
+)
 
-from TM_modules.annotation_conversion import convert_annotations
+from TM_modules.annotation_conversion import (
+    convert_annotations,
+    convert_tomotwin_annotation,
+)
 
 from TM_modules.template import (
     get_template_voxel_size,
@@ -57,64 +64,37 @@ def rename_extraction_outputs(
         os.path.join(tomo_results_dir, f"{prefix}_extraction_graph.svg"),
     )
 
+def get_result_dirname(dataset_type, tomogram_path):
 
-def main():
+    if dataset_type == "simulated":
+        basename = os.path.basename(os.path.dirname(tomogram_path))
 
-    if len(sys.argv) != 2:
-        print("Usage: python run_pipeline.py config.yaml")
-        sys.exit(1)
+    elif dataset_type == "experimental":
+        basename = os.path.splitext(os.path.basename(tomogram_path))[0]
 
-    config_file = sys.argv[1]
-    config = load_config(config_file)
+    return basename
 
-    # --------------------------------------------------
-    # RESULTS DIRECTORY
-    # --------------------------------------------------
+def main(config, outdir=None):
 
-    experiment_dir = config["experiment"]["name"]
-    os.makedirs(experiment_dir, exist_ok=True)
-    template_dir = os.path.join(experiment_dir, "template")
-    os.makedirs(template_dir, exist_ok=True)
+    experiment = config["experiment"]["name"]
     dataset_path = config["dataset"]["path"]
-    tomogram_files=get_tomogram_files(dataset_path, dataset=config["dataset"]["type"])
+    dataset_type = config["dataset"]["type"]
 
-    # --------------------------------------------------
-    #  PREPROCESSING
-    # --------------------------------------------------
-
-    if config["execution"]["run_preprocessing"]:
-        print("\n=== PREPROCESSING ===\n")
-
-        run_preprocessing(
-            tomogram_files=tomogram_files,
-            picket_in_h5=config["preprocessing"]["picket_in_h5"],
-            picket_out_mrc=config["preprocessing"]["picket_out_mrc"],
-            tomogram_config=config.get("tomograms", {})
-        )
-
+    if outdir is None:
+        experiment_dir = experiment
     else:
-        print("\nPreprocessing disabled.")
+        experiment_dir = os.path.join(outdir, experiment)
 
-    # --------------------------------------------------
-    # ANNOTATION CONVERSION
-    # --------------------------------------------------
+    template_dir = os.path.join(experiment_dir, "template")
 
-    if config["execution"]["run_annotation_conversion"]:
-        print("\n=== ANNOTATION CONVERSION ===\n")
-
-        convert_annotations(
-            annotation_folder=config["gt_annotation_conversion"]["annotation_folder"],
-            output_folder=config["ground_truth"]["directory"],
-            annotation_suffix=config["gt_annotation_conversion"]["annotation_suffix"]
-        )
-
-    else:
-        print("\nAnnotation conversion disabled.")
+    os.makedirs(experiment_dir, exist_ok=True)
+    os.makedirs(template_dir, exist_ok=True)
 
     # --------------------------------------------------
     # DATASET DISCOVERY
     # --------------------------------------------------
 
+    tomogram_files=get_tomogram_files(dataset_path, dataset_type)
     dataset = get_metadata(tomogram_files, config)
     tm_particle_diameter = get_particle_diameter(config)
     extraction_particle_diameter = get_extraction_diameter(config)
@@ -140,15 +120,51 @@ def main():
     print("\n=== DATASET DISCOVERY ===\n")
     print(f"Found {len(dataset)} tomogram(s)\n")
 
-    for tomo in dataset:
+    # --------------------------------------------------
+    #  PREPROCESSING
+    # --------------------------------------------------
 
-        if config["dataset"]["type"] == "simulated":
-            basename = os.path.basename(os.path.dirname(tomo["path"]))
-        elif config["dataset"]["type"] == "experimental":
-            basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
-        tomo_results_dir = os.path.join(experiment_dir, basename)
-        tomo_results_dir = os.path.join(experiment_dir, basename)
-        os.makedirs(tomo_results_dir, exist_ok=True)
+    if config["execution"]["run_preprocessing"]:
+        print("\n=== PREPROCESSING ===\n")
+
+        run_preprocessing(
+            tomogram_files=tomogram_files,
+            picket_in_h5=config["preprocessing"]["picket_in_h5"],
+            picket_out_mrc=config["preprocessing"]["picket_out_mrc"],
+            tomogram_config=config.get("tomograms", {})
+        )
+
+    else:
+        print("\nPreprocessing disabled.")
+
+    # --------------------------------------------------
+    # ANNOTATION CONVERSION
+    # --------------------------------------------------
+
+    if config["execution"]["run_annotation_conversion"]:
+        print("\n=== ANNOTATION CONVERSION ===\n")
+
+        if config["dataset"]["type"] in ["experimental", "tutorial"]:
+
+            convert_annotations(
+                annotation_folder=config["gt_annotation_conversion"]["annotation_folder"],
+                output_folder=config["ground_truth"]["directory"],
+                annotation_suffix=config["gt_annotation_conversion"]["annotation_suffix"]
+            )
+
+        elif config["dataset"]["type"] == "simulated":
+
+            convert_tomotwin_annotation(
+                tomotwin_data_path=dataset_path,
+                tomogram_shape=[512, 512, 200],
+                output_folder=config["ground_truth"]["directory"],
+                particles=["7b7u"],
+                ignore_vesicle=True,
+                ignore_fiducial=True,
+            )
+
+    else:
+        print("\nAnnotation conversion disabled.")
 
     # --------------------------------------------------
     # TEMPLATE GENERATION
@@ -164,7 +180,6 @@ def main():
 
         template_input = config["template"]["input"]
         template_voxel_size = get_template_voxel_size(template_input)
-        tomogram_voxel_size = dataset[0]["voxel_size"]
 
         generate_template(
             template_input,
@@ -205,19 +220,17 @@ def main():
         print(f"\nSkipping mask generation.")
         print(f"Using existing mask: {mask_output}")
 
-    # --------------------------------------------------
-    # TEMPLATE MATCHING
-    # --------------------------------------------------
-
-    print("\n=== TEMPLATE MATCHING ===\n")
-
     for tomo in dataset:
 
-        if config["dataset"]["type"] == "simulated":
-            basename = os.path.basename(os.path.dirname(tomo["path"]))
-        elif config["dataset"]["type"] == "experimental":
-            basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
-        tomo_results_dir = os.path.join(experiment_dir, basename)
+        # --------------------------------------------------
+        # TEMPLATE MATCHING
+        # --------------------------------------------------
+        print("\n=== TEMPLATE MATCHING ===\n")
+
+        tomogram_path = tomo["path"]
+        result_name = get_result_dirname(dataset_type, tomogram_path)
+        tomo_results_dir = os.path.join(experiment_dir, result_name)
+        os.makedirs(tomo_results_dir, exist_ok=True)
 
         cmd = build_tm_command(
             tomo,
@@ -237,16 +250,12 @@ def main():
         else:
             print("TM execution disabled")
 
-    # --------------------------------------------------
-    # EXTRACTION
-    # --------------------------------------------------
-
-    print("\n=== EXTRACTION ===\n")
-
-    for tomo in dataset:
+        # --------------------------------------------------
+        # EXTRACTION
+        # --------------------------------------------------
+        print("\n=== EXTRACTION ===\n")
 
         basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
-        tomo_results_dir = os.path.join(experiment_dir, basename)
         job_file = os.path.join(tomo_results_dir, f"{basename}_job.json")
 
         baseline_cmd = build_extraction_command(
@@ -277,21 +286,18 @@ def main():
         else:
             print("Extraction disabled.")
 
-    # --------------------------------------------------
-    # EVALUATION
-    # --------------------------------------------------
+        # --------------------------------------------------
+        # EVALUATION
+        # --------------------------------------------------
+        print("\n=== EVALUATION ===\n")
 
-    print("\n=== EVALUATION ===\n")
-
-    for tomo in dataset:
-
-        basename = os.path.splitext(os.path.basename(tomo["path"]))[0]
+        result_name = get_result_dirname(dataset_type, tomogram_path)
         ground_truth_ndjson = os.path.join(
             config["ground_truth"]["directory"],
-            f"{basename}.ndjson"
+            f"{result_name}.ndjson"
         )
 
-        tomo_results_dir = os.path.join(experiment_dir, basename)
+        tomo_results_dir = os.path.join(experiment_dir, result_name)
         baseline_star = os.path.join(tomo_results_dir, "baseline_particles.star")
         baseline_evaluation_yaml = os.path.join(tomo_results_dir, "baseline_evaluation.yaml")
         picket_star = os.path.join(tomo_results_dir, "picket_particles.star")
@@ -339,7 +345,7 @@ def main():
     # --------------------------------------------------
 
     if config["execution"]["run_benchmark_summary"]:
-        df = build_benchmark_dataframe(dataset, experiment_dir)
+        df = build_benchmark_dataframe(experiment_dir)
         csv_file = os.path.join(experiment_dir, "benchmark_summary.csv")
         df.to_csv(csv_file, index=False)
         summary_df = (compute_summary_statistics(df))
@@ -352,4 +358,28 @@ def main():
         print("Benchmark summary disabled.")
 
 if __name__ == "__main__":
-    main()
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--config",
+        type=str,
+        required=True,
+        help="Path to tm_config.yaml"
+    )
+
+    parser.add_argument(
+        "--outdir",
+        type=str,
+        required=False,
+        help="Directory to save output"
+    )
+
+    args = parser.parse_args()
+
+    config = load_config(args.config)
+
+    if args.outdir is not None:
+        os.makedirs(args.outdir, exist_ok=True)
+
+    main(config, args.outdir)

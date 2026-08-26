@@ -1,6 +1,8 @@
 import os
 import glob
 import ndjson
+import argparse
+import numpy as np
 
 def convert_annotations(annotation_folder, output_folder, annotation_suffix):
 
@@ -53,3 +55,115 @@ def convert_annotations(annotation_folder, output_folder, annotation_suffix):
             ndjson.dump(coords, out_f)
 
         print(f"Saved: {out_fname}")
+
+def convert_tomotwin_annotation(
+    tomotwin_data_path,
+    tomogram_shape,
+    output_folder: None,
+    particles=["all"],
+    ignore_fiducial=True,
+    ignore_vesicle=True
+):
+
+    tomo_shape = np.array(tomogram_shape, dtype=np.int32)
+
+    tomo_data_paths = glob.glob(os.path.join(tomotwin_data_path, "tomo_*"), recursive=True)
+
+    offset_x, offset_y, offset_z = tomo_shape // 2
+    print(offset_x, offset_y, offset_z)
+
+    for td_path in tomo_data_paths:
+
+        path_to_coords_files = os.path.join(td_path, "coords")
+
+        if output_folder is None:
+
+            output_file = os.path.join(path_to_coords_files, "all_coords.ndjson")
+
+        elif isinstance(output_folder, str):
+
+            basename = os.path.basename(td_path)
+            os.makedirs(output_folder, exist_ok=True)
+            output_file = os.path.join(output_folder, f"{basename}.ndjson")
+
+        all_coords_files = glob.glob(os.path.join(path_to_coords_files, "*.txt"))
+        print(f"Number of coords files: {len(all_coords_files)}")
+        _particles = [f.split("_")[0] for f in os.listdir(path_to_coords_files)]
+        if particles[0] == "all":
+            particles = _particles
+        if ignore_fiducial and "fiducial" in particles:
+            particles.remove("fiducial")
+        if ignore_vesicle and "vesicle" in particles:
+            particles.remove("vesicle")
+
+        with open(output_file, "w") as outf:
+            outputs = []
+            for fname in all_coords_files:
+                particle_id = os.path.basename(fname).split("_")[0]
+
+                if particle_id in particles:
+
+                    # particle_id = fname.split("/")[-1][:4]
+                    with open(fname, "r") as f1:
+                        for line in f1.readlines():
+                            if not line.startswith("#") and not line.startswith(" "):
+                                y, x, z = line.split()[:3]
+                                x, y, z = (
+                                    int(512 - (int(float(x)) + offset_x) - 1),
+                                    int(float(y) + offset_y - 1),
+                                    int(float(z) + offset_z - 1),
+                                )
+
+                                outln = {
+                                    "type": "orientedPoint",
+                                    "particle_id": particle_id,
+                                    "location": {"x": x, "y": y, "z": z},
+                                }
+                                outputs.append(outln)
+            ndjson.dump(outputs, outf)
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--tomotwin_data_path",
+        required=True,
+        help="Path to tomotwin dataset (e.g. /path/to/tomo_simulation_round_1)"
+    )
+
+    parser.add_argument(
+        "--tomogram_shape",
+        required=True,
+        nargs=3,
+        help="X,Y,Z shape of tomogram (e.g. 200 512 512)"
+    )
+
+    parser.add_argument(
+        "--outdir",
+        required=False,
+        help="Output director to save ndjson files."
+    )
+
+    parser.add_argument(
+        "--particles",
+        default="all",
+        help="List of allowed particles in ground truth annotation (e.g., '6ahu,4wrm')",
+    )
+
+    args = parser.parse_args()
+
+    particles = args.particles.split(",")
+    tomotwin_data_path = args.tomotwin_data_path
+    tomogram_shape = args.tomogram_shape
+    output_folder = args.outdir
+
+    convert_tomotwin_annotation(
+        tomotwin_data_path=tomotwin_data_path,
+        tomogram_shape=tomogram_shape,
+        output_folder=output_folder,
+        particles=particles,
+        ignore_vesicle=True,
+        ignore_fiducial=True,
+    )
