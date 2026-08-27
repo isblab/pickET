@@ -235,7 +235,7 @@ def run_evaluation(
 
     precision, recall, f1 = compute_metrics(
         distances=distances,
-        threshold=voxel_threshold,
+        voxel_threshold=voxel_threshold,
         num_predictions=len(pred_coords),
         num_ground_truth=len(gt_coords),
     )
