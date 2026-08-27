@@ -14,7 +14,7 @@ def get_template_voxel_size(template_path: str) -> float:
     return voxel_size
 
 
-def get_atom_coordinates(pdb_file):
+def get_ca_coordinates(pdb_file):
 
     parser = PDBParser()
 
@@ -28,19 +28,20 @@ def get_atom_coordinates(pdb_file):
 
             for residue in chain:
 
-                for atom in residue:
-
-                    coordinates.append(atom.get_coord())
+                coordinates.extend([
+                    atom.get_coord() for atom in residue
+                    if atom.get_name() == "CA"
+                ])
 
     return np.array(coordinates)
 
 
 def estimate_diameter_from_pdb(pdb_file):
 
-    atom_coords = get_atom_coordinates(pdb_file)
-    hull = ConvexHull(atom_coords)
-    hull_vertices = atom_coords[hull.vertices]
-    pairwise_distances = pdist(hull_vertices)
+    ca_coordinates = get_ca_coordinates(pdb_file)
+    hull = ConvexHull(ca_coordinates)
+    hull_vertices = ca_coordinates[hull.vertices]
+    pairwise_distances = pdist(hull_vertices) + 15 # accounting for side-chains
 
     return np.max(pairwise_distances)
 
