@@ -1,0 +1,84 @@
+experiment:
+  name: experiment_1
+
+dataset:
+  path: ../Datasets_&_picket_masks/tomo_simulation_round_1
+  type: simulated
+
+preprocessing:
+  picket_in_h5: ../Datasets_&_picket_masks/picket_segmentations_sim1
+  picket_out_mrc: ../Datasets_&_picket_masks/picket_masks_sim1
+
+tilt_angles:
+    min: -60
+    max: 60
+
+ground_truth:
+  directory: ../Datasets_&_picket_masks/annotations_sim1
+
+particle:
+  template_matching_diameter_angstrom: 300
+
+  # User-specified extraction diameter (optional, only required for elongated particles, o/w same as TM diameter
+  extraction_diameter_angstrom:
+
+  # Use RG-based extraction diameter if extraction diameter is unknown
+  extraction_diameter_required: false
+
+  # PDB file used for diameter estimation
+  pdb: ../Datasets_&_picket_masks/tomo_simulation_round_1/pdbs/7b7u.pdb
+
+template:
+  # Input density map for template generation
+  input: ../Datasets_&_picket_masks/templates/emd_12087.map
+
+template_generation:
+  # Invert density values during template creation
+  invert: true
+  output_template_file: template.mrc
+  output_mask_file: mask.mrc
+
+template_matching:
+  rotational_symmetry: 1 #if C1, use 1, if C2, use 2, & so on. If unsure, leave as it is.
+  random_phase_correction: false #might improve results but at the cost of doubling the runtime. Generally false, coz not much improvement.
+
+search_region:
+  enabled: false #if you know the specific region for template matching, give the ranges here.
+  x: [0,0]
+  y: [0,0]
+  z: [0,0]
+
+ctf:
+  enabled: true
+  mode: constant
+  defocus: 3 #?
+  amplitude_contrast: 0.07 #General value for Titan Krios microscope ?
+  spherical_aberration: 2.7 #General value for Titan Krios microscope
+  voltage: 300 #General value for Titan Krios microscope
+  tomogram_ctf_model: phase-flip #reconstruction software = IMOD
+  per_tilt_weighting: false #Keep true if you have rawtlt files, although not much effect.
+
+compute:
+  gpu_ids: [0, 1]
+  volume_split:
+    x: 2
+    y: 2
+    z: 1
+
+execution:
+  # Enable or disable pipeline stages
+  run_annotation_conversion: true
+  run_preprocessing: true
+  generate_template: true
+  generate_mask: true
+  run_template_matching: true
+  run_extraction: true
+  run_evaluation: true
+  run_benchmark_summary: true
+
+extraction:
+  # Number of particles to extract (arbitrarily large number, don't need to change this)
+  number_of_particles: 100000
+
+  # Score cutoff for extracting particles (blank = PyTOM automatic estimation)
+  cutoff:
