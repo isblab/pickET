@@ -1,9 +1,9 @@
 import subprocess
 import mrcfile
 import numpy as np
-from scipy.spatial.distance import cdist
 from Bio.PDB import PDBParser
-
+from scipy.spatial import ConvexHull
+from scipy.spatial.distance import pdist
 
 def get_template_voxel_size(template_path: str) -> float:
 
@@ -38,22 +38,12 @@ def get_atom_coordinates(pdb_file):
 def estimate_diameter_from_pdb(pdb_file):
 
     atom_coords = get_atom_coordinates(pdb_file)
+    hull = ConvexHull(atom_coords)
+    hull_vertices = atom_coords[hull.vertices]
+    pairwise_distances = pdist(hull_vertices)
 
-    max_internal_distance = 0
+    return np.max(pairwise_distances)
 
-    atom_coords_subsets = np.array_split(atom_coords, 10)
-
-    for subset in atom_coords_subsets:
-
-        distances = cdist(subset, atom_coords, metric="euclidean")
-
-        local_max = np.max(distances)
-
-        if local_max > max_internal_distance:
-
-            max_internal_distance = local_max
-
-    return float(max_internal_distance)
 
 def get_particle_diameter(config):
 
