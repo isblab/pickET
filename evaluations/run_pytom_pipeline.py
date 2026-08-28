@@ -1,7 +1,9 @@
 import sys
 import os
+import time
 import shutil
 import argparse
+import warnings
 
 from TM_modules.config import load_config
 
@@ -50,6 +52,8 @@ from TM_modules.benchmark import (
     generate_boxplots
 )
 
+warnings.filterwarnings("ignore")
+
 
 def rename_extraction_outputs(
     tomo_results_dir,
@@ -69,6 +73,8 @@ def rename_extraction_outputs(
 
 
 def main(config, outdir=None):
+
+    _start = time.perf_counter()
 
     experiment = config["experiment"]["name"]
     dataset_path = config["dataset"]["path"]
@@ -235,9 +241,13 @@ def main(config, outdir=None):
         )
 
         if config["execution"]["run_template_matching"]:
+            _tm_start = time.perf_counter()
             print("\nGenerated TM command:")
             print(" ".join(cmd))
             run_tm_command(cmd)
+            _tm_end = time.perf_counter()
+            with open(os.path.join(tomo_results_dir, "time.log"), "w") as f:
+                f.write(str(f"{(_tm_end - _tm_start):.3f}"))
 
         else:
             print("TM execution disabled")
@@ -284,13 +294,11 @@ def main(config, outdir=None):
         # --------------------------------------------------
         print("\n=== EVALUATION ===\n")
 
-        result_name = get_result_dirname(dataset_type, tomogram_path)
         ground_truth_ndjson = os.path.join(
             config["ground_truth"]["directory"],
             f"{result_name}.ndjson"
         )
 
-        tomo_results_dir = os.path.join(experiment_dir, result_name)
         baseline_star = os.path.join(tomo_results_dir, "baseline_particles.star")
         baseline_evaluation_yaml = os.path.join(tomo_results_dir, "baseline_evaluation.yaml")
         picket_star = os.path.join(tomo_results_dir, "picket_particles.star")
