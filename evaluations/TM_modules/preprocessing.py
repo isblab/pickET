@@ -10,11 +10,11 @@ from TM_modules.metadata import get_result_dirname
 
 
 def numeric_key(path):
-    filename = os.path.basename(path)
+    filepath = os.path.abspath(path)
     return [
         int(x)
         if x.isdigit()
-        else x for x in re.split(r"(\d+)", filename)
+        else x for x in re.split(r"(\d+)", filepath)
     ]
 
 
