@@ -8,13 +8,7 @@ from TM_modules.preprocessing import numeric_key
 def load_metrics(yaml_file):
 
     if not os.path.exists(yaml_file):
-        print(f"Missing metrics file: {yaml_file}")
-        return {
-            "precision": 0.0,
-            "recall": 0.0,
-            "f1_score": 0.0,
-            "num_predictions": 0
-        }
+        raise FileNotFoundError(f"Missing metrics file: {yaml_file}")
 
     with open(yaml_file) as f:
         data = yaml.safe_load(f)
@@ -24,6 +18,7 @@ def load_metrics(yaml_file):
         "recall": data["recall"],
         "f1_score": data["f1_score"],
         "num_predictions": data["num_predictions"],
+        "num_ground_truth": int(data["num_ground_truth"]),
     }
 
 
@@ -53,13 +48,14 @@ def build_benchmark_dataframe(results_dir):
         rows.append(
             {
                 "tomogram": result_name,
-                "baseline_precision": baseline["precision"],
-                "baseline_recall": baseline["recall"],
                 "baseline_f1": baseline["f1_score"],
-                "baseline_predictions": baseline["num_predictions"],
-                "picket_precision": picket["precision"],
-                "picket_recall": picket["recall"],
                 "picket_f1": picket["f1_score"],
+                "baseline_precision": baseline["precision"],
+                "picket_precision": picket["precision"],
+                "baseline_recall": baseline["recall"],
+                "picket_recall": picket["recall"],
+                "ground_truth_particles": picket["num_ground_truth"],
+                "baseline_predictions": baseline["num_predictions"],
                 "picket_predictions": picket["num_predictions"],
                 "delta_precision": picket["precision"] - baseline["precision"],
                 "delta_recall": picket["recall"] - baseline["recall"],
@@ -74,12 +70,12 @@ def build_benchmark_dataframe(results_dir):
 def compute_summary_statistics(df):
 
     summary = {
-        "baseline_precision_mean": df["baseline_precision"].mean(),
-        "baseline_recall_mean": df["baseline_recall"].mean(),
         "baseline_f1_mean": df["baseline_f1"].mean(),
-        "picket_precision_mean": df["picket_precision"].mean(),
-        "picket_recall_mean": df["picket_recall"].mean(),
         "picket_f1_mean": df["picket_f1"].mean(),
+        "baseline_precision_mean": df["baseline_precision"].mean(),
+        "picket_precision_mean": df["picket_precision"].mean(),
+        "baseline_recall_mean": df["baseline_recall"].mean(),
+        "picket_recall_mean": df["picket_recall"].mean(),
         "delta_precision_mean": df["delta_precision"].mean(),
         "delta_recall_mean": df["delta_recall"].mean(),
         "delta_f1_mean": df["delta_f1"].mean(),
