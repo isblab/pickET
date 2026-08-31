@@ -2,6 +2,7 @@ import yaml
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
+from TM_modules.preprocessing import numeric_key
 
 
 def load_metrics(yaml_file):
@@ -30,11 +31,14 @@ def build_benchmark_dataframe(results_dir):
 
     rows = []
 
-    result_tomograms = [
-        f
-        for f in os.listdir(results_dir)
-        if f != "template" and os.path.isdir(os.path.join(results_dir, f))
-    ]
+    result_tomograms = sorted(
+        [
+            f
+            for f in os.listdir(results_dir)
+            if f != "template" and os.path.isdir(os.path.join(results_dir, f))
+        ],
+        key=numeric_key
+    )
 
     for result_name in result_tomograms:
 
@@ -43,6 +47,8 @@ def build_benchmark_dataframe(results_dir):
         picket_yaml = os.path.join(tomo_results_dir, "picket_evaluation.yaml")
         baseline = load_metrics(baseline_yaml)
         picket = load_metrics(picket_yaml)
+        with open(os.path.join(tomo_results_dir, "time.log"), "r") as f:
+            tm_time = f.read()
 
         rows.append(
             {
@@ -58,6 +64,7 @@ def build_benchmark_dataframe(results_dir):
                 "delta_precision": picket["precision"] - baseline["precision"],
                 "delta_recall": picket["recall"] - baseline["recall"],
                 "delta_f1": picket["f1_score"] - baseline["f1_score"],
+                "tm_time": tm_time,
             }
         )
 

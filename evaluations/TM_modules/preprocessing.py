@@ -72,10 +72,13 @@ def get_tomogram_files(
             os.path.join(tomogram_folder, "**", "*.mrc"),
             recursive=True
         )
-        tomogram_files = sorted([
-            f for f in tomogram_files
-            if os.path.basename(f) == "tiltseries_rec.mrc"
-        ])
+        tomogram_files = sorted(
+            [
+                f for f in tomogram_files
+                if os.path.basename(f) == "tiltseries_rec.mrc"
+            ],
+            key=numeric_key
+        )
     else:
         raise ValueError(
             f"Invalid parameter dataset_type: {dataset_type}"
