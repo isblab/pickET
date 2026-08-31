@@ -74,8 +74,6 @@ def rename_extraction_outputs(
 
 def main(config, outdir=None):
 
-    _start = time.perf_counter()
-
     experiment = config["experiment"]["name"]
     dataset_path = config["dataset"]["path"]
     dataset_type = config["dataset"]["type"]
@@ -155,11 +153,14 @@ def main(config, outdir=None):
 
         elif config["dataset"]["type"] == "simulated":
 
+            particle_pdb = os.path.splitext(
+                os.path.basename(config["particle"]["pdb"])
+            )[0]
+
             convert_tomotwin_annotation(
                 tomotwin_sim_round_path=dataset_path,
-                # tomogram_shape=[512, 512, 200],
                 output_folder=config["ground_truth"]["directory"],
-                particles=["7b7u"], # take this from config
+                particles=[particle_pdb],
                 ignore_vesicle=True,
                 ignore_fiducial=True,
             )
