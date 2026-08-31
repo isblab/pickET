@@ -210,6 +210,8 @@ def run_evaluation(
         voxel_size=voxel_size,
     )
 
+    gt_coords = read_ndjson_coords(fname=gt_ndjson)
+
     if len(pred_coords) == 0:
         print("No predicted particles.")
         results = {
@@ -217,14 +219,13 @@ def run_evaluation(
             "recall": 0.0,
             "f1_score": 0.0,
             "num_predictions": 0.0,
+            "num_ground_truth": int(len(gt_coords)),
         }
 
         with open(output_yaml, "w") as f:
             yaml.dump(results, f, sort_keys=False)
 
         return
-
-    gt_coords = read_ndjson_coords(fname=gt_ndjson)
 
     voxel_threshold = get_voxel_threshold(
         threshold_angstrom=threshold_angstrom,
